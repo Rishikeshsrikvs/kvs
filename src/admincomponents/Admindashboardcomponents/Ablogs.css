@@ -1,0 +1,28 @@
+.mainblogcontainer{
+
+    height: 100%;
+    padding: 30px;
+    
+    background: url('./../../assets/images/blogback.jpg');
+}
+.blogtitle{
+    margin-top: 300px;
+    text-align: center;
+}
+.title h1{
+    font-size: 300%;
+}
+
+.newbt{
+    display: block;
+    margin: 30px auto;
+    padding: 20px 40px;
+    font-size: 100%;
+    color: white;
+    font-weight: 120%;
+    border: none;
+    border-radius: 5px;
+    background-color: #4766E9;
+
+}
+

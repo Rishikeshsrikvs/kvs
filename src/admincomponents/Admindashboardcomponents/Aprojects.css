@@ -1,0 +1,17 @@
+.projectmaincontainer{
+    padding: 30px;
+}
+.projectmaincontainer > h2,.projectmaincontainer h1{
+    margin-bottom: 10px;
+}
+
+.card-container{
+   
+    display: flex;
+
+    justify-content: center;
+    flex-wrap: wrap;
+
+      }
+
+      

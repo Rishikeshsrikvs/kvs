@@ -1,0 +1,68 @@
+.maincontainer{
+    padding: 20px;
+    
+   
+}
+.title h1{
+    padding: 20px;
+    
+    text-align: center;
+}
+.cardcontainer{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 35px;
+    padding: 20px 9%;
+    
+
+
+}
+.feedbackcard{
+    flex: 1 1 calc(50% - 20px); /* Two cards per row, subtracting the gap */
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+  font-size: 90%;
+}
+.clientcontainer{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+.client{
+    display: flex;
+    gap: 8px;
+}
+.client img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: blueviolet;
+}
+.clientlogo{
+    margin-right: 5px;
+}
+.feedback{
+    text-align: left;
+    padding: 5px;
+    }
+.action{
+    text-align: right;
+
+}
+.action button{
+    padding: 3px 10px;
+    margin-left: 20px;
+    border: none;
+    border-radius: 2px;
+}
+.approve{
+    background-color: #264AE0;
+    color :white;
+}
+.reject{
+    background-color: rgb(167, 163, 163);
+}

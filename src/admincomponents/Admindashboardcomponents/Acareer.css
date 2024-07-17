@@ -1,0 +1,23 @@
+.careermaincontainer{
+    padding: 20px;
+}
+.careercontainer{
+    padding: 50px;
+    margin-top: 20vh;
+}
+.careercontainer h1{
+    font-size: 300%;
+}
+.buttoncontainer{
+    padding: 40px;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+.buttoncontainer  button {
+    background-color: #4766E9;
+    width: 150px;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    padding: 10px;}

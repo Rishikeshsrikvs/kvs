@@ -1,0 +1,66 @@
+.maincontainer{
+    
+    border-radius: 10px;
+    
+    height: 90%;
+    
+    
+}
+.title{
+    text-align: right;
+    
+}
+.title span{
+    padding: 10px 9%;
+    display:inline-block;
+    background-color: blue;
+    color: white;
+    border-radius: 5px 5px 0px 0px;
+    font-size: 120%;
+}
+.container{
+    padding: 6%;
+    height: 100%;
+    border-radius: 5px 0 5px 5px;
+    background-color: rgb(224, 223, 222);
+
+}
+.container table{
+    width: 100%;
+    font-size: 90%;
+    border: none;
+    border-collapse: collapse;
+    
+}
+.clientrow{
+    
+    width: 100%;
+    padding: 20px;
+}
+.container tr:nth-child(even) {background-color: #f2f2f2;}
+.container th,td{
+    padding: 10px 4%;
+    text-align: left;
+    padding: 8px;
+    text-align: left;
+}
+.renewbt{
+    border: none;
+    background-color: red;
+    color: white;
+    padding: 5px 8px;
+}
+.clientbutton{
+    padding: 10px 20px;
+    display: flex;
+    justify-content: end;
+    gap: 20px;
+
+}
+.clientbutton button{
+    padding: 5px 10px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    background-color: #4766E9;
+}

@@ -1,0 +1,87 @@
+.addclientmaincontainer{
+    padding: 30px 10%;
+    font-size: 120%;
+    background-color: rgb(207, 204, 204);
+}
+.adclientcontainer{
+    background-color: white;
+    padding: 8% ;
+    height: 84vh;
+    border-radius: 5px;
+}
+.addclient-title{
+    margin-bottom: 40px;
+}
+.addclient-inputs{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+.addclient-inputs input{
+    width: 40%;
+    border: none;
+    height: 30px;
+    padding: 20px;
+    background-color: rgb(207, 204, 204);
+    border-radius: 2px;
+}
+#adclientlogo[type=file] {
+    color: transparent !important;
+}
+#adclientlogo[type=file]::before {
+  content: "Client Logo: ";
+  color: black;
+  margin-right: 10px; 
+}
+#adclientlogo{
+    font-size: 60%;
+    padding-bottom: 25px;
+    padding-top: 13px;
+}
+.addclient-paymentcontainer{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    gap:2%
+}
+.addclient-paymentcontainer > button{
+    background-color: rgb(72, 72, 250);
+    width: 100px;
+    color: white;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+}
+.paymentref{
+    display: flex;
+    align-items: center;
+    gap:3%;
+    margin-top: 30px;
+}
+.paymentref >input{
+    width: 40%;
+    border: none;
+    height: 30px;
+    padding: 20px;
+    background-color: rgb(207, 204, 204);
+    border-radius: 2px;
+}
+.addclient-submit{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+
+}
+.addclient-submit > input{
+    background-color: rgb(72, 72, 250);
+    margin-top: 20px;
+    color: white;
+    font-size: 110%;
+    height: 40px;
+    padding: 5px 5%;
+    border: none;
+    border-radius: 3px;
+}
