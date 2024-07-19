@@ -5,6 +5,7 @@
     
     background: url('./../../assets/images/blogback.jpg');
 }
+a{text-decoration: none;}
 .blogtitle{
     margin-top: 300px;
     text-align: center;
@@ -17,7 +18,7 @@
     display: block;
     margin: 30px auto;
     padding: 20px 40px;
-    font-size: 100%;
+    font-size: 120%;
     color: white;
     font-weight: 120%;
     border: none;
@@ -25,4 +26,78 @@
     background-color: #4766E9;
 
 }
+.editblogmaincontainer{
+    background-color: gray;
+    height: 100vh;
+}
+.ebtitle{
+    display: flex;
+    padding: 20px 8%;
+    justify-content: space-between;
+    background-color: white;
+}
 
+.ebtitle button{
+    padding: 10px 10px;
+    
+    color: white;
+    border: none;
+    border-radius: 2px;
+}
+.ebtitle > button{
+    background: #4766E9;
+}
+.btnleft{
+    display: flex;
+    gap: 10%;
+}
+
+.prebtn{
+    background-color: gray;
+    color: black;
+}
+.pubbtn{
+    background-color:red;
+}
+.subtitle{
+    margin-top: 5px;
+    background-color: white;
+    color: black;
+    
+    
+}
+.subtitle h2{
+    text-align: center;
+    padding: 13px 0;
+}
+.blogcontainer{
+    display: flex;
+    margin-top: 5px;
+    
+    gap: 1%;
+}
+.leftcon{
+    width: 30%;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    padding: 4%;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+}
+.rightcon{
+    width: 69%;
+    background-color: white;
+    height: 70vh;
+    padding: 30px;
+}
+.rightsubcontainer{
+    
+    background-color: rgb(211, 205, 205);
+    width: 100%;
+    height: 100%
+}
+.subtitle{
+    width: ;
+}

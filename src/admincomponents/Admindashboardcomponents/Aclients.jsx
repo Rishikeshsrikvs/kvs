@@ -8,7 +8,7 @@ export const Aclients = () => {
   }
   return (
     <div className='maincontainer'>
-      <div className="title">
+      <div className="actitle">
         <span>Our Clients</span>
       </div>
       <div className="container">
@@ -28,10 +28,8 @@ export const Aclients = () => {
           </table>
       </div>
       <div className="clientbutton">
-        
-        <button >ADD CLIENTS</button>
-    <Link to="add">add</Link>
-        <button>DOW</button>
+        <Link to="/admin/add"><button >ADD CLIENTS</button></Link>
+        <button>DOWNLOAD</button>
       </div>
     </div>
   )

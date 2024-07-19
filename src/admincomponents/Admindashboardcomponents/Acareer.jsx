@@ -1,5 +1,6 @@
 import React from 'react'
 import "./Acareer.css"
+import { BrowserRouter, Routes, Route ,Link } from "react-router-dom";
 export const Acareer = () => {
   return (
     <div className='careermaincontainer'>
@@ -7,9 +8,10 @@ export const Acareer = () => {
         <div className="careercontainer">
           <h1>CREATE  AND VIEW THE JOB POSTINGS  AND UPDATES</h1>
           <div className='buttoncontainer'>
+            <Link to="/admin/careerpost"><button>POST A JOB</button></Link>
+            <Link to="/admin/careerview"><button>VIEW</button></Link>
             
-            <button>POST A JOB</button>
-            <button>VIEW</button>
+            
           </div>
         </div>
     </div>

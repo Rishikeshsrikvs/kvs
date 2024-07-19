@@ -1,5 +1,6 @@
 import React from 'react'
 import "./Addclient.css"
+import upload from './../../assets/images/upload.png';
 import { BrowserRouter, Routes, Route ,Link } from "react-router-dom";
 export const Addclient = () => {
   return (
@@ -13,14 +14,14 @@ export const Addclient = () => {
                     <h1>ADD CLIENTS</h1>
                 </div>
                 <div className="addclient-inputs">
-                    <input type="text" placeholder='client id'/>
-                    <input type="text" placeholder='clientname'/>
-                    <input type="file" name='Client logo' id='adclientlogo'/>
-                    <input type="text" placeholder='Location'/>
-                    <input type="text" placeholder='Email'/>
-                    <input type="text" placeholder='Gst No'/>
-                    <input type="text" placeholder='Phone number'/>
-                    <input type="text" placeholder='Adhar number' />
+                    <input type="text" placeholder='clientname' className="item"/>
+                    <label for="logo-upload" className="item logolabel">Client logo :  <span><img src={upload} alt="" /> <h5>Upload</h5></span></label>
+                    <input id="logo-upload" type="file" />
+                    <input type="text" placeholder='Location' className="item"/>
+                    <input type="text" placeholder='Email' className="item"/>
+                    <input type="text" placeholder='Gst No' className="item"/>
+                    <input type="text" placeholder='Phone number' className="item"/>
+                    <input type="text" placeholder='Adhar number' className="item"/>
 
             </div>
             <div className="addclient-paymentcontainer">
@@ -32,7 +33,7 @@ export const Addclient = () => {
                 <input type="text" placeholder='Number'/>
             </div>
             <div className='addclient-submit'>
-                <input type="submit" value="create Client" />
+                <Link to="/admin/response&package"><input type="submit" value="create Client" /></Link>
             </div>
             </form>
         </div>

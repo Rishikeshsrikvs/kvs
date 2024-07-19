@@ -21,3 +21,363 @@
     border: none;
     border-radius: 2px;
     padding: 10px;}
+
+
+
+
+
+    /* ------------- */
+.cvmaincon{
+    height: 100vh;
+    padding:  30px 3% ;
+    
+background-color: rgb(228, 228, 228);
+}
+.cvtitle{
+    display: flex;
+    padding-right: 10%;
+    
+    justify-content: space-between;
+}
+.righttitle button{
+    padding: 8px 15px;
+    margin-left: 40px;
+    background-color: #4766E9;
+    border: none;
+    border-radius: 2px;
+    color: white;
+    font-size: 100%;
+}
+.righttitle {
+    
+   
+}
+.cvcontentcon{
+    display: flex;
+    height: 80vh;
+
+    width: 100%;
+    margin-top: 20px;
+}
+.contentleft{
+    width: 30%;
+    padding:3%;
+    background-color: white;
+}
+.contentright{
+    width: 70%;
+}
+.lefttitlefilter{
+    padding-bottom: 5px;
+    border-bottom: 2px solid black;
+}
+.search{
+    padding: 5px;
+    margin-top: 10px;
+    padding-bottom: 15px;
+
+    border-bottom: 2px solid black;
+}
+.search input{
+    width: 100%;
+    padding: 5px;
+}
+.status{
+    margin-top: 10px;
+    border-bottom: 2px solid black;
+    padding-bottom: 15px;
+}
+.checkrow{
+    margin-top: 10px;
+    padding-left: 10px;
+
+}
+.checkrow input{
+    margin-right: 15px;
+}
+.postby input[type="search"]{
+    width: 100%;
+    padding: 5px;
+    margin: 15px 0;
+}
+.postby{
+    margin: 15px 0;
+    padding: 10px;
+}
+
+.contentright{
+    padding: 3%;
+    
+
+}
+.catitle{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    border-bottom: 2px solid black;
+}
+.cartitle1 span{
+    margin-right: 3vw;
+    margin-left: 5px;
+}
+.rightfilter{
+    display: flex;
+    background: white;
+    gap: 3%;
+    align-items: center;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+.rightrow{
+   
+    padding: 20px 5px;
+    padding-left: 10px;
+}
+.rightrow input{
+    margin-right: 5px;
+}
+.jobcontainer{
+    background-color: white;
+    padding:15px;
+}
+/* ------------------------ */
+
+.job{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+    width: 100%;
+    gap: 4%;
+}
+.checkcon{
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    gap: 10px;
+}
+.jobdetails >h5,.jobdetails >h6{
+    margin-left: 5px;
+}
+.jobdetails >h6{
+    margin-top: 6px;
+    border: 1px solid blue;
+    padding: 2px 4px;
+    border-radius: 5px;
+}
+.checkcon > input{
+    margin-top: 10px;
+}
+.jobnumcon{
+    display: flex;
+    gap: 50%;
+}
+.total,.short{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.btnrow{
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+    
+}
+.btnrow button{
+    border:1px solid blue;
+    padding: 8px 10px;
+    border-radius: 5px;
+    color: blue;
+    background-color:transparent;
+}
+.responsedetails{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.resdate{
+    font-size: 90%;
+}
+
+/* ---------------- */
+/* careerpost */
+
+.careerpost{
+    height: 100vh;
+    background-color: gray;
+}
+.cptitle{
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10%;
+    
+}
+.cptitle button{
+    font-size: 90%;
+    padding: 10px 15px ;
+    border: none;
+    border-radius: 5px;
+    white-space: nowrap;
+    flex: 1;
+   
+}
+.cpright{
+    display: flex;
+    white-space: nowrap;
+    gap: 15%;
+}
+.cpbackmenubtn{
+    background-color: #4766E9;
+    color: white;
+    
+}
+.cppublishbtn{
+    background-color: rgb(235, 102, 25);
+    color: white;
+}
+.cpsubtitle {
+    background-color: white;
+    margin-top: 10px;
+    text-align: center;
+    padding: 10px 0;
+    
+    z-index: 23;
+}
+.cpcontentcontainer{
+    padding-left: 10px;
+    display: flex;
+    flex-direction: row;
+}
+.cpsidecontainer{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 30%;
+    background-color: white;
+    padding:  25px 5%;
+}
+.cpsideinput{
+    display: flex;
+    flex-direction: column;
+}
+.cpsideinput label{
+    margin-bottom: 5px;
+}
+.cpsideinput input,textarea{
+    border: none;
+    height: 30px;
+    padding: 5px;
+    background-color: rgb(183, 191, 199);
+}
+#inputbox{
+    height: 200px;
+    resize: none;
+}
+.cpsidesubmit{
+    display: flex;
+    justify-content: center;
+}
+.cpsidesubmit input{
+    padding: 10px 20%;
+    border-radius: 5px;
+    background-color: #4766E9;
+    border: none;
+    color: white;
+}
+.cpmaincontainer{
+    padding: 30px 5%;
+    width: 70%;
+
+}
+.cpjobcard1{
+    background-color: white;
+    padding: 3%;
+    display: flex;
+    width: 100%;
+    gap: 20%;
+    justify-content: space-between;
+
+}
+.cpjobcard1left{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+
+}
+.jobheading{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.cpjobcard1right{
+    width: 30%;
+}
+.jobpoints{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+.jobpointsrow{
+    display: flex;
+    width: 100%;
+}
+.item{
+    width: 50%;
+}
+.item h4{
+    text-align: left;
+}
+.cpjobcard1right img{
+    width: 150px;
+}
+.cpjobcard2{
+    background-color: white;
+    padding: 3%;
+    margin-top: 10px;
+}
+.cphighlights{
+    padding: 10px;
+}
+.cphighlights ul{
+margin-left: 25px;
+margin-top: 5px;
+}
+.cphighlights p{
+    font-size: 80%;
+}
+
+/* ----------- */
+
+.responsecontainer{
+    padding: 5%;
+    min-height: 100vh;
+    background-color: rgb(201, 196, 196);
+}
+.restitle{
+    
+}
+.reshead{
+    display: flex;
+    padding: 5px 10px;
+    justify-content: space-between;
+}
+.reshead button{
+    background-color: #4766E9;
+    border: none;
+    font-size: 100%;
+    padding: 10px 10px;
+    color: white;
+}
+.resmaincon{
+    background-color: white;
+    width: 100%;
+    min-height: 50vh;
+    margin-top: 10px;
+    border-radius: 5px;
+    padding: 10px 5%;
+}

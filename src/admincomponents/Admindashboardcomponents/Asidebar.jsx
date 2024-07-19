@@ -18,7 +18,7 @@ export const Asidebar = () => {
       <div className="listcontainer">
         <ul>
           <li>
-            <Link to="clients"><span>Clients</span><img src={clienticon} alt="" /></Link>
+            <Link to="/admin/dashboard/clients"><span>Clients</span><img src={clienticon} alt="" /></Link>
           </li>
           <li>
             <Link to="testimonials"><span>Testimonials</span><img src={feedbackicon} alt="" /></Link>

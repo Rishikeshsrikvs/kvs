@@ -20,7 +20,7 @@
     align-items: center;
     gap: 20px;
 }
-.addclient-inputs input{
+.item{
     width: 40%;
     border: none;
     height: 30px;
@@ -29,17 +29,48 @@
     border-radius: 2px;
 }
 #adclientlogo[type=file] {
+
     color: transparent !important;
+    background: red;
 }
-#adclientlogo[type=file]::before {
-  content: "Client Logo: ";
-  color: black;
-  margin-right: 10px; 
-}
+
 #adclientlogo{
     font-size: 60%;
     padding-bottom: 25px;
     padding-top: 13px;
+}
+#logo-upload{
+    display: none;
+
+}
+  
+ .logolabel{
+    padding: 3px;
+    height: 40px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    color: gray;
+    font-size: 75%;
+
+ }
+.logolabel span{
+    display: flex;
+    padding: 3px 15px;
+    border-radius: 2px;
+    text-align: center;
+    background-color: rgb(109, 109, 241);
+    color: white;
+    margin-left: 10px;
+}
+.logolabel span h5{
+    margin-left: 10px;
+    margin-top: 2px;
+    font-size:100% ;
+
+}
+.logolabel img{
+    width: 25px;
 }
 .addclient-paymentcontainer{
     margin-top: 30px;
@@ -75,7 +106,7 @@
     margin-top: 30px;
 
 }
-.addclient-submit > input{
+.addclient-submit  input{
     background-color: rgb(72, 72, 250);
     margin-top: 20px;
     color: white;

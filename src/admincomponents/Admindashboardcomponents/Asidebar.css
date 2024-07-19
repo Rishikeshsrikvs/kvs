@@ -5,7 +5,7 @@
 }
 
 .sidebar {
-    background-color: #c9c9c9;
+    background-color: white;
     height: 100vh;
     padding: 25px 40px;
     display: flex;
@@ -42,17 +42,17 @@
   
   .listcontainer li a {
     text-decoration: none;
-    color: #333;
+    color: #2c2a2a;
     display: block;
-    border-radius: 10px;
-    background-color: white;
+    border-radius: 5px;
+    
     padding: 20px 50px;
     font-size: 140%;
     font-weight: 700;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 1px 0px 6px black;
+    
    
     
     
@@ -65,7 +65,7 @@
   .listcontainer li a:hover {
     
     
-    background-color: rgb(131, 126, 126);
+    background-color: rgb(224, 216, 216);
     color: white;
   }
   .listcontainer li a:focus{
