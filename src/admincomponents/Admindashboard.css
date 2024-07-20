@@ -1,18 +1,26 @@
+*{
+  box-sizing: border-box;
+}
 .dashboard-container {
     display: flex;
     height: 100vh;
+    position: relative;
   }
   
   .sidecontainer {
     width: 28%;
+    position: fixed;
+    
     height:100vh ;
     /* Add other styles as needed */
   }
   
   .main-content {
         padding: 30px;
+        position: absolute;
+        left: 30%;
         background-color: aliceblue;
-        width: 72%;
+        width: 70%;
     /* Add other styles as needed */
   }
   
