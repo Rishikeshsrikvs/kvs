@@ -9,16 +9,16 @@ export const Job = ({ job }) => {
         <div className="jobdetails">
           <h4>{job.jobName}</h4>
           <h5>{job.location}</h5>
-          <h6>{job.status}</h6> {/* Example: "Urgent Hiring" */}
+          <h6>{job.status}</h6>
         </div>
       </div>
       <div className="jobnumcon">
         <div className="total">
-          <h2>{job.totalApplications}</h2> {/* Replace with the correct value */}
+          <h2>{job.totalApplications}</h2>
           <h5>Total</h5>
         </div>
         <div className="short">
-          <h2>{job.shortlistedApplications}</h2> {/* Replace with the correct value */}
+          <h2>{job.shortlistedApplications}</h2>
           <h5>Shortlisted</h5>
         </div>
       </div>
@@ -30,7 +30,7 @@ export const Job = ({ job }) => {
           <button>Refresh</button>
         </div>
         <div className='resdate'>
-          <p>Posted by {job.postedBy} @ {job.postedDate}</p> {/* Example values */}
+          <p>Posted by {job.postedBy} @ {job.postedDate}</p>
         </div>
       </div>
     </div>
