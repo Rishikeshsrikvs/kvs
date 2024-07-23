@@ -20,7 +20,7 @@ export const Admin = () => {
         <Route path="careerpost" element={<Careerpost />} />
         <Route path="careerview" element={<Careerview />} />
         <Route path="invoice/:id" element={<Invoice />} />
-        <Route path="response" element={<Careerresponse />} />
+        <Route path="response/:id" element={<Careerresponse />} />
         <Route path="response&package/:id" element={<Clientservice />} />
       </Routes>
     </ProtectedRoute>

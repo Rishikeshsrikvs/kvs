@@ -123,3 +123,52 @@
     border: none;
     border-radius: 3px;
 }
+/* Hide the default file input */
+.inputfile-hidden {
+  display: none;
+}
+
+/* Style the custom file upload button */
+.inputfile {
+  border: 1px solid #ccc;
+  padding: 10px;
+  cursor: pointer;
+  background-color: #f0f0f0;
+  display: inline-block;
+  border-radius: 4px;
+  color: #333;
+}
+
+.inputfile:hover {
+  background-color: #e0e0e0;
+}
+
+.inputfile span {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+/* Additional styles for buttons */
+.prebtn {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 10px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.pubbtn {
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.prebtn:hover {
+  background-color: #e0e0e0;
+}
+
+.pubbtn:hover {
+  background-color: #0056b3;
+}

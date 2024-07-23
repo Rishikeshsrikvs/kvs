@@ -46,22 +46,171 @@
       "quality": "zxcz",
       "package": "Pro",
       "discount": "23"
+    },
+    {
+      "id": "401e",
+      "clientName": "jeh",
+      "location": "vdeedf",
+      "email": "we23@fmail.com",
+      "gstNo": "fvrfgf",
+      "phone": "huhi",
+      "adharNumber": "effgef",
+      "paymentMode": "Cash",
+      "paymentRefNo": "xcsf",
+      "services": [
+        "Social Media Marketing",
+        "Email Marketing",
+        "Web Development"
+      ],
+      "quality": "zxcz",
+      "package": "Pro",
+      "discount": "xzczxv"
+    },
+    {
+      "id": "8538",
+      "clientName": "jsdhfjwww",
+      "location": "wdfwe",
+      "email": "we23@fmail.com",
+      "gstNo": "werwe",
+      "phone": "wertwe",
+      "adharNumber": "wefwee",
+      "paymentMode": "Online",
+      "paymentRefNo": "werwer",
+      "services": [
+        "Social Media Marketing",
+        "SEO Optimization",
+        "Content Creation",
+        "Web Development"
+      ],
+      "quality": "sdffd",
+      "package": "Pro",
+      "discount": "23"
     }
   ],
-  "feedbacks":[
-    {"id": 1,
-    "message": "Lorem ipsum...",
-    "clientName": "Expertai",
-    "clientLocation": "Avadi, Chennai",
-    "clientImage": "path_to_client_image", // URL to the client's image
-    "clientLogo": "Client Logo"
-  },
-  {"id": 1,
-    "message": "Lorem eiofghi...",
-    "clientName": "Ea;l'wlji",
-    "clientLocation": "Ambatur, Chennai",
-    "clientImage": "path_to_client_image", // URL to the client's image
-    "clientLogo": "Client Logo"
-  }
+  "feedbacks": [
+    {
+      "id": "1",
+      "message": "Great service!",
+      "clientName": "John Doe",
+      "clientLocation": "New York",
+      "clientImage": "path_to_image",
+      "clientLogo": "logo",
+      "status": "true"
+    },
+    {
+      "id": "2",
+      "message": "Very satisfied.",
+      "clientName": "Jane Smith",
+      "clientLocation": "Los Angeles",
+      "clientImage": "path_to_image",
+      "clientLogo": "logo",
+      "status": "true"
+    }
+  ],
+  "projects": [
+    {
+      "id": "1",
+      "title": "Project One",
+      "description": "Description for project one.",
+      "image": "https://source.unsplash.com/random1",
+      "favorite": true
+    },
+    {
+      "id": "2",
+      "title": "Project Two",
+      "description": "Description for project two.",
+      "image": "https://source.unsplash.com/random",
+      "favorite": true
+    },
+    {
+      "id": "3",
+      "title": "Project Three",
+      "description": "Description for project three.",
+      "image": "https://source.unsplash.com/random",
+      "favorite": true
+    },
+    {
+      "id": "4",
+      "title": "Project Four",
+      "description": "Description for project four.",
+      "image": "https://source.unsplash.com/random",
+      "favorite": true
+    },
+    {
+      "id": "5",
+      "title": "Project Five",
+      "description": "Description for project five.",
+      "image": "https://source.unsplash.com/random",
+      "favorite": false
+    }
+  ],
+  "jobs": [
+    {
+      "jobId": "1",
+      "jobName": "Java Programmer",
+      "experience": "Fresher",
+      "location": "Chennai",
+      "salary": "4-9 Lacs P.A",
+      "skills": "Java, Spring Boot, REST APIs",
+      "description": "Proficiency in both theory and programming in Java. Eligibility: Any Graduate / Post Graduate - 2024 Passed outs ONLY.",
+      "applications": 10,
+      "companyName": "SRI KVS TECH",
+      "response": [
+        {
+          "applicantId": "a1",
+          "applicantName": "Alice Johnson",
+          "location": "Chennai",
+          "experience": "2 years",
+          "email": "alice@example.com",
+          "resume": "path_to_resume",
+          "phone": "987-654-3210"
+        },
+        {
+          "applicantId": "a2",
+          "applicantName": "Bob Smith",
+          "location": "Mumbai",
+          "experience": "3 years",
+          "email": "bob@example.com",
+          "resume": "path_to_resume",
+          "phone": "987-654-3211"
+        }
+      ],
+      "id": "e277"
+    },
+    {
+      "jobId": "7122",
+      "jobName": "Project Manager",
+      "experience": "5 years",
+      "location": "Delhi",
+      "salary": "12-20 Lacs P.A",
+      "skills": "Project Management, Agile, Scrum",
+      "description": "Manage projects from inception to completion. Must have strong leadership skills.",
+      "applications": 5,
+      "companyName": "ABC Solutions",
+      "response": [
+        {
+          "applicantId": "a3",
+          "applicantName": "Charlie Brown",
+          "location": "Delhi",
+          "experience": "6 years",
+          "email": "charlie@example.com",
+          "resume": "path_to_resume",
+          "phone": "987-654-3212"
+        }
+      ],
+      "id": "1f3d"
+    },
+    {
+      "id": "db8f",
+      "jobId": "job-1721737894405",
+      "jobName": "uywuehfj",
+      "experience": "3",
+      "location": "",
+      "salary": "",
+      "skills": "wdfweef",
+      "description": "sdfwdf",
+      "applications": "3",
+      "companyName": "SRI KVS TECH"
+    }
   ]
 }

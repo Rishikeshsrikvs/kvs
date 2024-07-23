@@ -56,7 +56,7 @@ export const Addclient = () => {
   return (
     <div className="addclientmaincontainer">
       <div className="title">
-        <span>Main page</span>
+        <span></span>
       </div>
       <div className="adclientcontainer">
         <form onSubmit={handleSubmit}>

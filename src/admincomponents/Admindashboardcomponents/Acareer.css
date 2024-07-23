@@ -48,8 +48,8 @@ background-color: rgb(228, 228, 228);
     color: white;
     font-size: 100%;
 }
-.righttitle {
-    
+.righttitle button:hover {
+    background-color: rgb(133, 37, 2);
    
 }
 .cvcontentcon{
@@ -178,33 +178,14 @@ background-color: rgb(228, 228, 228);
     flex-direction: column;
     align-items: center;
 }
-.btnrow{
-    display: flex;
-    flex-direction: row;
-    gap: 10%;
-    
-}
-.btnrow button{
-    border:1px solid blue;
-    padding: 8px 10px;
-    border-radius: 5px;
-    color: blue;
-    background-color:transparent;
-}
-.responsedetails{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-.resdate{
-    font-size: 90%;
-}
+
 
 /* ---------------- */
 /* careerpost */
 
 .careerpost{
-    height: 100vh;
+    height: auto;
+  
     background-color: gray;
 }
 .cptitle{
@@ -222,6 +203,9 @@ background-color: rgb(228, 228, 228);
     white-space: nowrap;
     flex: 1;
    
+}
+.cptitle button:hover{
+    background-color: rgb(134, 38, 4);
 }
 .cpright{
     display: flex;
@@ -244,6 +228,8 @@ background-color: rgb(228, 228, 228);
     padding: 10px 0;
     
     z-index: 23;
+    font-size: 130%;
+    margin-bottom: 5PX;
 }
 .cpcontentcontainer{
     padding-left: 10px;
@@ -255,6 +241,7 @@ background-color: rgb(228, 228, 228);
     flex-direction: column;
     gap: 15px;
     width: 30%;
+    height: auto;
     background-color: white;
     padding:  25px 5%;
 }
@@ -351,11 +338,26 @@ background-color: rgb(228, 228, 228);
 .cphighlights ul{
 margin-left: 25px;
 margin-top: 5px;
+margin-bottom: 5px;
+font-size: 110%;
+}
+.cphighlights ul >li{
+    margin-top: 5px;
+    width: auto;
 }
 .cphighlights p{
     font-size: 80%;
+    width: auto;
 }
-
+.cpaboutcn{
+    padding: 10px;
+}
+.cpaboutcn h4{
+    margin-bottom: 10px;
+}
+.cpaboutcn p{
+    font-size: 90%;
+}
 /* ----------- */
 
 .responsecontainer{
@@ -363,9 +365,7 @@ margin-top: 5px;
     min-height: 100vh;
     background-color: rgb(201, 196, 196);
 }
-.restitle{
-    
-}
+
 .reshead{
     display: flex;
     padding: 5px 10px;
@@ -378,6 +378,7 @@ margin-top: 5px;
     padding: 10px 10px;
     color: white;
 }
+
 .resmaincon{
     background-color: white;
     width: 100%;
@@ -385,4 +386,31 @@ margin-top: 5px;
     margin-top: 10px;
     border-radius: 5px;
     padding: 10px 5%;
+}
+.btnrow{
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+    
+}
+.btnrow button{
+    border:1px solid blue;
+    padding: 8px 10px;
+    border-radius: 5px;
+    color: blue;
+    background-color:transparent;
+}
+.btnrow button:hover{
+    border:1px solid red;
+    padding: 8px 10px;
+    border-radius: 5px;
+    color: red;
+}
+.responsedetails{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.resdate{
+    font-size: 90%;
 }

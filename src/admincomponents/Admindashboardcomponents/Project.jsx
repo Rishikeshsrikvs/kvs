@@ -1,17 +1,30 @@
-import React from 'react'
-import heart from './../../assets/images/heart.png';
-import projectimg from './../../assets/images/blogback.jpg';
-export const Project = () => {
+import React from 'react';
+import './Aprojects.css';
+import filledHeart from './../../assets/images/heartfilled.png';
+import outlineHeart from './../../assets/images/heartoutline.png';
+
+
+export const Project = ({ project, onLike }) => {
+  const handleLikeClick = () => {
+    onLike(project.id, !project.favorite);
+  };
+
   return (
-    <div className='project'>
-        <div className="projectimage">
-            <img src={projectimg} alt="" className='projectimg'/>
-            <img className="favheart" src={heart} alt="" />
-            <div className="projectdetails">
-                <h6>project 1</h6>
-                <h5>Description of the project</h5>
-            </div>
-        </div>
+    <div className="project">
+      <div className="projectimage">
+        <img src={project.image} alt={project.title} className="projectimg" />
+        <button
+          className={`favheart ${project.favorite ? 'favheart-filled' : 'favheart-outline'}`}
+          onClick={handleLikeClick}
+          style={{
+            backgroundImage: `url(${project.favorite ? filledHeart : outlineHeart})`
+          }}
+        />
+      </div>
+      <div className="projectdetails">
+        <h3>{project.title}</h3>
+        <p>{project.description}</p>
+      </div>
     </div>
-  )
-}
+  );
+};
