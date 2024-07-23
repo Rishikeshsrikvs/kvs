@@ -1,0 +1,38 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "password12345"
+    },
+    {
+      "id": "2",
+      "username": "user",
+      "password": "123"
+    }
+  ],
+  "clients": [
+    {
+      "id": 1,
+      "clientname": "Example Client",
+      "logo": "example-logo.png",
+      "location": "Example Location",
+      "email": "example@example.com",
+      "gstNo": "1234567890",
+      "phoneNumber": "1234567890",
+      "adharNumber": "1234-5678-9012",
+      "paymentMode": "Cash",
+      "paymentRefNo": "1234567890"
+    },
+    {
+      "services": [
+        "SEO Optimization",
+        "Email Marketing"
+      ],
+      "quality": "Standard",
+      "package": "Pro",
+      "discount": "qjqj",
+      "id": "ed8f"
+    }
+  ]
+}

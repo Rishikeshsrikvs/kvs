@@ -4,7 +4,6 @@ import { AuthProvider } from './admincomponents/Auth/AuthContext';
 import { Home } from './Home';
 import { Admin } from './Admin';
 import { Adminlogin } from './admincomponents/Adminlogin';
-
 export const Parent = () => {
   return (
     <AuthProvider>
