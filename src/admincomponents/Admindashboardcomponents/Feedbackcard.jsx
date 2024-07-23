@@ -1,23 +1,24 @@
-import React from 'react'
+import React from 'react';
 
-export const Feedbackcard = () => {
+
+export const Feedbackcard = ({ feedback }) => {
   return (
     <div className='feedbackcard'>
-        <div className="feedback">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat, magni soluta! Eveniet minus consequuntur quisquam tempore inventore quod debitis quasi corporis ducimus at, id veritatis sunt, quia excepturi, aliquam nulla.</div>
+        <div className="feedback">{feedback.message}rewr</div>
         <div className="clientcontainer">
             <div className='client'>
-                <img src="" alt="" />
+                <img src={feedback.clientImage} alt={feedback.clientName} />
                 <span>
-                    <h4>Expertai</h4>
-                    <h5>avadi,chennai</h5>
+                    <h4>{feedback.clientName}</h4>
+                    <h5>{feedback.clientLocation}</h5>
                 </span>
             </div>
-            <span className='clientlogo'>logo</span>
+            <span className='clientlogo'>{feedback.clientLogo}</span>
         </div>
         <div className="action">
             <button className='reject'>Reject</button>
             <button className='approve'>Approve</button>
         </div>
     </div>
-  )
-}
+  );
+};

@@ -1,0 +1,67 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "password12345"
+    },
+    {
+      "id": "2",
+      "username": "user",
+      "password": "123"
+    }
+  ],
+  "clients": [
+    {
+      "id": "67890",
+      "clientName": "Beta LLC",
+      "phone": "987-654-3210",
+      "email": "info@betallc.com",
+      "location": "456 Elm St, Metropolis, NY",
+      "valid": false,
+      "services": [
+        "Content Creation",
+        "Web Development"
+      ],
+      "quality": "Medium",
+      "package": "Standard",
+      "discount": "5%",
+      "paymentMode": "Cash",
+      "paymentRefNo": "EFGH5678"
+    },
+    {
+      "id": "a8d9",
+      "clientName": "Harish",
+      "location": "Chennai",
+      "email": "Harish@maiul.com",
+      "gstNo": "78324623789",
+      "phone": "4872789",
+      "adharNumber": "98349884984",
+      "paymentMode": "Online",
+      "paymentRefNo": "823453546",
+      "services": [
+        "Social Media Marketing",
+        "Email Marketing"
+      ],
+      "quality": "zxcz",
+      "package": "Pro",
+      "discount": "23"
+    }
+  ],
+  "feedbacks":[
+    {"id": 1,
+    "message": "Lorem ipsum...",
+    "clientName": "Expertai",
+    "clientLocation": "Avadi, Chennai",
+    "clientImage": "path_to_client_image", // URL to the client's image
+    "clientLogo": "Client Logo"
+  },
+  {"id": 1,
+    "message": "Lorem eiofghi...",
+    "clientName": "Ea;l'wlji",
+    "clientLocation": "Ambatur, Chennai",
+    "clientImage": "path_to_client_image", // URL to the client's image
+    "clientLogo": "Client Logo"
+  }
+  ]
+}

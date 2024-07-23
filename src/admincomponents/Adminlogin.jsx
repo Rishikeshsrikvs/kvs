@@ -1,34 +1,44 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import { useAuth } from './Auth/AuthContext';
 import logo from './../assets/images/logo.png';
-import adminLoginBackground from './../assets/images/adminloginback2.mov';
 import './Adminlogin.css';
 
 export const Adminlogin = () => {
   const { login } = useAuth();
-  const navigate = useNavigate(); // Use useNavigate hook
-  const [username, setUsername] = useState('admin');
-  const [password, setPassword] = useState('password12345');
+  const navigate = useNavigate();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    if (username === 'admin' && password === 'password12345') {
-      login();
-      console.log("login");
-      navigate("/admin/dashboard/clients"); // Use navigate for programmatic navigation
-    } else {
-      alert('Invalid credentials');
+    setLoading(true);
+    setError('');
+
+    try {
+      // Fetch users with the given username
+      const response = await axios.get(`http://localhost:3500/users?username=${username}`);
+      const users = response.data;
+      // Check if user exists and password matches
+      if (users.length > 0 && users[0].password === password) {
+        login(); // Simulate login by calling the login function
+        navigate("/admin/dashboard/clients");
+      } else {
+        setError('Invalid credentials');
+      }
+    } catch (error) {
+      setError('Error connecting to server');
+      console.error('Login error', error);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className='adminloginmaincon'>
-      <video autoPlay loop muted className="background-video">
-        <source src={adminLoginBackground} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
       <div className="adminlogincon">
         <img src={logo} alt="logo" /> 
         <div className='title'>
@@ -43,6 +53,7 @@ export const Adminlogin = () => {
               name='uname'
               value={username}
               onChange={(e) => setUsername(e.target.value)}
+              disabled={loading}
             />
           </div>
           <div className="inputcon">
@@ -51,10 +62,12 @@ export const Adminlogin = () => {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              disabled={loading}
             />
           </div>
-          <input className="formsubmit" type="submit" value="Sign In" />
+          <input className="formsubmit" type="submit" value="Sign In" disabled={loading} />
         </form>
+        {error && <p className='error'>{error}</p>}
       </div>
     </div>
   );
