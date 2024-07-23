@@ -8,9 +8,11 @@
 }
 .actitle{
     text-align: right;
+   
     
 }
-.title span{
+
+.actitle span{
     padding: 10px 9%;
     display:inline-block;
     background-color: blue;

@@ -3,6 +3,13 @@
     font-size: 120%;
     background-color: rgb(207, 204, 204);
 }
+.cstitle >span{
+    background-color: #264AE0;
+    padding: 10px 4%;
+    display: inline-block;
+    color: white;
+    border-radius: 2px;
+}
 .Clientservicecontainer{
     background-color: white;
     padding: 8% ;

@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route ,Link } from "react-router-dom";
 export const Addclient = () => {
   return (
     <div className="addclientmaincontainer">
-        <div className="title">
+        <div className="addclienttitle">
             <span>Main page</span>
         </div>
         <div className="adclientcontainer">

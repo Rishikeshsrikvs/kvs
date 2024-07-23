@@ -41,4 +41,16 @@
     
 }
 
+
+@media screen and  (max-width:900px){
+    .card-container{
+   
+       flex-direction: row;
+    }
+    .project{
+        width: 48%;
+       
+}
+    
+}
       

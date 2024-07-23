@@ -4,7 +4,7 @@ import "./Clientservice.css"
 export const Clientservice = () => {
   return (
     <div className='Clientservicemaincontainer'>
-         <div className="title">
+         <div className="cstitle">
             <span>Main page</span>
         </div>
         <div className="Clientservicecontainer">

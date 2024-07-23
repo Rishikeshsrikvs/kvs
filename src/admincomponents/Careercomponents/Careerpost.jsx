@@ -57,16 +57,16 @@ export const Careerpost = () => {
                             </div>
                             <div className="jobpoints">
                                 <div className="jobpointsrow">
-                                    <div className="experience item"><h4>Fresher</h4></div>
-                                    <div className=" item"><h4>Openings:10</h4></div>
+                                    <div className="experience jpitem"><h4>Fresher</h4></div>
+                                    <div className=" jpitem"><h4>Openings:10</h4></div>
                                 </div>
                                 <div className="jobpointsrow">
-                                    <div className="location item"><h4>Chennai</h4></div>
-                                    <div className="vacancy item"><h4>Applicants:</h4></div>
+                                    <div className="location jpitem"><h4>Chennai</h4></div>
+                                    <div className="vacancy jpitem"><h4>Applicants:</h4></div>
                                 </div>
                                 <div className="jobpointsrow">
-                                    <div className="salary item"><h4>4-9Lacs P.A</h4></div>
-                                    <div className="date item"><h4>Posted:</h4></div>
+                                    <div className="salary jpitem"><h4>4-9Lacs P.A</h4></div>
+                                    <div className="date jpitem"><h4>Posted:</h4></div>
                                 </div>
                             </div>
                         </div>

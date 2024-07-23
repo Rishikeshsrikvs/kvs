@@ -296,6 +296,7 @@ background-color: rgb(228, 228, 228);
     padding: 3%;
     display: flex;
     width: 100%;
+    border-radius: 5px;
     gap: 20%;
     justify-content: space-between;
 
@@ -325,12 +326,15 @@ background-color: rgb(228, 228, 228);
 .jobpointsrow{
     display: flex;
     width: 100%;
+    gap: 5%;
 }
-.item{
+.jpitem{
     width: 50%;
+
 }
-.item h4{
+.jpitem h4{
     text-align: left;
+    font-size: 90%;
 }
 .cpjobcard1right img{
     width: 150px;
@@ -338,6 +342,7 @@ background-color: rgb(228, 228, 228);
 .cpjobcard2{
     background-color: white;
     padding: 3%;
+    border-radius: 5px;
     margin-top: 10px;
 }
 .cphighlights{
