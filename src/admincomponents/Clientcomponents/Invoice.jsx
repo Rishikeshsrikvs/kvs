@@ -34,30 +34,38 @@ export const Invoice = () => {
   const gstAmount = totalPrice * gstRate;
   const finalAmount = totalPrice + gstAmount;
 
-  const downloadPDF = () => {
-    const input = document.getElementById('invoice-content');
-    html2canvas(input).then((canvas) => {
-      const imgData = canvas.toDataURL('image/png');
-      const pdf = new jsPDF('p', 'mm', 'a4');
-      const imgWidth = 210; // A4 width in mm
-      const pageHeight = 295; // A4 height in mm
-      const imgHeight = canvas.height * imgWidth / canvas.width;
-      let heightLeft = imgHeight;
-      let position = 0;
-      
+const downloadPDF = () => {
+  // Hide the download button
+  const downloadButton = document.querySelector('.downloadcon');
+  if (downloadButton) downloadButton.style.display = 'none';
+
+  const input = document.getElementById('invoice-content');
+  html2canvas(input).then((canvas) => {
+    const imgData = canvas.toDataURL('image/png');
+    const pdf = new jsPDF('p', 'mm', 'a4');
+    const imgWidth = 210; // A4 width in mm
+    const pageHeight = 295; // A4 height in mm
+    const imgHeight = canvas.height * imgWidth / canvas.width;
+    let heightLeft = imgHeight;
+    let position = 0;
+    
+    pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+    heightLeft -= pageHeight;
+
+    while (heightLeft >= 0) {
+      position -= pageHeight;
+      pdf.addPage();
       pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
       heightLeft -= pageHeight;
+    }
 
-      while (heightLeft >= 0) {
-        position -= pageHeight;
-        pdf.addPage();
-        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-        heightLeft -= pageHeight;
-      }
+    pdf.save('invoice.pdf');
 
-      pdf.save('invoice.pdf');
-    });
-  };
+    // Show the download button again
+    if (downloadButton) downloadButton.style.display = 'block';
+  });
+};
+
 
   const today = new Date();
   const issueDate = today.toLocaleDateString();
@@ -102,8 +110,8 @@ export const Invoice = () => {
               <tr>
                 <th>No</th>
                 <th>List of Package</th>
-                <th>Quality</th>
-                <th>Discount</th>
+                <th>Quantity</th>
+                <th>Package</th>
                 <th>Price</th>
               </tr>
             </thead>
@@ -111,19 +119,24 @@ export const Invoice = () => {
               {clientData.services.map((service, index) => (
                 <tr key={index}>
                   <td>{index + 1}</td>
-                  <td>{service}</td>
-                  <td>{clientData.quality}</td>
+                  <td>{service.name}</td>
+                  <td>{service.quantity}</td>
+                  <td>{service.package}</td>
                   <td>{clientData.discount}</td>
                   <td>{servicePrice}</td>
                 </tr>
               ))}
               <tr>
-                <td colSpan={4} id='gstlable'>GST (18%)</td>
-                <td>{gstAmount}</td>
+                <td colSpan={5} id='discountlable'>GST (18%)</td>
+                <td>{gstAmount.toFixed(2)}</td>
               </tr>
               <tr>
-                <td colSpan={4} id='totallable'>Total</td>
-                <td>{finalAmount}</td>
+                <td colSpan={5} id='gstlable'>GST (18%)</td>
+                <td>{gstAmount.toFixed(2)}</td>
+              </tr>
+              <tr>
+                <td colSpan={5} id='totallable'>Total</td>
+                <td>{finalAmount.toFixed(2)}</td>
               </tr>
             </tbody>
           </table>

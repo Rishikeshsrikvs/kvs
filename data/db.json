@@ -15,16 +15,22 @@
     {
       "id": "67890",
       "clientName": "Beta LLC",
-      "phone": "987-654-3210",
+      "phone": "987-6543210",
       "email": "info@betallc.com",
       "location": "456 Elm St, Metropolis, NY",
       "valid": false,
       "services": [
-        "Content Creation",
-        "Web Development"
+        {
+          "name": "Content Creation",
+          "quantity": "10",
+          "package": "Standard"
+        },
+        {
+          "name": "Web Development",
+          "quantity": "5",
+          "package": "Elite"
+        }
       ],
-      "quality": "Medium",
-      "package": "Standard",
       "discount": "5%",
       "paymentMode": "Cash",
       "paymentRefNo": "EFGH5678"
@@ -37,15 +43,24 @@
       "gstNo": "78324623789",
       "phone": "4872789",
       "adharNumber": "98349884984",
-      "paymentMode": "Online",
-      "paymentRefNo": "823453546",
       "services": [
-        "Social Media Marketing",
-        "Email Marketing"
+        {
+          "name": "Social Media Marketing",
+          "quantity": "15",
+          "package": "Pro"
+        },
+        {
+          "name": "Email Marketing",
+          "quantity": "8",
+          "package": "Standard"
+        },
+        {
+          "name": "Web Development",
+          "quantity": "4",
+          "package": "Elite"
+        }
       ],
-      "quality": "zxcz",
-      "package": "Pro",
-      "discount": "23"
+      "discount": "23%"
     },
     {
       "id": "401e",
@@ -58,13 +73,23 @@
       "paymentMode": "Cash",
       "paymentRefNo": "xcsf",
       "services": [
-        "Social Media Marketing",
-        "Email Marketing",
-        "Web Development"
+        {
+          "name": "Social Media Marketing",
+          "quantity": "12",
+          "package": "Pro"
+        },
+        {
+          "name": "Email Marketing",
+          "quantity": "7",
+          "package": "Standard"
+        },
+        {
+          "name": "Web Development",
+          "quantity": "3",
+          "package": "Elite"
+        }
       ],
-      "quality": "zxcz",
-      "package": "Pro",
-      "discount": "xzczxv"
+      "discount": "20%"
     },
     {
       "id": "8538",
@@ -77,14 +102,65 @@
       "paymentMode": "Online",
       "paymentRefNo": "werwer",
       "services": [
-        "Social Media Marketing",
-        "SEO Optimization",
-        "Content Creation",
-        "Web Development"
+        {
+          "name": "Social Media Marketing",
+          "quantity": "6",
+          "package": "Standard"
+        },
+        {
+          "name": "SEO Optimization",
+          "quantity": "4",
+          "package": "Elite"
+        },
+        {
+          "name": "Content Creation",
+          "quantity": "2",
+          "package": "Pro"
+        },
+        {
+          "name": "Web Development",
+          "quantity": "1",
+          "package": "Standard"
+        }
       ],
-      "quality": "sdffd",
-      "package": "Pro",
-      "discount": "23"
+      "discount": "10%"
+    },
+    {
+      "id": "5f6d",
+      "clientName": "hgh",
+      "location": "eff",
+      "email": "123412@GMAIL.COM",
+      "gstNo": "234",
+      "phone": "21312",
+      "adharNumber": "123",
+      "paymentMode": "Cash",
+      "paymentRefNo": "123",
+      "services": [
+        {
+          "name": "Social Media Marketing",
+          "quantity": "20",
+          "package": "Pro"
+        }
+      ],
+      "discount": "23%"
+    },
+    {
+      "id": "5b53",
+      "clientName": "hghedert",
+      "location": "sdfsdf",
+      "email": "we23@fmail.com",
+      "gstNo": "sadfsdfsd1234",
+      "phone": "1231343453",
+      "adharNumber": "213134452345"
+    },
+    {
+      "id": "eb13",
+      "clientName": "hgh",
+      "location": "chennai",
+      "email": "we23@fmail.com",
+      "gstNo": "123458sjjeu3",
+      "phone": "1234567895",
+      "adharNumber": "123456786453"
     }
   ],
   "feedbacks": [
@@ -95,7 +171,7 @@
       "clientLocation": "New York",
       "clientImage": "path_to_image",
       "clientLogo": "logo",
-      "status": "true"
+      "status": "false"
     },
     {
       "id": "2",
@@ -104,7 +180,7 @@
       "clientLocation": "Los Angeles",
       "clientImage": "path_to_image",
       "clientLogo": "logo",
-      "status": "true"
+      "status": "false"
     }
   ],
   "projects": [
@@ -127,14 +203,14 @@
       "title": "Project Three",
       "description": "Description for project three.",
       "image": "https://source.unsplash.com/random",
-      "favorite": true
+      "favorite": false
     },
     {
       "id": "4",
       "title": "Project Four",
       "description": "Description for project four.",
       "image": "https://source.unsplash.com/random",
-      "favorite": true
+      "favorite": false
     },
     {
       "id": "5",

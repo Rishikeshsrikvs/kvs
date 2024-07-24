@@ -1,25 +1,29 @@
-.addclientmaincontainer{
+.addclientmaincontainer {
     padding: 30px 10%;
     font-size: 120%;
     background-color: rgb(207, 204, 204);
 }
-.adclientcontainer{
+
+.adclientcontainer {
     background-color: white;
-    padding: 8% ;
+    padding: 8%;
     height: 84vh;
     border-radius: 5px;
 }
-.addclient-title{
+
+.addclient-title {
     margin-bottom: 40px;
 }
-.addclienttitle span{
+
+.addclienttitle span {
     display: inline-block;
     padding: 10px 20px;
     color: white;
     border: 2px;
     background-color: blue;
 }
-.addclient-inputs{
+
+.addclient-inputs {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -27,7 +31,18 @@
     align-items: center;
     gap: 20px;
 }
-.item{
+.inputcontainer {
+    margin-bottom: 15px;
+    width: 48%;
+}
+.inputcontainer input,.inputcontainer label{
+    width: 100%;
+
+}
+.inputcontainer p{
+    font-size: 70%;
+}
+.item {
     width: 40%;
     border: none;
     height: 30px;
@@ -35,23 +50,18 @@
     background-color: rgb(207, 204, 204);
     border-radius: 2px;
 }
-#adclientlogo[type=file] {
 
-    color: transparent !important;
-    background: red;
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
 }
 
-#adclientlogo{
-    font-size: 60%;
-    padding-bottom: 25px;
-    padding-top: 13px;
-}
-#logo-upload{
+#logo-upload {
     display: none;
-
 }
-  
- .logolabel{
+
+.logolabel {
     padding: 3px;
     height: 40px;
     padding: 10px;
@@ -59,9 +69,9 @@
     align-items: center;
     color: gray;
     font-size: 75%;
+}
 
- }
-.logolabel span{
+.logolabel span {
     display: flex;
     padding: 3px 15px;
     border-radius: 2px;
@@ -70,50 +80,24 @@
     color: white;
     margin-left: 10px;
 }
-.logolabel span h5{
+
+.logolabel span h5 {
     margin-left: 10px;
     margin-top: 2px;
-    font-size:100% ;
-
+    font-size: 100%;
 }
-.logolabel img{
+
+.logolabel img {
     width: 25px;
 }
-.addclient-paymentcontainer{
-    margin-top: 30px;
-    display: flex;
-    align-items: center;
-    gap:2%
-}
-.addclient-paymentcontainer > button{
-    background-color: rgb(72, 72, 250);
-    width: 100px;
-    color: white;
-    height: 30px;
-    border: none;
-    border-radius: 3px;
-}
-.paymentref{
-    display: flex;
-    align-items: center;
-    gap:3%;
-    margin-top: 30px;
-}
-.paymentref >input{
-    width: 40%;
-    border: none;
-    height: 30px;
-    padding: 20px;
-    background-color: rgb(207, 204, 204);
-    border-radius: 2px;
-}
-.addclient-submit{
+
+.addclient-submit {
     display: flex;
     justify-content: center;
     margin-top: 30px;
-
 }
-.addclient-submit  input{
+
+.addclient-submit input {
     background-color: rgb(72, 72, 250);
     margin-top: 20px;
     color: white;
@@ -123,52 +107,5 @@
     border: none;
     border-radius: 3px;
 }
-/* Hide the default file input */
-.inputfile-hidden {
-  display: none;
-}
 
-/* Style the custom file upload button */
-.inputfile {
-  border: 1px solid #ccc;
-  padding: 10px;
-  cursor: pointer;
-  background-color: #f0f0f0;
-  display: inline-block;
-  border-radius: 4px;
-  color: #333;
-}
 
-.inputfile:hover {
-  background-color: #e0e0e0;
-}
-
-.inputfile span {
-  display: inline-block;
-  margin-right: 10px;
-}
-
-/* Additional styles for buttons */
-.prebtn {
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
-  padding: 10px;
-  cursor: pointer;
-  margin-right: 10px;
-}
-
-.pubbtn {
-  background-color: #007bff;
-  border: 1px solid #007bff;
-  color: #fff;
-  padding: 10px;
-  cursor: pointer;
-}
-
-.prebtn:hover {
-  background-color: #e0e0e0;
-}
-
-.pubbtn:hover {
-  background-color: #0056b3;
-}

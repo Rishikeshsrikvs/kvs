@@ -12,46 +12,84 @@ export const Addclient = () => {
     email: '',
     gstNo: '',
     phone: '',
-    adharNumber: '',
-    paymentMode: '',
-    paymentRefNo: ''
+    adharNumber: ''
   });
-  const [error, setError] = useState('');
+  const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: value
     });
+    
+    // Validate field on change
+    validateField(name, value);
+  };
+
+  const validateField = (name, value) => {
+    let newErrors = { ...errors };
+    
+    switch (name) {
+      case 'clientName':
+        newErrors.clientName = value ? '' : 'Client Name is required.';
+        break;
+      case 'location':
+        newErrors.location = value ? '' : 'Location is required.';
+        break;
+      case 'email':
+        newErrors.email = /\S+@\S+\.\S+/.test(value) ? '' : 'Valid Email is required.';
+        break;
+      case 'gstNo':
+        newErrors.gstNo = value.length >= 10 ? '' : 'GST Number should be at least 10 digits.';
+        break;
+      case 'phone':
+        newErrors.phone = value.length === 10 ? '' : 'Phone Number should be 10 digits.';
+        break;
+      case 'adharNumber':
+        newErrors.adharNumber = value.length === 12 ? '' : 'Aadhar Number should be 12 digits.';
+        break;
+      default:
+        break;
+    }
+
+    setErrors(newErrors);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!validateForm()) {
-      setError('Please fill out all fields correctly.');
-      return;
-    }
+    if (!validateForm()) return;
 
     try {
       const response = await axios.post('http://localhost:3500/clients', formData);
       if (response.status === 201) {
         navigate(`/admin/response&package/${response.data.id}`);
       } else {
-        setError('Failed to create client.');
+        setErrors({ submit: 'Failed to create client.' });
       }
     } catch (error) {
-      setError('Error connecting to server.');
+      setErrors({ submit: 'Error connecting to server.' });
       console.error('Error:', error);
     }
   };
 
   const validateForm = () => {
+    const newErrors = {};
     const { clientName, location, email, gstNo, phone, adharNumber, paymentMode, paymentRefNo } = formData;
-    if (!clientName || !location || !email || !gstNo || !phone || !adharNumber || !paymentMode || !paymentRefNo) {
-      return false;
-    }
-    return true;
+
+    if (!clientName) newErrors.clientName = 'Client Name is required.';
+    if (!location) newErrors.location = 'Location is required.';
+    if (!email || !/\S+@\S+\.\S+/.test(email)) newErrors.email = 'Valid Email is required.';
+    if (!gstNo || gstNo.length < 10) newErrors.gstNo = 'GST Number should be at least 10 digits.';
+    if (!phone || phone.length !== 10) newErrors.phone = 'Phone Number should be 10 digits.';
+    if (!adharNumber || adharNumber.length !== 12) newErrors.adharNumber = 'Aadhar Number should be 12 digits.';
+
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
+
+  const isFormValid = Object.keys(errors).length === 0;
 
   return (
     <div className="addclientmaincontainer">
@@ -64,85 +102,89 @@ export const Addclient = () => {
             <h1>ADD CLIENTS</h1>
           </div>
           <div className="addclient-inputs">
-            <input
-              type="text"
-              placeholder="Client Name"
-              className="item"
-              name="clientName"
-              value={formData.clientName}
-              onChange={handleChange}
-            />
-            <label htmlFor="logo-upload" className="item logolabel">
-              Client Logo:
-              <span>
-                <img src={upload} alt="" /> <h5>Upload</h5>
-              </span>
-            </label>
-            <input id="logo-upload" type="file" className="item" />
-            <input
-              type="text"
-              placeholder="Location"
-              className="item"
-              name="location"
-              value={formData.location}
-              onChange={handleChange}
-            />
-            <input
-              type="email"
-              placeholder="Email"
-              className="item"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-            />
-            <input
-              type="text"
-              placeholder="GST No"
-              className="item"
-              name="gstNo"
-              value={formData.gstNo}
-              onChange={handleChange}
-            />
-            <input
-              type="text"
-              placeholder="Phone Number"
-              className="item"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-            />
-            <input
-              type="text"
-              placeholder="Aadhar Number"
-              className="item"
-              name="adharNumber"
-              value={formData.adharNumber}
-              onChange={handleChange}
-            />
+            <div className="inputcontainer">
+              <input
+                type="text"
+                placeholder="Client Name"
+                className="item"
+                name="clientName"
+                value={formData.clientName}
+                onChange={handleChange}
+              />
+              {errors.clientName && <p className="error">{errors.clientName}</p>}
+            </div>
+            <div className="inputcontainer">
+              <label htmlFor="logo-upload" className="item logolabel">
+                Client Logo:
+                <span>
+                  <img src={upload} alt="" /> <h5>Upload</h5>
+                </span>
+              </label>
+              <input id="logo-upload" type="file" className="item" />
+            </div>
+            <div className="inputcontainer">
+              <input
+                type="text"
+                placeholder="Location"
+                className="item"
+                name="location"
+                value={formData.location}
+                onChange={handleChange}
+              />
+              {errors.location && <p className="error">{errors.location}</p>}
+            </div>
+            <div className="inputcontainer">
+              <input
+                type="email"
+                placeholder="Email"
+                className="item"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+              />
+              {errors.email && <p className="error">{errors.email}</p>}
+            </div>
+            <div className="inputcontainer">
+              <input
+                type="text"
+                placeholder="GST No"
+                className="item"
+                name="gstNo"
+                value={formData.gstNo}
+                onChange={handleChange}
+              />
+              {errors.gstNo && <p className="error">{errors.gstNo}</p>}
+            </div>
+            <div className="inputcontainer">
+              <input
+                type="text"
+                placeholder="Phone Number"
+                className="item"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+              />
+              {errors.phone && <p className="error">{errors.phone}</p>}
+            </div>
+            <div className="inputcontainer">
+              <input
+                type="text"
+                placeholder="Aadhar Number"
+                className="item"
+                name="adharNumber"
+                value={formData.adharNumber}
+                onChange={handleChange}
+              />
+              {errors.adharNumber && <p className="error">{errors.adharNumber}</p>}
+            </div>
           </div>
-          <div className="addclient-paymentcontainer">
-            <label htmlFor="PaymentType">Payment Mode</label>
-            <button type="button" onClick={() => setFormData({ ...formData, paymentMode: 'Cash' })}>
-              Cash
-            </button>
-            <button type="button" onClick={() => setFormData({ ...formData, paymentMode: 'Online' })}>
-              Online
-            </button>
-          </div>
-          <div className="paymentref">
-            <label htmlFor="paymentRefNo">Payment Reference No:</label>
-            <input
-              type="text"
-              placeholder="Number"
-              className="item"
-              name="paymentRefNo"
-              value={formData.paymentRefNo}
-              onChange={handleChange}
-            />
-          </div>
-          {error && <p className="error">{error}</p>}
+          {errors.submit && <p className="error">{errors.submit}</p>}
           <div className="addclient-submit">
-            <input type="submit" value="Create Client" />
+            <input
+              type="submit"
+              value="Create Client"
+              // Disable button if there are errors
+            />
           </div>
         </form>
       </div>

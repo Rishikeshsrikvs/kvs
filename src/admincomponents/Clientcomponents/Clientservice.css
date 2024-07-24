@@ -1,5 +1,5 @@
 .Clientservicemaincontainer{
-    padding: 30px 10%;
+    padding: 20px 10%;
     font-size: 120%;
     background-color: rgb(207, 204, 204);
 }
@@ -12,12 +12,12 @@
 }
 .Clientservicecontainer{
     background-color: white;
-    padding: 8% ;
+    padding: 5%;
     height: 84vh;
     border-radius: 5px;
 }
 .Clientservice-title{
-    margin-bottom: 45px;
+    margin-bottom: 30px;
 }
 .service1{
     display: flex;
@@ -26,17 +26,27 @@
 .service1right,.service1left{
     width: 50%;
 }
+.maincheckcontainer{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
 .checkcontainer{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     padding: 4%;
-    gap: 4%;
+    justify-content: space-between;
+    
     
 }
 .serinput{
     display: flex;
     margin-bottom: 5px;
+    width: 50%;
+    
+    margin-bottom: 10px;
+    align-items: center;
 }
 .serinput input{
     margin-right: 8px;
@@ -44,49 +54,19 @@
 .serinput label{
     font-size: 90%;
 }
-.quality{
-    width: 80%;
-    margin-top: 20px;
-    
+.service-details{
+    padding: 7px;
 }
-.quality input{
-    background-color: rgb(192, 188, 188);
-    border: none;
-    outline: none;
-    height: 40px;
-    width: 100%;
-    padding: 13px 15px;
-    border-radius: 2px;
-
+.serviceselect{
+    display: flex;
+    gap: 2%;
 }
-.service1right{
-    padding: 5%;
-}
-#package{
-    background-color: rgb(212, 199, 199);
-    border: none;
-    outline: none;
-    height: 40px;
-    width: 100%;
-    padding: 13px 15px;
-    border-radius: 2px;
-    color: white;
-
-}
-#package option{
-    
-    margin-bottom: 5px;
-    height: 40px;
-    display: block;
-    width: 100%;
-    padding: 30px;
-    border-radius: 2px;
-    color: white;
-
+.service-details h5{
+    margin-bottom: 3px;
 }
 .discount{
     width: 100%;
-    margin-top: 46px;
+    margin-top: 20px;
     
 }
 .discount input{
@@ -94,14 +74,14 @@
     border: none;
     outline: none;
     height: 40px;
-    width: 100%;
+    width: 50%;
     padding: 13px 15px;
     border-radius: 2px;
 
 }
 .generate{
     text-align: center;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 .generate button{
     width: 200px;

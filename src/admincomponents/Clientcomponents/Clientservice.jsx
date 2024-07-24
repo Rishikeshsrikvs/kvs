@@ -8,12 +8,11 @@ export const Clientservice = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     services: [],
-    quality: '',
-    package: '',
-    discount: ''
+    discount: '',
   });
   const [error, setError] = useState('');
   const [clientData, setClientData] = useState(null);
+  const [clientName, setClientName] = useState(''); // State for client name
 
   const servicesList = [
     "Social Media Marketing",
@@ -29,13 +28,11 @@ export const Clientservice = () => {
         try {
           const response = await axios.get(`http://localhost:3500/clients/${id}`);
           setClientData(response.data);
-          // Pre-fill the form with client data
           setFormData({
             services: response.data.services || [],
-            quality: response.data.quality || '',
-            package: response.data.package || '',
             discount: response.data.discount || ''
           });
+          setClientName(response.data.name || ''); // Set the client name
         } catch (error) {
           setError('Error fetching client data.');
           console.error('Error:', error);
@@ -46,24 +43,25 @@ export const Clientservice = () => {
     }
   }, [id]);
 
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    if (type === 'checkbox') {
-      if (checked) {
-        setFormData(prevData => ({
-          ...prevData,
-          services: [...prevData.services, value]
-        }));
-      } else {
-        setFormData(prevData => ({
-          ...prevData,
-          services: prevData.services.filter(service => service !== value)
-        }));
-      }
+  const handleServiceChange = (index, e) => {
+    const { name, value } = e.target;
+    const updatedServices = formData.services.map((service, i) =>
+      i === index ? { ...service, [name]: value } : service
+    );
+    setFormData({ ...formData, services: updatedServices });
+  };
+
+  const handleCheckboxChange = (e) => {
+    const { value, checked } = e.target;
+    if (checked) {
+      setFormData(prevData => ({
+        ...prevData,
+        services: [...prevData.services, { name: value, quantity: '', package: '' }]
+      }));
     } else {
       setFormData(prevData => ({
         ...prevData,
-        [name]: value
+        services: prevData.services.filter(service => service.name !== value)
       }));
     }
   };
@@ -76,16 +74,12 @@ export const Clientservice = () => {
     }
 
     try {
-      // Merge existing client data with new form data
       const updatedData = {
         ...clientData,
         services: formData.services,
-        quality: formData.quality,
-        package: formData.package,
         discount: formData.discount
       };
 
-      // Update existing client service data
       const response = await axios.put(`http://localhost:3500/clients/${id}`, updatedData);
       if (response.status === 200) {
         navigate(`/admin/invoice/${id}`);
@@ -99,9 +93,14 @@ export const Clientservice = () => {
   };
 
   const validateForm = () => {
-    const { services, quality, package: packageName, discount } = formData;
-    if (services.length === 0 || !quality || !packageName || !discount) {
+    const { services, discount } = formData;
+    if (services.length === 0 || !discount) {
       return false;
+    }
+    for (const service of services) {
+      if (!service.quantity || !service.package) {
+        return false;
+      }
     }
     return true;
   };
@@ -112,61 +111,71 @@ export const Clientservice = () => {
 
   return (
     <div className='Clientservicemaincontainer'>
-      <div className="title">
-        <span>Main page</span>
-      </div>
+    
       <div className="Clientservicecontainer">
         <form onSubmit={handleSubmit}>
           <div className="Clientservice-title">
             <h1>Service and Package</h1>
           </div>
+          <div className="client-name">
+            <h2>Client: {clientName}</h2> {/* Display the client name */}
+          </div>
           <div className='service1'>
             <div className="service1left">
               <h4>Services</h4>
-              <div className="checkcontainer">
-                {servicesList.map((service, index) => (
-                  <div key={index} className="serinput">
-                    <input
-                      type="checkbox"
-                      value={service}
-                      checked={formData.services.includes(service)}
-                      onChange={handleChange}
-                    />
-                    <label>{service}</label>
-                  </div>
-                ))}
-              </div>
-              <div className="quality">
-                <input
-                  type="text"
-                  placeholder='Quality'
-                  name='quality'
-                  value={formData.quality}
-                  onChange={handleChange}
-                />
-              </div>
-            </div>
-            <div className="service1right">
-              <select
-                name="package"
-                id="package"
-                value={formData.package}
-                onChange={handleChange}
-              >
-                <option value="">Select Package</option>
-                <option value="Elite">Elite</option>
-                <option value="Pro">Pro</option>
-                <option value="Standard">Standard</option>
-              </select>
-              <div className="discount">
+              
+                <div className="checkcontainer">
+                  {servicesList.map((service, index) => (
+                    <div key={index} className="serinput">
+                      <input
+                        type="checkbox"
+                        value={service}
+                        checked={formData.services.some(s => s.name === service)}
+                        onChange={handleCheckboxChange}
+                      />
+                      <label>{service}</label>
+                    </div>
+                  ))}
+                </div>
+                <div className="discount">
                 <input
                   type="text"
                   placeholder='Discount'
                   name='discount'
                   value={formData.discount}
-                  onChange={handleChange}
+                  onChange={(e) => setFormData({ ...formData, discount: e.target.value })}
                 />
               </div>
+
+            </div>
+            <div className="service1right">
+            {formData.services.map((service, index) => (
+                service.name && (
+                  <div key={index} className="service-details">
+                    <h5>{service.name}</h5>
+                    <div className="serviceselect">
+                      <input
+                        type="text"
+                        placeholder='Quantity'
+                        name='quantity'
+                        value={service.quantity}
+                        onChange={(e) => handleServiceChange(index, e)}
+                      />
+                      <select
+                        name="package"
+                        value={service.package}
+                        onChange={(e) => handleServiceChange(index, e)}
+                      >
+                        <option value="">Select Package</option>
+                        <option value="Elite">Elite</option>
+                        <option value="Pro">Pro</option>
+                        <option value="Standard">Standard</option>
+                      </select>
+                    </div>
+                  </div>
+                )
+              ))}
+              
             </div>
           </div>
           {error && <p className="error">{error}</p>}
