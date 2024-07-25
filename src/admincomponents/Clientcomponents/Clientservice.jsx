@@ -15,11 +15,35 @@ export const Clientservice = () => {
   const [clientName, setClientName] = useState(''); // State for client name
 
   const servicesList = [
-    "Social Media Marketing",
-    "SEO Optimization",
-    "Email Marketing",
-    "Content Creation",
-    "Web Development"
+    {
+      name: "Social Media Marketing",
+      packages: [
+        { name: "Elite", amount: 1000 },
+        { name: "Pro", amount: 800 },
+        { name: "Standard", amount: 600 }
+      ]
+    },
+    {
+      name: "Search Engine Optimization",
+      packages: [
+        { name: "Elite", amount: 900 },
+        { name: "Pro", amount: 700 },
+        { name: "Standard", amount: 500 }
+      ]
+    },
+    {
+      name: "Web Development",
+      packages: [
+        { name: "Static Plan", amount: 1200 },
+        { name: "Static Plus Plan", amount: 1400 },
+        { name: "Static Standard", amount: 1600 },
+        { name: "Standard Plan", amount: 1800 },
+        { name: "Standard Plus Plan", amount: 2000 },
+        { name: "Premium Plan", amount: 2200 },
+        { name: "Exclusive Plan", amount: 2400 },
+        { name: "Customised Plan", amount: 2600 }
+      ]
+    }
   ];
 
   useEffect(() => {
@@ -105,13 +129,21 @@ export const Clientservice = () => {
     return true;
   };
 
+  const getPackagePrice = (serviceName, packageName) => {
+    const service = servicesList.find(s => s.name === serviceName);
+    if (service) {
+      const selectedPackage = service.packages.find(p => p.name === packageName);
+      return selectedPackage ? selectedPackage.amount : '';
+    }
+    return '';
+  };
+
   if (!clientData && id) {
     return <div>Loading...</div>;
   }
 
   return (
     <div className='Clientservicemaincontainer'>
-    
       <div className="Clientservicecontainer">
         <form onSubmit={handleSubmit}>
           <div className="Clientservice-title">
@@ -124,20 +156,20 @@ export const Clientservice = () => {
             <div className="service1left">
               <h4>Services</h4>
               
-                <div className="checkcontainer">
-                  {servicesList.map((service, index) => (
-                    <div key={index} className="serinput">
-                      <input
-                        type="checkbox"
-                        value={service}
-                        checked={formData.services.some(s => s.name === service)}
-                        onChange={handleCheckboxChange}
-                      />
-                      <label>{service}</label>
-                    </div>
-                  ))}
-                </div>
-                <div className="discount">
+              <div className="checkcontainer">
+                {servicesList.map((service, index) => (
+                  <div key={index} className="serinput">
+                    <input
+                      type="checkbox"
+                      value={service.name}
+                      checked={formData.services.some(s => s.name === service.name)}
+                      onChange={handleCheckboxChange}
+                    />
+                    <label>{service.name}</label>
+                  </div>
+                ))}
+              </div>
+              <div className="discount">
                 <input
                   type="text"
                   placeholder='Discount'
@@ -146,10 +178,9 @@ export const Clientservice = () => {
                   onChange={(e) => setFormData({ ...formData, discount: e.target.value })}
                 />
               </div>
-
             </div>
             <div className="service1right">
-            {formData.services.map((service, index) => (
+              {formData.services.map((service, index) => (
                 service.name && (
                   <div key={index} className="service-details">
                     <h5>{service.name}</h5>
@@ -161,21 +192,25 @@ export const Clientservice = () => {
                         value={service.quantity}
                         onChange={(e) => handleServiceChange(index, e)}
                       />
-                      <select
-                        name="package"
-                        value={service.package}
-                        onChange={(e) => handleServiceChange(index, e)}
-                      >
-                        <option value="">Select Package</option>
-                        <option value="Elite">Elite</option>
-                        <option value="Pro">Pro</option>
-                        <option value="Standard">Standard</option>
-                      </select>
+                      <div className="package-select">
+                        <select
+                          name="package"
+                          value={service.package}
+                          onChange={(e) => handleServiceChange(index, e)}
+                        >
+                          <option value="">Select Package</option>
+                          {servicesList.find(s => s.name === service.name).packages.map((pkg, idx) => (
+                            <option key={idx} value={pkg.name}>{pkg.name}</option>
+                          ))}
+                        </select>
+                        <span className="package-price">
+                          {getPackagePrice(service.name, service.package)}
+                        </span>
+                      </div>
                     </div>
                   </div>
                 )
               ))}
-              
             </div>
           </div>
           {error && <p className="error">{error}</p>}

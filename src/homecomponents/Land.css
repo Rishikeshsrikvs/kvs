@@ -1,0 +1,23 @@
+.land1{
+    background-color: black;
+    height: 91vh;
+}
+.Land1{
+    
+    
+}
+.land1spilt{
+    display: flex;
+    width: 100%;
+
+}
+.land1left{
+    width: 60%;
+    
+}
+.land1left h1{
+    color: white;
+}
+.landright{
+    width: 40%;
+}

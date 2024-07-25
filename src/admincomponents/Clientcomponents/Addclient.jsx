@@ -12,9 +12,11 @@ export const Addclient = () => {
     email: '',
     gstNo: '',
     phone: '',
-    adharNumber: ''
+    adharNumber: '',
+    clientLogo: '' // To store the S3 key of the uploaded logo
   });
   const [errors, setErrors] = useState({});
+  const [logo, setLogo] = useState(null); // State to manage the logo file
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,10 +24,14 @@ export const Addclient = () => {
       ...formData,
       [name]: value
     });
-    
+   
     // Validate field on change
     validateField(name, value);
   };
+
+  // const handleLogo = (e) => {
+  //   setLogo(e.target.files[0]); // Update the logo state with the selected file
+  // };
 
   const validateField = (name, value) => {
     let newErrors = { ...errors };
@@ -56,12 +62,39 @@ export const Addclient = () => {
     setErrors(newErrors);
   };
 
+  // const handleLogoUpload = async () => {
+  //   const formData = new FormData();
+  //   formData.append('file', logo);
+
+  //   try {
+  //     const response = await axios.post('http://localhost:3500/upload-logo', formData, {
+  //       headers: {
+  //         'Content-Type': 'multipart/form-data'
+  //       }
+  //     });
+  //     return response.data.key; // Return the S3 key from the response
+  //   } catch (error) {
+  //     setErrors({ submit: 'Error uploading logo.' });
+  //     console.error('Error uploading logo:', error);
+  //     return null;
+  //   }
+  // };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
 
+    let clientLogoKey = '';
+    if (logo) {
+      clientLogoKey = await handleLogoUpload();
+      if (!clientLogoKey) return; // If logo upload failed, exit the function
+    }
+
     try {
-      const response = await axios.post('http://localhost:3500/clients', formData);
+      const response = await axios.post('http://localhost:3500/clients', {
+        ...formData,
+        clientLogo: clientLogoKey // Include the S3 key for the logo in the form data
+      });
       if (response.status === 201) {
         navigate(`/admin/response&package/${response.data.id}`);
       } else {
@@ -75,7 +108,7 @@ export const Addclient = () => {
 
   const validateForm = () => {
     const newErrors = {};
-    const { clientName, location, email, gstNo, phone, adharNumber, paymentMode, paymentRefNo } = formData;
+    const { clientName, location, email, gstNo, phone, adharNumber } = formData;
 
     if (!clientName) newErrors.clientName = 'Client Name is required.';
     if (!location) newErrors.location = 'Location is required.';
@@ -84,12 +117,9 @@ export const Addclient = () => {
     if (!phone || phone.length !== 10) newErrors.phone = 'Phone Number should be 10 digits.';
     if (!adharNumber || adharNumber.length !== 12) newErrors.adharNumber = 'Aadhar Number should be 12 digits.';
 
-
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
-
-  const isFormValid = Object.keys(errors).length === 0;
 
   return (
     <div className="addclientmaincontainer">
@@ -120,7 +150,12 @@ export const Addclient = () => {
                   <img src={upload} alt="" /> <h5>Upload</h5>
                 </span>
               </label>
-              <input id="logo-upload" type="file" className="item" />
+              <input
+                id="logo-upload"
+                type="file"
+                className="item"
+                // onChange={handleLogo}
+              />
             </div>
             <div className="inputcontainer">
               <input

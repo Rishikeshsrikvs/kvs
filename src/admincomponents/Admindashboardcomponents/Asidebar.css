@@ -67,7 +67,7 @@
     
     
     background-color: rgb(224, 216, 216);
-    color: white;
+   
   }
   .listcontainer li a:focus{
     background: linear-gradient(90deg,#D308F4,#264AE0);

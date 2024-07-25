@@ -95,3 +95,6 @@
 .downloadcon span{
     color: white;
 }
+#gstlabel,#discountlabel,#totallabel{
+    text-align: right;
+}

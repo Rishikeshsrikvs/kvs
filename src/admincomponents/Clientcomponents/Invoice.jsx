@@ -30,42 +30,56 @@ export const Invoice = () => {
 
   const servicePrice = 1000;
   const gstRate = 0.18;
-  const totalPrice = servicePrice * clientData.services.length;
+
+  // Calculate total price based on quantity
+  const totalPrice = clientData.services.reduce((acc, service) => {
+    return acc + (servicePrice * service.quantity);
+  }, 0);
+
+  // Calculate GST amount
   const gstAmount = totalPrice * gstRate;
-  const finalAmount = totalPrice + gstAmount;
 
-const downloadPDF = () => {
-  // Hide the download button
-  const downloadButton = document.querySelector('.downloadcon');
-  if (downloadButton) downloadButton.style.display = 'none';
+  // Calculate price including GST
+  const totalPriceWithGst = totalPrice + gstAmount;
 
-  const input = document.getElementById('invoice-content');
-  html2canvas(input).then((canvas) => {
-    const imgData = canvas.toDataURL('image/png');
-    const pdf = new jsPDF('p', 'mm', 'a4');
-    const imgWidth = 210; // A4 width in mm
-    const pageHeight = 295; // A4 height in mm
-    const imgHeight = canvas.height * imgWidth / canvas.width;
-    let heightLeft = imgHeight;
-    let position = 0;
-    
-    pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-    heightLeft -= pageHeight;
+  // Calculate discount amount
+  const discountPercentage = parseFloat(clientData.discount) / 100 || 0; // Convert percentage to decimal
+  const discountAmount = totalPriceWithGst * discountPercentage;
 
-    while (heightLeft >= 0) {
-      position -= pageHeight;
-      pdf.addPage();
+  // Final amount after discount
+  const finalAmount = totalPriceWithGst - discountAmount;
+
+  const downloadPDF = () => {
+    // Hide the download button
+    const downloadButton = document.querySelector('.downloadcon');
+    if (downloadButton) downloadButton.style.display = 'none';
+
+    const input = document.getElementById('invoice-content');
+    html2canvas(input).then((canvas) => {
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF('p', 'mm', 'a4');
+      const imgWidth = 210; // A4 width in mm
+      const pageHeight = 295; // A4 height in mm
+      const imgHeight = canvas.height * imgWidth / canvas.width;
+      let heightLeft = imgHeight;
+      let position = 0;
+      
       pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
       heightLeft -= pageHeight;
-    }
 
-    pdf.save('invoice.pdf');
+      while (heightLeft >= 0) {
+        position -= pageHeight;
+        pdf.addPage();
+        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+      }
 
-    // Show the download button again
-    if (downloadButton) downloadButton.style.display = 'block';
-  });
-};
+      pdf.save('invoice.pdf');
 
+      // Show the download button again
+      if (downloadButton) downloadButton.style.display = 'block';
+    });
+  };
 
   const today = new Date();
   const issueDate = today.toLocaleDateString();
@@ -122,29 +136,25 @@ const downloadPDF = () => {
                   <td>{service.name}</td>
                   <td>{service.quantity}</td>
                   <td>{service.package}</td>
-                  <td>{clientData.discount}</td>
-                  <td>{servicePrice}</td>
+                  <td>{(servicePrice * service.quantity).toFixed(2)}</td>
                 </tr>
               ))}
               <tr>
-                <td colSpan={5} id='discountlable'>GST (18%)</td>
+                <td colSpan={4} id='gstlabel'>GST (18%)</td>
                 <td>{gstAmount.toFixed(2)}</td>
               </tr>
               <tr>
-                <td colSpan={5} id='gstlable'>GST (18%)</td>
-                <td>{gstAmount.toFixed(2)}</td>
+                <td colSpan={4} id='discountlabel'>Discount ({clientData.discount}%)</td>
+                <td>{discountAmount.toFixed(2)}</td>
               </tr>
               <tr>
-                <td colSpan={5} id='totallable'>Total</td>
+                <td colSpan={4} id='totallabel'>Total</td>
                 <td>{finalAmount.toFixed(2)}</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <div className="paymentdetails">
-          <h4>Payment Mode: {clientData.paymentMode}</h4>
-          <h4>Payment Ref No: {clientData.paymentRefNo}</h4>
-        </div>
+        
         <div className="invoicefoot">
           <div className="note">
             <p>Disclaimer: No refunds are provided for packages that are purchased.</p>

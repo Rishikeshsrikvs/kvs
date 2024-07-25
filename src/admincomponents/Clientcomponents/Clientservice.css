@@ -44,7 +44,7 @@
     display: flex;
     margin-bottom: 5px;
     width: 50%;
-    
+
     margin-bottom: 10px;
     align-items: center;
 }
@@ -61,6 +61,17 @@
     display: flex;
     gap: 2%;
 }
+.package-select {
+    display: flex;
+    align-items: center;
+  }
+  
+  .package-price {
+    margin-left: 10px;
+    font-weight: bold;
+    color: #333;
+  }
+  
 .service-details h5{
     margin-bottom: 3px;
 }

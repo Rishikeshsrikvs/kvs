@@ -75,7 +75,7 @@
       "services": [
         {
           "name": "Social Media Marketing",
-          "quantity": "12",
+          "quantity": "4",
           "package": "Pro"
         },
         {
@@ -151,7 +151,20 @@
       "email": "we23@fmail.com",
       "gstNo": "sadfsdfsd1234",
       "phone": "1231343453",
-      "adharNumber": "213134452345"
+      "adharNumber": "213134452345",
+      "services": [
+        {
+          "name": "Social Media Marketing",
+          "quantity": "4",
+          "package": "Pro"
+        },
+        {
+          "name": "Web Development",
+          "quantity": "4",
+          "package": "Pro"
+        }
+      ],
+      "discount": "23"
     },
     {
       "id": "eb13",
@@ -161,6 +174,39 @@
       "gstNo": "123458sjjeu3",
       "phone": "1234567895",
       "adharNumber": "123456786453"
+    },
+    {
+      "id": "ec06",
+      "clientName": "wedf",
+      "location": "wer",
+      "email": "ajhsghh@gmail.com",
+      "gstNo": "1233424df3345",
+      "phone": "1231423445",
+      "adharNumber": "123478346546",
+      "clientLogo": "",
+      "services": [
+        {
+          "name": "Social Media Marketing",
+          "quantity": "4",
+          "package": "Elite"
+        },
+        {
+          "name": "SEO Optimization",
+          "quantity": "4",
+          "package": "Pro"
+        }
+      ],
+      "discount": "23"
+    },
+    {
+      "id": "4fa2",
+      "clientName": "were",
+      "location": "chennai",
+      "email": "asd@gdf.fg",
+      "gstNo": "1234234dfgfd",
+      "phone": "2344555667",
+      "adharNumber": "vsdfgdf42534",
+      "clientLogo": ""
     }
   ],
   "feedbacks": [
@@ -203,7 +249,7 @@
       "title": "Project Three",
       "description": "Description for project three.",
       "image": "https://source.unsplash.com/random",
-      "favorite": false
+      "favorite": true
     },
     {
       "id": "4",
@@ -217,7 +263,7 @@
       "title": "Project Five",
       "description": "Description for project five.",
       "image": "https://source.unsplash.com/random",
-      "favorite": false
+      "favorite": true
     }
   ],
   "jobs": [
