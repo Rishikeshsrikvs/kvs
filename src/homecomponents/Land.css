@@ -1,23 +1,168 @@
-.land1{
-    background-color: black;
-    height: 91vh;
+.landmaincontainer{
+    background-color: #141414;
+    color: white;
 }
-.Land1{
+.land1{
     
+    height: auto;
+}
+.land1{
+    padding: 2%;
     
 }
 .land1spilt{
     display: flex;
     width: 100%;
+    height: 100%;
 
 }
 .land1left{
     width: 60%;
-    
+    padding-top: 10vh;
+    position: relative;
+    background-image:url('./../assets/images/landback.png') ;
 }
 .land1left h1{
     color: white;
+    font-size:500%;
+    text-align: center;
 }
-.landright{
+.land1left .color{
+    background: -webkit-linear-gradient(360deg,#ff99a2,#e406b5,#35088A);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.land1left p{
+    color: white;
+    margin-left: 6%;
+    text-align: center;
+    line-height: 30px;
+    font-size: 120%;
+    margin-top: 70px;
+}
+.land1left span{
+  
+}
+.Enquirespan {
+    display: inline-block;
+    
+    
+    color: black;
+    
+    
+    
+    position: absolute;
+    text-align: center;
+    
+    
+    right: -10%;
+    bottom: 0;
+     /* Adjust this to center the text vertically */
+}
+
+
+
+.land1right{
     width: 40%;
+    
+    text-align: center;
+}
+.land1right img{
+    width: 500px;
+}
+.land1yearcontainer{
+    color: white;
+    display: flex;
+    padding: 2% 10%;
+    
+    justify-content: space-between;
+    font-size: 200%;
+
+}
+.yearssplit h1,.yearssplit h4{
+    text-align: center;
+}
+.image {  
+    animation-name: image;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+ 
+@keyframes image {
+    0% { transform: translate(0,  0px); }
+    50%  { transform: translate(0, 15px); }
+    100%   { transform: translate(0, -0px); }    
+}
+
+.land1clientlogocontainer{
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    
+   
+}
+
+.scrolling-wrapper {
+    
+    animation: marquee 20s linear infinite;
+}
+
+.scrolling {
+    display: inline-block;
+    padding: 0px 20%;
+    padding-right: 30px; /* Space between repeated elements */
+}
+.scrolling img{
+    width: 160px;
+}
+@keyframes marquee {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+
+/* ------------------- */
+
+.landaboutcontainer{
+    display: flex;
+    height: 100vh;
+    font-size: 200%;
+   padding-top: 20px;
+    color: white;
+}
+.landaboutleft{
+    width: 50%;
+    background-image:url('./../assets/images/aboutlandback.png') ;
+    display: flex;
+    background-position: 0px 20px ;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    flex-direction: column;
+    height: 100%;
+    align-items: left;
+    justify-content: center;
+    gap: 4%;
+    padding-left: 8%;
+}
+.landaboutbtn{
+    width: 240px;
+    height: 70px;
+    font-size: 70%;
+    
+    background-color: white;
+    color: blue;
+    border-radius: 40px;
+    border: none;
+
+}
+.landaboutright{
+    width: 50%;
+    display: flex;
 }
