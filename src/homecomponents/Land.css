@@ -82,7 +82,7 @@
 .yearssplit h1,.yearssplit h4{
     text-align: center;
 }
-.image {  
+.imagelandright {  
     animation-name: image;
     animation-duration: 3s;
     animation-iteration-count: infinite;
@@ -213,6 +213,13 @@ flex-direction: row-reverse;
         transform: scale(0.6) ;
     }
 }
+
+
+/* ------------------------------ */
+
+
+
+
 .landservicescontainer{
     background:linear-gradient(145deg,#ff99a2,#e406b5,#35088A);
     height: 100vh;
@@ -223,7 +230,7 @@ flex-direction: row-reverse;
     
     text-align: center;
     padding-top: 30px;
-    height: 180px;
+    height: 140px;
     position: relative;
     border: 2px solid black;
 }
@@ -267,7 +274,7 @@ flex-direction: row-reverse;
 }
 .servicetitleani{
     font-size: 900%;
-    margin-top: 6vh;
+    margin-top: 3vh;
 }
 .serviceard{
     display: flex;
@@ -332,27 +339,283 @@ flex-direction: row-reverse;
 .landprojectcontainer{
     height: 100vh;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    
 
 }
 .landprojecttitle{
     display: flex;
-    margin-top: 30px;
+   border: 2px solid white;
+    height: 30vh;
+    padding: 2%;
+    align-items: center;
+    
+    justify-content: space-between;
 }
 .projecttitle{
     width: 60%;
+   
+    
 
 }
 .projecttitle h1{
     font-size: 300%;
+    font-weight: lighter;
+    word-spacing: 5px;
+}
+.projecttitle h1 span{
+    background: linear-gradient(90deg,#ff99a2,#e406b5);
+    background-position: bottom;
+    background-size:100% 40% ;
+    background-repeat: no-repeat;
+    padding: 0px 5px;
 }
 .projectbtns{
     width: 40%;
+    
+    text-align: center;
+    
+
 }
 .allprjt button{
-    padding:10px 20px;
+    padding:13px 25px;
     border-radius: 20px;
+    background-color: #2C313F;
+    border: none;
+    color: white;
+    font-size: 110%;
 }
 .arrowbtns{
-    display: flex;
+    margin-top: 10px;
+}
+.arrowbtns button{
+   margin-left: 10px;
+   margin-right: 10px;
+   padding: 8px 40px;
+   border-radius: 30px;
     
+}
+.landprojectcardcontainer{
+   border: 2px solid red;
+    height: 70vh;
+    padding: 2%;
+    display: flex;
+    justify-content: space-between;
+
+   
+}
+.landprojectcard {
+    background-color: hsla(210, 20%, 90%, 1);
+    color: black;
+    display: flex;
+    padding: 2%;
+    border-radius: 2%;
+    width: 310px;
+    flex-direction: column;
+    transform-origin: center bottom;
+    transition: transform 0.3s ease;/* Set transform origin for bounce effect */
+}
+
+
+
+.landprojectcard:hover {
+    transform: scale(1.04);
+}
+    /* .landprojectcard {
+    background-color: hsla(210, 20%, 90%, 1);
+    color: black;
+    display: flex;
+    padding: 2%;
+    border-radius: 2%;
+    width: 330px;
+    flex-direction: column;
+    transform-origin: center bottom; 
+    transition: transform 0.3s ease; 
+}
+
+@keyframes bounce {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.landprojectcard:hover {
+    animation: bounce 0.5s ease;
+}  */
+
+
+.landprojectimagecon{
+    height: 45%;
+
+}
+.landprojectdetail{
+    text-align: center;
+    padding: 2%;
+}
+.landprojectdetail h1{
+    line-height:110%;
+    margin-bottom: 10px;
+}
+.landprojectdetail p{
+    padding: 0px 40px;
+}
+
+/* ---------------- */
+
+.landwhyuscontainer {
+    height: 100vh;
+    display: flex;
+    color: black;
+    background-color: white;
+}
+
+.wytextcontainer {
+    width: 4%;
+    
+    position: relative; /* Added for positioning */
+}
+
+.wytextcontainer span {
+    position: absolute;
+    top:35%; /* Align to the bottom */
+    transform-origin: bottom left;
+    transform: rotate(-90deg) translateY(100%);
+    background-color: black;
+    color: white;
+    font-size: 200%;
+    width: 250px;
+    font-weight: bolder;
+    text-align: center;
+    padding: 12px; /* Optional: Add padding for better appearance */
+}
+
+.wymaincon {
+    flex: 1; /* Fill remaining space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.wytitle{
+   
+    
+    
+}
+.wytitle >h1{
+    font-size: 350%;
+    letter-spacing: 2px;
+}
+.wytitle2{
+    display: inline-block;
+    padding: 0 2px;
+    margin-top: 5px;
+    color: white;
+    padding-right: 10px;
+    background-color:#264AE0 ;
+}
+.wygrid{
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 2%;
+    padding: 2% 12%;
+    border: 2px solid red;
+}
+.wyleft{
+    background-color:#141414;
+    color: white;
+    border-radius: 10px;
+}
+.wyleft{
+    width: 38%;
+    display: flex;
+    padding: 5px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.wylupimg{
+    height: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.wylupimg img {
+    width: 140px; /* Set the initial width */
+    animation: rotateImage 6s linear infinite; /* Rotate the image infinitely */
+}
+
+@keyframes rotateImage {
+    from {
+        transform: rotate(0deg); /* Starting rotation angle */
+    }
+    to {
+        transform: rotate(360deg); /* Ending rotation angle (full circle) */
+    }
+}
+.wyltext{
+    height: 30%;
+}
+.wyldownim{
+
+}
+.wyright{
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.wyrightup{
+    height: 65%;
+    background-size: 100% 100%;
+    background-image:url('./../assets/images/ws1.png') ;
+}
+.wyrightbottom{
+    height: 33%;
+    background:url('./../assets/images/ws2.png') ;
+    background-size: 100% 100%;
+
+}
+
+
+/* ------------------ */
+
+.landfeedbackmain{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+.landfeedbacktitle{
+    height: 30%;
+    ;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}
+.landfeedbacktitle > h1{
+    font-size: 400%
+}
+.landfeedbacktitle > p{
+    font-size: 160%;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: lighter;
+}
+.landfeedslidercontainer{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

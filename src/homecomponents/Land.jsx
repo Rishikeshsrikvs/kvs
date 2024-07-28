@@ -6,6 +6,8 @@ import cube from './../assets/images/cube.png';
 import logo from './../assets/images/logo.png';
 import { Iconcontainer } from './landcomponents/Iconcontainer';
 import landback from './../assets/images/landback.png';
+import { Feddbackslider } from './landcomponents/Feddbackslider';
+import wsrotate from './../assets/images/ws3.png';
 export const Land = () => {
     const duration = 7000; // Animation duration in milliseconds
 
@@ -20,7 +22,7 @@ export const Land = () => {
                         <span className='Enquirespan'><CircularText/></span>
                     </div>
                     <div className="land1right">
-                        <img src={cube}  className='image' alt="Cube" />
+                        <img src={cube}  className='imagelandright' alt="Cube" />
                     </div>
                 </div>
                 <div className="land1yearcontainer">
@@ -110,7 +112,72 @@ export const Land = () => {
                             </div>
                         </div>
                     </div>
+                    <div className='landprojectcardcontainer'>
+                        <div className="landprojectcard">
+                            <div className="landprojectimagecon"><img  className="landprojectimg" src="" alt="" /></div>
+                        
+                            <div className="landprojectdetail">
+                                <h1>Website design developement</h1>
+                                <p> we provide visual designs and mobile and we interface developement</p>
+                            </div>
+                        </div>
+                        <div className="landprojectcard">
+                            <div className="landprojectimagecon"><img  className="landprojectimg" src="" alt="" /></div>
+                        
+                            <div className="landprojectdetail">
+                                <h1>Website design developement</h1>
+                                <p> we provide visual designs and mobile and we interface developement</p>
+                            </div>
+                        </div>
+                        <div className="landprojectcard">
+                            <div className="landprojectimagecon"><img  className="landprojectimg" src="" alt="" /></div>
+                        
+                            <div className="landprojectdetail">
+                                <h1>Website design developement</h1>
+                                <p> we provide visual designs and mobile and we interface developement</p>
+                            </div>
+                        </div>
+                        <div className="landprojectcard">
+                            <div className="landprojectimagecon"><img  className="landprojectimg" src="" alt="" /></div>
+                        
+                            <div className="landprojectdetail">
+                                <h1>Website design developement</h1>
+                                <p> we provide visual designs and mobile and we interface developement</p>
+                            </div>
+                        </div>
+                    </div>
 
+                </div>
+                <div className="landwhyuscontainer">
+                    <div className="wytextcontainer">
+                        <span>Why us</span>
+                    </div>
+                    <div className="wymaincon">
+                        <div className="wytitle">
+                            <h1 className='wytitle1'>Bringing Your Ideas In </h1>
+                            <h1 className='wytitle2'>Exceptional Ways</h1>
+                        </div>
+                        <div className="wygrid">
+                            <div className="wyleft">
+                                <div className="wylupimg"><img src={wsrotate} alt="" /></div>
+                                <div className="wyltext"><h2>Fulfilling Your Requirements With Precision</h2></div>
+                                <div className="wyldownimg"><img src="" alt="" /></div>
+                            </div>
+                            <div className="wyright">
+                                <div className="wyrightup"></div>
+                                <div className="wyrightbottom"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="landfeedbackmain">
+                    <div className="landfeedbacktitle">
+                        <h1>What do we do exactly?</h1>
+                        <p>We only do 3 things. But we do them really well.</p>
+                    </div>
+                   <div className="landfeedslidercontainer">
+                   <Feddbackslider/>
+                   </div>
                 </div>
             
         </div>
