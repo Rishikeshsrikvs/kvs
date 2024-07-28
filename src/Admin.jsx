@@ -1,5 +1,8 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+
+import { AuthProvider } from './admincomponents/Auth/AuthContext';
+import { Adminlogin } from './admincomponents/Adminlogin';
 import ProtectedRoute from './admincomponents/Auth/ProtectedRoute'; // Adjust path as necessary
 import { Admindashboard } from './admincomponents/Admindashboard';
 import { Addclient } from './admincomponents/Clientcomponents/Addclient';
@@ -12,17 +15,27 @@ import { Careerresponse } from './admincomponents/Careercomponents/Careerrespons
 
 export const Admin = () => {
   return (
-    <ProtectedRoute>
+    <AuthProvider>
       <Routes>
-        <Route path="dashboard/*" element={<Admindashboard />} />
-        <Route path="add" element={<Addclient />} />
-        <Route path="createblog" element={<Blogedit />} />
-        <Route path="careerpost" element={<Careerpost />} />
-        <Route path="careerview" element={<Careerview />} />
-        <Route path="invoice/:id" element={<Invoice />} />
-        <Route path="response/:jobId" element={<Careerresponse />} />
-        <Route path="response&package/:id" element={<Clientservice />} />
+        <Route path="login" element={<Adminlogin />} />
+        <Route
+          path="/*"
+          element={
+            <ProtectedRoute>
+              <Routes>
+                <Route path="dashboard/*" element={<Admindashboard />} />
+                <Route path="add" element={<Addclient />} />
+                <Route path="createblog" element={<Blogedit />} />
+                <Route path="careerpost" element={<Careerpost />} />
+                <Route path="careerview" element={<Careerview />} />
+                <Route path="invoice/:id" element={<Invoice />} />
+                <Route path="response/:jobId" element={<Careerresponse />} />
+                <Route path="response&package/:id" element={<Clientservice />} />
+              </Routes>
+            </ProtectedRoute>
+          }
+        />
       </Routes>
-    </ProtectedRoute>
+    </AuthProvider>
   );
 };

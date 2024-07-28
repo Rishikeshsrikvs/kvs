@@ -13,78 +13,55 @@
   ],
   "clients": [
     {
-      "id": "67890",
-      "clientName": "Beta LLC",
-      "phone": "987-654-3210",
-      "email": "info@betallc.com",
-      "location": "456 Elm St, Metropolis, NY",
-      "valid": false,
+      "id": "ec06",
+      "clientName": "wedf",
+      "location": "wer",
+      "email": "ajhsghh@gmail.com",
+      "gstNo": "1233424df3345",
+      "phone": "1231423445",
+      "adharNumber": "123478346546",
+      "clientLogo": "",
       "services": [
-        "Content Creation",
-        "Web Development"
+        {
+          "name": "Social Media Marketing",
+          "quantity": "4",
+          "package": "Elite"
+        },
+        {
+          "name": "SEO Optimization",
+          "quantity": "4",
+          "package": "Pro"
+        }
       ],
-      "quality": "Medium",
-      "package": "Standard",
-      "discount": "5%",
-      "paymentMode": "Cash",
-      "paymentRefNo": "EFGH5678"
-    },
-    {
-      "id": "a8d9",
-      "clientName": "Harish",
-      "location": "Chennai",
-      "email": "Harish@maiul.com",
-      "gstNo": "78324623789",
-      "phone": "4872789",
-      "adharNumber": "98349884984",
-      "paymentMode": "Online",
-      "paymentRefNo": "823453546",
-      "services": [
-        "Social Media Marketing",
-        "Email Marketing"
-      ],
-      "quality": "zxcz",
-      "package": "Pro",
       "discount": "23"
     },
     {
-      "id": "401e",
-      "clientName": "jeh",
-      "location": "vdeedf",
-      "email": "we23@fmail.com",
-      "gstNo": "fvrfgf",
-      "phone": "huhi",
-      "adharNumber": "effgef",
-      "paymentMode": "Cash",
-      "paymentRefNo": "xcsf",
-      "services": [
-        "Social Media Marketing",
-        "Email Marketing",
-        "Web Development"
-      ],
-      "quality": "zxcz",
-      "package": "Pro",
-      "discount": "xzczxv"
+      "id": "4fa2",
+      "clientName": "were",
+      "location": "chennai",
+      "email": "asd@gdf.fg",
+      "gstNo": "1234234dfgfd",
+      "phone": "2344555667",
+      "adharNumber": "vsdfgdf42534",
+      "clientLogo": ""
     },
     {
-      "id": "8538",
-      "clientName": "jsdhfjwww",
-      "location": "wdfwe",
-      "email": "we23@fmail.com",
-      "gstNo": "werwe",
-      "phone": "wertwe",
-      "adharNumber": "wefwee",
-      "paymentMode": "Online",
-      "paymentRefNo": "werwer",
+      "id": "cc04",
+      "clientName": "hgh",
+      "location": "chennai",
+      "email": "sgg@hsh.dh",
+      "gstNo": "24356236356354",
+      "phone": "5353636754",
+      "adharNumber": "523462733527",
+      "clientLogo": "",
       "services": [
-        "Social Media Marketing",
-        "SEO Optimization",
-        "Content Creation",
-        "Web Development"
+        {
+          "name": "Social Media Marketing",
+          "quantity": "4",
+          "package": "Elite"
+        }
       ],
-      "quality": "sdffd",
-      "package": "Pro",
-      "discount": "23"
+      "discount": "0"
     }
   ],
   "feedbacks": [
@@ -95,7 +72,7 @@
       "clientLocation": "New York",
       "clientImage": "path_to_image",
       "clientLogo": "logo",
-      "status": "true"
+      "status": "false"
     },
     {
       "id": "2",
@@ -104,7 +81,7 @@
       "clientLocation": "Los Angeles",
       "clientImage": "path_to_image",
       "clientLogo": "logo",
-      "status": "true"
+      "status": "false"
     }
   ],
   "projects": [
@@ -134,7 +111,7 @@
       "title": "Project Four",
       "description": "Description for project four.",
       "image": "https://source.unsplash.com/random",
-      "favorite": true
+      "favorite": false
     },
     {
       "id": "5",

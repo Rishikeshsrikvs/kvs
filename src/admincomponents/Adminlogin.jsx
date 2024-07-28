@@ -6,7 +6,7 @@ import logo from './../assets/images/logo.png';
 import './Adminlogin.css';
 
 export const Adminlogin = () => {
-  const { login } = useAuth();
+  const { login } = useAuth(); // This should work if AuthContext is properly set up
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -19,13 +19,11 @@ export const Adminlogin = () => {
     setError('');
 
     try {
-      // Fetch users with the given username
       const response = await axios.get(`http://localhost:3500/users?username=${username}`);
       const users = response.data;
-      // Check if user exists and password matches
       if (users.length > 0 && users[0].password === password) {
-        login(); // Simulate login by calling the login function
-        navigate("/admin/dashboard/clients");
+        login();
+        navigate("/admin/dashboard"); // Adjust path as needed
       } else {
         setError('Invalid credentials');
       }

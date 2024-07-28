@@ -30,11 +30,30 @@ export const Invoice = () => {
 
   const servicePrice = 1000;
   const gstRate = 0.18;
-  const totalPrice = servicePrice * clientData.services.length;
+
+  // Calculate total price based on quantity
+  const totalPrice = clientData.services.reduce((acc, service) => {
+    return acc + (servicePrice * service.quantity);
+  }, 0);
+
+  // Calculate GST amount
   const gstAmount = totalPrice * gstRate;
-  const finalAmount = totalPrice + gstAmount;
+
+  // Calculate price including GST
+  const totalPriceWithGst = totalPrice + gstAmount;
+
+  // Calculate discount amount
+  const discountPercentage = parseFloat(clientData.discount) / 100 || 0; // Convert percentage to decimal
+  const discountAmount = totalPriceWithGst * discountPercentage;
+
+  // Final amount after discount
+  const finalAmount = totalPriceWithGst - discountAmount;
 
   const downloadPDF = () => {
+    // Hide the download button
+    const downloadButton = document.querySelector('.downloadcon');
+    if (downloadButton) downloadButton.style.display = 'none';
+
     const input = document.getElementById('invoice-content');
     html2canvas(input).then((canvas) => {
       const imgData = canvas.toDataURL('image/png');
@@ -56,6 +75,9 @@ export const Invoice = () => {
       }
 
       pdf.save('invoice.pdf');
+
+      // Show the download button again
+      if (downloadButton) downloadButton.style.display = 'block';
     });
   };
 
@@ -102,8 +124,8 @@ export const Invoice = () => {
               <tr>
                 <th>No</th>
                 <th>List of Package</th>
-                <th>Quality</th>
-                <th>Discount</th>
+                <th>Quantity</th>
+                <th>Package</th>
                 <th>Price</th>
               </tr>
             </thead>
@@ -111,27 +133,28 @@ export const Invoice = () => {
               {clientData.services.map((service, index) => (
                 <tr key={index}>
                   <td>{index + 1}</td>
-                  <td>{service}</td>
-                  <td>{clientData.quality}</td>
-                  <td>{clientData.discount}</td>
-                  <td>{servicePrice}</td>
+                  <td>{service.name}</td>
+                  <td>{service.quantity}</td>
+                  <td>{service.package}</td>
+                  <td>{(servicePrice * service.quantity).toFixed(2)}</td>
                 </tr>
               ))}
               <tr>
-                <td colSpan={4} id='gstlable'>GST (18%)</td>
-                <td>{gstAmount}</td>
+                <td colSpan={4} id='gstlabel'>GST (18%)</td>
+                <td>{gstAmount.toFixed(2)}</td>
               </tr>
               <tr>
-                <td colSpan={4} id='totallable'>Total</td>
-                <td>{finalAmount}</td>
+                <td colSpan={4} id='discountlabel'>Discount ({clientData.discount}%)</td>
+                <td>{discountAmount.toFixed(2)}</td>
+              </tr>
+              <tr>
+                <td colSpan={4} id='totallabel'>Total</td>
+                <td>{finalAmount.toFixed(2)}</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <div className="paymentdetails">
-          <h4>Payment Mode: {clientData.paymentMode}</h4>
-          <h4>Payment Ref No: {clientData.paymentRefNo}</h4>
-        </div>
+        
         <div className="invoicefoot">
           <div className="note">
             <p>Disclaimer: No refunds are provided for packages that are purchased.</p>

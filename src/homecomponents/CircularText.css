@@ -1,0 +1,39 @@
+.circularcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    margin: 0;
+    padding: 0;
+}
+
+.circularp {
+    height: 160px;
+    width: 160px;
+    position: relative;
+    animation: effect 10s linear infinite;
+   
+    text-align: center;
+    border-radius: 50%;
+}
+
+@keyframes effect {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.circularspan {
+    position: absolute;
+    left: 50%;
+    transform-origin: 0px 80px;
+    transform-style: flat;
+    
+    text-transform: uppercase;
+    font-weight: 900;
+    color:white;
+    word-spacing: 10px;
+}
