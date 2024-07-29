@@ -6,7 +6,7 @@ import cube from './../assets/images/cube.png';
 import logo from './../assets/images/logo.png';
 import { Iconcontainer } from './landcomponents/Iconcontainer';
 import landback from './../assets/images/landback.png';
-import { Feddbackslider } from './landcomponents/Feddbackslider';
+import Feedbacklandslider from './landcomponents/Feedbacklandslider';
 import wsrotate from './../assets/images/ws3.png';
 export const Land = () => {
     const duration = 7000; // Animation duration in milliseconds
@@ -176,7 +176,7 @@ export const Land = () => {
                         <p>We only do 3 things. But we do them really well.</p>
                     </div>
                    <div className="landfeedslidercontainer">
-                   <Feddbackslider/>
+                   <Feedbacklandslider/>
                    </div>
                 </div>
             

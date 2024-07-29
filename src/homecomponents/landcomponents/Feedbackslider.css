@@ -1,0 +1,61 @@
+/* Feedbackslider.css */
+.maincontainer {
+    padding: 20px;
+  }
+  
+  .title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .slider {
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  .slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .slide {
+    flex: 0 0 50%; /* Two cards per screen */
+    box-sizing: border-box;
+    padding: 10px;
+  }
+  
+  .feedbackcard {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 60px;
+    text-align: center;
+    height: 270px;
+    background-color: #fff;
+    color: black;
+  }
+  
+  .feedback {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .clientcontainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .client {
+    display: flex;
+    align-items: center;
+  }
+  
+  .client img {
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .clientlogo {
+    font-size: 20px;
+  }
+  
