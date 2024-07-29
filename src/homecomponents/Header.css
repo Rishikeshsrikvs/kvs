@@ -1,42 +1,66 @@
-*{
+/* Header.css */
+* {
     box-sizing: border-box;
-    margin: 0%;
+    margin: 0;
     padding: 0;
 }
-a{
+
+a {
     text-decoration: none;
     color: white;
 }
-li{
+
+li {
     list-style-type: none;
 }
-.navbar-container{
-    background-color: black;
+
+.navbar-container {
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    backdrop-filter: blur(10px); /* Blur effect */
     display: flex;
-    
     align-items: center;
     padding: 5px 2%;
     justify-content: space-between;
+    transition: top 0.4s ease; /* Smooth transition for hiding/showing */
+    position: fixed; /* Keep the navbar fixed at the top */
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure the navbar stays on top of other content */
 }
-.navbar-logo{
+
+.navbar-logo {
     width: 40%;
 }
-.navbar-logo > img{
+
+.navbar-logo > img {
     width: 150px;
 }
-.navcontainer{
+
+.navcontainer {
     width: 40%;
 }
-.navul{
+
+.navul {
     display: flex;
     gap: 1%;
     width: 100%;
     justify-content: space-around;
-    
 }
-.navul li a{
+
+.navul li a {
     font-size: 90%;
 }
-.navul li a:hover{
+
+.navul li a:hover {
     color: #FF99A2;
+}
+
+/* Hidden state for the navbar */
+.navbar-container.hidden {
+    top: -100px; /* Adjust this value based on the height of your navbar */
+}
+
+/* Visible state for the navbar */
+.navbar-container.visible {
+    top: 0;
 }

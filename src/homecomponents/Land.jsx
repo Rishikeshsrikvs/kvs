@@ -7,7 +7,12 @@ import logo from './../assets/images/logo.png';
 import { Iconcontainer } from './landcomponents/Iconcontainer';
 import landback from './../assets/images/landback.png';
 import Feedbacklandslider from './landcomponents/Feedbacklandslider';
+import Blogland from './landcomponents/Blogland';
 import wsrotate from './../assets/images/ws3.png';
+import contactus from './../assets/images/contactusback.png';
+import Serviceland from './landcomponents/Serviceland';
+import pre from './../assets/images/pre.png';
+import next from './../assets/images/next.png';
 export const Land = () => {
     const duration = 7000; // Animation duration in milliseconds
 
@@ -27,7 +32,7 @@ export const Land = () => {
                 </div>
                 <div className="land1yearcontainer">
                     <div className="yearssplit">
-                        <h1><AnimatedNumber value={75} duration={duration} />+</h1>
+                        <h1><AnimatedNumber value={75} duration="4000" />+</h1>
                         <h4>SUCCESSFUL PROJECTS</h4>
                     </div>
                     <div className="yearssplit">
@@ -75,25 +80,7 @@ export const Land = () => {
                     <h1 className='landsert1'>What we do</h1>
                     <h1 className='landsert2'>OUR SERVICES</h1>
                 </div>
-                <div className="landservicemain">
-                    <h1 className='servicetitleani'>{"website"}</h1>
-                    <div className="serviceard">
-                        <div className="servicecardleft">
-                            <h2>{"website"}</h2>
-                            <p>{"ueighwjh weiukhuwe eiuwe weiuwe wewuieghw2e weuiwe wehuwehwwe ewweiuhwweiu wewiouoweyhwe w3eouiwe weoiuiwe weoiwewkenk w3efjw3eef wefjw3eiofjh3wefw ioeehf3eh3e 3ehfuijeejji wwiuh qwiuyigh wigwe"}</p>
-                        </div>
-                        <div className="servicecardright">
-                            <div className="servicecardimg1">qw</div>
-                            <div className="servicecardimg2">qwd</div>
-                            <div className="servicecardimg3">qw</div>
-                        </div>
-                        
-                    </div>
-                    <div className="servicecardbtn">
-                            <button>Next</button>
-                            <button>Previous</button>
-                    </div>
-                </div>
+                <Serviceland/>
                
             </div>
             <div className='landprojectcontainer'>
@@ -107,8 +94,8 @@ export const Land = () => {
                                 <button>ALL PROJECTS<span></span></button>
                             </div>
                             <div className='arrowbtns'>
-                                <button>32</button>
-                                <button>23</button>
+                                <button><img src={pre} alt="" /></button>
+                                <button><img src={next} alt="" /></button>
                             </div>
                         </div>
                     </div>
@@ -179,6 +166,31 @@ export const Land = () => {
                    <Feedbacklandslider/>
                    </div>
                 </div>
+                <div className="landblogmain">
+                    <div className="landblogtitle">
+                        <span></span>
+                        <h1>OUR BLOGS</h1>
+                    </div>
+                    <Blogland/>
+                    <div className="landblogbtn">
+                        <button>Click For More Blogs</button>
+                    </div>
+                </div>
+                <div className='landcontactusmain'>
+                    <div className="landcutitle">
+                        <h1>create something awesome </h1>
+                        <h1>and <span>extraordinary</span> with Us</h1>
+                    </div>
+                    <div className="landcusubtitle">
+                        <p>with a lot of creativity, we can make your dream come true</p>
+                    </div>
+                    <div className="landcubtn">
+                        <button>CONTACT US</button>
+                    </div>
+                    
+
+                </div>
+                
             
         </div>
     );
