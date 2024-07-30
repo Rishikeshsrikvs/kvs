@@ -106,7 +106,9 @@
   
 }
 .landprojectcard:hover{
-    transform: scale(1.08);
+    transform: scale(1.03);
+
+    box-shadow: #d17ae2 0px 0px 80px ;
 }
 .landprojectimagecon {
     height: 45%;
