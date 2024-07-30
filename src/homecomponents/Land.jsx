@@ -11,7 +11,9 @@ import Blogland from './landcomponents/Blogland';
 import wsrotate from './../assets/images/ws3.png';
 import contactus from './../assets/images/contactusback.png';
 import Serviceland from './landcomponents/Serviceland';
+import Landproject from './landcomponents/Landproject';
 import pre from './../assets/images/pre.png';
+import ne from './../assets/images/ne arrow.svg';
 import next from './../assets/images/next.png';
 export const Land = () => {
     const duration = 7000; // Animation duration in milliseconds
@@ -83,58 +85,7 @@ export const Land = () => {
                 <Serviceland/>
                
             </div>
-            <div className='landprojectcontainer'>
-                    <div className="landprojecttitle">
-                        <div className="projecttitle">
-                            <h1>Elevate Your Brand,Accelerate <br/>
-                            Your <span>Growth</span></h1>
-                        </div>
-                        <div className='projectbtns'>
-                            <div className="allprjt">
-                                <button>ALL PROJECTS<span></span></button>
-                            </div>
-                            <div className='arrowbtns'>
-                                <button><img src={pre} alt="" /></button>
-                                <button><img src={next} alt="" /></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='landprojectcardcontainer'>
-                        <div className="landprojectcard">
-                            <div className="landprojectimagecon"><img  className="landprojectimg" src="" alt="" /></div>
-                        
-                            <div className="landprojectdetail">
-                                <h1>Website design developement</h1>
-                                <p> we provide visual designs and mobile and we interface developement</p>
-                            </div>
-                        </div>
-                        <div className="landprojectcard">
-                            <div className="landprojectimagecon"><img  className="landprojectimg" src="" alt="" /></div>
-                        
-                            <div className="landprojectdetail">
-                                <h1>Website design developement</h1>
-                                <p> we provide visual designs and mobile and we interface developement</p>
-                            </div>
-                        </div>
-                        <div className="landprojectcard">
-                            <div className="landprojectimagecon"><img  className="landprojectimg" src="" alt="" /></div>
-                        
-                            <div className="landprojectdetail">
-                                <h1>Website design developement</h1>
-                                <p> we provide visual designs and mobile and we interface developement</p>
-                            </div>
-                        </div>
-                        <div className="landprojectcard">
-                            <div className="landprojectimagecon"><img  className="landprojectimg" src="" alt="" /></div>
-                        
-                            <div className="landprojectdetail">
-                                <h1>Website design developement</h1>
-                                <p> we provide visual designs and mobile and we interface developement</p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+            <Landproject/>
                 <div className="landwhyuscontainer">
                     <div className="wytextcontainer">
                         <span>Why us</span>

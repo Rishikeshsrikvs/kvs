@@ -1,0 +1,136 @@
+.landprojectcontainer {
+    height: 100vh;
+    padding: 20px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.landprojecttitle {
+    display: flex;
+    height: 30vh;
+    
+    width: 100%;
+    
+    align-items: center;
+    justify-content: space-between;
+}
+
+.projecttitle {
+    width: 100%;
+    padding: 3%;
+
+}
+
+.projecttitle h1 {
+    font-size: 300%;
+    font-weight: lighter;
+    word-spacing: 5px;
+}
+
+.projecttitle h1 span {
+    background: linear-gradient(90deg, #ff99a2, #e406b5);
+    background-position: bottom;
+    background-size: 100% 40%;
+    background-repeat: no-repeat;
+    padding: 0px 5px;
+}
+
+.projectbtns {
+    width: 40%;
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.allprjt button {
+    padding: 13px 25px;
+    border-radius: 20px;
+    background-color: #2C313F;
+    border: none;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 110%;
+    gap: 5px;
+}
+
+.allprjt button img {
+    width: 25px;
+    border-radius: 50%;
+    padding: 2px;
+    background-color: #e406b5;
+}
+
+.arrowbtns {
+    margin-top: 10px;
+}
+
+.arrowbtns button {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 2px 30px;
+    border: none;
+    border-radius: 30px;
+    background-color: #2C313F;
+    color: white;
+    cursor: pointer;
+}
+
+.arrowbtns button img {
+    width: 30px;
+}
+
+.landprojectcardcontainer {
+    height: 70vh;
+    padding: 2%;
+    display: flex;
+    gap: 2%;
+    /* Hide overflow to only show one page at a time */
+    transition: transform 0.5s ease;
+    
+}
+
+.landprojectcard {
+    background-color: hsla(210, 20%, 90%, 1);
+    color: black;
+    display: flex;
+    padding: 15px 60px;
+    border-radius: 2%;
+    
+    flex-direction: column;
+    text-align: center;
+    
+    transition: opacity 0.5s ease-in-out,transform 0.5s ease;
+  
+}
+.landprojectcard:hover{
+    transform: scale(1.08);
+}
+.landprojectimagecon {
+    height: 45%;
+}
+
+.landprojectimg {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* Rounded corners for images */
+}
+.landprojectimg{
+    height: 190px;
+    width: 300px;
+
+}
+.landprojectdetail {
+    padding: 2%;
+}
+
+.landprojectdetail h1 {
+    line-height: 110%;
+    margin-bottom: 10px;
+}
+
+.landprojectdetail p {
+    padding: 0px 40px;
+}

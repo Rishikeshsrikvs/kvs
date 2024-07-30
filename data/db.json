@@ -90,6 +90,34 @@
         }
       ],
       "discount": "12"
+    },
+    {
+      "id": "2160",
+      "clientName": "kwjdfhf",
+      "location": "chennai",
+      "email": "hgah@jhsh.shh",
+      "gstNo": "7636463gb283",
+      "phone": "2635263363",
+      "adharNumber": "634638383748",
+      "clientLogo": "",
+      "services": [
+        {
+          "name": "Social Media Marketing",
+          "quantity": "4",
+          "package": "Elite"
+        },
+        {
+          "name": "Search Engine Optimization",
+          "quantity": "4",
+          "package": "Elite"
+        },
+        {
+          "name": "Web Development",
+          "quantity": "4",
+          "package": "Customised Plan"
+        }
+      ],
+      "discount": "23"
     }
   ],
   "feedbacks": [

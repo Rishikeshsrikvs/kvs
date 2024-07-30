@@ -221,18 +221,18 @@ flex-direction: row-reverse;
 
 
 .landservicescontainer{
-    background:linear-gradient(145deg,#ff99a2,#e406b5,#35088A);
+    background:linear-gradient(160deg,#ff99a2,#e406b5,#35088A);
     height: 100vh;
 }
 
 .landservicetitlecon {
    
-    
+    margin-top: 2vh;
     text-align: center;
     padding-top: 30px;
     height: 140px;
     position: relative;
-    border: 2px solid black;
+    
 }
 
 
@@ -246,229 +246,33 @@ flex-direction: row-reverse;
 }
 
 .landsert2 {
-    font-size: 6rem; /* Adjust size as needed */
+    font-size: 6rem;
     font-weight: bolder;
-    color: white;
+    color: transparent;
     position: relative;
-    top: -60px;
+    top: -40px;
     text-align: center;
-   
-     /* Fallback color */
-    text-shadow:
-        -0.1px -0.1px 0 pink,  
-        0.1px -0.1px 0 pink,
-        -0.1px 0.1px 0 pink,
-        0.1px 0.1px 0 pink; /* Thin pink outline for fallback */
+    font-family: 'Arial', sans-serif;
+    -webkit-text-stroke: 1px pink; /* Adjust stroke width for smoothness */
+    text-shadow: none;
+    text-rendering: geometricPrecision; /* Improves text rendering */
 }
 
-/* Modern browsers with WebKit-based support */
-@supports (-webkit-text-stroke: 0.1px pink) {
+@supports not (-webkit-text-stroke: 1px pink) {
     .landsert2 {
-        color: transparent;
-        -webkit-text-stroke: 0.1px pink; /* Thin pink outline */
-        text-shadow: none; /* Remove text-shadow in favor of text-stroke */
+        color: white;
+        text-shadow:
+            -0.1px -0.1px 0 pink,  
+            0.1px -0.1px 0 pink,
+            -0.1px 0.1px 0 pink,
+            0.1px 0.1px 0 pink;
     }
 }
-.landservicemain{
-    text-align: center;
-}
-.servicetitleani{
-    font-size: 900%;
-    margin-top: 3vh;
-}
-.serviceard{
-    display: flex;
-    max-width: 60%;
-    margin: 0 auto;
-    background-color: white;
-    
-    color: black;
-    padding: 30px 20px;
-    height: 280px;
-    font-size: 120%;
-    border-radius: 10px;
 
-}
-.servicecardright, .servicecardleft{
-    width: 50%;
-    
-}
-.servicecardleft{
-    text-align:left;
-    padding-right: 70px;
-}
-.servicecardleft p{
-    margin-top: 30px;
-}
-.servicecardright{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-left: 30px;
-    flex-wrap: wrap;
-}
-.servicecardimg1,.servicecardimg2,.servicecardimg3{
-
-    background-color: black;
-    height: 100px;
-    border-radius: 10px;
-   
-}
-.servicecardimg1,.servicecardimg2{
-    width:46%;
-}
-.servicecardimg3{
-    width: 100%;
-}
-.servicecardbtn{
-    padding: 30px;
-    display: flex;
-    justify-content: center;
-    gap: 60px;
-}
-.servicecardbtn button{
-    padding: 15px 40px ;
-    font-size: 120%;
-    border: none;
-    border-radius: 15px;
-    background-color: white;
-}
 
 /* ---------------------------------------- */
 
-.landprojectcontainer{
-    height: 100vh;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    
 
-}
-.landprojecttitle{
-    display: flex;
-   border: 2px solid white;
-    height: 30vh;
-    padding: 2%;
-    align-items: center;
-    
-    justify-content: space-between;
-}
-.projecttitle{
-    width: 60%;
-   
-    
-
-}
-.projecttitle h1{
-    font-size: 300%;
-    font-weight: lighter;
-    word-spacing: 5px;
-}
-.projecttitle h1 span{
-    background: linear-gradient(90deg,#ff99a2,#e406b5);
-    background-position: bottom;
-    background-size:100% 40% ;
-    background-repeat: no-repeat;
-    padding: 0px 5px;
-}
-.projectbtns{
-    width: 40%;
-    
-    text-align: center;
-    
-
-}
-.allprjt button{
-    padding:13px 25px;
-    border-radius: 20px;
-    background-color: #2C313F;
-    border: none;
-    color: white;
-    font-size: 110%;
-}
-.arrowbtns{
-    margin-top: 10px;
-}
-.arrowbtns button{
-   margin-left: 10px;
-   margin-right: 10px;
-   padding: 2px 30px;
-   border-radius: 30px;
-    
-}
-.arrowbtns button img{
-    width: 30px;
-}
-.landprojectcardcontainer{
-   border: 2px solid red;
-    height: 70vh;
-    padding: 2%;
-    display: flex;
-    justify-content: space-between;
-
-   
-}
-.landprojectcard {
-    background-color: hsla(210, 20%, 90%, 1);
-    color: black;
-    display: flex;
-    padding: 2%;
-    border-radius: 2%;
-    width: 310px;
-    flex-direction: column;
-    transform-origin: center bottom;
-    transition: transform 0.3s ease;/* Set transform origin for bounce effect */
-}
-
-
-
-.landprojectcard:hover {
-    transform: scale(1.04);
-}
-    /* .landprojectcard {
-    background-color: hsla(210, 20%, 90%, 1);
-    color: black;
-    display: flex;
-    padding: 2%;
-    border-radius: 2%;
-    width: 330px;
-    flex-direction: column;
-    transform-origin: center bottom; 
-    transition: transform 0.3s ease; 
-}
-
-@keyframes bounce {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(0.9);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-.landprojectcard:hover {
-    animation: bounce 0.5s ease;
-}  */
-
-
-.landprojectimagecon{
-    height: 45%;
-
-}
-.landprojectdetail{
-    text-align: center;
-    padding: 2%;
-}
-.landprojectdetail h1{
-    line-height:110%;
-    margin-bottom: 10px;
-}
-.landprojectdetail p{
-    padding: 0px 40px;
-}
 
 /* ---------------- */
 
@@ -531,7 +335,7 @@ flex-direction: row-reverse;
     width: 100%;
     gap: 2%;
     padding: 2% 12%;
-    border: 2px solid red;
+    
 }
 .wyleft{
     background-color:#141414;
