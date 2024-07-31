@@ -19,9 +19,9 @@
   }
   
   .slide {
-    flex: 0 0 50%; /* Two cards per screen */
+    flex: 0 0 33%; /* Two cards per screen */
     box-sizing: border-box;
-    padding: 10px;
+    padding: 20px;
   }
   
   .feedbackcard {
@@ -29,14 +29,19 @@
     border-radius: 8px;
     padding: 60px;
     text-align: center;
-    height: 270px;
+    height: 210px;
+    
     background-color: #fff;
     color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   
   .feedback {
     font-size: 16px;
-    margin-bottom: 10px;
+    overflow: hidden;
+    padding: 40px 70px;
   }
   
   .clientcontainer {

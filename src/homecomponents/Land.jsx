@@ -1,6 +1,6 @@
 import React from 'react';
 import './Land.css';
-import CircularText from './CircularText';
+import CircularText from './landcomponents/CircularText';
 import AnimatedNumber from './landcomponents/AnimatedNumber.';
 import cube from './../assets/images/cube.png';
 import logo from './../assets/images/logo.png';
@@ -103,19 +103,35 @@ export const Land = () => {
                             </div>
                             <div className="wyright">
                                 <div className="wyrightup"></div>
-                                <div className="wyrightbottom"></div>
+                                <div className="wyrightbottom">
+                                    <div className="wyrightbottommain">
+                                        <div className="wyrbleft">
+                                            <p className='wyup'>Work With Us To</p>
+                                            <h2>Realize</h2>
+                                            <p className='wydown'>Your Project Vision</p>
+                                        </div>
+                                        <div className='wyrbright'>
+                                            <button>LET'S STRART</button>
+                                        </div>
+                                    </div>
+                                    <div className="wyround"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="landfeedbackmain">
-                    <div className="landfeedbacktitle">
-                        <h1>What do we do exactly?</h1>
-                        <p>We only do 3 things. But we do them really well.</p>
+                    <div className='landfeedback1'></div>
+                    <div className="landfeedbacksub">
+                        <div className="landfeedbacktitle">
+                            <h1>What do we do exactly?</h1>
+                            <p>We only do 3 things. But we do them really well.</p>
+                        </div>
+                        <div className="landfeedslidercontainer">
+                        <Feedbacklandslider/>
+                        </div>
                     </div>
-                   <div className="landfeedslidercontainer">
-                   <Feedbacklandslider/>
-                   </div>
+                    <div className='landfeedback2'></div>
                 </div>
                 <div className="landblogmain">
                     <div className="landblogtitle">
@@ -128,15 +144,22 @@ export const Land = () => {
                     </div>
                 </div>
                 <div className='landcontactusmain'>
-                    <div className="landcutitle">
-                        <h1>create something awesome </h1>
-                        <h1>and <span>extraordinary</span> with Us</h1>
+                    <div className="rectback">
+                        <div className="rcb1"></div>
+                        <div className="rcb2"></div>
+                        <div className="rcb3"></div>
                     </div>
-                    <div className="landcusubtitle">
-                        <p>with a lot of creativity, we can make your dream come true</p>
-                    </div>
-                    <div className="landcubtn">
-                        <button>CONTACT US</button>
+                    <div className="landcontactussub">
+                        <div className="landcutitle">
+                            <h1>create something awesome </h1>
+                            <h1>and <span>extraordinary</span> with Us</h1>
+                        </div>
+                        <div className="landcusubtitle">
+                            <p>with a lot of creativity, we can make your dream come true</p>
+                        </div>
+                        <div className="landcubtn">
+                            <button>CONTACT US</button>
+                        </div>
                     </div>
                     
 

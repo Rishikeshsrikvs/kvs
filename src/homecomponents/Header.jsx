@@ -33,7 +33,7 @@ export const Header = () => {
       </div>
       <div className='navcontainer'>
         <ul className='navul'>
-          <li><Link to="/">ABOUT US</Link></li>
+          <li><Link to="/about">ABOUT US</Link></li>
           <li><Link to="/">PROJECTS</Link></li>
           <li><Link to="/">SERVICES <span></span></Link></li>
           <li><Link to="/">BLOGS</Link></li>

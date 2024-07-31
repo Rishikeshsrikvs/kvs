@@ -27,7 +27,7 @@ const Feedbacklandslider = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex(prevIndex => (prevIndex + 1) % Math.ceil(feedbacks.length / 2));
+      setCurrentIndex(prevIndex => (prevIndex + 1) % Math.ceil(feedbacks.length / 3));
     }, 3000); // Slide every 3 seconds
 
     return () => clearInterval(interval);
