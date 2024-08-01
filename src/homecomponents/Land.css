@@ -493,6 +493,7 @@ flex-direction: row-reverse;
     justify-content: center;
     align-items: center;
     position: relative;
+    
  }
  .landcutitle h1{
     font-size: 600%;
@@ -511,7 +512,7 @@ flex-direction: row-reverse;
  }
  .landcusubtitle p{
     font-size: 130%;
-    z-index: 1;
+
  }
  .landcubtn{
     margin-top: 6vh;
@@ -530,11 +531,18 @@ flex-direction: row-reverse;
     background:linear-gradient(145deg,#ff99a2,#e406b5,#35088A);
     border: 2px solid #141414;
  }
- .landbackusback{
+ .landcusubtitle::after{
+    content: "";
+    background: url('./../assets/images/contactusback.png');
     position: absolute;
+    z-index: 23;
     transform: rotate(9deg);
-    width: 500px;
-    right: 5%;
-    z-index: -;
+    width: 200px;
+    height:500px;
+    right: 5%;background-size: cover; /* Adjust the size to cover the entire container */
+    background-position: center; /* Center the background image */
+
+
 
  }
+ 
