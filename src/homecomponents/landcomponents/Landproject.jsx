@@ -29,35 +29,37 @@ const Landproject = () => {
     };
 
     return (
-        <div className='landprojectcontainer'>
-            <div className="landprojecttitle">
-                <div className="projecttitle">
-                    <h1>Elevate Your Brand, Accelerate <br />
-                        Your <span>Growth</span>
-                    </h1>
-                </div>
-                <div className='projectbtns'>
-                    <div className="allprjt">
-                        <button><span>ALL PROJECT</span><img src={ne} alt="" /></button>
+        <div className="lprmain">
+            <div className='landprojectcontainer'>
+                <div className="landprojecttitle">
+                    <div className="projecttitle">
+                        <h1>Elevate Your Brand, Accelerate <br />
+                            Your <span>Growth</span>
+                        </h1>
                     </div>
-                    <div className='arrowbtns'>
-                        <button onClick={handlePrev}><img src={pre} alt="Previous" /></button>
-                        <button onClick={handleNext}><img src={next} alt="Next" /></button>
-                    </div>
-                </div>
-            </div>
-            <div className='landprojectcardcontainer' style={{ transform: `translateX(-${scrollPosition * 100}%)` }}>
-                {projects.map((project, index) => (
-                    <div key={index} className="landprojectcard">
-                        <div className="landprojectimagecon">
-                            <img className="landprojectimg" src={projectimage} alt={project.title} />
+                    <div className='projectbtns'>
+                        <div className="allprjt">
+                            <button><span>ALL PROJECT</span><img src={ne} alt="" /></button>
                         </div>
-                        <div className="landprojectdetail">
-                            <h1>{project.title}</h1>
-                            <p>{project.description}</p>
+                        <div className='arrowbtns'>
+                            <button onClick={handlePrev}><img src={pre} alt="Previous" /></button>
+                            <button onClick={handleNext}><img src={next} alt="Next" /></button>
                         </div>
                     </div>
-                ))}
+                </div>
+                <div className='landprojectcardcontainer' style={{ transform: `translateX(-${scrollPosition * 100}%)` }}>
+                    {projects.map((project, index) => (
+                        <div key={index} className="landprojectcard">
+                            <div className="landprojectimagecon">
+                                <img className="landprojectimg" src={projectimage} alt={project.title} />
+                            </div>
+                            <div className="landprojectdetail">
+                                <h1>{project.title}</h1>
+                                <p>{project.description}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     );

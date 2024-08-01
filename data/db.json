@@ -123,57 +123,56 @@
   "feedbacks": [
     {
       "id": "1",
-      "message": "Great service!",
+      "message": "Great service! I had an excellent experience with the team. They were professional, attentive, and ensured everything was handled perfectly. Highly recommended!",
       "clientName": "John Doe",
       "clientLocation": "New York",
-      "clientImage": "path_to_image",
-      "clientLogo": "logo",
-      "status": "false"
+      "clientImage": "",
+      "clientLogo": "logo1.png",
+      "status": "true"
     },
     {
       "id": "2",
-      "message": "Very satisfied.kjukwej wuuwe w3eeurhwe eueue weuherghe weeyhewe vsatisfied.kjukwej wuuwe w3eeurhwe eueue weuherghe weeyhewe satisfied.kjukwej wuuwe w3eeurhwe eueue weuherghe weeyhewe satisfied.kjukwej wuuwe w3eeurhwe eueue weuherghe weeyhewe satisfied.kjukwej wuuwe w3eeurhwe eueue weuherghe weeyhewesatisfied.kjukwej wuuwe w3eeurhwe eueue weuherghe weeyhewe satisfied.kjukwej wuuwe w3eeurhwe eueue weuherghe weeyhewe satisfied.kjukwej wuuwe w3eeurhwe eueue weuherghe weeyhewe",
+      "message": "Very satisfied with the product quality and customer support. The staff was extremely helpful, and the delivery was prompt. Will definitely use their services again!",
       "clientName": "Jane Smith",
       "clientLocation": "Los Angeles",
-      "clientImage": "path_to_image",
-      "clientLogo": "logo",
-      "status": "false"
+      "clientImage": "", 
+      "clientLogo": "logo2.png",
+      "status": "true"
     },
     {
       "id": "3",
-      "message": "Very satisfied.kjukwej  satisfied.kjukwej wuuwe w3eeurhwe eueue weuherghe weeyhewe satisfied.kjukwej wuuwe w3eeurhwe eueue weuherghe weeyhewe satisfied.kjukwej wuuwe w3eeurhwe eueue weuherghe weeyhewe satisfied.kjukwej wuuwe w3eeurhwe eueue weuherghe weeyhewe satisfied.kjukwej wuuwe w3eeurhwe eueue weuherghe weeyhewewuuwe w3eeurhwe eueue weuherghe weeyhewe",
-      "clientName": "Jane Smith",
-      "clientLocation": "Los Angeles",
-      "clientImage": "path_to_image",
-      "clientLogo": "logo",
-      "status": "false"
+      "message": "The service exceeded my expectations. From start to finish, everything was smooth, and the outcome was fantastic. I appreciate the attention to detail and dedication.",
+      "clientName": "Emily Johnson",
+      "clientLocation": "Chicago",
+      "clientImage": "",
+      "clientLogo": "logo3.png",
+      "status": "true"
     },
     {
       "id": "4",
-      "message": "Very satisfied.kjukwej wuuwe w3eeurhwe eueue weuherghe satisfied.kjukwej wuuwe w3eeurhwe eueue weuherghe weeyhewe satisfied.kjukwej wuuwe w3eeurhwe eueue weuherghe weeyhewe satisfied.kjukwej wuuwe w3eeurhwe eueue weuherghe weeyhewe satisfied.kjukwej wuuwe w3eeurhwe eueue weuherghe weeyhewev weeyhewe",
-      "clientName": "Jane Smith",
-      "clientLocation": "Los Angeles",
-      "clientImage": "path_to_image",
-      "clientLogo": "logo",
-      "status": "false"
+      "message": "Outstanding experience! The team was knowledgeable and provided exceptional service. I am very pleased with the results and would recommend them to anyone.",
+      "clientName": "Michael Brown",
+      "clientLocation": "San Francisco",
+      "clientImage": "", 
+      "clientLogo": "logo4.png",
+      "status": "true"
     },
     {
       "id": "5",
-      "message": "Very satisfied.kjukwej wuuwe w3eeurhwe eueue weuherghe weeyhewe",
-      "clientName": "Jane Smith",
-      "clientLocation": "Los Angeles",
-      "clientImage": "path_to_image",
-      "clientLogo": "logo",
-      "status": "false"
+      "message": "Very satisfied with the service. The communication was clear, and the results were exactly what I needed. Thank you for your great work!",
+      "clientName": "Linda Davis",
+      "clientLocation": "Miami",
+      "clientImage": "path_to_image1.jpg",
+      "clientLogo": "logo5.png",
+      "status": "true"
     },
     {
       "id": "6",
-      "message": "Very satisfied.kjukwej wuuwe w3eeur satisfied.kjukwej wuuwe w3eeurhwe eueue weuherghe weeyhewe satisfied.kjukwej wuuwe w3eeurhwe eueue weuherghe weeyhewe satisfied.kjukwej wuuwe w3eeurhwe eueue weuherghe weeyhewevvv satisfied.kjukwej wuuwe w3eeurhwe eueue weuherghe weeyhewesatisfied.kjukwej wuuwe w3eeurhwe eueue weuherghe weeyhewehwe eueue weuherghe weeyhewe",
-      "clientName": "Jane Smith",
-      "clientLocation": "Los Angeles",
-      "clientImage": "path_to_image",
-      "clientLogo": "logo",
-      "status": "false"
+      "message": "The quality of the service was top-notch, and the staff was incredibly helpful. I'm impressed with the results and will be using this service again in the future.",
+      "clientName": "James Wilson",
+      "clientLocation": "Seattle",
+      "clientImage": "path_to_image2.jpg",
+      "status": "true"
     }
   ],
   "projects": [
@@ -182,21 +181,21 @@
       "title": "Project One",
       "description": "Description for project one.",
       "image": "https://source.unsplash.com/random1",
-      "favorite": false
+      "favorite": true
     },
     {
       "id": "2",
       "title": "Project Two",
       "description": "Description for project two.",
       "image": "https://source.unsplash.com/random",
-      "favorite": false
+      "favorite": true
     },
     {
       "id": "3",
       "title": "Project Three",
       "description": "Description for project three.",
       "image": "https://source.unsplash.com/random",
-      "favorite": false
+      "favorite": true
     },
     {
       "id": "4",
@@ -210,7 +209,7 @@
       "title": "Project Five",
       "description": "Description for project five.",
       "image": "https://source.unsplash.com/random",
-      "favorite": false
+      "favorite": true
     }
   ],
   "jobs": [

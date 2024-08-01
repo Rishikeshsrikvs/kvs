@@ -5,7 +5,9 @@
     width: 100%;
     flex-direction: column;
 }
-
+.lprmain{
+    overflow: hidden;
+}
 .landprojecttitle {
     display: flex;
     height: 30vh;
@@ -87,6 +89,7 @@
     padding: 2%;
     display: flex;
     gap: 2%;
+    width: 100vw;
     /* Hide overflow to only show one page at a time */
     transition: transform 0.5s ease;
     

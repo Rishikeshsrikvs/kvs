@@ -1,62 +1,70 @@
 /* Serviceland.css */
 .landservicemain {
     text-align: center;
-    
+    position: relative;
 }
 
 .servicetitleani {
     font-size: 1700%;
     margin-top: 3vh;
-    font-weight: bold;
+    font-weight: 1900;
     transition: opacity 1s ease, transform 1s ease;
     position: relative;
-    padding-top: 0px;
+    padding-top: 0;
     top: -15px;
-    
+    background: -webkit-linear-gradient(270deg, #FFFFFF 41.89%, #B127CB 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.servicecardleft-title,
-.servicecardleft-description {
-    transition: opacity 1s ease;
-}
-
-.serviceard {
-    display: flex;
+.servicecard-container {
+    position: relative;
+    height: 280px;
     max-width: 60%;
     margin: 0 auto;
+    overflow: hidden; /* Hide overflow to keep only visible card */
+}
+
+.servicecard {
+    display: flex;
     background-color: white;
     color: black;
     padding: 30px 20px;
-    height: 280px;
+    height: 100%;
     font-size: 120%;
     border-radius: 10px;
-    top: -130px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform-origin: top left;
     transition: transform 1s ease, opacity 1s ease;
-    position: relative; /* Ensures that scale occurs within this container */
-    transform-origin: top left; /* Set the origin of scaling to top left */
-
-   
-    
-   
+    /* Start with z-index for layering */
+    opacity: 0; /* Default state: hidden */
+    z-index: 1; /* Default state: behind other cards */
 }
 
-.serviceard.scale-animate {
+.servicecard.active {
+    opacity: 1; /* Make active card visible */
+    z-index: 2; /* Bring active card to front */
+}
+
+.servicecard.scale-animate {
     animation: scale-animate 1s ease forwards;
 }
 
 @keyframes scale-animate {
     0% {
-        transform: scale(0.5);
-        opacity: 0;
+        transform: scale(0.5); /* Use scale instead of scalex */
     }
     100% {
-        transform: scale(1.0201);
-        opacity: 1;
+        transform: scale(1); /* Use scale instead of scalex */
     }
 }
 
-.servicecardright, .servicecardleft {
-    width: 50%;
+.servicecardleft-title,
+.servicecardleft-description {
+    transition: opacity 1s ease;
 }
 
 .servicecardleft {
@@ -101,7 +109,6 @@
     justify-content: center;
     gap: 60px;
     position: relative;
-    top: -130px;
 }
 
 .servicecardbtn button {
@@ -112,14 +119,6 @@
     border-radius: 15px;
     background-color: white;
     cursor: pointer;
-}
-
-.fade-in {
-    opacity: 1;
-}
-
-.fade-out {
-    opacity: 0;
 }
 
 /* Title translate animations */
