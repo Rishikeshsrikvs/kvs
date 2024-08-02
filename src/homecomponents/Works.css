@@ -187,3 +187,15 @@ line-height: 85.31px;
     padding: 10px;
     border-radius: 50%;
 }
+.work4main{
+    height: 100vh;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+
+}
+.work4cards{
+    width: 33.33%;
+    border: 2px solid red;
+
+}

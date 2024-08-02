@@ -7,6 +7,7 @@ import rightsmall from './../assets/images/workimages/work1rightsmall.png';
 import rightbig from './../assets/images/workimages/work1rightbig.png';
 import workrect from './../assets/images/workimages/landrect.png';
 import next from './../assets/images/next.png';
+import Feedbacklandslider from './landcomponents/Feedbacklandslider';
 import pre from './../assets/images/pre.png';
 const Works = () => {
   return (
@@ -47,6 +48,27 @@ const Works = () => {
             </div>
         </div>
         <Workmarq/>
+        <div className="work4main">
+            <div className="work4cards">
+
+            </div>
+            <div className="work4cards">
+              
+            </div>
+            <div className="work4cards">
+              
+            </div>
+            <div className="work4cards">
+              
+            </div>
+            <div className="work4cards">
+              
+            </div>
+            <div className="work4cards">
+              
+            </div>
+        </div>
+        <Feedbacklandslider/>
     </div>
   )
 }
