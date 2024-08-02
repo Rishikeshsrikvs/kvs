@@ -19,11 +19,19 @@ export const Adminlogin = () => {
     setError('');
 
     try {
-      const response = await axios.get(`http://localhost:3500/users?username=${username}`);
-      const users = response.data;
-      if (users.length > 0 && users[0].password === password) {
+      const response = await axios.get('/api/admin/adminlogin', {
+        params: {
+          adminEmail: username,
+          adminPassword: password,
+        },
+        withCredentials: true, // Include this if your server requires credentials
+      });
+
+      const { status, data } = response;
+
+      if (status === 200 && data.success) {
         login();
-        navigate("/admin/dashboard"); // Adjust path as needed
+        navigate('/admin/dashboard'); // Adjust path as needed
       } else {
         setError('Invalid credentials');
       }

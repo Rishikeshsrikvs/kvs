@@ -1,67 +1,138 @@
-.landfeedbackslidemaincontainer {
-  padding: 20px;
-  /* Ensure no scrollbars appear */
-}
+.landfeedbackmain{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
 
+}
+.landfeedbacksub{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  overflow: hidden;
+}
+.landfeedback1{
+  position: absolute;
+  background:url('./../assets/images/feedbackback.png') no-repeat 100% 100%;
+  height: 100%;
+  transform: rotate(180deg);
+  width: 50%;
+  left: 0;
+  top :0;
+  
+  
+}
+.landfeedback2{
+  position: absolute;
+  background:url('./../assets/images/feedbackback.png') no-repeat bottom/100% 100%;
+  height: 100%;
+  width: 700px;
+ 
+  right: 0;
+  top: 0;
+  border: #e406b5;
+ 
+}
+.landfeedbacktitle{
+  height: 30%;;
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+}
+.landfeedbacktitle > h1{
+  font-size: 400%
+}
+.landfeedbacktitle > p{
+  font-size: 160%;
+  text-align: center;
+  margin-top: 10px;
+  font-weight: lighter;
+}
+.landfeedslidercontainer{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  
+}
 .landfeedbackslider {
   width: 100%;
+  height: 300px; /* Adjust as needed */
   overflow: hidden;
+  position: relative;
   display: flex;
-  gap: 3%;
+  align-items: center;
 }
 
-.landslide {
- display: flex;
-
-  /* Include padding and border in width */
+.landsider-wrapper {
+  display: flex;
+  width: 100%;
+  gap: 30px;
+ /* Twice the width of the container to ensure continuous effect */
+  animation: marquee 50s linear infinite;
 }
-.landslider-wrapper {
- /* 
-  animation: marquee 20s linear infinite;  Adjust duration based on content length */
-}
-
-
 
 .landfeedbackcard {
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 20px;
+ 
   text-align: center;
-  height: 210px;
-  width: 400px;
+  height: 240px;
+  width: 400px; /* Adjust based on your design */
   background-color: #fff;
   color: black;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  
+  box-sizing: border-box; /* Ensure padding and borders are included in width/height */
 }
-
 .landfeedback {
   font-size: 16px;
   overflow: hidden;
-  padding: 20px;
+  padding: 10px 20px;
+  font-size: 110%;
+  text-align: left;
+  flex: 1;
+
 }
 
 .landclientcontainer {
   display: flex;
+  height: 10%;
   align-items: center;
   justify-content: space-between;
 }
 
 .landclient {
   display: flex;
-  width: 40px;
+  width: 100%;
+  padding-left: 30px;
+  padding-bottom: 20px;
   align-items: center;
+
   
 }
 
 .landclient img {
   border-radius: 50%;
  width: 30px;
+ height: 30px;
   margin-right: 10px;
 }
-
+.landclient span{
+  text-align: left;
+}
+.landclient span h5{
+  padding-left: 7px;
+}
 .landclientlogo {
   font-size: 20px;
 }
@@ -71,6 +142,6 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-100%);
   }
 }

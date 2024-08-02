@@ -120,19 +120,7 @@ export const Land = () => {
                         </div>
                     </div>
                 </div>
-                <div className="landfeedbackmain">
-                    <div className='landfeedback1'></div>
-                    <div className="landfeedbacksub">
-                        <div className="landfeedbacktitle">
-                            <h1>What do we do exactly?</h1>
-                            <p>We only do 3 things. But we do them really well.</p>
-                        </div>
-                        <div className="landfeedslidercontainer">
-                        <Feedbacklandslider/>
-                        </div>
-                    </div>
-                    <div className='landfeedback2'></div>
-                </div>
+                <Feedbacklandslider/>
                 <div className="landblogmain">
                     <div className="landblogtitle">
                         <span></span>

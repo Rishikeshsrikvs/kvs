@@ -106,13 +106,13 @@
     white-space: nowrap;
     background-color: #141414;
     width: 100%;
-    
-   
+    padding-top: 5%;
+
 }
 
 .scrolling-wrapper {
     
-    animation: marquee 60s linear infinite;
+    animation: marquee 40s linear infinite;
 }
 
 .scrolling {
@@ -121,7 +121,7 @@
     padding-right: 30px; /* Space between repeated elements */
 }
 .scrolling img{
-    width: 160px;
+    width: 180px;
 }
 @keyframes marquee {
     0% {
@@ -227,7 +227,7 @@ flex-direction: row-reverse;
 
 .landservicescontainer{
     background:linear-gradient(160deg,#ff99a2,#e406b5,#35088A);
-    height: 120vh;
+    height: auto;
 }
 
 .landservicetitlecon {
@@ -452,66 +452,7 @@ flex-direction: row-reverse;
 }
 /* ------------------ */
 
-.landfeedbackmain{
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    position: relative;
 
-}
-.landfeedbacksub{
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    position: absolute;
-}
-.landfeedback1{
-    position: absolute;
-    background:url('./../assets/images/feedbackback.png') no-repeat 100% 100%;
-    height: 100%;
-    transform: rotate(180deg);
-    width: 50%;
-    left: 0;
-    top :0;
-    
-    
-}
-.landfeedback2{
-    position: absolute;
-    background:url('./../assets/images/feedbackback.png') no-repeat bottom/100% 100%;
-    height: 100%;
-    width: 700px;
-   
-    right: 0;
-    top: 0;
-    border: #e406b5;
-   
-}
-.landfeedbacktitle{
-    height: 30%;;
-    margin-top: 60px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-
-}
-.landfeedbacktitle > h1{
-    font-size: 400%
-}
-.landfeedbacktitle > p{
-    font-size: 160%;
-    text-align: center;
-    margin-top: 10px;
-    font-weight: lighter;
-}
-.landfeedslidercontainer{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
 
 /* -------------------- */
 .landblogmain{
