@@ -5,6 +5,7 @@
 .work1main{
     height: 100vh;
     position: relative;
+    background: linear-gradient(to top,#241c29 20%,#141414) no-repeat bottom/100% 50%;
 }
 .work1rect{
     
@@ -196,6 +197,47 @@ line-height: 85.31px;
 }
 .work4cards{
     width: 33.33%;
-    border: 2px solid red;
+    overflow: hidden;
+    text-align: center;
+    
 
+}
+.work4cards img{
+    width: 100%;
+    height: 100%;
+}
+.work4cardfinal{
+    display: flex;
+    
+    align-items: center;
+    box-sizing: border-box;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    
+   
+
+}
+.work4cardfinal h1{
+    padding: 5px 20px;
+    width: 50%;
+    font-weight: lighter;
+    white-space: nowrap;
+    
+}
+.work4cardfinal h1 span{
+    font-family: Playfair Display;
+    font-size: 40px;
+    font-style: italic;
+    font-weight: 600;
+    line-height: 53.32px;
+    text-align: center;
+
+}
+.workflexbtn{
+    border-radius: 35px;
+    border: 1px solid #FFFFFF;
+    padding: 10px 15px;
+    margin-top: 20px;
+    
 }

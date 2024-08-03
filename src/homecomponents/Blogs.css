@@ -1,0 +1,63 @@
+.blogparent {
+    background: #141414;
+    overflow-x: hidden;
+    overflow-y: hidden; /* Added to prevent vertical scroll */
+    color: #FFFFFF;
+}
+
+.blog1main {
+    position: relative;
+    height: 400px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10vh;
+    overflow: hidden; /* Ensure no overflow */
+}
+
+.blog1back {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 4;
+}
+
+.blog1sub {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    background-color: #141414E5;
+}
+
+.blog1back img {
+    flex-grow: 1;
+    width: 100%;
+    height: 100%; /* Make sure the images fill the height of the container */
+    object-fit: cover; /* Ensure images cover the container without causing overflow */
+}
+
+.blog1sub h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 96px;
+    font-style: italic;
+    font-weight: 600;
+    line-height: 127.97px;
+    text-align: center;
+    white-space: nowrap;
+}
+  /* ----------------------- */
+
+  .blog2latest{
+    height: 60vh;
+    padding: 10px;
+
+  }
+  .blog2latest h2{
+    padding-left: 10px;
+    padding-top: 10px;
+  }

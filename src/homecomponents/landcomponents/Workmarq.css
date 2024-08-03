@@ -8,7 +8,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 2%;
-    border: 2px solid red;
+    background: linear-gradient(to bottom,#241c29 20%,#141414) no-repeat top/100% 50%;
     
 }
   
@@ -60,7 +60,7 @@
   
   .spanimg {
     margin-left: 10px;
-    width: ;
+    
   }
   
   @keyframes marquee {

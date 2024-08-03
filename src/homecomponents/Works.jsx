@@ -9,6 +9,11 @@ import workrect from './../assets/images/workimages/landrect.png';
 import next from './../assets/images/next.png';
 import Feedbacklandslider from './landcomponents/Feedbacklandslider';
 import pre from './../assets/images/pre.png';
+import wk1 from './../assets/images/workimages/flex/wk1.png';
+import wk2 from './../assets/images/workimages/flex/wk2.png';
+import wk3 from './../assets/images/workimages/flex/wk3.png';
+import wk4 from './../assets/images/workimages/flex/wk4.png';
+import wk5 from './../assets/images/workimages/flex/wk5.png';
 const Works = () => {
   return (
     <div className='workparentcontainer'>
@@ -50,22 +55,26 @@ const Works = () => {
         <Workmarq/>
         <div className="work4main">
             <div className="work4cards">
-
+                <img src={wk1} alt="" />
             </div>
             <div className="work4cards">
-              
+                <img src={wk2} alt="" />
             </div>
             <div className="work4cards">
-              
+                <img src={wk3} alt="" />
             </div>
             <div className="work4cards">
-              
+                <img src={wk4} alt="" />
             </div>
             <div className="work4cards">
-              
+                <img src={wk5} alt="" />
             </div>
-            <div className="work4cards">
-              
+            
+            <div className="work4cards work4cardfinal">
+              <h1>And This Place Is <br/><span>Allotted</span> <br/>Your Project</h1>
+              <div className="workflexbtn">
+              Get Started Now
+              </div>
             </div>
         </div>
         <Feedbacklandslider/>
