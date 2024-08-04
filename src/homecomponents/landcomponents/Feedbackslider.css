@@ -12,13 +12,14 @@
 
 .landsider-wrapper {
   display: flex;
-  width: calc(200% + 30px); /* Ensure the width is twice the container for continuous effect */
+ width: 200%; /* Ensure the width is twice the container for continuous effect */
   animation: marquee 50s linear infinite;
+  gap: 3%;
 }
 
 .landfeedbackcard {
   min-width: 300px; /* Adjust based on your design */
-  flex: 0 0 auto;
+  flex: 0 0 400px;
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 20px;
