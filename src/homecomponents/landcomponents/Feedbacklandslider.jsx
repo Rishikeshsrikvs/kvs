@@ -18,13 +18,12 @@ const Feedbacklandslider = () => {
   const [feedbacks, setFeedbacks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const [currentIndex, setCurrentIndex] = useState(0); // State for current slide index
 
   useEffect(() => {
     const fetchFeedbacks = async () => {
       try {
         const response = await axios.get('http://localhost:3500/feedbacks');
-        console.log('Fetched data:', response.data); // Debugging line
+        console.log('Fetched data:', response.data);
         setFeedbacks(response.data);
         setLoading(false);
       } catch (error) {
@@ -37,33 +36,41 @@ const Feedbacklandslider = () => {
     fetchFeedbacks();
   }, []);
 
-  
   return (
-    <div className='landfeeddbackslidmaincontainer'>
-      <div className='landfeedbackslider'>
-        
-          {feedbacks.map((feedback, index) => (
-            
-              <div className='landfeedbackcard'>
-                <div className='landfeedback'>{feedback.message}</div>
-                <div className='landclientcontainer'>
-                  <div className='landclient'>
-                    <img
-                      src={feedback.clientImage || getRandomFallbackImage()}
-                      alt={feedback.clientName || 'Client Image'}
-                    />
-                    <span>
-                      <h4>{feedback.clientName}</h4>
-                      <h5>{feedback.clientLocation}</h5>
-                    </span>
-                  </div>
-                </div>
+    <div className="landfeedbackmain">
+                    <div className='landfeedback1'></div>
+                    <div className="landfeedbacksub">
+                        <div className="landfeedbacktitle">
+                            <h1>What do we do exactly?</h1>
+                            <p>We only do 3 things. But we do them really well.</p>
+                        </div>
+                        
+                        <div className='landfeedbackslider'>
+      <div className='landsider-wrapper'>
+        {/* Render feedbacks twice for seamless scrolling */}
+        {[...feedbacks, ...feedbacks].map((feedback, index) => (
+          <div className='landfeedbackcard' key={index}>
+            <div className='landfeedback'>{feedback.message}</div>
+            <div className='landclientcontainer'>
+              <div className='landclient'>
+                <img
+                  src={feedback.clientImage || getRandomFallbackImage()}
+                  alt={feedback.clientName || 'Client Image'}
+                />
+                <span>
+                  <h4>{feedback.clientName}</h4>
+                  <h5>{feedback.clientLocation}</h5>
+                </span>
               </div>
-            
-          ))}
-        
+            </div>
+          </div>
+        ))}
       </div>
     </div>
+                        
+                    </div>
+                    <div className='landfeedback2'></div>
+                </div>
   );
 };
 

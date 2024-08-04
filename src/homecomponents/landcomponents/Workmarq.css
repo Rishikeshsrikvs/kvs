@@ -1,0 +1,74 @@
+.marqmain {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2%;
+    background: linear-gradient(to bottom,#241c29 20%,#141414) no-repeat top/100% 50%;
+    
+}
+  
+  .marq1rotate{
+    transform: rotate(4deg);
+    transform-origin:15%  50%;
+    width: 100%;
+    box-shadow: 8px 11px 60px 0px #00000080;
+
+  }
+  .marq2rotate{
+    transform: rotate(-5deg);
+    transform-origin: 25% 50%;
+    width: 100%;
+    box-shadow: 8px 11px 60px 0px #00000080;
+
+  }
+  .marq1rotate .marq1container {
+    display: flex;
+    background-color: #264AE0;
+    height: 80px;
+    
+    
+    width: 200%; /* Ensure the width is double to create a seamless loop */
+    animation: marquee 23s linear infinite; /* Adjust duration for desired speed */
+  }
+  .marq2rotate .marq1container {
+    display: flex;
+    
+    background-color:#264AE0 ;
+    height: 80px;
+    
+    
+    width: 200%; /* Ensure the width is double to create a seamless loop */
+    animation: marquee 23s linear infinite; /* Adjust duration for desired speed */
+  }
+  .mainspan {
+    display: flex;
+    align-items: center;
+    padding: 0 20px; /* Adjust padding as needed */
+    white-space: nowrap; /* Prevent text wrapping */
+  }
+  
+  .textspan {
+    font-size: 130%;
+    padding: 0 20px;
+    white-space: nowrap; /* Prevent text wrapping */
+  }
+  
+  .spanimg {
+    margin-left: 10px;
+    
+  }
+  
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  

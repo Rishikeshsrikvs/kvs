@@ -29,15 +29,15 @@ export const Header = () => {
   return (
     <div className={`navbar-container ${isVisible ? 'visible' : 'hidden'}`}>
       <div className='navbar-logo'>
-        <img src={logo} alt="Logo" />
+        <Link to="/"><img src={logo} alt="Logo" /></Link>
       </div>
       <div className='navcontainer'>
         <ul className='navul'>
           <li><Link to="/about">ABOUT US</Link></li>
-          <li><Link to="/">PROJECTS</Link></li>
-          <li><Link to="/">SERVICES <span></span></Link></li>
-          <li><Link to="/">BLOGS</Link></li>
-          <li><Link to="/">CAREER</Link></li>
+          <li><Link to="/works">PROJECTS</Link></li>
+          <li><Link to="/services">SERVICES <span></span></Link></li>
+          <li><Link to="/blogs">BLOGS</Link></li>
+          <li><Link to="/career">CAREER</Link></li>
         </ul>
       </div>
     </div>
