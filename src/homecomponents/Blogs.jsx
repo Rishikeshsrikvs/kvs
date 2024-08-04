@@ -6,6 +6,7 @@ import bb3 from './../assets/images/Blogs/bb3.png';
 import bb4 from './../assets/images/Blogs/bb4.png';
 import bb5 from './../assets/images/Blogs/bb5.png';
 import bb6 from './../assets/images/Blogs/bb6.png';
+import blogcard from './../assets/images/Blogs/blogcard.png';
 
 
 const blogs=[
@@ -33,7 +34,28 @@ const Blogs = () => {
         <h2> Latest one</h2>
         <div className='blogcon'>
             <div className="blogcard">
-                <div className="img"><img src="" alt="" /></div>
+                <div className="blogcardimg"><img src={blogcard} alt="" /></div>
+                <div className="blogdetail">
+                  <h1 className="bgtiltle">BLOG1</h1>
+                  <p>TAG : Business</p>
+                </div>
+            </div>
+            <div className="blogcard">
+                <div className="blogcardimg"><img src={blogcard} alt="" /></div>
+                <div className="blogdetail">
+                  <h1 className="bgtiltle">BLOG1</h1>
+                  <p>TAG : Business</p>
+                </div>
+            </div>
+            <div className="blogcard">
+                <div className="blogcardimg"><img src={blogcard} alt="" /></div>
+                <div className="blogdetail">
+                  <h1 className="bgtiltle">BLOG1</h1>
+                  <p>TAG : Business</p>
+                </div>
+            </div>
+            <div className="blogcard">
+                <div className="blogcardimg"><img src={blogcard} alt="" /></div>
                 <div className="blogdetail">
                   <h1 className="bgtiltle">BLOG1</h1>
                   <p>TAG : Business</p>
