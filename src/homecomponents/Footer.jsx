@@ -36,8 +36,8 @@ export const Footer = () => {
         </div>
         <div className="footnav footnavaddress">
           <p className="footnavhead">Contact Us</p>
-          <Link to="tel:+919444885453"><p>+91 9444885453</p></Link>
-          <Link to="mailto:info@srikvstech.com"><p>info@srikvstech.com</p></Link>
+          <Link to=""><p>+91 9444885453</p></Link>
+          <Link to=""><p>info@srikvstech.com</p></Link>
           <p>No.19, Kamaraj Nagar,<br/>Main Road, Avadi,<br/>Chennai-600071</p>
         </div>
     </div>

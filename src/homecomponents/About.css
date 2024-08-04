@@ -1,0 +1,215 @@
+.aboutparentcontainer{
+    
+    background: #0D0C0D;
+
+}
+.aboutland {
+    position: relative; /* Position relative to place pseudo-element */
+    height: 100vh;
+    overflow: hidden; /* Ensure pseudo-element doesn’t overflow */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white; /* Ensure text is readable */
+}
+
+/* Pseudo-element to apply blur effect to background image */
+.aboutland::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('./../assets/images/Aboutimages/aboutbackg.gif') no-repeat center center;
+    background-size: 100% 100%;
+    filter: blur(2px);
+    opacity: 15%; /* Apply blur effect */
+    z-index: 1; /* Ensure the pseudo-element is behind the content */
+}
+
+/* Optional: Add a semi-transparent overlay to improve text readability */
+.aboutland::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Semi-transparent overlay */
+    z-index: 0; /* Ensure the overlay is above the blurred background but below the content */
+}
+
+.aboutland > h1{
+font-family: Playfair Display;
+font-size: 96px;
+font-style: italic;
+font-weight: 900;
+width: 70%;
+position: absolute;
+z-index: 23;
+text-align: center;
+line-height: 127.97px;
+
+color: white;
+
+}
+.about2main{
+    height: 100vh;
+    display: flex;
+    gap: 2%;
+    justify-content: space-between;
+    background: url('./../assets/images/Aboutimages/about2back.png')no-repeat center right /180px 300px ;
+    
+
+}
+.about2left{
+    width: 40%;
+    position: relative;
+   
+    
+}
+.about2left > img{
+    width: 368px;
+    height: 455px;
+   
+    border-radius: 7px 0px 0px 0px;
+    opacity: 0px;
+    position: absolute;
+
+}
+.abt22{
+    left: 15%;
+    top: 20%;
+}
+.abt21{
+    left: 30%;
+    top: 30%;
+}
+.about2right{
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    padding: 5%;
+    color: white;
+    padding: 5%;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.a2color{
+    text-align: center;
+    
+    
+}
+.a2color > span {
+    background: linear-gradient(90deg, #ff99a2, #e406b5);
+    background-position: bottom;
+    background-size: 100% 50%;
+    background-repeat: no-repeat;
+    padding: 0px 5px;
+    
+    
+    text-align: center;
+}
+.a2main{
+    font-size: 500%;
+    
+}
+.about2right p{
+    font-size: 150%;
+    padding: 0 5%;
+    line-height: 35px;
+}
+.about3mainback{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 230px;
+    left: 40%;
+    top: 2%;
+
+}
+.about3main{
+    color: white;
+    height: 100vh;
+    position: relative;
+}
+.about3sub{
+    display: flex;
+    padding: 5%;
+    position: absolute;
+}
+.about3left{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 3%;
+    justify-content: space-between;
+    
+
+}
+.ab3colortitle{
+    background: linear-gradient(90deg, #ff99a2, #e406b5);
+    background-position: bottom;
+    background-size: 100% 50%;
+    background-repeat: no-repeat;
+    padding: 0px 5px;
+    font-size: 200%;
+    width: 70%;
+    font-weight: 700;
+}
+.ab3main{
+    font-size: 300%;
+    word-spacing: 3px;
+    
+
+}
+.ab3main > span{
+    word-spacing: 3px;
+    color: #141414;
+    text-shadow:
+        1px 1px 0 white,  
+        -1px -1px 0 white,
+        1px 1px 0 white,
+        1px 1px 0 white;
+}
+.ab3p{
+    font-size: 150%;
+    padding: 0 5%;
+    line-height: 35px;
+    font-weight: lighter;
+}
+.about3right{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btncontainer{
+    text-align: center;
+}
+.ab3btn{
+    display: inline-block;
+    color: white;
+    text-align: center;
+    background: inherit;
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 35px;
+
+}
+
+/* ------------- */
+
+.aboutyearcontainer{
+    color: white;
+    display: flex;
+    padding: 2% 10%;
+    justify-content: space-between;
+    font-size: 200%;
+   
+}
+.abyearssplit h1,.abyearssplit h4{
+    text-align: center;
+}

@@ -1,61 +1,80 @@
-/* Feedbackslider.css */
-.maincontainer {
-    padding: 20px;
-  }
+.landfeedbackslidemaincontainer {
+  padding: 20px;
+  border:2px solid red;
+  /* Ensure no scrollbars appear */
+}
+
+.landfeedbackslider {
+  width: 100%;
+  overflow: hidden;
   
-  .title {
-    text-align: center;
-    margin-bottom: 20px;
-  }
+
+  display: flex;
   
-  .slider {
-    overflow: hidden;
-    width: 100%;
-  }
+  gap: 3%;
+}
+
+.landslide {
+ display: flex;
+
+  /* Include padding and border in width */
+}
+.landslider-wrapper {
+ /* 
+  animation: marquee 20s linear infinite;  Adjust duration based on content length */
+}
+
+
+
+.landfeedbackcard {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  height: 210px;
+  width: 400px;
+  background-color: #fff;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   
-  .slider-wrapper {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-  }
+}
+
+.landfeedback {
+  font-size: 16px;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.landclientcontainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.landclient {
+  display: flex;
+  width: 40px;
+  align-items: center;
   
-  .slide {
-    flex: 0 0 50%; /* Two cards per screen */
-    box-sizing: border-box;
-    padding: 10px;
+}
+
+.landclient img {
+  border-radius: 50%;
+ width: 30px;
+  margin-right: 10px;
+}
+
+.landclientlogo {
+  font-size: 20px;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
   }
-  
-  .feedbackcard {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 60px;
-    text-align: center;
-    height: 270px;
-    background-color: #fff;
-    color: black;
+  100% {
+    transform: translateX(-50%);
   }
-  
-  .feedback {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-  
-  .clientcontainer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .client {
-    display: flex;
-    align-items: center;
-  }
-  
-  .client img {
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  
-  .clientlogo {
-    font-size: 20px;
-  }
-  
+}

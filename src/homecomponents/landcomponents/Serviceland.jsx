@@ -27,17 +27,12 @@ const services = [
 const Serviceland = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [animationClass, setAnimationClass] = useState('');
-  const [fadeClass, setFadeClass] = useState('');
   const [titleTranslateClass, setTitleTranslateClass] = useState('');
 
   useEffect(() => {
-    // Apply animation and fade effects
     setAnimationClass('scale-animate');
-    setFadeClass('fade-out');
-    
     const timer = setTimeout(() => {
-      setAnimationClass(''); // Reset animation class
-      setFadeClass('fade-in');
+      setAnimationClass('');
     }, 1000); // Duration should match CSS transition duration
 
     return () => clearTimeout(timer);
@@ -54,7 +49,6 @@ const Serviceland = () => {
   };
 
   useEffect(() => {
-    // Reset title translation class after animation
     const timer = setTimeout(() => {
       setTitleTranslateClass('');
     }, 1000); // Duration should match CSS animation duration
@@ -62,25 +56,30 @@ const Serviceland = () => {
     return () => clearTimeout(timer);
   }, [currentIndex]);
 
-  const { title, description, images } = services[currentIndex];
-
   return (
     <div className="landservicemain">
-      <h1 className={`servicetitleani  ${titleTranslateClass}`}>
-        {title}
+      <h1 className={`servicetitleani ${titleTranslateClass}`}>
+        {services[currentIndex].title}
       </h1>
-      <div className={`serviceard ${animationClass}`}>
-        <div className="servicecardleft">
-          <h2 className={`servicecardleft-title ${fadeClass}`}>{title}</h2>
-          <p className={`servicecardleft-description ${fadeClass}`}>{description}</p>
-        </div>
-        <div className="servicecardright">
-          {images.map((img, index) => (
-            <div key={index} className={`servicecardimg${index + 1}`}>
-              {img}
+      <div className="servicecard-container">
+        {services.map((service, index) => (
+          <div
+            key={index}
+            className={`servicecard ${index === currentIndex ? 'active scale-animate' : ''}`}
+          >
+            <div className="servicecardleft">
+              <h2 className="servicecardleft-title">{service.title}</h2>
+              <p className="servicecardleft-description">{service.description}</p>
             </div>
-          ))}
-        </div>
+            <div className="servicecardright">
+              {service.images.map((img, i) => (
+                <div key={i} className={`servicecardimg${i + 1}`}>
+                  {img}
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
       <div className="servicecardbtn">
         <button onClick={prevService}>Previous</button>

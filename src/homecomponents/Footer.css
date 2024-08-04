@@ -41,6 +41,9 @@
     font-size: 120%;
     align-items: center;
 }
+.footnav a:hover p{
+    color:#FF99A2 ;
+}
 .footnav p{
     color:#9B9B9C ;
 }
