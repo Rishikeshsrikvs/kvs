@@ -21,9 +21,9 @@ const Feedbacklandslider = () => {
   useEffect(() => {
     const fetchFeedbacks = async () => {
       try {
-        const response = await axios.get('http://localhost:3500/feedbacks');
-        console.log('Fetched data:', response.data);
-        setFeedbacks(response.data);
+        const response = await axios.get('https://srikvstech.onrender.com/testimonials');
+        console.log('Fetched data:', response.data.message);
+        setFeedbacks(response.data.message);
         setLoading(false);
       } catch (error) {
         setError('Error fetching feedback data.');
@@ -47,16 +47,15 @@ const Feedbacklandslider = () => {
           <div className='landsider-wrapper'>
             {[...feedbacks, ...feedbacks].map((feedback, index) => (
               <div className='landfeedbackcard' key={index}>
-                <div className='landfeedback'>{feedback.message}</div>
+                <div className='landfeedback'>{feedback.description}</div>
                 <div className='landclientcontainer'>
                   <div className='landclient'>
                     <img
-                      src={feedback.clientImage || getRandomFallbackImage()}
-                      alt={feedback.clientName || 'Client Image'}
+                      src={feedback.profileImage ? `https://your-image-hosting-url/${feedback.profileImage}` : getRandomFallbackImage()}
+                      alt={feedback.client_name || 'Client Image'}
                     />
                     <span>
-                      <h4>{feedback.clientName}</h4>
-                      <h5>{feedback.clientLocation}</h5>
+                      <h4>{feedback.client_name}</h4>
                     </span>
                   </div>
                 </div>

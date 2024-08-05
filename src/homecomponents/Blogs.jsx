@@ -63,6 +63,39 @@ const Blogs = () => {
             </div>
         </div>
       </div>
+      <div className="blog2latest">
+        <h2> Latest one</h2>
+        <div className='blogcon'>
+            <div className="blogcard">
+                <div className="blogcardimg"><img src={blogcard} alt="" /></div>
+                <div className="blogdetail">
+                  <h1 className="bgtiltle">BLOG1</h1>
+                  <p>TAG : Business</p>
+                </div>
+            </div>
+            <div className="blogcard">
+                <div className="blogcardimg"><img src={blogcard} alt="" /></div>
+                <div className="blogdetail">
+                  <h1 className="bgtiltle">BLOG1</h1>
+                  <p>TAG : Business</p>
+                </div>
+            </div>
+            <div className="blogcard">
+                <div className="blogcardimg"><img src={blogcard} alt="" /></div>
+                <div className="blogdetail">
+                  <h1 className="bgtiltle">BLOG1</h1>
+                  <p>TAG : Business</p>
+                </div>
+            </div>
+            <div className="blogcard">
+                <div className="blogcardimg"><img src={blogcard} alt="" /></div>
+                <div className="blogdetail">
+                  <h1 className="bgtiltle">BLOG1</h1>
+                  <p>TAG : Business</p>
+                </div>
+            </div>
+        </div>
+      </div>
     </div>
   )
 }

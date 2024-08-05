@@ -6,7 +6,7 @@ import logo from "./../assets/images/logo.png";
 import "./Adminlogin.css";
 
 export const Adminlogin = () => {
-  const { login } = useAuth(); // This should work if AuthContext is properly set up
+  const { login } = useAuth(); // Ensure AuthContext is properly set up
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -19,7 +19,7 @@ export const Adminlogin = () => {
     setError("");
 
     try {
-      const response = await axios.post("https://srikvstech.onrender.com/api/admin/adminlogin", {
+      const response = await axios.post('https://srikvstech.onrender.com/api/admin/adminlogin', {
         adminEmail: username,
         adminPassword: password,
       }, {
@@ -57,7 +57,7 @@ export const Adminlogin = () => {
           <div className="inputcon">
             <label htmlFor="uname">Username</label>
             <input
-              type="text" 
+              type="text"
               name="uname"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
@@ -67,7 +67,7 @@ export const Adminlogin = () => {
           <div className="inputcon">
             <label htmlFor="password">Password</label>
             <input
-              type="text"
+              type="password" // Changed to 'password' for security
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               disabled={loading}

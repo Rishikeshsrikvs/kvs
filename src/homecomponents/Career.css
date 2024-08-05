@@ -1,0 +1,123 @@
+.careerparent{
+    background-color: #141414;
+    overflow: hidden;
+    color: #FFFFFF;
+
+}
+.career1main{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2vh 3vw;
+    
+
+}
+.career1text h1{
+    font-family: Outfit;
+    font-size: 128px;
+    font-weight: 900;
+    line-height: 161.28px;
+    text-align: left;
+    text-transform: uppercase;
+
+}
+.career1text h1 span{
+    font-family: Gilda Display;
+    font-size: 128px;
+    font-weight: 400;
+    line-height: 150.66px;
+    text-align: left;
+
+}
+.career2main{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+
+}
+.career2left{
+    width: 37%;
+    padding: 4%;
+}
+.career2left p{
+    font-family: Outfit;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 25.2px;
+    text-align: left;
+    text-transform: uppercase;
+
+}
+.career2right{
+    flex: 1;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    gap: 2%;
+
+
+}
+.cjobcard{
+    width: 100%;
+    border: 1px solid #FFFFFF40;
+    height: 241px;
+    border-radius: 15px;
+    padding: 2%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.cjobcard:hover{
+    color: #9747FF;
+    border: 1px solid #9747FF;
+}
+.cjobleft {
+    
+    padding: 20px;
+    margin: 10px;
+    width: 100%;
+    border-radius: 10px;
+    position: relative;
+    box-sizing: border-box; /* Ensures padding is included within the element's width and height */
+  }
+  
+  .cjup {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .cjup h1 {
+    font-size: 48px;
+    margin: 0;
+  }
+  
+  .cjdown {
+    /* list-style-type: disc; */
+    width: 70%;
+    /* justify-content: space-between;
+    display: flex;
+    flex-direction: row; */
+  }
+  
+  .cjdown li {
+  
+    font-family: Outfit;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 30.24px;
+    text-align: left;
+    display: inline-block;
+    float: left;
+    padding: 3px 10px;
+
+  }
+  
+
+
+
+.cjobright{
+    width: 30%;
+}
+

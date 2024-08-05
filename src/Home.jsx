@@ -6,6 +6,7 @@ import { Footer } from './homecomponents/Footer'
 import { Routes ,Route} from 'react-router-dom'
 import Works from './homecomponents/Works'
 import Blogs from './homecomponents/Blogs'
+import Career from './homecomponents/Career'
 import { About } from './homecomponents/About'
 export const Home = () => {
   return (
@@ -18,7 +19,7 @@ export const Home = () => {
           <Route path='/works' element={<Works/>}/>
           <Route path='/services' element={<Services/>}/>
           <Route path='/blogs' element={<Blogs/>}/>
-
+          <Route path='/career' element={<Career/>}/>
         </Routes>
       </main>
       <Footer/>
