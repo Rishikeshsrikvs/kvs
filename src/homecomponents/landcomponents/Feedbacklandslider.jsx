@@ -23,7 +23,32 @@ const Feedbacklandslider = () => {
       try {
         const response = await axios.get('https://srikvstech.onrender.com/testimonials');
         console.log('Fetched data:', response.data.message);
-        setFeedbacks(response.data.message);
+        const feedbacks = response.data.message;
+
+        // Fetch images for each feedback
+        const feedbacksWithImages = await Promise.all(
+          feedbacks.map(async feedback => {
+            if (feedback.profileImage) {
+              try {
+                const imageResponse = await axios.get(`https://srikvstech.onrender.com/getimage/${feedback.profileImage}`, {
+                  responseType: 'blob' // Fetch image as a blob
+                });
+                // Create a URL for the image blob
+                const imageBlob = new Blob([imageResponse.data], { type: imageResponse.headers['content-type'] });
+                const imageUrl = URL.createObjectURL(imageBlob);
+                
+                return { ...feedback, imageUrl };
+              } catch (error) {
+                console.error('Error fetching image:', error);
+                return { ...feedback, imageUrl: getRandomFallbackImage() };
+              }
+            } else {
+              return { ...feedback, imageUrl: getRandomFallbackImage() };
+            }
+          })
+        );
+
+        setFeedbacks(feedbacksWithImages);
         setLoading(false);
       } catch (error) {
         setError('Error fetching feedback data.');
@@ -34,6 +59,14 @@ const Feedbacklandslider = () => {
 
     fetchFeedbacks();
   }, []);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>{error}</p>;
+  }
 
   return (
     <div className="landfeedbackmain">
@@ -51,7 +84,7 @@ const Feedbacklandslider = () => {
                 <div className='landclientcontainer'>
                   <div className='landclient'>
                     <img
-                      src={feedback.profileImage ? `https://your-image-hosting-url/${feedback.profileImage}` : getRandomFallbackImage()}
+                      src={feedback.imageUrl}
                       alt={feedback.client_name || 'Client Image'}
                     />
                     <span>

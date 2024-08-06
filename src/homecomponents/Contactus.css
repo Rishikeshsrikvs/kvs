@@ -1,0 +1,302 @@
+.contactusparent{
+    background-color: #141414;
+    color: white;
+    box-sizing: border-box;
+    padding-top: 10vh;
+    
+}
+.contact1main{
+    height: 70vh;
+}
+.contact1sub{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 10vh;
+    
+}
+.cn1big{
+    width: 50%;
+    font-family: Playfair Display;
+    font-size: 64px;
+    font-style: italic;
+    font-weight: 700;
+    line-height: 85.31px;
+    text-align: center;
+
+}
+.cn1small{
+    font-family: Outfit;
+    font-size: 32px;
+    width: 50%;
+    font-weight: 700;
+    line-height: 40.32px;
+    text-align: center;
+
+}
+.cn1small span{
+
+}
+.contact2main{
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    padding: 5vh 10vh;
+    height:75vh;
+    
+}
+.cn2left{
+    width: 40%;
+    border-radius: 10px;
+    height: 100%;
+    
+    background: linear-gradient(126.95deg, rgba(28, 228, 242, 0.5) 1.04%, rgba(38, 74, 224, 0.5) 97.37%);
+    
+    
+}
+.cn2left form{
+    padding: 10%;
+    height: 100%;
+    width: 100%;
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.cn2lefttitle{
+    text-align: center;
+    height: 30%;
+
+}
+.cn2incon{
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+}
+.cn2submit{
+    height: 20%;
+}
+.cn2lefttitle h1{
+    font-family: Outfit;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 48px;
+    text-align: center;
+
+}
+.cn2lefttitle p{
+    font-family: Outfit;
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+text-align: center;
+margin-top: 10px;
+
+}
+.cn2in{
+
+}
+.cn2in label{
+    font-family: Outfit;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: left;
+    display: block;
+
+}
+.cn2in input{
+    width: 100%;
+    height: Hug (36px)px;
+    padding: 8px 12px 8px 12px;
+    gap: 4px;
+    border-radius: 6px ;
+   
+    opacity: 0px;
+    outline: none;
+    border: none;
+    margin-top: 10px;
+
+}
+.cn2submit{
+    text-align: center;
+    margin-top: 5%;
+}
+.cn2submit button{
+    background: #9747FF;
+    color: white;
+    outline: none;
+    border: none;
+    width: 45%;
+    padding: 10px 20px;
+
+    font-family: Outfit;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: center;
+    border-radius: 8px;
+
+
+
+}
+.cn2right{
+    
+    background: #FFFFFF;
+    width: 40%;
+    border-radius: 10px;
+    height: 100%;
+    color: #1E1E1E;
+    padding: 2% 4%;
+    display: flex;
+    flex-direction: column;
+    gap: 2%;
+
+}
+.cn2text h2{
+    font-family: Outfit;
+font-size: 40px;
+font-weight: 700;
+line-height: 50.4px;
+text-align: left;
+
+}
+.cn2text p{
+    font-family: Outfit;
+font-size: 24px;
+font-weight: 500;
+line-height: 30.24px;
+text-align: left;
+
+
+}
+.cn2iframe{
+    width: 100%;
+    flex: 1;
+    border: none;
+    height: 100%;
+    margin-top: 7%;
+}
+.cn3main{
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+}
+.cn3left,.cn3right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    gap: 2%;
+   
+   
+}
+.cn3feedbackcon{
+    background: linear-gradient(142.52deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 98.24%);
+    border: 2px solid #FFFFFF26;
+    border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 50%;
+    height: 50%;
+    padding: 4%;
+    margin-top: 10px;
+
+}
+.cn3left > h1{
+    font-family: Outfit;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 24px;
+   
+
+}
+.cn3in{
+    width: 100%;
+
+}
+.cn3in label{
+    font-family: Outfit;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 35.28px;
+    letter-spacing: -0.01em;
+    display: block;
+    margin-bottom: 10px;
+}
+.cn3in textarea,.cn3in input{
+    background-color: #13071E66;
+    display: block;
+    
+}
+.cn3in textarea{
+    width: 100%;
+    height: 100px;
+    resize: none;
+}
+.cn3in input{
+    border: none;
+    padding: 10px;
+    width: 100%;
+
+}
+.cn3fbbtn{
+    width: 100%;
+   text-align: center;
+    font-family: Outfit;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 35.28px;
+    letter-spacing: -0.01em;
+    background-color: #FBFBFB;
+    color: #02081E;
+    border-radius: 40px;
+    padding: 10px 20px;
+    margin-top: 10px;
+
+}
+.cn3right h1{
+    color: #FFFFFF;
+    font-family: Outfit;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 50.4px;
+    text-align: center;
+    margin-bottom: 30px;
+
+}
+.cn3right p{
+    width: 70%;
+    text-align: center;
+    color: #FFFFFF;
+    font-family: Outfit;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 30.24px;
+    text-align: center;
+
+}
+.cn3rightbtn{
+    background-color: #264AE0;
+    color: white;
+    font-family: Outfit;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 25.2px;
+    text-align: center;
+    padding: 2% 10%;
+    border-radius: 20px;
+    margin-top: 20px;
+
+}
