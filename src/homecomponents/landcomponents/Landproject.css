@@ -46,7 +46,7 @@
     align-items: center;
 }
 
-.allprjt button {
+.allprjt .allprjtbtn {
     padding: 13px 25px;
     border-radius: 20px;
     background-color: #2C313F;
@@ -58,7 +58,7 @@
     gap: 5px;
 }
 
-.allprjt button img {
+.allprjt .allprjtbtn img {
     width: 25px;
     border-radius: 50%;
     padding: 2px;

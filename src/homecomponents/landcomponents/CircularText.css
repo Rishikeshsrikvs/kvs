@@ -37,3 +37,6 @@
     color:white;
     word-spacing: 10px;
 }
+.circularcontainer:hover .circularspan{
+    color: #FF99A2;
+}

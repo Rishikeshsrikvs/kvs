@@ -60,6 +60,26 @@ const Feedbacklandslider = () => {
     fetchFeedbacks();
   }, []);
 
+  const renderFeedbacks = () => {
+    return [...feedbacks, ...feedbacks].map((feedback, index) => (
+      <div className='landfeedbackcard' key={index}>
+        <div className='landfeedback'>{feedback.description}</div>
+        <div className='landclientcontainer'>
+          <div className='landclient'>
+            <img
+              src={feedback.imageUrl}
+              alt={feedback.client_name || 'Client Image'}
+              loading="lazy" // Lazy load images
+            />
+            <span>
+              <h4>{feedback.client_name}</h4>
+            </span>
+          </div>
+        </div>
+      </div>
+    ));
+  };
+
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -78,22 +98,7 @@ const Feedbacklandslider = () => {
         </div>
         <div className='landfeedbackslider'>
           <div className='landsider-wrapper'>
-            {[...feedbacks, ...feedbacks].map((feedback, index) => (
-              <div className='landfeedbackcard' key={index}>
-                <div className='landfeedback'>{feedback.description}</div>
-                <div className='landclientcontainer'>
-                  <div className='landclient'>
-                    <img
-                      src={feedback.imageUrl}
-                      alt={feedback.client_name || 'Client Image'}
-                    />
-                    <span>
-                      <h4>{feedback.client_name}</h4>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            ))}
+            {renderFeedbacks()}
           </div>
         </div>
       </div>

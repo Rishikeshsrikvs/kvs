@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import "./Contactus.css"
 const Contactus = () => {
   return (
@@ -62,7 +63,9 @@ const Contactus = () => {
         <div className="cn3right">
             <h1>BROCHURES</h1>
             <p>Discover the power of our expertise and solutions by accessing our comprehensive brochures. Gain deeper insights into our services, approach, and success stories, empowering you to make informed decisions for your business. Simply click the links below to download our brochures and embark on a transformative journey with us.</p>
-            <div className="cn3rightbtn">DOWNLOAD</div>
+            <Link to="/brochureform" className="cn3rightbtn">
+                DOWNLOAD
+            </Link>
         </div>
       </div>
     </div>

@@ -10,6 +10,8 @@ import Career from './homecomponents/Career'
 import { About } from './homecomponents/About'
 import Brochureform from './homecomponents/Brochureform'
 import Contactus from './homecomponents/Contactus'
+import Brochuredownload from './homecomponents/Brochuredownload'
+import JobDetails from './homecomponents/JobDetails'
 export const Home = () => {
   return (
     <div>
@@ -18,12 +20,14 @@ export const Home = () => {
         <Routes>
           <Route path='/' element={<Land/>}/>
           <Route path='/about' element={<About/>}/>
-          <Route path='/works' element={<Works/>}/>
+          <Route path='/projects' element={<Works/>}/>
           <Route path='/services' element={<Services/>}/>
           <Route path='/blogs' element={<Blogs/>}/>
           <Route path='/career' element={<Career/>}/>
+          <Route path="/career/:id" element={<JobDetails/>} />
           <Route path='/contactus' element={<Contactus/>}/>
-          <Route path='/br' element={<Brochureform/>}/>
+          <Route path='/brochureform' element={<Brochureform/>}/>
+          <Route path='/brochuredownload' element={<Brochuredownload/>}/>
           
         </Routes>
       </main>

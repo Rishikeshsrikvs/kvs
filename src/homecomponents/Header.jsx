@@ -34,7 +34,7 @@ export const Header = () => {
       <div className='navcontainer'>
         <ul className='navul'>
           <li><Link to="/about">ABOUT US</Link></li>
-          <li><Link to="/works">PROJECTS</Link></li>
+          <li><Link to="/projects">PROJECTS</Link></li>
           <li><Link to="/services">SERVICES <span></span></Link></li>
           <li><Link to="/blogs">BLOGS</Link></li>
           <li><Link to="/career">CAREER</Link></li>

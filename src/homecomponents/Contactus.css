@@ -37,7 +37,16 @@
 
 }
 .cn1small span{
+  
+    background: linear-gradient(90deg, #9747FF 0%, #FB7CB2 100%);
 
+    background-position: bottom;
+    background-size: 100% 50%;
+    background-repeat: no-repeat;
+    padding: 0px 5px;
+    
+    
+    text-align: center;
 }
 .contact2main{
     height: 100vh;

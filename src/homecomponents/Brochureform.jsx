@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import "./Brochureform.css"
 import brfsub from './../assets/images/Brochureform/brformbacksub.png';
 import brfmain from './../assets/images/Brochureform/brformbackmain.jpg';
@@ -28,7 +29,9 @@ const Brochureform = () => {
                         <input type="text" placeholder='Enter your Phone number' />
                     </div>
                     <div className="brformbtncn">
-                        <div className="brformbtn">Send Message</div>
+                        <Link to="/brochuredownload">
+                            <div className="brformbtn">Send Message</div>
+                        </Link>
                     </div>
                 </form>
             </div>

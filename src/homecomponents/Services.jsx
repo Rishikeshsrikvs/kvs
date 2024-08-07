@@ -1,5 +1,6 @@
 import React from 'react'
 import "./Services.css"
+import { Link } from 'react-router-dom';
 import ser2left from './../assets/images/landblogback1.png';
 import ser2right from './../assets/images/landblogback3.png';
 import sercard1 from './../assets/images/serviceimages/servicecard1.png';
@@ -74,7 +75,7 @@ const Services = () => {
       <div className="service4main">
         <div className="ser4cont">
             <h1>From unveiling user needs, crafting narratives, and simplifying interactions to creating harmonious experiences And engineering for growth, we’re in the business of making a positive impact on our collective future.</h1>
-            <div className="ser4btn">let’s collaborate</div>
+            <Link to="/contactus" className="ser4btn">let’s collaborate</Link>
         </div>
       </div>
     </div>

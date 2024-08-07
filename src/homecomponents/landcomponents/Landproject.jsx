@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import "./Landproject.css";
 import ne from './../../assets/images/ne arrow.svg';
 import next from './../../assets/images/next.png'; // Corrected image path
@@ -39,7 +40,7 @@ const Landproject = () => {
                     </div>
                     <div className='projectbtns'>
                         <div className="allprjt">
-                            <button><span>ALL PROJECT</span><img src={ne} alt="" /></button>
+                            <Link to="/projects" className='allprjtbtn'><span>ALL PROJECT</span><img src={ne} alt="" /></Link>
                         </div>
                         <div className='arrowbtns'>
                             <button onClick={handlePrev}><img src={pre} alt="Previous" /></button>

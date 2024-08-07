@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Land.css';
 import CircularText from './landcomponents/CircularText';
 import AnimatedNumber from './landcomponents/AnimatedNumber.';
@@ -15,6 +16,7 @@ import Landproject from './landcomponents/Landproject';
 import pre from './../assets/images/pre.png';
 import ne from './../assets/images/ne arrow.svg';
 import next from './../assets/images/next.png';
+import Logoslider from './landcomponents/Logoslider';
 export const Land = () => {
     const duration = 7000; // Animation duration in milliseconds
 
@@ -26,7 +28,7 @@ export const Land = () => {
                         <h1>UNLEASH YOUR DIGITAL</h1>
                         <h1 className='color'>POTENTIAL</h1>
                         <p>It's Time To Transform Your Online Presence And Accelerate <br />Your Business Growth With Sri KVS Tech.<br/>Let's Start The Journey Together And Witness The Transformation</p>
-                        <span className='Enquirespan'><CircularText/></span>
+                        <Link to="/contactus"><span className='Enquirespan'><CircularText/></span></Link>
                     </div>
                     <div className="land1right">
                         <img src={cube}  className='imagelandright' alt="Cube" />
@@ -38,30 +40,15 @@ export const Land = () => {
                         <h4>SUCCESSFUL PROJECTS</h4>
                     </div>
                     <div className="yearssplit">
-                        <h1><AnimatedNumber value={50} duration={duration} /></h1>
+                        <h1><AnimatedNumber value={50} duration="4000" /></h1>
                         <h4>HAPPY CLIENTS</h4>
                     </div>
                     <div className="yearssplit">
-                        <h1><AnimatedNumber value={4} duration={duration} />+</h1>
+                        <h1><AnimatedNumber value={4} duration="4000" />+</h1>
                         <h4>YEARS IN INDUSTRY</h4>
                     </div>
                 </div>
-                <div className="land1clientlogocontainer">
-                  <div className="scrolling-wrapper">
-                    <div className="scrolling">
-                        <img src={logo} alt="" />
-                    </div>
-                    <div className="scrolling">
-                        <img src={logo} alt="" />
-                    </div>
-                    <div className="scrolling">
-                        <img src={logo} alt="" />
-                    </div>
-                    <div className="scrolling">
-                        <img src={logo} alt="" />
-                    </div>
-                  </div>
-                </div>
+                <Logoslider/>
             </div>
             <div className="landaboutcontainer">
                 
@@ -70,12 +57,12 @@ export const Land = () => {
                     <h1 className='landabouttext'>PROVIDING THE BEST FOR THE BEST</h1>
                     <h6 className='landabouth6'>It's time to transform your online presence and accelerate your 
                     business growth with Sri KVS Tech. Let's start the journey together and witness the transformation.</h6>
-                    <button className='landaboutbtn'>Know More</button>
+                    <Link to="/about" className='landaboutbtn'>Know More</Link>
                   </div>
                   <div className="landaboutright">
                     <Iconcontainer/>
                   </div>
-                
+               
             </div>
             <div className='landservicescontainer'>
                 <div className="landservicetitlecon">
@@ -111,7 +98,7 @@ export const Land = () => {
                                             <p className='wydown'>Your Project Vision</p>
                                         </div>
                                         <div className='wyrbright'>
-                                            <button>LET'S STRART</button>
+                                            <Link to="/contactus" className='letstartbtn'>LET'S STRART</Link>
                                         </div>
                                     </div>
                                     <div className="wyround"></div>
@@ -127,8 +114,8 @@ export const Land = () => {
                         <h1>OUR BLOGS</h1>
                     </div>
                     <Blogland/>
-                    <div className="landblogbtn">
-                        <button>Click For More Blogs</button>
+                    <div className="landblogbtncn">
+                        <Link to="/blogs" className='landblogbtn'>Click For More Blogs</Link>
                     </div>
                 </div>
                 <div className='landcontactusmain'>
@@ -146,7 +133,7 @@ export const Land = () => {
                             <p>with a lot of creativity, we can make your dream come true</p>
                         </div>
                         <div className="landcubtn">
-                            <button>CONTACT US</button>
+                            <Link to="/contactus" className='landcubtnsub'>CONTACT US</Link>
                         </div>
                     </div>
                     

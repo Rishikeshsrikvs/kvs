@@ -101,36 +101,6 @@
     100%   { transform: translate(0, -0px); }    
 }
 
-.land1clientlogocontainer{
-    overflow: hidden;
-    white-space: nowrap;
-    background-color: #141414;
-    width: 100%;
-    padding-top: 5%;
-
-}
-
-.scrolling-wrapper {
-    
-    animation: marquee 40s linear infinite;
-}
-
-.scrolling {
-    display: inline-block;
-    padding: 0px 20%;
-    padding-right: 30px; /* Space between repeated elements */
-}
-.scrolling img{
-    width: 180px;
-}
-@keyframes marquee {
-    0% {
-        transform: translateX(0%);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
-}
 
 
 /* ------------------- */
@@ -158,13 +128,16 @@
 }
 .landaboutbtn{
     width: 240px;
-    height: 70px;
+    padding: 25px;
+
     font-size: 70%;
     font-weight: bolder;
     background-color: white;
     color: blue;
     border-radius: 40px;
-    border: none;
+    border: none;display: flex;
+    text-align: center;
+    justify-content: center
 
 }
 .landaboutright{
@@ -423,7 +396,7 @@ flex-direction: row-reverse;
     flex:1;
     justify-content: center;
 }
-.wyrbright button{
+.wyrbright .letstartbtn{
     border: none;
     color: white;
     padding: 12px 20px;
@@ -488,7 +461,7 @@ flex-direction: row-reverse;
    
 
 }
-.landblogbtn{
+.landblogbtncn{
     height: 10%;
     display: flex;
     align-items: center;
@@ -496,16 +469,16 @@ flex-direction: row-reverse;
    
    
 }
-.landblogbtn > button{
+.landblogbtn{
     background-color: inherit;
     border: 2px  solid white;
     border-radius: 20px;
     color: white;
     font-size: 110%;
     padding: 10px;
-    font-weight: lighter;
+    
 }
-.landblogbtn > button:hover{
+.landblogbtn:hover{
     background:linear-gradient(145deg,#ff99a2,#e406b5,#35088A);
     border: none;
 }
@@ -552,17 +525,18 @@ flex-direction: row-reverse;
  .landcubtn{
     margin-top: 6vh;
  }
- .landcubtn > button{
+ .landcubtnsub{
     background-color: inherit;
     border: 2px  solid white;
     border-radius: 30px;
     color: white;
     font-size: 110%;
     padding: 15px 10px;
-    font-weight: lighter;
+    /* font-weight: lighter; */
+    padding: 5px 20px;
     
  }
- .landcubtn > button:hover{
+ .landcubtnsub:hover{
     background:linear-gradient(145deg,#ff99a2,#e406b5,#35088A);
     border: 2px solid #141414;
  }

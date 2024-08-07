@@ -1,0 +1,30 @@
+.land1clientlogocontainer{
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: #141414;
+    width: 100%;
+    padding-top: 5%;
+
+}
+
+.scrolling-wrapper {
+    
+    animation: marquee 40s linear infinite;
+}
+
+.scrolling {
+    display: inline-block;
+    padding: 0px 20%;
+    padding-right: 30px; /* Space between repeated elements */
+}
+.scrolling img{
+    width: 180px;
+}
+@keyframes marquee {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
