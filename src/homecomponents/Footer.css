@@ -1,39 +1,44 @@
-.footermaincontainer{
-    height: 60vh;
+.footermaincontainer {
+    height: auto;
     color: white;
     display: flex;
     padding: 25px;
     padding-right: 60px;
     flex-direction: row;
     justify-content: space-between;
-
-    background:#000000 url('./../assets/images/footerback.png') no-repeat bottom / 100% 130px ;
-    
+    background: #000000 url('./../assets/images/footerback.png') no-repeat bottom / 100% 130px;
+    flex-wrap: wrap;
+    overflow: hidden;
 }
-.kvsdetails{
+
+.kvsdetails {
     width: 45%;
 }
-.kvsdetails img{
+
+.kvsdetails img {
     width: 270px;
-    padding: 0px  auto;
+    margin: 0 auto;
 }
-.kvsdetails p{
+
+.kvsdetails p {
     padding: 20px;
     padding-left: 30px;
     color: #9B9B9C;
     font-size: 90%;
     line-height: 25px;
-
 }
-.footersm{
+
+.footersm {
     display: flex;
     padding-left: 30px;
     gap: 2%;
 }
-.footersm img{
+
+.footersm img {
     width: 30px;
 }
-.footnav{
+
+.footnav {
     display: flex;
     margin-top: 20px;
     flex-direction: column;
@@ -41,18 +46,58 @@
     font-size: 120%;
     align-items: center;
 }
-.footnav a:hover p{
-    color:#FF99A2 ;
+
+.footnavcenter a:hover p, .footnavleft a:hover p {
+    color: #FF99A2;
 }
-.footnav p{
-    color:#9B9B9C ;
+
+.footnav p {
+    color: #9B9B9C;
 }
-p.footnavhead{
+
+p.footnavhead {
     color: #1CE4F2;
 }
-.footnavaddress{
-   text-align: center;
+
+.footnavaddress {
+    text-align: center;
 }
-.footnavaddress p{
+
+.footnavaddress p {
     text-align: left;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .footermaincontainer {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        padding-right: 20px;
+    }
+
+    .kvsdetails, .footnav, .footnavcenter, .footnavaddress {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .kvsdetails img {
+        width: 200px;
+    }
+
+    .kvsdetails p {
+        padding-left: 0;
+        font-size: 80%;
+    }
+
+    .footersm {
+        justify-content: center;
+        padding-left: 0;
+        gap: 5%;
+    }
+
+    .footnav p {
+        font-size: 100%;
+    }
 }

@@ -139,3 +139,10 @@
 .landprojectdetail p {
     padding: 0px 40px;
 }
+
+
+@media (max-width: 480px){
+    .projecttitle {
+            font-size: 80%;
+    }
+}

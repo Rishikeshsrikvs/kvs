@@ -1,7 +1,8 @@
 .landmaincontainer{
     background-color: #141414;
     color: white;
-    
+    overflow-x: hidden;
+    padding-top: 70px;
 }
 .land1{
     
@@ -15,7 +16,7 @@
 .land1spilt{
     display: flex;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     padding: 5%;
 
 }
@@ -545,6 +546,214 @@ flex-direction: row-reverse;
     transform: rotate(9deg);
     width: 500px;
     right: 5%;
-    
-
  }
+
+ /* Existing Styles... */
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+    .land1spilt {
+        flex-direction: column;
+        height: auto;
+        padding: 2% 5%;
+    }
+
+    .land1left {
+        width: 100%;
+        padding-top: 5vh;
+        text-align: center;
+    }
+
+    .land1left h1 {
+        font-size: 300%;
+    }
+
+    .land1left p {
+        margin-left: 0;
+        font-size: 100%;
+    }
+
+    .Enquirespan {
+        position: static;
+        display: block;
+        margin: 20px auto 0;
+    }
+
+    .land1right {
+        width: 100%;
+        text-align: center;
+    }
+
+    .land1right img {
+        width: 80%;
+        margin-left: 0;
+    }
+
+    .land1yearcontainer {
+        flex-direction: column;
+        padding: 5%;
+    }
+
+    .yearssplit {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .landaboutcontainer {
+        flex-direction: column;
+        height: auto;
+        padding: 5% 2%;
+    }
+
+    .landaboutleft {
+        width: 100%;
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .landaboutbtn {
+        width: 180px;
+        padding: 15px;
+    }
+
+    .landaboutright {
+        width: 100%;
+        padding-right: 0;
+        justify-content: center;
+    }
+
+    .iconflexcontainer {
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .landservicescontainer {
+        padding: 5% 2%;
+    }
+
+    .landwhyuscontainer {
+        flex-direction: column;
+        height: auto;
+        padding: 5% 2%;
+    }
+
+    .wygrid {
+        flex-direction: column;
+        gap: 20px;
+        padding: 5%;
+    }
+
+    .wyleft, .wyright {
+        width: 100%;
+    }
+
+    .wyltext {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .wyrightbottom {
+        height: auto;
+    }
+
+    .wyrbleft h2 {
+        font-size: 40px;
+    }
+
+    .landblogmain {
+        height: auto;
+        padding: 10% 5%;
+    }
+
+    .landblogtitle {
+        height: auto;
+        text-align: center;
+    }
+
+    .landcontactusmain {
+        height: auto;
+        padding: 5% 2%;
+    }
+
+    .landcutitle h1 {
+        font-size: 300%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .land1left h1 {
+        font-size: 200%;
+    }
+    .navbar-container{
+        padding-top: 20px;
+    }
+    .land1left p {
+        font-size: 90%;
+        margin-top: 40px;
+    }
+
+    .land1right img {
+        width: 100%;
+    }
+
+    .land1yearcontainer {
+        padding: 10%;
+    }
+
+    .landaboutcontainer {
+        
+        height: auto;
+        padding: 10px 0;
+    }
+    .landaboutleft{
+        display: flex;
+        gap: 15px;
+        flex-direction: column;
+        align-items: center;
+    }
+    .landabouttext{
+        width: 80%;
+        font-size: 90%;
+    }
+    .landabouth6{
+        width: 70%;
+        font-size: 60%;
+    }
+    .landservicescontainer {
+        padding: 10% 5%;
+    }
+
+    .landwhyuscontainer {
+        padding: 0;
+    }
+
+    .landblogmain {
+        padding: 15% 5%;
+    }
+
+   
+    .wytextcontainer span {
+        position: absolute;
+        top:160px; 
+         
+        transform-origin: bottom left;
+        transform: rotate(-90deg) translateY(100%);
+        background-color: black;
+        color: white;
+        font-size: 150%;
+        width: 200px;
+        font-weight: bolder;
+        text-align: center;
+        padding: 6px; 
+    } 
+    .wytitle{
+        font-size: 80%;
+        margin-left: 30px;    }
+    .wygrid{
+        flex-direction: column;
+    }
+  
+}

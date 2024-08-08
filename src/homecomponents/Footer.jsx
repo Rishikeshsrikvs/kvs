@@ -21,14 +21,14 @@ export const Footer = () => {
             </div>
         </div>
         <div className="footnav">
-          <p className="footnavhead">Navigation</p>
+          <p className="footnavhead footnavleft">Navigation</p>
           <Link to="/about"><p>About Us</p></Link>
           <Link to="/services"><p>Services</p></Link>
           <Link to="/projects"><p>Projects</p></Link>
           <Link to="/blogs"><p>Blogs</p></Link>
           <Link to="/careers"><p>Careers</p></Link>
         </div>
-        <div className="footnav">
+        <div className="footnav footnavcenter">
           <p className="footnavhead">Services</p>
           <Link to="/website-designing"><p>Website Designing</p></Link>
           <Link to="/social-media-marketing"><p>Social Media Marketing</p></Link>

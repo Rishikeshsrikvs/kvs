@@ -18,7 +18,7 @@ import ne from './../assets/images/ne arrow.svg';
 import next from './../assets/images/next.png';
 import Logoslider from './landcomponents/Logoslider';
 export const Land = () => {
-    const duration = 7000; // Animation duration in milliseconds
+    const duration = 4000; // Animation duration in milliseconds
 
     return (
         <div className='landmaincontainer'>

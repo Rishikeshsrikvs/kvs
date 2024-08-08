@@ -1,30 +1,34 @@
-.land1clientlogocontainer{
+.land1clientlogocontainer {
     overflow: hidden;
-    white-space: nowrap;
     background-color: #141414;
     width: 100%;
     padding-top: 5%;
-
-}
-
-.scrolling-wrapper {
-    
-    animation: marquee 40s linear infinite;
-}
-
-.scrolling {
-    display: inline-block;
-    padding: 0px 20%;
-    padding-right: 30px; /* Space between repeated elements */
-}
-.scrolling img{
+  }
+  
+  .scrolling-wrapper {
+    display: flex;
+    width: 200%; /* Double the width to accommodate the duplicate */
+    animation: marquee 20s linear infinite; /* Adjust duration as needed */
+  }
+  
+  .scrolling-wrapper .scrolling {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%; /* Half the width for each half of the loop */
+  }
+  
+  .scrolling img {
     width: 180px;
-}
-@keyframes marquee {
+    margin-right: 30px; /* Space between logos */
+  }
+  
+  @keyframes marquee {
     0% {
-        transform: translateX(0%);
+      transform: translateX(0%);
     }
     100% {
-        transform: translateX(-100%);
+      transform: translateX(-50%);
     }
-}
+  }
+  
