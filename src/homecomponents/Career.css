@@ -65,6 +65,7 @@
     border-radius: 15px;
     padding: 2%;
     display: flex;
+    justify-content: space-evenly;
     flex-direction: row;
     align-items: center;
 }
@@ -117,7 +118,8 @@
 
 
 
-.cjobright{
-    width: 30%;
+.cjobright p{
+    font-size: 150px;
+    margin-right: 50px;
 }
 

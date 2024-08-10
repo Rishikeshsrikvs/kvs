@@ -66,9 +66,7 @@
     transform-origin: center;
     margin-right: -3vw;
 }
-.service3main{
 
-}
 .service3sub{
     height: 100vh;
 
@@ -80,28 +78,64 @@
 }
 .sersubmain{
     display: flex;
-    flex-direction: row;
+    /* flex-direction: row; */
     
 }
 .sersubleft{
     width: 45%;
-    padding: 3% 9%;   
+    padding: 3% 3%;   
     position: relative; 
 }
 .sersubleft h1{
     font-family: Playfair Display;
-font-size: 64px;
+font-size: 60px;
 font-style: italic;
 font-weight: 600;
 line-height: 85.31px;
-text-align: left;
+text-align: center;
 text-transform: uppercase;
+margin-bottom: 10px;
+
 
 }
 .sersubleft p{
     font-size: 130%;
-    font-weight: lighter;
+    
     color: white;
+    width: 90%;
+    text-align: center;
+    padding-left: 15px;
+}
+ /* .sersubleft p ul{
+   
+} */
+ .ser3list{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px auto;
+ }
+ .ser3list > ul >li{
+    list-style-type: disc;
+    font-size: 130%;
+    
+    color: white;
+    
+    text-align: center;
+   
+    
+   
+}
+.service33 .sersubleft > p,.service34 .sersubleft > p,.service35 .sersubleft > p{
+    font-family: Outfit;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 25.2px;
+    text-align: center;
+    margin: 20px auto;
+    width: 100%;
+
 }
 .ser3colorbar{
     height: 4vh;
@@ -123,15 +157,9 @@ text-transform: uppercase;
     top: -4vh;
     right: 0;
 }
-.service32 .sersubmain{
-    flex-direction: row-reverse;
-}
-.service32 .sersubright img{
-    width: 90%;
-    position: absolute;
-    top: -4vh;
-    left: 0;
-}
+
+
+
 .service4main{
     height: 100vh;
     display: flex;
@@ -139,6 +167,14 @@ text-transform: uppercase;
     
     
 }
+.service3sub:nth-child(even) .sersubmain {
+    flex-direction: row-reverse;
+
+  }
+  .service3sub:nth-child(even) .sersubright img{
+    left: 0;
+    
+  }
 .ser4cont{
     width: 70%;
     display: flex;

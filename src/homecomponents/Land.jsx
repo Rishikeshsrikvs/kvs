@@ -16,6 +16,8 @@ import Landproject from './landcomponents/Landproject';
 import pre from './../assets/images/pre.png';
 import ne from './../assets/images/ne arrow.svg';
 import next from './../assets/images/next.png';
+import wsleftdown from './../assets/images/wsleftdown.png';
+
 import Logoslider from './landcomponents/Logoslider';
 export const Land = () => {
     const duration = 4000; // Animation duration in milliseconds
@@ -86,7 +88,7 @@ export const Land = () => {
                             <div className="wyleft">
                                 <div className="wylupimg"><img src={wsrotate} alt="" /></div>
                                 <div className="wyltext"><h2>Fulfilling Your Requirements With Precision</h2></div>
-                                <div className="wyldownimg"><img src="" alt="" /></div>
+                                <div className="wyldownimg"><img src={wsleftdown} alt="" /></div>
                             </div>
                             <div className="wyright">
                                 <div className="wyrightup"></div>
@@ -124,11 +126,15 @@ export const Land = () => {
                         <div className="rcb2"></div>
                         <div className="rcb3"></div>
                     </div>
+                    <div className="contactback">
+                        <img src={contactus} alt="" />
+                    </div>
                     <div className="landcontactussub">
                         <div className="landcutitle">
                             <h1>create something awesome </h1>
                             <h1>and <span>extraordinary</span> with Us</h1>
                         </div>
+                        
                         <div className="landcusubtitle">
                             <p>with a lot of creativity, we can make your dream come true</p>
                         </div>
@@ -136,6 +142,7 @@ export const Land = () => {
                             <Link to="/contactus" className='landcubtnsub'>CONTACT US</Link>
                         </div>
                     </div>
+                    
                     
 
                 </div>

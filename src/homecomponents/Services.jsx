@@ -6,6 +6,8 @@ import ser2right from './../assets/images/landblogback3.png';
 import sercard1 from './../assets/images/serviceimages/servicecard1.png';
 import sercard2 from './../assets/images/serviceimages/servicecard2.png';
 import sercard3 from './../assets/images/serviceimages/servicecard3.png';
+import sercard4 from './../assets/images/serviceimages/servicecard4.png';
+import sercard5 from './../assets/images/serviceimages/servicecard5.png';
 const Services = () => {
   return (
     <div className='Servicesparent'>
@@ -41,11 +43,19 @@ const Services = () => {
         </div>
         <div className="service3sub service32">
                 <div className="sersubbar"></div>
-                <div className="sersubmain">
+                <div className="sersubmain sersubmainright">
                     <div className="sersubleft">
 
                         <span className='ser3colorbar'></span>
                         <h1>DIGITAL MARKETING</h1>
+                        <div className='ser3list'>
+                          <ul>
+                            <li>Facebook Marketing Services</li>
+                            <li>YouTube Marketing Services</li>
+                            <li>LinkedIn Marketing Services</li>
+                            <li>Instagram Marketing Services</li>
+                          </ul>
+                          </div>
                         <p>Engage visually-oriented audiences on Instagram with our Instagram marketing services. From stunning visuals and captivating stories to influencer partnerships and hashtag strategies, we'll help you stand out on one of the fastest-growing social platforms.</p>
                     </div>
                     <div className="sersubright">
@@ -61,7 +71,14 @@ const Services = () => {
 
                         <span className='ser3colorbar'></span>
                         <h1>SEARCH ENGINE OPTIMIZATION</h1>
-                        <p>our search engine optimization service helps you engage with your audience, build brand awareness, and drive traffic to your website..</p>
+                        <p>With millions of websites struggling for attention on search engines, standing out 
+                          from the crowd can be challenging. This is where SEO services come into play. 
+                          By leveraging the power of SEO, businesses can enhance their visibility, attract 
+                          more organic traffic, and ultimately boost their revenue.</p>
+                    <p>At Sri KVS Tech, we specialize in boosting your online visibility through our advanced 
+                    SEO strategies. Our focus is on improving search engine rankings and increasing 
+                    organic traffic to your website. By using the latest SEO techniques and staying up 
+                    to date on digital trends, we ensure your company reaches its maximum potential.</p>
                     </div>
                     <div className="sersubright">
                         <img src={sercard3} alt="" />
@@ -69,6 +86,43 @@ const Services = () => {
                 </div>
                 
         </div>
+        <div className="service3sub service34">
+                <div className="sersubbar"></div>
+                <div className="sersubmain sersubmainright">
+                    <div className="sersubleft">
+
+                        <span className='ser3colorbar'></span>
+                        <h1>Social media marketing</h1>
+                        <p>In today's digital world, social media is the primary marketing platform. Partnering 
+                        with a trusted social media company is crucial for businesses.</p>
+                    <p>At Sri KVS Tech, our social media experts ensure you stay ahead in this dynamic arena, 
+driving brand influence, leads, and sales. Trusted by startups to top brands, we offer 
+comprehensive social media services including strategy development, optimization, 
+content creation, paid campaigns, profile management and more.</p>
+                    </div>
+                    <div className="sersubright">
+                        <img src={sercard4} alt="" />
+                    </div>
+                </div>
+                
+        </div>
+        <div className="service3sub service35">
+                <div className="sersubbar"></div>
+                <div className="sersubmain ">
+                    <div className="sersubleft">
+
+                        <span className='ser3colorbar'></span>
+                        <h1>Branding</h1>
+                        <p>With millions of websites struggling for attention on search engines, standing out from the crowd can be challenging. This is where SEO services come into play. By leveraging the power of SEO, businesses can enhance their visibility, attract more organic traffic, and ultimately boost their revenue.</p>
+                    <p>At Sri KVS Tech, we specialize in boosting your online visibility through our advanced SEO strategies. Our focus is on improving search engine rankings and increasing organic traffic to your website. By using the latest SEO techniques and staying up to date on digital trends, we ensure your company reaches its maximum potential.</p>
+                    </div>
+                    <div className="sersubright">
+                        <img src={sercard5} alt="" />
+                    </div>
+                </div>
+                
+        </div>
+        
         
         
       </div>

@@ -10,6 +10,8 @@
 .landfeedbacksub{
   height: 100vh;
   display: flex;
+ 
+  background: transparent;
   align-items: center;
   flex-direction: column;
   position: absolute;
@@ -19,6 +21,8 @@
   position: absolute;
   background:url('./../assets/images/feedbackback.png') no-repeat 100% 100%;
   height: 100%;
+  z-index: 6467;
+
   transform: rotate(180deg);
   width: 50%;
   left: 0;
@@ -30,11 +34,12 @@
   position: absolute;
   background:url('./../assets/images/feedbackback.png') no-repeat bottom/100% 100%;
   height: 100%;
+  z-index: 56356;
   width: 700px;
  
   right: 0;
   top: 0;
-  border: #e406b5;
+ 
  
 }
 .landfeedbacktitle{

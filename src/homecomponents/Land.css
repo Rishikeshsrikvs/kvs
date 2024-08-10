@@ -32,7 +32,9 @@
     text-align: center;
 }
 .land1left .color{
-    background: -webkit-linear-gradient(360deg,#ff99a2,#e406b5,#35088A);
+    background: linear-gradient(87.04deg, #E41ACF 27.75%, #FF99A2 66.6%);
+
+    background: -webkit-linear-gradient(360deg, #E41ACF 27.75%, #FF99A2 66.6%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -339,7 +341,14 @@ flex-direction: row-reverse;
     width: 140px; /* Set the initial width */
     animation: rotateImage 20s linear infinite; /* Rotate the image infinitely */
 }
-
+.wyldownimg img{
+    width: 100%;
+    height: 100%;
+}
+.wyldownimg{
+    width: 90%;
+    margin-bottom: 20px;
+}
 @keyframes rotateImage {
     from {
         transform: rotate(0deg); /* Starting rotation angle */
@@ -362,8 +371,11 @@ flex-direction: row-reverse;
     flex-direction: column;
 }
 .wyrightup{
+    
     height: 65%;
-    background-size: 100% 100%;
+    background-size: 90% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
     background-image:url('./../assets/images/ws1.png') ;
 }
 .wyrightbottom{
@@ -372,12 +384,12 @@ flex-direction: row-reverse;
     background-size: 100% 100%; */
     background: linear-gradient(90deg, #9747FF 0%, #B127CB 100%);
     border-radius: 26px;
-    position: relative;
+   
 }
 .wyrightbottommain{
     height: 100%;
     width: 100%;
-    position: absolute;
+    
     padding: 5%;
     display: flex;
     align-items: center;
@@ -500,11 +512,15 @@ flex-direction: row-reverse;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: relative;
+    position: absolute;
+    z-index: 456;
+
  }
+
  .landcutitle h1{
-    font-size: 600%;
+    font-size: 500%;
     letter-spacing: 2px;
+    text-transform: uppercase;
  }
  .landcutitle h1 span{
     color: #141414;
@@ -516,15 +532,17 @@ flex-direction: row-reverse;
  }
  .landcusubtitle{
     margin-top: 10vh;
-    z-index: 34;
+  
    
  }
  .landcusubtitle p{
-    font-size: 130%;
-    z-index: 1;
+    font-size: 120%;
+    
+    background: transparent;
  }
  .landcubtn{
     margin-top: 6vh;
+    margin-left:-6vw ;
  }
  .landcubtnsub{
     background-color: inherit;
@@ -532,22 +550,59 @@ flex-direction: row-reverse;
     border-radius: 30px;
     color: white;
     font-size: 110%;
+    position: absolute;
     padding: 15px 10px;
+    z-index: 546;
     /* font-weight: lighter; */
     padding: 5px 20px;
+    background: transparent;
+  
     
  }
  .landcubtnsub:hover{
     background:linear-gradient(145deg,#ff99a2,#e406b5,#35088A);
     border: 2px solid #141414;
  }
- .landbackusback{
+ 
+ .contactback{
     position: absolute;
+    right: 3%;
+    
+ }
+ .contactback img{
+   
     transform: rotate(9deg);
-    width: 500px;
-    right: 5%;
+    width: 450px;
+    height: 600px;
+   
+    
  }
 
+ .rectback{
+    
+    position: absolute;
+    left: 40px;
+    width: 40%;
+    height: 100%;
+    padding: 5%;
+ }
+ .rectback > div{
+    width: 320px;
+    height: 320px;
+    background-color: #141414;
+    position: absolute;
+    border: 1px solid #FFFFFF1A;
+ }
+ .rcb2{
+    left: -20px;
+    top: 20%;
+    z-index: 3;
+ }
+ .rcb3{
+    left:30%;
+    top: 40%;
+    z-index: 4;
+ }
  /* Existing Styles... */
 
 /* Media Queries for Responsiveness */
@@ -683,7 +738,7 @@ flex-direction: row-reverse;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 500px) {
     .land1left h1 {
         font-size: 200%;
     }
@@ -752,8 +807,27 @@ flex-direction: row-reverse;
     .wytitle{
         font-size: 80%;
         margin-left: 30px;    }
-    .wygrid{
-        flex-direction: column;
+ 
+    .landwhyuscontainer{
+        height:2000px;
     }
-  
+    .wyleft,.wyright{
+        width: 100%;
+        height: auto;
+    }
+   
+    .wyleft{
+        width: 100%;
+        height: 500px;
+    }
+    .wyright{
+        width: 100%;
+       
+    }
+    .wyrightup{
+        display: none;
+    }
+    .wyrightbottommain{
+
+    }
 }

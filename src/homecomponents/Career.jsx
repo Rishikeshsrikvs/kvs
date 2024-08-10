@@ -74,7 +74,7 @@ const Career = () => {
                 </ul>
               </div>
               <div className="cjobright">
-                <p>----</p>
+                <p>&#8599;</p>
               </div>
             </Link>
           ))}
