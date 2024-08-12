@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 import "./Works.css"
 import Workmarq from './landcomponents/Workmarq';
 import leftbig from './../assets/images/workimages/work1leftbig.png';
@@ -15,6 +15,12 @@ import wk3 from './../assets/images/workimages/flex/wk3.png';
 import wk4 from './../assets/images/workimages/flex/wk4.png';
 import wk5 from './../assets/images/workimages/flex/wk5.png';
 const Works = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  
   return (
     <div className='workparentcontainer'>
         <div className="work1main">

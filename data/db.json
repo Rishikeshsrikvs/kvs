@@ -118,6 +118,198 @@
         }
       ],
       "discount": "23"
+    },
+    {
+      "id": "c1ac",
+      "clientName": "jeh",
+      "location": "chennai",
+      "email": "ssdsv@gdf.com",
+      "gstNo": "78324623789",
+      "phone": "2354234534",
+      "adharNumber": "342534563456",
+      "clientLogo": "",
+      "services": [
+        {
+          "name": "Social Media Marketing",
+          "quantity": "5",
+          "package": "Elite"
+        }
+      ],
+      "discount": "56"
+    },
+    {
+      "id": "d124",
+      "clientName": "efrger",
+      "location": "rgter",
+      "email": "ssdsv@gdf.com",
+      "gstNo": "43534564556",
+      "phone": "5645657647",
+      "adharNumber": "456455656744",
+      "clientLogo": "",
+      "services": [
+        {
+          "name": "Social Media Marketing",
+          "quantity": "7",
+          "package": "Elite"
+        }
+      ],
+      "discount": "23"
+    },
+    {
+      "id": "636a",
+      "clientName": "wew",
+      "location": "wwdf",
+      "email": "ssdsv@gdf.com",
+      "gstNo": "435346457556",
+      "phone": "3425345545",
+      "adharNumber": "234354564556",
+      "clientLogo": "",
+      "services": [
+        {
+          "name": "Social Media Marketing",
+          "quantity": "3",
+          "package": "Pro"
+        }
+      ],
+      "discount": "43"
+    },
+    {
+      "id": "95cd",
+      "clientName": "rishike",
+      "location": "cvxdfgdf",
+      "email": "ssdsv@gdf.com",
+      "gstNo": "12342342345",
+      "phone": "2342323223",
+      "adharNumber": "342345455543",
+      "clientLogo": "2ae11ba35d9466c0327583665e37ad9bfeef5044d55e1306e8918f7b7e4d9748",
+      "services": [
+        {
+          "name": "Social Media Marketing",
+          "quantity": "32",
+          "package": "Pro"
+        },
+        {
+          "name": "Search Engine Optimization",
+          "quantity": "23",
+          "package": "Pro"
+        },
+        {
+          "name": "Web Development",
+          "quantity": "23",
+          "package": "Static Plus Plan"
+        }
+      ],
+      "discount": "11"
+    },
+    {
+      "id": "c50c",
+      "clientName": "bala",
+      "location": "chennai",
+      "email": "Harish@maiul.com",
+      "gstNo": "12324343545",
+      "phone": "4353454566",
+      "adharNumber": "345345345545",
+      "clientLogo": "224887e03733281e0bed5c6ae7adbdfe3fedd738e3cb605641389425b9ef04bd"
+    },
+    {
+      "id": "41cf",
+      "clientName": "harish",
+      "location": "avadi",
+      "email": "harish.srikvstech@gmail.com",
+      "gstNo": "3242343244",
+      "phone": "2345234555",
+      "adharNumber": "345545565665",
+      "clientLogo": "b86552d7fb96d54b7ff0dfcc386405bd6d34449711b6e7dea2a1a96798d0ee93",
+      "services": [
+        {
+          "name": "Social Media Marketing",
+          "quantity": "55",
+          "package": "Pro"
+        }
+      ],
+      "discount": "1"
+    },
+    {
+      "id": "b940",
+      "clientName": "harish",
+      "location": "avadi",
+      "email": "gravts.sal@gmail.com",
+      "gstNo": "3242343244",
+      "phone": "2345234555",
+      "adharNumber": "345545565665",
+      "clientLogo": "",
+      "services": [
+        {
+          "name": "Social Media Marketing",
+          "quantity": "sds",
+          "package": "Pro"
+        }
+      ],
+      "discount": "22"
+    },
+    {
+      "id": "6917",
+      "clientName": "rishi",
+      "location": "fgedf",
+      "email": "grav.sl@gmail.com",
+      "gstNo": "3242343244",
+      "phone": "1234235566",
+      "adharNumber": "345545565665",
+      "clientLogo": "870b00baf70608bafc5f8d2ec9e111b1dede63b20eaa43d7f7c64fa881ed5859",
+      "services": [
+        {
+          "name": "Social Media Marketing",
+          "quantity": "55",
+          "package": "Pro"
+        }
+      ],
+      "discount": "444"
+    },
+    {
+      "id": "7bf9",
+      "clientName": "harish",
+      "location": "avadi",
+      "email": "gravts.sal@gmail.com",
+      "gstNo": "wer2342345",
+      "phone": "1234235566",
+      "adharNumber": "345545565665",
+      "clientLogo": "15d7e790875e6aa33c057e6c35fc7f64a8697fc48a2e13802929ee311cc65e51",
+      "services": [
+        {
+          "name": "Social Media Marketing",
+          "quantity": "44",
+          "package": "Pro"
+        }
+      ],
+      "discount": "66"
+    },
+    {
+      "id": "fc5d",
+      "clientName": "rishi",
+      "location": "avadi",
+      "email": "harish.srikvstech@gmail.com",
+      "gstNo": "3242343244",
+      "phone": "1234235566",
+      "adharNumber": "345545565665",
+      "clientLogo": "56f0a7b58f3faea44b4ce27522c64ffaf771cf5038b90001e40beb668c568ffe",
+      "services": [
+        {
+          "name": "Web Development",
+          "quantity": "33",
+          "package": "Exclusive Plan"
+        }
+      ],
+      "discount": "11"
+    },
+    {
+      "id": "70f0",
+      "clientName": "harish",
+      "location": "avadi",
+      "email": "grandevents.social@gmail.com",
+      "gstNo": "3242343244",
+      "phone": "1234235566",
+      "adharNumber": "345545565665",
+      "clientLogo": "8329f4bbb61e9393142ce6e6cc076ffc06e1ba1ee532eb8bdc546723361239cc"
     }
   ],
   "feedbacks": [
@@ -135,7 +327,7 @@
       "message": "Very satisfied with the product quality and customer support. The staff was extremely helpful, and the delivery was prompt. Will definitely use their services again!",
       "clientName": "Jane Smith",
       "clientLocation": "Los Angeles",
-      "clientImage": "", 
+      "clientImage": "",
       "clientLogo": "logo2.png",
       "status": "true"
     },
@@ -153,7 +345,7 @@
       "message": "Outstanding experience! The team was knowledgeable and provided exceptional service. I am very pleased with the results and would recommend them to anyone.",
       "clientName": "Michael Brown",
       "clientLocation": "San Francisco",
-      "clientImage": "", 
+      "clientImage": "",
       "clientLogo": "logo4.png",
       "status": "true"
     },

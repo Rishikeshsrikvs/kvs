@@ -1,34 +1,33 @@
 .land1clientlogocontainer {
-    overflow: hidden;
-    background-color: #141414;
-    width: 100%;
-    padding-top: 5%;
+  overflow: hidden;
+  background-color: #141414;
+  width: 100%;
+  padding-top: 5%;
+}
+
+.scrolling-wrapper {
+  display: flex;
+  width: calc(100% * 2); /* Double the width to accommodate the duplicate */
+  animation: marquee 20s linear infinite; /* Adjust duration as needed */
+}
+
+.scrolling-wrapper .scrolling {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% / 2); /* Adjust width for each half of the loop */
+}
+
+.scrolling img {
+  width: 180px;
+  margin-right: 30px; /* Space between logos */
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
   }
-  
-  .scrolling-wrapper {
-    display: flex;
-    width: 200%; /* Double the width to accommodate the duplicate */
-    animation: marquee 20s linear infinite; /* Adjust duration as needed */
+  100% {
+    transform: translateX(-50%);
   }
-  
-  .scrolling-wrapper .scrolling {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50%; /* Half the width for each half of the loop */
-  }
-  
-  .scrolling img {
-    width: 180px;
-    margin-right: 30px; /* Space between logos */
-  }
-  
-  @keyframes marquee {
-    0% {
-      transform: translateX(0%);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
-  
+}

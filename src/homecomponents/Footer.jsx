@@ -15,9 +15,9 @@ export const Footer = () => {
               We offer a comprehensive suite of digital marketing services that cover all aspects of our online presence. From SEO and social media marketing to content creation and PPC advertising, we have the expertise and resources to handle diverse marketing needs.
             </p>
             <div className="footersm">
-              <Link to="#"><img src={fbicon} alt="Facebook" /></Link>
-              <Link to="#"><img src={inicon} alt="LinkedIn" /></Link>
-              <Link to="#"><img src={instaicon} alt="Instagram" /></Link>
+              <Link to="https://www.facebook.com/people/SRI-KVS-TECH/61554300315348/?_rdr" target="_blank" ><img src={fbicon} alt="Facebook" /></Link>
+              <Link to="https://in.linkedin.com/company/srikvs" target="_blank"><img src={inicon} alt="LinkedIn" /></Link>
+              <Link to="https://www.instagram.com/srikvstech/" target="_blank"><img src={instaicon} alt="Instagram" /></Link>
             </div>
         </div>
         <div className="footnav">

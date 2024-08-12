@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 import "./Services.css"
 import { Link } from 'react-router-dom';
 import ser2left from './../assets/images/landblogback1.png';
@@ -9,6 +9,11 @@ import sercard3 from './../assets/images/serviceimages/servicecard3.png';
 import sercard4 from './../assets/images/serviceimages/servicecard4.png';
 import sercard5 from './../assets/images/serviceimages/servicecard5.png';
 const Services = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   return (
     <div className='Servicesparent'>
       <div className="services1main">

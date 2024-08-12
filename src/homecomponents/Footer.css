@@ -30,12 +30,19 @@
 
 .footersm {
     display: flex;
-    padding-left: 30px;
-    gap: 2%;
-}
 
-.footersm img {
+    gap: 2%;
+    padding-left: 10%;
+
+    
+}
+.footersm a{
     width: 30px;
+}
+.footersm img {
+    width: 100%;
+    height: 100%;
+ 
 }
 
 .footnav {
@@ -48,7 +55,7 @@
 }
 
 .footnavcenter a:hover p, .footnavleft a:hover p {
-    color: #FF99A2;
+    color: #FF7F50;
 }
 
 .footnav p {
@@ -92,9 +99,9 @@ p.footnavhead {
     }
 
     .footersm {
-        justify-content: center;
-        padding-left: 0;
-        gap: 5%;
+       
+
+
     }
 
     .footnav p {

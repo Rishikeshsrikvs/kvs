@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import "./Contactus.css"
 const Contactus = () => {
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
+
   return (
     <div className='contactusparent'>
       <div className="contact1main">

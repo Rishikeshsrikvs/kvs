@@ -6,7 +6,7 @@ const CircularText = () => {
         
     }, []);
 
-    const str = ".ENQUIRE NOW .ENQUIRE NOW";
+    const str = ".CONTACT NOW .CONTACT NOW";
 
     return (
         <div className="circularcontainer">

@@ -1,22 +1,22 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import { useAuth } from "./Auth/AuthContext";
-import logo from "./../assets/images/logo.png";
-import "./Adminlogin.css";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { useAuth } from './Auth/AuthContext';
+import logo from './../assets/images/logo.png';
+import './Adminlogin.css';
 
 export const Adminlogin = () => {
-  const { login } = useAuth(); // Ensure AuthContext is properly set up
+  const { login } = useAuth();
   const navigate = useNavigate();
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setError("");
+    setError('');
 
     try {
       const response = await axios.post('https://srikvstech.onrender.com/api/admin/adminlogin', {
@@ -24,22 +24,20 @@ export const Adminlogin = () => {
         adminPassword: password,
       }, {
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
       });
 
-      console.log(response);
-
       const { status, data } = response;
-      if (status === 200 && data) {
-        login(); // Assumes `login` function handles setting authentication state
-        navigate("/admin/dashboard"); // Adjust path as needed
+      if (status === 200 && data.token) {
+        login(data.token); // Store JWT token in AuthContext
+        navigate('/admin/dashboard');
       } else {
-        setError("Invalid credentials");
+        setError('Invalid credentials');
       }
     } catch (error) {
-      setError("Error connecting to server");
-      console.error("Login error", error);
+      setError('Error connecting to server');
+      console.error('Login error', error);
     } finally {
       setLoading(false);
     }
@@ -67,7 +65,7 @@ export const Adminlogin = () => {
           <div className="inputcon">
             <label htmlFor="password">Password</label>
             <input
-              type="password" // Changed to 'password' for security
+              type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               disabled={loading}

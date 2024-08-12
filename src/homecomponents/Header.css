@@ -58,7 +58,9 @@ li {
 }
 
 .navul li a:hover {
-    color: #FF99A2;
+    
+    COLOR: #FF7F50;
+
 }
 
 /* Hidden state for the navbar */
@@ -72,7 +74,7 @@ li {
 }
 
 .navul li a.active-link {
-    color: #FF99A2;
+    color: #FF7F50;
     font-weight: bold;
 }
 

@@ -3,13 +3,22 @@ import React, { createContext, useContext, useState } from 'react';
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [token, setToken] = useState(null);
+  
+  const login = (newToken) => {
+    setToken(newToken);
+    localStorage.setItem('authToken', newToken); // Optional: persist the token in localStorage
+  };
 
-  const login = () => setIsAuthenticated(true);
-  const logout = () => setIsAuthenticated(false);
+  const logout = () => {
+    setToken(null);
+    localStorage.removeItem('authToken'); // Clear the token from localStorage
+  };
+
+  const isAuthenticated = !!token;
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
+    <AuthContext.Provider value={{ isAuthenticated, token, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

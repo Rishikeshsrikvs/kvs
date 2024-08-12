@@ -69,6 +69,7 @@
     align-items: center;
     color: gray;
     font-size: 75%;
+    background: none;
 }
 
 .logolabel span {
@@ -109,3 +110,31 @@
 }
 
 
+.logolabel {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    color: gray;
+    font-size: 75%;
+    background: none;
+    border: 1px solid #ccc; /* Optional: Add border to make it stand out */
+    border-radius: 4px; /* Optional: Rounded corners for the label */
+}
+
+.logolabel span {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between the image, file name, and "Upload" text */
+}
+
+.logolabel img {
+    width: 25px; /* Size of the upload icon */
+    height: 25px; /* Size of the upload icon */
+}
+
+.file-name {
+    color: #333; /* Color of the file name text */
+    font-size: 100%; /* Font size of the file name text */
+    margin-left: 10px; /* Space between the icon and the file name */
+    white-space: nowrap; /* Prevent text from wrapping */
+}

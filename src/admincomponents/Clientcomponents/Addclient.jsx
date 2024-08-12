@@ -2,10 +2,14 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Addclient.css';
+import { useAuth } from '../Auth/AuthContext';
 import upload from './../../assets/images/upload.png';
 
 export const Addclient = () => {
   const navigate = useNavigate();
+  const { token } = useAuth();
+  console.log(token);
+  
   const [formData, setFormData] = useState({
     clientName: '',
     location: '',
@@ -17,6 +21,8 @@ export const Addclient = () => {
   });
   const [errors, setErrors] = useState({});
   const [logo, setLogo] = useState(null); // State to manage the logo file
+  const [uploadStatus, setUploadStatus] = useState('');
+  const [fileName, setFileName] = useState(''); // State to store the file name
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -29,9 +35,11 @@ export const Addclient = () => {
     validateField(name, value);
   };
 
-  // const handleLogo = (e) => {
-  //   setLogo(e.target.files[0]); // Update the logo state with the selected file
-  // };
+  const handleLogo = (e) => {
+    const file = e.target.files[0]; // Update the logo state with the selected file
+    setLogo(file);
+    setFileName(file ? file.name : ''); // Update file name state
+  };
 
   const validateField = (name, value) => {
     let newErrors = { ...errors };
@@ -62,23 +70,35 @@ export const Addclient = () => {
     setErrors(newErrors);
   };
 
-  // const handleLogoUpload = async () => {
-  //   const formData = new FormData();
-  //   formData.append('file', logo);
+  const handleLogoUpload = async () => {
+    if (!logo) {
+      setUploadStatus('Please select an image file.');
+      return null;
+    }
 
-  //   try {
-  //     const response = await axios.post('http://localhost:3500/upload-logo', formData, {
-  //       headers: {
-  //         'Content-Type': 'multipart/form-data'
-  //       }
-  //     });
-  //     return response.data.key; // Return the S3 key from the response
-  //   } catch (error) {
-  //     setErrors({ submit: 'Error uploading logo.' });
-  //     console.error('Error uploading logo:', error);
-  //     return null;
-  //   }
-  // };
+    const formData = new FormData();
+    formData.append('client-logo', logo);
+    formData.append('imageType', 'Logo');
+
+    try {
+      const response = await axios.post(
+        'https://srikvstech.onrender.com/api/admin/clientLogoUpload',
+        formData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+            'authorization': `${token}`, // Use the token from useAuth hook
+          },
+        }
+      );
+      setUploadStatus(`Image uploaded successfully! Image name: ${response.data.imagename}`);
+      return response.data.imagename; // Assuming the response includes the image name
+    } catch (error) {
+      setUploadStatus('Error uploading the image.');
+      console.error('Error uploading logo:', error);
+      return null;
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -147,14 +167,16 @@ export const Addclient = () => {
               <label htmlFor="logo-upload" className="item logolabel">
                 Client Logo:
                 <span>
-                  <img src={upload} alt="" /> <h5>Upload</h5>
+                  <img src={upload} alt="Upload" />
+                  <h5>Upload</h5>
+                  <p className="file-name">{fileName}</p> {/* Display file name */}
                 </span>
               </label>
               <input
                 id="logo-upload"
                 type="file"
                 className="item"
-                // onChange={handleLogo}
+                onChange={handleLogo} // Attach handleLogo function
               />
             </div>
             <div className="inputcontainer">
@@ -213,12 +235,12 @@ export const Addclient = () => {
               {errors.adharNumber && <p className="error">{errors.adharNumber}</p>}
             </div>
           </div>
+          {uploadStatus && <p>{uploadStatus}</p>}
           {errors.submit && <p className="error">{errors.submit}</p>}
           <div className="addclient-submit">
             <input
               type="submit"
               value="Create Client"
-              // Disable button if there are errors
             />
           </div>
         </form>
