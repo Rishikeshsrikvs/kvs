@@ -1,71 +1,71 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useAuth } from '../Auth/AuthContext';
 import "./Clientservice.css";
 
 export const Clientservice = () => {
-  const { id } = useParams(); // Get client ID from URL parameters
   const navigate = useNavigate();
+  const { token } = useAuth();
+  
+  
+  const location = useLocation();
+  
+  // Retrieve client details from location state
+  const clientDetails = location.state?.clientDetails || {};
+  const {
+    client_name = '',
+    client_logo = '',
+    client_email = '',
+    client_mobile = '',
+    client_Location = '',
+    client_govt_id = '',
+    client_Plan = [],
+    client_GST = ''
+  } = clientDetails;
+
   const [formData, setFormData] = useState({
-    services: [],
-    discount: '',
+    services: client_Plan,
+    gst: client_GST,
+    clientLogoKey: client_logo,
+    email: client_email,
+    phone: client_mobile,
+    location: client_Location,
+    adharNumber: client_govt_id,
   });
   const [error, setError] = useState('');
-  const [clientData, setClientData] = useState(null);
-  const [clientName, setClientName] = useState(''); // State for client name
 
   const servicesList = [
     {
       name: "Social Media Marketing",
       packages: [
-        { name: "Elite", amount: 1000 },
-        { name: "Pro", amount: 800 },
-        { name: "Standard", amount: 600 }
+        { name: "Elite" },
+        { name: "Pro" },
+        { name: "Standard" }
       ]
     },
     {
       name: "Search Engine Optimization",
       packages: [
-        { name: "Elite", amount: 900 },
-        { name: "Pro", amount: 700 },
-        { name: "Standard", amount: 500 }
+        { name: "Elite" },
+        { name: "Pro" },
+        { name: "Standard" }
       ]
     },
     {
       name: "Web Development",
       packages: [
-        { name: "Static Plan", amount: 1200 },
-        { name: "Static Plus Plan", amount: 1400 },
-        { name: "Static Standard", amount: 1600 },
-        { name: "Standard Plan", amount: 1800 },
-        { name: "Standard Plus Plan", amount: 2000 },
-        { name: "Premium Plan", amount: 2200 },
-        { name: "Exclusive Plan", amount: 2400 },
-        { name: "Customised Plan", amount: 2600 }
+        { name: "Static Plan" },
+        { name: "Static Plus Plan" },
+        { name: "Static Standard" },
+        { name: "Standard Plan" },
+        { name: "Standard Plus Plan" },
+        { name: "Premium Plan" },
+        { name: "Exclusive Plan" },
+        { name: "Customised Plan" }
       ]
     }
   ];
-
-  useEffect(() => {
-    if (id) {
-      const fetchClientData = async () => {
-        try {
-          const response = await axios.get(`http://localhost:3500/clients/${id}`);
-          setClientData(response.data);
-          setFormData({
-            services: response.data.services || [],
-            discount: response.data.discount || ''
-          });
-          setClientName(response.data.name || ''); // Set the client name
-        } catch (error) {
-          setError('Error fetching client data.');
-          console.error('Error:', error);
-        }
-      };
-
-      fetchClientData();
-    }
-  }, [id]);
 
   const handleServiceChange = (index, e) => {
     const { name, value } = e.target;
@@ -80,7 +80,7 @@ export const Clientservice = () => {
     if (checked) {
       setFormData(prevData => ({
         ...prevData,
-        services: [...prevData.services, { name: value, quantity: '', package: '' }]
+        services: [...prevData.services, { name: value, package: '', amount: '' }]
       }));
     } else {
       setFormData(prevData => ({
@@ -97,18 +97,43 @@ export const Clientservice = () => {
       return;
     }
 
+    const clientData = {
+      client_name: client_name,
+      client_logo: formData.clientLogoKey,
+      client_email: formData.email,
+      client_mobile: formData.phone,
+      client_Location: formData.location,
+      client_govt_id: formData.adharNumber,
+      client_Plan: formData.services.map(service => ({
+        name: service.name,
+        package: service.package,
+        price: service.amount // Use the manually entered amount
+      })),
+      client_GST: formData.gst
+    };
+    console.log('Client Data:', clientData);
+    
     try {
-      const updatedData = {
-        ...clientData,
-        services: formData.services,
-        discount: formData.discount
-      };
+      const response = await axios.post('https://srikvstech.onrender.com/api/admin/clientSignUp', 
+        clientData,
+        {
+          headers: {
+            'authorization': `${token}`,
+          },
+        }
+      );
+      console.log(response);
+      
+      //for  checking
+      // navigate(`/admin/invoice`, { state: { clientdata: clientData, discount: formData.discount } });
 
-      const response = await axios.put(`http://localhost:3500/clients/${id}`, updatedData);
-      if (response.status === 200) {
-        navigate(`/admin/invoice/${id}`);
+
+      if (response.status === 201) {
+        console.log(response.data.client_id);
+         navigate(`/admin/invoice`, { state: { client_id: response.data.client_id, discount: formData.discount } });
+       
       } else {
-        setError('Failed to update client service.');
+        setError('Failed to create client.');
       }
     } catch (error) {
       setError('Error connecting to server.');
@@ -117,30 +142,17 @@ export const Clientservice = () => {
   };
 
   const validateForm = () => {
-    const { services, discount } = formData;
-    if (services.length === 0 || !discount) {
+    const { services, discount, email, phone, location, adharNumber } = formData;
+    if (!email || !phone || !location || !adharNumber || services.length === 0 || !discount) {
       return false;
     }
     for (const service of services) {
-      if (!service.quantity || !service.package) {
+      if (!service.package || !service.amount) {
         return false;
       }
     }
     return true;
   };
-
-  const getPackagePrice = (serviceName, packageName) => {
-    const service = servicesList.find(s => s.name === serviceName);
-    if (service) {
-      const selectedPackage = service.packages.find(p => p.name === packageName);
-      return selectedPackage ? selectedPackage.amount : '';
-    }
-    return '';
-  };
-
-  if (!clientData && id) {
-    return <div>Loading...</div>;
-  }
 
   return (
     <div className='Clientservicemaincontainer'>
@@ -150,12 +162,11 @@ export const Clientservice = () => {
             <h1>Service and Package</h1>
           </div>
           <div className="client-name">
-            <h2>Client: {clientName}</h2> {/* Display the client name */}
+            <h2>Client: {client_name}</h2>
           </div>
           <div className='service1'>
             <div className="service1left">
               <h4>Services</h4>
-              
               <div className="checkcontainer">
                 {servicesList.map((service, index) => (
                   <div key={index} className="serinput">
@@ -185,13 +196,6 @@ export const Clientservice = () => {
                   <div key={index} className="service-details">
                     <h5>{service.name}</h5>
                     <div className="serviceselect">
-                      <input
-                        type="text"
-                        placeholder='Quantity'
-                        name='quantity'
-                        value={service.quantity}
-                        onChange={(e) => handleServiceChange(index, e)}
-                      />
                       <div className="package-select">
                         <select
                           name="package"
@@ -203,9 +207,13 @@ export const Clientservice = () => {
                             <option key={idx} value={pkg.name}>{pkg.name}</option>
                           ))}
                         </select>
-                        <span className="package-price">
-                          {getPackagePrice(service.name, service.package)}
-                        </span>
+                        <input
+                          type="text"
+                          name="amount"
+                          placeholder="Amount"
+                          value={service.amount}
+                          onChange={(e) => handleServiceChange(index, e)}
+                        />
                       </div>
                     </div>
                   </div>

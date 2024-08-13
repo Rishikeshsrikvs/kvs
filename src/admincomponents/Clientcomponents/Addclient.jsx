@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Addclient.css';
+import axios from 'axios';
 import { useAuth } from '../Auth/AuthContext';
 import upload from './../../assets/images/upload.png';
 
 export const Addclient = () => {
   const navigate = useNavigate();
   const { token } = useAuth();
-  console.log(token);
-  
   const [formData, setFormData] = useState({
     clientName: '',
     location: '',
@@ -30,8 +28,6 @@ export const Addclient = () => {
       ...formData,
       [name]: value
     });
-   
-    // Validate field on change
     validateField(name, value);
   };
 
@@ -43,7 +39,6 @@ export const Addclient = () => {
 
   const validateField = (name, value) => {
     let newErrors = { ...errors };
-    
     switch (name) {
       case 'clientName':
         newErrors.clientName = value ? '' : 'Client Name is required.';
@@ -66,7 +61,6 @@ export const Addclient = () => {
       default:
         break;
     }
-
     setErrors(newErrors);
   };
 
@@ -109,21 +103,23 @@ export const Addclient = () => {
       clientLogoKey = await handleLogoUpload();
       if (!clientLogoKey) return; // If logo upload failed, exit the function
     }
-
-    try {
-      const response = await axios.post('http://localhost:3500/clients', {
-        ...formData,
-        clientLogo: clientLogoKey // Include the S3 key for the logo in the form data
-      });
-      if (response.status === 201) {
-        navigate(`/admin/response&package/${response.data.id}`);
-      } else {
-        setErrors({ submit: 'Failed to create client.' });
+    console.log(formData);
+    
+    // Navigate to Clientservice and pass the client details via state
+    navigate('/admin/clientservice', {
+      state: {
+        clientDetails: {
+          client_name: formData.clientName,
+          client_logo: clientLogoKey,
+          client_email: formData.email,
+          client_mobile: formData.phone,
+          client_Location: formData.location,
+          client_govt_id: formData.adharNumber,
+          client_Plan: [], // Empty array for now, you can update this later
+          client_GST: formData.gstNo
+        }
       }
-    } catch (error) {
-      setErrors({ submit: 'Error connecting to server.' });
-      console.error('Error:', error);
-    }
+    });
   };
 
   const validateForm = () => {

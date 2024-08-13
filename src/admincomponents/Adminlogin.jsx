@@ -8,8 +8,8 @@ import './Adminlogin.css';
 export const Adminlogin = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('Admin');
+  const [password, setPassword] = useState('Skv@12345');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 

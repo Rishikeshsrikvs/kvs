@@ -28,9 +28,9 @@ export const Admin = () => {
                 <Route path="createblog" element={<Blogedit />} />
                 <Route path="careerpost" element={<Careerpost />} />
                 <Route path="careerview" element={<Careerview />} />
-                <Route path="invoice/:id" element={<Invoice />} />
+                <Route path="invoice" element={<Invoice />} />
                 <Route path="response/:jobId" element={<Careerresponse />} />
-                <Route path="response&package/:id" element={<Clientservice />} />
+                <Route path="clientservice" element={<Clientservice />} />
               </Routes>
             </ProtectedRoute>
           }
