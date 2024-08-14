@@ -2,20 +2,30 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import "./Atestms.css";
 import { Feedbackcard } from './Feedbackcard';
+import { useAuth } from '../Auth/AuthContext';
 
 export const Atestms = () => {
   const [feedbacks, setFeedbacks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const { token } = useAuth();
 
   useEffect(() => {
     const fetchFeedbacks = async () => {
       try {
-        const response = await axios.get('http://localhost:3500/feedbacks'); // Adjust the URL as necessary
+        const response = await axios.get('https://srikvstech.onrender.com/api/admin/testimonials' ,{
+          headers: {
+            authorization: `${token}`,
+          },
+        }
+        ); // Adjust the URL as necessary
+        console.log(response.data);
+        
         setFeedbacks(response.data);
         setLoading(false);
       } catch (error) {
         setError('Error fetching feedback data.');
+
         setLoading(false);
         console.error('Error:', error);
       }
@@ -39,7 +49,7 @@ export const Atestms = () => {
       </div>
       <div className="cardcontainer">
         {feedbacks.map((feedback) => (
-          <Feedbackcard key={feedback.id} feedback={feedback} />
+          <Feedbackcard key={feedback._id} feedback={feedback} />
         ))}
       </div>
     </div>

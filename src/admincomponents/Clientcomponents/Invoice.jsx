@@ -70,9 +70,9 @@ export const Invoice = () => {
       const data = {
         client_id,
         month_of_invoice: monthOfInvoice, // Value from state
-        total_amount: totalPriceWithGst,
+        total_amount: finalAmount,
         discount: parseFloat(discount), // Value from state
-        due_amount: finalAmount,
+        
       };
 
       const response = await axios.post(

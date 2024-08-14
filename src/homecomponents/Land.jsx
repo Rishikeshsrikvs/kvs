@@ -109,7 +109,7 @@ export const Land = () => {
                         </div>
                     </div>
                 </div>
-                {/* <Feedbacklandslider/> */}
+                <Feedbacklandslider/>
                 <div className="landblogmain">
                     <div className="landblogtitle">
                         <span></span>

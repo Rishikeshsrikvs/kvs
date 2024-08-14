@@ -4,7 +4,7 @@ import { Acareer } from './Admindashboardcomponents/Acareer';
 import { Aprojects } from './Admindashboardcomponents/Aprojects';
 import { Asidebar } from './Admindashboardcomponents/Asidebar';
 import { Atestms } from './Admindashboardcomponents/Atestms';
-import { Aclients } from './Admindashboardcomponents/Aclients';
+import Aclients from './Admindashboardcomponents/Aclients';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './Admindashboard.css'; // Assuming you have some CSS to style the layout
 

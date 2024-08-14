@@ -2,32 +2,16 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import jsPDF from 'jspdf';
-import './Aclients.css';
+import './../Admindashboardcomponents/Aclients.css';
 import { useAuth } from '../Auth/AuthContext';
+import Clientrow from '../Clientcomponents/Clientrow';// Import the simplified Clientrow component
 
-const Clientrow = ({ client }) => (
-  <tr key={client.client_id} className='clientrow'>
-    <td>{client.client_id}</td>
-    <td>{client.client_name}</td>
-    <td>{client.client_mobile}</td>
-    <td>{client.client_email}</td>
-    <td>{client.client_Location}</td>
-    <td>
-      <Link to={`/admin/response&package/${client.client_id}`}>
-        <button className='renewbt'>Renew</button>
-      </Link>
-    </td>
-  </tr>
-);
-
-export const Aclients = () => {
+const Aclients = () => {
   const [clients, setClients] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  const { token } = useAuth(); 
-  console.log(token);
-  // Correctly use useAuth hook here
+  const { token } = useAuth();
 
   useEffect(() => {
     const fetchClients = async () => {
@@ -38,7 +22,6 @@ export const Aclients = () => {
           },
         });
         setClients(response.data.message);
-        console.log(response.data.message);
         setLoading(false);
       } catch (error) {
         setError('Error fetching client data.');
@@ -130,3 +113,5 @@ export const Aclients = () => {
     </div>
   );
 };
+
+export default Aclients;

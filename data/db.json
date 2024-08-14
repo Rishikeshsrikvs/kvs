@@ -12,7 +12,6 @@
     }
   ],
   "clients": [
-    
     {
       "id": "cc04",
       "clientName": "hgh",
@@ -87,7 +86,6 @@
       ],
       "discount": "23"
     },
-    
     {
       "id": "95cd",
       "clientName": "rishike",
@@ -126,8 +124,6 @@
       "adharNumber": "345345345545",
       "clientLogo": "224887e03733281e0bed5c6ae7adbdfe3fedd738e3cb605641389425b9ef04bd"
     }
-  
-   
   ],
   "feedbacks": [
     {
@@ -137,7 +133,7 @@
       "clientLocation": "New York",
       "clientImage": "",
       "clientLogo": "logo1.png",
-      "status": "true"
+      "status": "false"
     },
     {
       "id": "2",

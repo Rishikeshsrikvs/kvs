@@ -1,14 +1,102 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom'
-import "./Contactus.css"
-const Contactus = () => {
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import './Contactus.css';
 
-    useEffect(() => {
-        window.scrollTo(0, 0);
-      }, []);
+
+const Contactus = () => {
+  const [activeTab, setActiveTab] = useState('friends');
+  
+  const [feedbackData, setFeedbackData] = useState({
+    name: '',
+    profileImage: '',
+    contact: '',
+    review: '',
+    clientId: '',
+  });
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFeedbackData({
+      ...feedbackData,
+      [name]: value,
+    });
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setFeedbackData({
+      ...feedbackData,
+      profileImage: file,
+    });
+  };
+
+  const handleSubmit = async () => {
+    const formData = new FormData();
+  
+    // Set 'clients' field based on the active tab
+    formData.append('clients', activeTab === 'clients');
+  
+    // Append other fields conditionally
+    formData.append('name', feedbackData.name || '');
+    formData.append('profileImage', feedbackData.profileImage || '');
+    formData.append('contact', feedbackData.contact || '');
+    formData.append('description', feedbackData.review || '');
+    formData.append('clientId', activeTab === 'clients' ? feedbackData.clientId || '' : '');
+  
+    // Log FormData for debugging (in the specified format)
+    console.log({
+      "clients": activeTab === 'clients',
+      "name": feedbackData.name || '',
+      "profileImage": feedbackData.profileImage ? feedbackData.profileImage.name : '',
+      "contact": feedbackData.contact || '',
+      "description": feedbackData.review || '',
+      "clientId": activeTab === 'clients' ? feedbackData.clientId || '' : ''
+    });
+  
+    try {
+      const response = await axios.post('https://srikvstech.onrender.com/testimonial',{
+        "clients": activeTab === 'clients',
+        "name": feedbackData.name || '',
+        "profileImage": feedbackData.profileImage ? feedbackData.profileImage.name : '',
+        "contact": feedbackData.contact || '',
+        "description": feedbackData.review || '',
+        "clientId": activeTab === 'clients' ? feedbackData.clientId || '' : ''
+      });
+  
+      console.log(response.data);
+  
+      // Reset the state to initial values after successful submission
+      setFeedbackData({
+        name: '',
+        profileImage: null, // Ensure the file input is cleared
+        contact: '',
+        review: '',
+        clientId: '',
+      });
+      setActiveTab('friends'); // or reset to 'clients' if needed
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+  
+
+
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+    setFeedbackData({
+      ...feedbackData,
+      clientId: '',
+    });
+  };
 
   return (
     <div className='contactusparent'>
+      {/* Other parts of the component */}
       <div className="contact1main">
         <div className="contact1sub">
             <h1 className="cn1big">Let’s collaborate on what matters to you</h1>
@@ -52,29 +140,72 @@ const Contactus = () => {
       </div>
       <div className="cn3main">
         <div className="cn3left">
-            <h1>Feedback</h1>
+          <h1>Feedback</h1>
+          <div className="feedback-tabs">
+            <button
+              className={`tab-button ${activeTab === 'friends' ? 'active' : ''}`}
+              onClick={() => handleTabClick('friends')}
+            >
+              Friends
+            </button>
+            <button
+              className={`tab-button ${activeTab === 'clients' ? 'active' : ''}`}
+              onClick={() => handleTabClick('clients')}
+            >
+              Clients
+            </button>
+          </div>
+          <div className="feedback-content">
             <div className="cn3feedbackcon">
-                <div className="cn3in">
-                    <label htmlFor="">Email</label>
-                        <input type="text" />
-                </div>
-                <div className="cn3in">
+              {activeTab === 'friends' && (
+                <>
+                  <div className="cn3in">
+                    <label htmlFor="">Name</label>
+                    <input type="text" name="name" onChange={handleInputChange} />
+                  </div>
+                  <div className="cn3in">
+                    <label htmlFor="">Profile image</label>
+                    <input type="file" name="profileImage" onChange={handleFileChange} />
+                  </div>
+                  
+                  <div className="cn3in">
+                    <label htmlFor="">Contact / Email</label>
+                    <input type="text" name="contact" onChange={handleInputChange} />
+                  </div>
+                  <div className="cn3in">
                     <label htmlFor="">Review</label>
-                    <textarea name="" id=""></textarea>
-                </div>
-                <div className="cn3fbbtn">Send Message</div>
+                    <textarea name="review" onChange={handleInputChange}></textarea>
+                  </div>
+                </>
+              )}
+              {activeTab === 'clients' && (
+                <>
+                  <div className="cn3in">
+                    <label htmlFor="">Client Id</label>
+                    <input type="text" name="clientId" onChange={handleInputChange} />
+                  </div>
+                  <div className="cn3in">
+                    <label htmlFor="">Review</label>
+                    <textarea name="review" onChange={handleInputChange}></textarea>
+                  </div>
+                </>
+              )}
+              <div className="cn3fbbtn" onClick={handleSubmit}>Send Message</div>
             </div>
+          </div>
         </div>
         <div className="cn3right">
-            <h1>BROCHURES</h1>
-            <p>Discover the power of our expertise and solutions by accessing our comprehensive brochures. Gain deeper insights into our services, approach, and success stories, empowering you to make informed decisions for your business. Simply click the links below to download our brochures and embark on a transformative journey with us.</p>
-            <Link to="/brochureform" className="cn3rightbtn">
-                DOWNLOAD
-            </Link>
+          <h1>BROCHURES</h1>
+          <p>
+            Discover the power of our expertise and solutions by accessing our comprehensive brochures. Gain deeper insights into our services, approach, and success stories, empowering you to make informed decisions for your business. Simply click the links below to download our brochures and embark on a transformative journey with us.
+          </p>
+          <Link to="/brochureform" className="cn3rightbtn">
+            DOWNLOAD
+          </Link>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Contactus
+export default Contactus;
