@@ -1,23 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import './invoice.css';
 import download from './../../assets/images/download.png';
 import logo from './../../assets/images/logo.png';
-import { useLocation } from 'react-router-dom';
 import { useAuth } from '../Auth/AuthContext';
 
 export const Invoice = () => {
   const [clientData, setClientData] = useState(null);
+  const [invoiceNumber, setInvoiceNumber] = useState('');
+  const [monthOfInvoice, setMonthOfInvoice] = useState(''); // Initial value for month of invoice
+  const [discount, setDiscount] = useState(0); // Initial value for discount in percentage
+  const [issueDate, setIssueDate] = useState(''); // State for issue date
+  const [dueDate, setDueDate] = useState(''); // State for due date
+
   const { token } = useAuth();
-  console.log(token);
-  
   const location = useLocation();
-  const { client_id, discount } = location.state || {};
-  console.log(client_id, discount);
-  
+  const { client_id } = location.state || {};
+
   useEffect(() => {
     const fetchClientData = async () => {
       try {
@@ -29,7 +31,14 @@ export const Invoice = () => {
             },
           }
         );
-        setClientData(response.data.clientDetails); // Assuming the data is nested under clientDetails
+
+        if (response.data && response.data.clientDetailes) {
+          setClientData(response.data.clientDetailes);
+         
+          
+        } else {
+          console.error("Client details not found in response data");
+        }
       } catch (error) {
         console.error('Error fetching client data:', error);
       }
@@ -38,21 +47,59 @@ export const Invoice = () => {
     fetchClientData();
   }, [client_id, token]);
 
+  const formatDate = (dateString) => {
+    const [datePart] = dateString.split('T');
+    return datePart; // This will be in YYYY-MM-DD format
+  };
+  
+
   if (!clientData) {
     return <div>Loading...</div>;
   }
 
   const gstRate = 0.18;
-
-  const totalPrice = clientData.client_Plan?.reduce((acc, service) => {
-    return acc + parseFloat(service.price);
-  }, 0) || 0;
-
+  const totalPrice = clientData.client_Plan?.reduce((acc, service) => acc + parseFloat(service.price), 0) || 0;
   const gstAmount = totalPrice * gstRate;
   const totalPriceWithGst = totalPrice + gstAmount;
   const discountPercentage = parseFloat(discount) / 100 || 0;
   const discountAmount = totalPriceWithGst * discountPercentage;
   const finalAmount = totalPriceWithGst - discountAmount;
+
+  const generateInvoice = async () => {
+    try {
+      const data = {
+        client_id,
+        month_of_invoice: monthOfInvoice, // Value from state
+        total_amount: totalPriceWithGst,
+        discount: parseFloat(discount), // Value from state
+        due_amount: finalAmount,
+      };
+
+      const response = await axios.post(
+        'https://srikvstech.onrender.com/api/admin/invoiceUpload',
+        data,
+        {
+          headers: {
+            authorization: `${token}`,
+          },
+        }
+      );
+
+      console.log('Invoice generated successfully:', response.data);
+      if (response.data && response.data.invoice_no) {
+        setInvoiceNumber(response.data.invoice_no);
+        
+        setIssueDate(formatDate(response.data.date_of_issue));
+        setDueDate(formatDate(response.data.due_date));
+
+        console.log(issueDate,dueDate);
+      } else {
+        console.error("Invoice number not found in response data");
+      }
+    } catch (error) {
+      console.error('Error generating invoice:', error);
+    }
+  };
 
   const downloadPDF = () => {
     const downloadButton = document.querySelector('.downloadcon');
@@ -84,13 +131,6 @@ export const Invoice = () => {
     });
   };
 
-  const today = new Date();
-  const issueDate = today.toLocaleDateString();
-
-  const dueDate = new Date(today);
-  dueDate.setDate(today.getDate() + 15);
-  const dueDateString = dueDate.toLocaleDateString();
-
   return (
     <div className="invoicemaincontainer">
       <div id="invoice-content" className="invoiceecontainer">
@@ -115,9 +155,26 @@ export const Invoice = () => {
             <h3>GST: {clientData.client_GST}</h3>
           </div>
           <div className="rightdetails">
-            <div className="rigtdetailsrow"><span className="lb">Invoice No :</span> 98972</div>
+            <div className="rigtdetailsrow"><span className="lb">Invoice No :</span> {invoiceNumber}</div>
             <div className="rigtdetailsrow"><span className="lb">Date of issue :</span> {issueDate}</div>
-            <div className="rigtdetailsrow"><span className="lb">Due Date :</span> {dueDateString}</div>
+            <div className="rigtdetailsrow"><span className="lb">Due Date :</span> {dueDate}</div>
+            <div className="rigtdetailsrow">
+              <span className="lb">Month of Invoice:</span>
+              <input
+                type="text"
+                value={monthOfInvoice}
+                placeholder='Aug 2024'
+                onChange={(e) => setMonthOfInvoice(e.target.value)}
+              />
+            </div>
+            <div className="rigtdetailsrow">
+              <span className="lb">Discount (%):</span>
+              <input
+                type="number"
+                value={discount}
+                onChange={(e) => setDiscount(e.target.value)}
+              />
+            </div>
           </div>
         </div>
         <div className="invoicetable">
@@ -140,15 +197,15 @@ export const Invoice = () => {
                 </tr>
               ))}
               <tr>
-                <td colSpan={4} id="gstlabel">GST (18%)</td>
+                <td colSpan={3} id="gstlabel">GST (18%)</td>
                 <td>{gstAmount.toFixed(2)}</td>
               </tr>
               <tr>
-                <td colSpan={4} id="discountlabel">Discount ({discount}%)</td>
+                <td colSpan={3} id="discountlabel">Discount ({discount}%)</td>
                 <td>{discountAmount.toFixed(2)}</td>
               </tr>
               <tr>
-                <td colSpan={4} id="totallabel">Total</td>
+                <td colSpan={3} id="totallabel">Total</td>
                 <td>{finalAmount.toFixed(2)}</td>
               </tr>
             </tbody>
@@ -160,8 +217,11 @@ export const Invoice = () => {
             <p>Note: lorem liuwwoie wwoifuyhwoe weiuifyhwue.</p>
           </div>
           <div className="downloadcon">
+            <button onClick={generateInvoice}>
+              <span>GENERATE</span> 
+            </button>
             <button onClick={downloadPDF}>
-              <img src={download} alt="Download" /><span>PRINT</span>
+              <img src={download} alt="Download" /><span>PRINT</span> 
             </button>
           </div>
         </div>

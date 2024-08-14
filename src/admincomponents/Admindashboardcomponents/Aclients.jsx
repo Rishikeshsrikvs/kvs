@@ -3,16 +3,17 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import jsPDF from 'jspdf';
 import './Aclients.css';
+import { useAuth } from '../Auth/AuthContext';
 
 const Clientrow = ({ client }) => (
-  <tr key={client.id} className='clientrow'>
-    <td>{client.clientName}</td>
-    <td>{client.phone}</td>
-    <td>{client.email}</td>
-    <td>{client.location}</td>
-    <td>{client.valid ? 'Yes' : 'No'}</td>
+  <tr key={client.client_id} className='clientrow'>
+    <td>{client.client_id}</td>
+    <td>{client.client_name}</td>
+    <td>{client.client_mobile}</td>
+    <td>{client.client_email}</td>
+    <td>{client.client_Location}</td>
     <td>
-      <Link to={`/admin/response&package/${client.id}`}>
+      <Link to={`/admin/response&package/${client.client_id}`}>
         <button className='renewbt'>Renew</button>
       </Link>
     </td>
@@ -24,11 +25,20 @@ export const Aclients = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
+  const { token } = useAuth(); 
+  console.log(token);
+  // Correctly use useAuth hook here
+
   useEffect(() => {
     const fetchClients = async () => {
       try {
-        const response = await axios.get('http://localhost:3500/clients');
-        setClients(response.data);
+        const response = await axios.get('https://srikvstech.onrender.com/api/admin/getClients', {
+          headers: {
+            authorization: `${token}`,
+          },
+        });
+        setClients(response.data.message);
+        console.log(response.data.message);
         setLoading(false);
       } catch (error) {
         setError('Error fetching client data.');
@@ -38,7 +48,7 @@ export const Aclients = () => {
     };
 
     fetchClients();
-  }, []);
+  }, [token]);
 
   const downloadPDF = () => {
     const doc = new jsPDF('p', 'mm', 'a4');
@@ -48,30 +58,30 @@ export const Aclients = () => {
     doc.text('Client List', 14, 16);
 
     // Table Headers
-    doc.text('Client Name', 14, 30);
-    doc.text('Phone', 60, 30);
-    doc.text('Email', 100, 30);
-    doc.text('Location', 140, 30);
-    doc.text('Valid', 180, 30);
+    doc.text('Client Id', 14, 30);
+    doc.text('Client Name', 40, 30);
+    doc.text('Phone', 80, 30);
+    doc.text('Email', 120, 30);
+    doc.text('Location', 160, 30);
 
     let yPosition = 40;
     clients.forEach(client => {
-      doc.text(client.clientName, 14, yPosition);
-      doc.text(client.phone, 60, yPosition);
-      doc.text(client.email, 100, yPosition);
-      doc.text(client.location, 140, yPosition);
-      doc.text(client.valid ? 'Yes' : 'No', 180, yPosition);
+      doc.text(client.client_id, 14, yPosition);
+      doc.text(client.client_name, 40, yPosition);
+      doc.text(client.client_mobile, 80, yPosition);
+      doc.text(client.client_email, 120, yPosition);
+      doc.text(client.client_Location, 160, yPosition);
       yPosition += 10;
 
       // Add a new page if the content is getting close to the bottom
       if (yPosition > 270) {
         doc.addPage();
         yPosition = 20; // Reset Y position for the new page
-        doc.text('Client Name', 14, 30);
-        doc.text('Phone', 60, 30);
-        doc.text('Email', 100, 30);
-        doc.text('Location', 140, 30);
-        doc.text('Valid', 180, 30);
+        doc.text('Client Id', 14, 30);
+        doc.text('Client Name', 40, 30);
+        doc.text('Phone', 80, 30);
+        doc.text('Email', 120, 30);
+        doc.text('Location', 160, 30);
       }
     });
 
@@ -96,17 +106,17 @@ export const Aclients = () => {
         <table>
           <thead>
             <tr>
+              <th>Client Id</th>
               <th>Client Name</th>
               <th>Phone</th>
               <th>Email</th>
               <th>Location</th>
-              <th>Valid</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
             {clients.map((client) => (
-              <Clientrow key={client.id} client={client} />
+              <Clientrow key={client.client_id} client={client} />
             ))}
           </tbody>
         </table>
