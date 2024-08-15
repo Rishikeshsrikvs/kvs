@@ -11,7 +11,7 @@ const Clientrow = ({ client }) => {
       <td>{client.client_email}</td>
       <td>{client.client_Location}</td>
       <td>
-        <Link to={`/admin/response&package/${client.client_id}`}>
+        <Link to={`/admin/clientservice-edit/${client.client_id}`}>
           <button className='renewbt'>Renew</button>
         </Link>
       </td>

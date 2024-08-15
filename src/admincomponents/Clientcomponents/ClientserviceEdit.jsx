@@ -1,68 +1,66 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useAuth } from '../Auth/AuthContext';
 import "./Clientservice.css";
 
-export const Clienteditservices = () => {
+export const ClientserviceEdit = () => {
   const navigate = useNavigate();
   const { token } = useAuth();
+  const { clientId } = useParams();
   
-  
-  const location = useLocation();
-  
-  // Retrieve client details from location state
-  const clientDetails = location.state?.clientDetails || {};
-  const {
-    client_name = '',
-    client_logo = '',
-    client_email = '',
-    client_mobile = '',
-    client_Location = '',
-    client_govt_id = '',
-    client_Plan = [],
-    client_GST = ''
-  } = clientDetails;
-
   const [formData, setFormData] = useState({
-    services: client_Plan,
-    gst: client_GST,
-    clientLogoKey: client_logo,
-    email: client_email,
-    phone: client_mobile,
-    location: client_Location,
-    adharNumber: client_govt_id,
+    services: [],
+    gst: '',
+    clientLogoKey: '',
+    email: '',
+    phone: '',
+    location: '',
+    adharNumber: '',
   });
   const [error, setError] = useState('');
 
+  useEffect(() => {
+    const fetchClientData = async () => {
+      try {
+        const response = await axios.get(`https://srikvstech.onrender.com/api/admin/getClient/${clientId}`, {
+          headers: { authorization: `${token}` },
+        });
+        const clientData = response.data.clientDetails;
+        setFormData({
+          services: clientData.client_Plan || [],
+          gst: clientData.client_GST || '',
+          clientLogoKey: clientData.client_logo || '',
+          email: clientData.client_email || '',
+          phone: clientData.client_mobile || '',
+          location: clientData.client_Location || '',
+          adharNumber: clientData.client_govt_id || '',
+        });
+      } catch (error) {
+        console.error('Error fetching client data:', error);
+        setError('Failed to load client data.');
+      }
+    };
+
+    fetchClientData();
+  }, [clientId, token]);
+
   const servicesList = [
+    // List of services
     {
       name: "Social Media Marketing",
-      packages: [
-        { name: "Elite" },
-        { name: "Pro" },
-        { name: "Standard" }
-      ]
+      packages: [{ name: "Elite" }, { name: "Pro" }, { name: "Standard" }]
     },
     {
       name: "Search Engine Optimization",
-      packages: [
-        { name: "Elite" },
-        { name: "Pro" },
-        { name: "Standard" }
-      ]
+      packages: [{ name: "Elite" }, { name: "Pro" }, { name: "Standard" }]
     },
     {
       name: "Web Development",
       packages: [
-        { name: "Static Plan" },
-        { name: "Static Plus Plan" },
-        { name: "Static Standard" },
-        { name: "Standard Plan" },
-        { name: "Standard Plus Plan" },
-        { name: "Premium Plan" },
-        { name: "Exclusive Plan" },
-        { name: "Customised Plan" }
+        { name: "Static Plan" }, { name: "Static Plus Plan" }, { name: "Static Standard" },
+        { name: "Standard Plan" }, { name: "Standard Plus Plan" }, { name: "Premium Plan" },
+        { name: "Exclusive Plan" }, { name: "Customised Plan" }
       ]
     }
   ];
@@ -98,42 +96,26 @@ export const Clienteditservices = () => {
     }
 
     const clientData = {
-      client_name: client_name,
-      client_logo: formData.clientLogoKey,
-      client_email: formData.email,
-      client_mobile: formData.phone,
-      client_Location: formData.location,
-      client_govt_id: formData.adharNumber,
       client_Plan: formData.services.map(service => ({
         name: service.name,
         package: service.package,
         price: service.amount // Use the manually entered amount
-      })),
-      client_GST: formData.gst
+      }))
     };
-    console.log('Client Data:', clientData);
-    
+
     try {
-      const response = await axios.post('https://srikvstech.onrender.com/api/admin/clientSignUp', 
+      const response = await axios.put(`https://srikvstech.onrender.com/api/admin/client/${clientId}`, 
         clientData,
         {
-          headers: {
-            'authorization': `${token}`,
-          },
+          headers: { 'authorization': `${token}` },
         }
       );
       console.log(response);
       
-      //for  checking
-      // navigate(`/admin/invoice`, { state: { clientdata: clientData, discount: formData.discount } });
-
-
-      if (response.status === 201) {
-        console.log(response.data.client_id);
-         navigate(`/admin/invoice`, { state: { client_id: response.data.client_id, discount: formData.discount } });
-       
+      if (response.status === 200) {
+        navigate(`/admin/invoice`, { state: { client_id: clientId } });
       } else {
-        setError('Failed to create client.');
+        setError('Failed to update client.');
       }
     } catch (error) {
       setError('Error connecting to server.');
@@ -142,8 +124,8 @@ export const Clienteditservices = () => {
   };
 
   const validateForm = () => {
-    const { services, discount, email, phone, location, adharNumber } = formData;
-    if (!email || !phone || !location || !adharNumber || services.length === 0 || !discount) {
+    const { services } = formData;
+    if (services.length === 0) {
       return false;
     }
     for (const service of services) {
@@ -159,10 +141,10 @@ export const Clienteditservices = () => {
       <div className="Clientservicecontainer">
         <form onSubmit={handleSubmit}>
           <div className="Clientservice-title">
-            <h1>Service and Package</h1>
+            <h1>Edit Client Services and Package</h1>
           </div>
           <div className="client-name">
-            <h2>Client: {client_name}</h2>
+            <h2>Client: {clientId}</h2> {/* Display client name */}
           </div>
           <div className='service1'>
             <div className="service1left">
@@ -179,15 +161,6 @@ export const Clienteditservices = () => {
                     <label>{service.name}</label>
                   </div>
                 ))}
-              </div>
-              <div className="discount">
-                <input
-                  type="text"
-                  placeholder='Discount'
-                  name='discount'
-                  value={formData.discount}
-                  onChange={(e) => setFormData({ ...formData, discount: e.target.value })}
-                />
               </div>
             </div>
             <div className="service1right">
@@ -223,7 +196,7 @@ export const Clienteditservices = () => {
           </div>
           {error && <p className="error">{error}</p>}
           <div className="generate">
-            <button type="submit">Generate</button>
+            <button type="submit">Update and Generate Invoice</button>
           </div>
         </form>
       </div>

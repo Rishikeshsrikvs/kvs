@@ -63,15 +63,14 @@
     background-color: #b0b0b0; /* Darker gray on hover */
   }
   
-  .button.approve {
+  /* .button.approve {
     background-color: #d3d3d3; /* Default gray background for approve button */
-  }
+  /* }
   
   .button.reject {
-    background-color: #d3d3d3; /* Default gray background for reject button */
-  }
-  
+    /* background-color: #d3d3d3; /* Default gray background for reject button 
+  } */
   .button.true {
-    background-color: #2196f3; /* Blue background for true state */
+    background-color: green; /* Blue background for true state */
   }
   

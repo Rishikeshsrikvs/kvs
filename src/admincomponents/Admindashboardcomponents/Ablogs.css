@@ -140,3 +140,41 @@ a{text-decoration: none;}
     border: 1px solid #ddd;
     border-radius: 4px;
   }
+
+
+  /* ---------------------------- */
+
+  /* Add styles for input fields */
+.leftcon label {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  .leftcon input, .leftcon textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+  }
+  
+  .leftcon textarea {
+    resize: none;
+    height: 100px;
+  }
+  
+  .rightsubcontainer .subtitle {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .rightsubcontainer h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .rightsubcontainer p {
+    font-size: 16px;
+  }
+  

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './Contactus.css';
 
-
 const Contactus = () => {
   const [activeTab, setActiveTab] = useState('friends');
   
@@ -14,6 +13,8 @@ const Contactus = () => {
     review: '',
     clientId: '',
   });
+
+  const [formSubmitted, setFormSubmitted] = useState(false); // State to manage success alert
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -59,7 +60,7 @@ const Contactus = () => {
     });
   
     try {
-      const response = await axios.post('https://srikvstech.onrender.com/testimonial',{
+      const response = await axios.post('https://srikvstech.onrender.com/testimonial', {
         "clients": activeTab === 'clients',
         "name": feedbackData.name || '',
         "profileImage": feedbackData.profileImage ? feedbackData.profileImage.name : '',
@@ -69,8 +70,9 @@ const Contactus = () => {
       });
   
       console.log(response.data);
-  
-      // Reset the state to initial values after successful submission
+
+      // Show success alert and reset form fields
+      setFormSubmitted(true);
       setFeedbackData({
         name: '',
         profileImage: null, // Ensure the file input is cleared
@@ -79,12 +81,16 @@ const Contactus = () => {
         clientId: '',
       });
       setActiveTab('friends'); // or reset to 'clients' if needed
+
+      // Hide the success alert after a few seconds
+      setTimeout(() => {
+        setFormSubmitted(false);
+      }, 3000);
+      
     } catch (error) {
       console.error('Error:', error);
     }
   };
-  
-
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
@@ -135,7 +141,6 @@ const Contactus = () => {
                 <p>mon - sat  [9AM - 6PM]</p>
             </div>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3885.747619069917!2d80.09382927505325!3d13.115168411714471!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2f8e1bf45980d30f%3A0xdf6d20a33d911ed7!2sSri%20KVS%20Tech%20-%20Digital%20Marketing%20Agency%20-%20Avadi!5e0!3m2!1sen!2sin!4v1722930908375!5m2!1sen!2sin"  className='cn2iframe'   loading="lazy" ></iframe>
-
         </div>
       </div>
       <div className="cn3main">
@@ -161,7 +166,7 @@ const Contactus = () => {
                 <>
                   <div className="cn3in">
                     <label htmlFor="">Name</label>
-                    <input type="text" name="name" onChange={handleInputChange} />
+                    <input type="text" name="name" value={feedbackData.name} onChange={handleInputChange} />
                   </div>
                   <div className="cn3in">
                     <label htmlFor="">Profile image</label>
@@ -170,11 +175,11 @@ const Contactus = () => {
                   
                   <div className="cn3in">
                     <label htmlFor="">Contact / Email</label>
-                    <input type="text" name="contact" onChange={handleInputChange} />
+                    <input type="text" name="contact" value={feedbackData.contact} onChange={handleInputChange} />
                   </div>
                   <div className="cn3in">
                     <label htmlFor="">Review</label>
-                    <textarea name="review" onChange={handleInputChange}></textarea>
+                    <textarea name="review" value={feedbackData.review} onChange={handleInputChange}></textarea>
                   </div>
                 </>
               )}
@@ -182,15 +187,20 @@ const Contactus = () => {
                 <>
                   <div className="cn3in">
                     <label htmlFor="">Client Id</label>
-                    <input type="text" name="clientId" onChange={handleInputChange} />
+                    <input type="text" name="clientId" value={feedbackData.clientId} onChange={handleInputChange} />
                   </div>
                   <div className="cn3in">
                     <label htmlFor="">Review</label>
-                    <textarea name="review" onChange={handleInputChange}></textarea>
+                    <textarea name="review" value={feedbackData.review} onChange={handleInputChange}></textarea>
                   </div>
                 </>
               )}
               <div className="cn3fbbtn" onClick={handleSubmit}>Send Message</div>
+              {formSubmitted && (
+                <div className="success-alert">
+                  Feedback submitted successfully!
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -200,7 +210,7 @@ const Contactus = () => {
             Discover the power of our expertise and solutions by accessing our comprehensive brochures. Gain deeper insights into our services, approach, and success stories, empowering you to make informed decisions for your business. Simply click the links below to download our brochures and embark on a transformative journey with us.
           </p>
           <Link to="/brochureform" className="cn3rightbtn">
-            DOWNLOAD
+            DOWNLOAD BROCHURE
           </Link>
         </div>
       </div>

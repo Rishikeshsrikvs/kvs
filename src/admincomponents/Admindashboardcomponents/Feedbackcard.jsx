@@ -4,7 +4,7 @@ import { useAuth } from '../Auth/AuthContext';
 
 
 export const Feedbackcard = ({ feedback }) => {
-  const [status, setStatus] = useState(feedback.status === 'true');
+  const [status, setStatus] = useState('');
   const { token } = useAuth();
   const handleApprove = async () => {
     try {
@@ -16,7 +16,7 @@ export const Feedbackcard = ({ feedback }) => {
       
     });
       setStatus(true);
-      console.log(response.data);
+    
       
     } catch (error) {
       console.error('Error updating feedback status:', error);
@@ -33,7 +33,7 @@ export const Feedbackcard = ({ feedback }) => {
       }   
       );
       setStatus(false);
-      console.log(response.data);
+    
     } catch (error) {
       console.error('Error updating feedback status:', error);
     }

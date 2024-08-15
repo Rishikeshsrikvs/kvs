@@ -9,7 +9,7 @@
     font-size: 1700%;
     margin-top: 3vh;
     font-weight: 1900;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: opacity 0.8s ease, transform 0.8s ease;
     position: relative;
     padding-top: 0;
     top: 80px;
@@ -41,7 +41,7 @@
     left: 0;
     width: 100%;
     transform-origin: top left;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition: transform 0.8s ease, opacity 0.8s ease;
     opacity: 0; /* Initially hidden */
     z-index: 1; /* Initially behind other cards */
   }
@@ -54,7 +54,7 @@
   
   /* Scale animation for the card */
   .servicecard.scale-animate {
-    animation: scale-animate 0.3s ease forwards;
+    animation: scale-animate 0.8s ease forwards;
   }
   
   @keyframes scale-animate {
@@ -143,11 +143,11 @@
   
   /* Title translate animations */
   .title-translate-up {
-    animation: up 0.3s ease forwards;
+    animation: up 0.8s ease forwards;
   }
   
   .title-translate-down {
-    animation: down 0.3s ease forwards;
+    animation: down 0.8s ease forwards;
   }
   
   @keyframes up {
