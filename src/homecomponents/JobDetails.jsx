@@ -62,6 +62,13 @@ const JobDetails = () => {
         <div className="jd3dcon">
           <p>{job.jobDescription}</p>
         </div>
+        <h1>About</h1>
+                <div className="jd3dcon">
+                  <p>
+                    We are a software research and development firm with over two solid decades of industrial experience,
+                    having voyaged through various tasks, which consist of the following:
+                  </p>
+                </div>
       </div>
 
       <div className="jd4main">
