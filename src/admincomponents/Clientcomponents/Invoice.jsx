@@ -14,6 +14,7 @@ export const Invoice = () => {
   const [monthOfInvoice, setMonthOfInvoice] = useState(''); // Initial value for month of invoice
   const [discount, setDiscount] = useState(0); // Initial value for discount in percentage
   const [issueDate, setIssueDate] = useState(''); // State for issue date
+  const [dueAmount, setDueAmount] = useState(0);
   const [dueDate, setDueDate] = useState(''); // State for due date
 
   const { token } = useAuth();
@@ -24,7 +25,7 @@ export const Invoice = () => {
     const fetchClientData = async () => {
       try {
         const response = await axios.get(
-          `https://srikvstech.onrender.com/api/admin/getClient/${client_id}`,
+          `https://srikvs.onrender.com/api/admin/getClient/${client_id}`,
           {
             headers: {
               authorization: `${token}`,
@@ -63,7 +64,8 @@ export const Invoice = () => {
   const totalPriceWithGst = totalPrice + gstAmount;
   const discountPercentage = parseFloat(discount) / 100 || 0;
   const discountAmount = totalPriceWithGst * discountPercentage;
-  const finalAmount = totalPriceWithGst - discountAmount;
+  const finalAmount = totalPriceWithGst - discountAmount+ parseFloat(dueAmount || 0);
+ 
 
   const generateInvoice = async () => {
     try {
@@ -72,11 +74,11 @@ export const Invoice = () => {
         month_of_invoice: monthOfInvoice, // Value from state
         total_amount: finalAmount,
         discount: parseFloat(discount), // Value from state
-        
+        due_amount: parseFloat(dueAmount),
       };
 
       const response = await axios.post(
-        'https://srikvstech.onrender.com/api/admin/invoiceUpload',
+        'https://srikvs.onrender.com/api/admin/invoiceUpload',
         data,
         {
           headers: {
@@ -86,6 +88,7 @@ export const Invoice = () => {
       );
 
       console.log('Invoice generated successfully:', response.data);
+
       if (response.data && response.data.invoice_no) {
         setInvoiceNumber(response.data.invoice_no);
         
@@ -150,18 +153,20 @@ export const Invoice = () => {
           <div className="leftdetails">
             <h2>BILL TO</h2>
             <h3>{clientData.client_name}</h3>
+            <h3>{clientData.client_id}</h3>
             <h3>{clientData.client_email}</h3>
             <h3>{clientData.client_Location}</h3>
             <h3>GST: {clientData.client_GST}</h3>
           </div>
           <div className="rightdetails">
-            <div className="rigtdetailsrow"><span className="lb">Invoice No :</span> {invoiceNumber}</div>
-            <div className="rigtdetailsrow"><span className="lb">Date of issue :</span> {issueDate}</div>
-            <div className="rigtdetailsrow"><span className="lb">Due Date :</span> {dueDate}</div>
+            <div className="rigtdetailsrow"><span className="lb">Invoice No :</span><span className="rb"> {invoiceNumber}</span></div>
+            <div className="rigtdetailsrow"><span className="lb">Date of issue :</span> <span className="rb">{issueDate}</span></div>
+            <div className="rigtdetailsrow"><span className="lb">Due Date :</span> <span className="rb">{dueDate}</span></div>
             <div className="rigtdetailsrow">
               <span className="lb">Month of Invoice:</span>
               <input
                 type="text"
+                className='rb'
                 value={monthOfInvoice}
                 placeholder='Aug 2024'
                 onChange={(e) => setMonthOfInvoice(e.target.value)}
@@ -171,8 +176,18 @@ export const Invoice = () => {
               <span className="lb">Discount (%):</span>
               <input
                 type="number"
+                className='rb'
                 value={discount}
                 onChange={(e) => setDiscount(e.target.value)}
+              />
+            </div>
+            <div className="rigtdetailsrow">
+              <span className="lb">Due Amount:</span>
+              <input
+                type="number"
+                className='rb'
+                value={dueAmount}
+                onChange={(e) => setDueAmount(e.target.value)}
               />
             </div>
           </div>
@@ -203,6 +218,10 @@ export const Invoice = () => {
               <tr>
                 <td colSpan={3} id="discountlabel">Discount ({discount}%)</td>
                 <td>{discountAmount.toFixed(2)}</td>
+              </tr>
+              <tr>
+                <td colSpan={3} id="discountlabel">Due Amount </td>
+                <td>{parseFloat(dueAmount || 0).toFixed(2)}</td>
               </tr>
               <tr>
                 <td colSpan={3} id="totallabel">Total</td>

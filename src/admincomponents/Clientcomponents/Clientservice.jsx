@@ -114,7 +114,7 @@ export const Clientservice = () => {
     console.log('Client Data:', clientData);
     
     try {
-      const response = await axios.post('https://srikvstech.onrender.com/api/admin/clientSignUp', 
+      const response = await axios.post('https://srikvs.onrender.com/api/admin/clientSignUp', 
         clientData,
         {
           headers: {

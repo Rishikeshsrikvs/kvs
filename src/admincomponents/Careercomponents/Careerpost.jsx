@@ -2,22 +2,25 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import logo from './../../assets/images/logo.png';
-
+import { useAuth } from '../Auth/AuthContext';
 
 // Utility function to generate a unique ID
 const generateJobId = () => `job-${Date.now()}`;
 
+
 export const Careerpost = () => {
+  const { token } = useAuth();
   const [formData, setFormData] = useState({
-    jobId: generateJobId(), // Initialize with a unique jobId
     jobName: '',
-    experience: '',
+    experienceMin: '', // Changed from 'experience' to 'experienceMin'
+    experienceMax: '', // Added experienceMax
     location: '',
-    salary: '',
+    salaryMin: '', // Changed from 'salary' to 'salaryMin'
+    salaryMax: '', // Added salaryMax
     skills: '',
-    description: '',
-    applications: '', // Added number of applications field
-    companyName: 'SRI KVS TECH' // Set default company name
+    jobDescription: '', // Changed from 'description' to 'jobDescription'
+    numberOfVacancies: '', // Changed from 'applications' to 'numberOfVacancies'
+    urgentHiring: false, // Added urgentHiring field as a boolean
   });
 
   // Handle input change
@@ -33,20 +36,28 @@ export const Careerpost = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3500/jobs', formData);
+      const response = await axios.post('https://srikvs.onrender.com/api/admin/jobpost', 
+        formData,
+        {
+        headers: {
+          'authorization': `${token}`,
+        },
+      }
+      );
       if (response.status === 201) {
         console.log('Job posted successfully');
         // Reset form data if needed
         setFormData({
-          jobId: generateJobId(), // Generate a new jobId for the next job posting
           jobName: '',
-          experience: '',
+          experienceMin: '',
+          experienceMax: '',
           location: '',
-          salary: '',
+          salaryMin: '',
+          salaryMax: '',
           skills: '',
-          description: '',
-          applications: '', // Reset number of applications field
-          companyName: 'SRI KVS TECH' // Reset company name
+          jobDescription: '',
+          numberOfVacancies: '',
+          urgentHiring: false, // Reset urgentHiring field
         });
       }
     } catch (error) {
@@ -75,28 +86,45 @@ export const Careerpost = () => {
             <input type="text" name="jobName" value={formData.jobName} onChange={handleChange} />
           </div>
           <div className="cpsideinput">
-            <label htmlFor="experience">EXPERIENCE</label>
-            <input type="number" name="experience" value={formData.experience} onChange={handleChange} />
+            <label htmlFor="experienceMin">MINIMUM EXPERIENCE</label>
+            <input type="number" name="experienceMin" value={formData.experienceMin} onChange={handleChange} />
+          </div>
+          <div className="cpsideinput">
+            <label htmlFor="experienceMax">MAXIMUM EXPERIENCE</label>
+            <input type="number" name="experienceMax" value={formData.experienceMax} onChange={handleChange} />
           </div>
           <div className="cpsideinput">
             <label htmlFor="location">LOCATION</label>
             <input type="text" name="location" value={formData.location} onChange={handleChange} />
           </div>
           <div className="cpsideinput">
-            <label htmlFor="salary">SALARY</label>
-            <input type="text" name="salary" value={formData.salary} onChange={handleChange} />
+            <label htmlFor="salaryMin">MINIMUM SALARY</label>
+            <input type="number" name="salaryMin" value={formData.salaryMin} onChange={handleChange} />
+          </div>
+          <div className="cpsideinput">
+            <label htmlFor="salaryMax">MAXIMUM SALARY</label>
+            <input type="number" name="salaryMax" value={formData.salaryMax} onChange={handleChange} />
           </div>
           <div className="cpsideinput">
             <label htmlFor="skills">SKILLS REQUIRED</label>
             <input type="text" name="skills" value={formData.skills} onChange={handleChange} />
           </div>
           <div className="cpsideinput">
-            <label htmlFor="applications">NUMBER OF APPLICATIONS</label>
-            <input type="number" name="applications" value={formData.applications} onChange={handleChange} />
+            <label htmlFor="numberOfVacancies">NUMBER OF VACANCIES</label>
+            <input type="number" name="numberOfVacancies" value={formData.numberOfVacancies} onChange={handleChange} />
           </div>
           <div className="cpsideinput" id='inputbox'>
-            <label htmlFor="description">DESCRIPTION</label>
-            <textarea name="description" id="inputbox" value={formData.description} onChange={handleChange}></textarea>
+            <label htmlFor="jobDescription">JOB DESCRIPTION</label>
+            <textarea name="jobDescription" id="inputbox" value={formData.jobDescription} onChange={handleChange}></textarea>
+          </div>
+          <div className="cpsideinput cpsidecheck">
+            <label htmlFor="urgentHiring">URGENT HIRING :</label>
+            <input
+              type="checkbox"
+              name="urgentHiring"
+              checked={formData.urgentHiring}
+              onChange={(e) => setFormData({ ...formData, urgentHiring: e.target.checked })}
+            />
           </div>
           <div className='cpsidesubmit'>
             <input  type="submit" onClick={handleSubmit} value="POST A JOB"/>
@@ -108,20 +136,20 @@ export const Careerpost = () => {
               <div className="cpjobcard1left">
                 <div className="jobheading">
                   <h2>{formData.jobName || "JOB NAME"}</h2>
-                  <h5>{formData.companyName}</h5>
                 </div>
                 <div className="jobpoints">
                   <div className="jobpointsrow">
-                    <div className="experience jpitem"><h4>{formData.experience || "EXPERIENCE"}</h4></div>
-                    <div className="jpitem"><h4>Openings: 10</h4></div>
+                    <div className="experience jpitem"><h4>{formData.experienceMin || "MIN EXPERIENCE"} - {formData.experienceMax || "MAX EXPERIENCE"} years</h4></div>
+                    <div className="jpitem"><h4>Openings: {formData.numberOfVacancies || "0"}</h4></div>
                   </div>
                   <div className="jobpointsrow">
                     <div className="location jpitem"><h4>{formData.location || "LOCATION"}</h4></div>
-                    <div className="vacancy jpitem"><h4>Applicants: {formData.applications || "0"}</h4></div>
+                    {formData.urgentHiring && (
+                        <div className="jpitem"><h4>URGENT HIRING</h4></div>
+                      )}
                   </div>
                   <div className="jobpointsrow">
-                    <div className="salary jpitem"><h4>{formData.salary || "SALARY"}</h4></div>
-                    <div className="date jpitem"><h4>Posted: Today</h4></div>
+                    <div className="salary jpitem"><h4>{formData.salaryMin || "MIN SALARY"} - {formData.salaryMax || "MAX SALARY"} LPA</h4></div>
                   </div>
                 </div>
               </div>
@@ -132,22 +160,28 @@ export const Careerpost = () => {
             <div className="cpjobcard2">
               <div className="cphighlights">
                 <h4>JOB HIGHLIGHTS</h4>
-                <ul>
-                  <li><p>Skills: {formData.skills || "SKILLS REQUIRED"}</p></li>
-                  <li><p>Description: {formData.description || "DESCRIPTION"}</p></li>
-                </ul>
+                
+                  <div className='cpsub'>
+                    <h4>Skills:</h4>
+                    <p> {formData.skills || "SKILLS REQUIRED"}</p>
+                    </div>
+                  <div>
+                    <h4>Description: </h4>
+                    <p>{formData.jobDescription || "JOB DESCRIPTION"}</p>
+                    </div>
+                
               </div>
               <div className="cpaboutcn">
                 <h4>About</h4>
                 <p>
-                    We are a software research and development firm with over two solid decades of industrial experience, 
-                    having voyaged through various tasks, which consist of the following:
-                    </p>
+                  We are a software research and development firm with over two solid decades of industrial experience, 
+                  having voyaged through various tasks, which consist of the following:
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

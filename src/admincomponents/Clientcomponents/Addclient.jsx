@@ -76,7 +76,7 @@ export const Addclient = () => {
 
     try {
       const response = await axios.post(
-        'https://srikvstech.onrender.com/api/admin/clientLogoUpload',
+        'https://srikvs.onrender.com/api/admin/clientLogoUpload',
         formData,
         {
           headers: {

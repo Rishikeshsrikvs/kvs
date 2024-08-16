@@ -13,6 +13,7 @@ import { Invoice } from './admincomponents/Clientcomponents/Invoice';
 import { Clientservice } from './admincomponents/Clientcomponents/Clientservice';
 import { Careerresponse } from './admincomponents/Careercomponents/Careerresponse';
 import { ClientserviceEdit } from './admincomponents/Clientcomponents/ClientserviceEdit';
+
 export const Admin = () => {
   return (
     <AuthProvider>
@@ -32,6 +33,7 @@ export const Admin = () => {
                 <Route path="response/:jobId" element={<Careerresponse />} />
                 <Route path="clientservice" element={<Clientservice />} />
                 <Route path="clientservice-edit/:clientId" element={<ClientserviceEdit />} />
+                
               </Routes>
             </ProtectedRoute>
           }

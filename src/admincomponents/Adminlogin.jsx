@@ -19,7 +19,7 @@ export const Adminlogin = () => {
     setError('');
 
     try {
-      const response = await axios.post('https://srikvstech.onrender.com/api/admin/adminlogin', {
+      const response = await axios.post('https://srikvs.onrender.com/api/admin/adminlogin', {
         adminEmail: username,
         adminPassword: password,
       }, {

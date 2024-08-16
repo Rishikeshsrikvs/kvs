@@ -11,7 +11,7 @@ const Logoslider = () => {
     const fetchLogos = async () => {
       try {
         // Fetch logo details
-        const response = await axios.get('https://srikvstech.onrender.com/getAllLogo');
+        const response = await axios.get('https://srikvs.onrender.com/getAllLogo');
         
         const logoDetails = response.data;
         console.log(response);
@@ -20,7 +20,7 @@ const Logoslider = () => {
         // Fetch images using tokens
         const logoPromises = logoDetails.map(async (logo) => {
           try {
-            const imageResponse = await axios.get(`https://srikvstech.onrender.com/getimage/${logo.imageName}`, {
+            const imageResponse = await axios.get(`https://srikvs.onrender.com/getimage/${logo.imageName}`, {
               responseType: 'blob' // Fetch image as a blob
             });
             // Create a URL for the image blob

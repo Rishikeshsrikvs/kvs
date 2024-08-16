@@ -84,10 +84,16 @@
   .blogcardimg{
    
     width: 100%;
-    object-fit: contain;
-    overflow: hidden;
+    
+   
+    height: 30vh;
    
     
+  }
+  .blogcardimg img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
   }
   .blogdetail{
     color: #141414;
@@ -96,7 +102,7 @@
     padding: 10px;
     flex: 1;
 
-    justify-content: space-between;
+    
   }
   .blogdetail .bgtiltle{
     text-align: center;

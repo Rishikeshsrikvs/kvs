@@ -42,7 +42,7 @@ export const Blogedit = () => {
 
     try {
       const response = await axios.post(
-        'https://srikvstech.onrender.com/api/admin/blogUpload',
+        'https://srikvs.onrender.com/api/admin/blogUpload',
         formData,
         {
           headers: {
@@ -52,6 +52,7 @@ export const Blogedit = () => {
         }
       );
       alert('Blog uploaded successfully!');
+
       // Reset the form after successful upload
       setBlogTitle('');
       setBlogDescription('');
@@ -59,6 +60,12 @@ export const Blogedit = () => {
       setFileSrc('');
       setFile(null);
       setPreview(false);
+
+      // Reset the file input field
+      const fileInput = document.getElementById('inputfile');
+      if (fileInput) {
+        fileInput.value = '';
+      }
     } catch (error) {
       alert('Failed to upload blog');
       console.error(error);
@@ -104,7 +111,9 @@ export const Blogedit = () => {
             className='inputfile-hidden' 
             onChange={handleFileChange} 
           />
-          <div className="filenamecontainer">{fileName && <div className="filename">Selected file: {fileName}</div>}</div>
+          <div className="filenamecontainer">
+            {fileName && <div className="filename">Selected file: {fileName}</div>}
+          </div>
         </div>
         <div className="rightcon">
           {preview && (
@@ -121,4 +130,4 @@ export const Blogedit = () => {
       </div>
     </div>
   );
-}
+};

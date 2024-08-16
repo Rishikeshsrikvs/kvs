@@ -54,7 +54,7 @@ background-color: rgb(228, 228, 228);
 }
 .cvcontentcon{
     display: flex;
-    height: 80vh;
+    height: 100vh;
 
     width: 100%;
     margin-top: 20px;
@@ -65,7 +65,7 @@ background-color: rgb(228, 228, 228);
     background-color: white;
 }
 .contentright{
-    width: 70%;
+    width: 100%;
 }
 .lefttitlefilter{
     padding-bottom: 5px;
@@ -139,6 +139,7 @@ background-color: rgb(228, 228, 228);
 .jobcontainer{
     background-color: white;
     padding:15px;
+    width: 100%;
 }
 /* ------------------------ */
 
@@ -262,6 +263,18 @@ background-color: rgb(228, 228, 228);
     height: 200px;
     resize: none;
 }
+.cpsidecheck{
+   
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+.cpsidecheck input{
+    width: 20px;
+    height: 20px;
+    
+}
 .cpsidesubmit{
     display: flex;
     justify-content: center;
@@ -335,16 +348,13 @@ background-color: rgb(228, 228, 228);
 .cphighlights{
     padding: 10px;
 }
-.cphighlights ul{
-margin-left: 25px;
-margin-top: 5px;
-margin-bottom: 5px;
-font-size: 110%;
+.cphighlights h4{
+    margin-bottom: 10px;
 }
-.cphighlights ul >li{
-    margin-top: 5px;
-    width: auto;
+.cphighlights .cpsub{
+    margin-bottom: 10px;
 }
+
 .cphighlights p{
     font-size: 80%;
     width: auto;
@@ -414,3 +424,49 @@ font-size: 110%;
 .resdate{
     font-size: 90%;
 }
+
+
+
+/* --------------------------------------- */
+/* job css */
+
+.job-card {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .job-header, .job-details, .job-actions, .job-footer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-direction: column;
+    margin-bottom: 5px;
+  }
+  
+  .job-header .job-name {
+    font-weight: bold;
+  }
+  .delete-btn{
+    width: 100px;
+  }
+  .urgent-hiring-badge {
+    background-color: red;
+    color: white;
+    padding: 3px;
+    border-radius: 5px;
+  }
+  
+  .response-btn, .refresh-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  

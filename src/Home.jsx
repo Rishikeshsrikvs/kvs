@@ -12,6 +12,7 @@ import Brochureform from './homecomponents/Brochureform'
 import Contactus from './homecomponents/Contactus'
 import Brochuredownload from './homecomponents/Brochuredownload'
 import JobDetails from './homecomponents/JobDetails'
+import BlogDetail from './admincomponents/Clientcomponents/Blogcomponents/BlogDetail';
 export const Home = () => {
   return (
     <div>
@@ -28,6 +29,7 @@ export const Home = () => {
           <Route path='/contactus' element={<Contactus/>}/>
           <Route path='/brochureform' element={<Brochureform/>}/>
           <Route path='/brochuredownload' element={<Brochuredownload/>}/>
+          <Route path="/blog/:id" element={<BlogDetail />} />
           
         </Routes>
       </main>

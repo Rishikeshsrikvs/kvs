@@ -13,7 +13,7 @@ export const Atestms = () => {
   useEffect(() => {
     const fetchFeedbacks = async () => {
       try {
-        const response = await axios.get('https://srikvstech.onrender.com/api/admin/testimonials' ,{
+        const response = await axios.get('https://srikvs.onrender.com/api/admin/testimonials' ,{
           headers: {
             authorization: `${token}`,
           },

@@ -1,37 +1,44 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { useAuth } from '../Auth/AuthContext';
 
-export const Job = ({ job }) => {
+export const Job = ({ job, onDelete }) => {
+  const { token } = useAuth();
+
+  const handleDelete = async () => {
+    try {
+      const response = await axios.delete(`https://srikvs.onrender.com/api/admin/jobDelete/${job._id}`, {
+        headers: {
+          'authorization': `${token}`,
+        },
+      });
+
+      if (response.status === 200) {
+        onDelete(job._id); // Trigger the parent to refresh the job list
+      } else {
+        console.error('Failed to delete the job');
+      }
+    } catch (error) {
+      console.error('Error deleting the job:', error);
+    }
+  };
+
   return (
-    <div className='job'>
-      <div className="checkcon">
-        <input type="checkbox" />
-        <div className="jobdetails">
-          <h4>{job.jobName}</h4>
-          <h5>{job.location}</h5>
-          <h6>{job.status}</h6>
-        </div>
+    <div className="job-card">
+      <div className="job-header">
+        <span className="job-name">{job.jobName}</span>
+        <span className="job-location">{job.location}</span>
       </div>
-      <div className="jobnumcon">
-        <div className="total">
-          <h2>{job.totalApplications}</h2>
-          <h5>Total</h5>
-        </div>
-        <div className="short">
-          <h2>{job.shortlistedApplications}</h2>
-          <h5>Shortlisted</h5>
-        </div>
+      <div className="job-details">
+        <span className="job-applicants">{job.applicantCount} Total</span>
+        <span className="job-shortlisted">0 Shortlisted</span>
       </div>
-      <div className="responsedetails">
-        <div className="btnrow">
-          <Link to={`/admin/response/${job.jobId}`}>
-            <button className='resbtn'>Response</button>
-          </Link>
-          <button>Refresh</button>
-        </div>
-        <div className='resdate'>
-          <p>Posted by {job.postedBy} @ {job.postedDate}</p>
-        </div>
+      <div className="job-actions">
+        <button className="delete-btn" onClick={handleDelete}>Close The Application</button>
+      </div>
+      <div className="job-footer">
+        <span className="job-date">Posted: {new Date(job.date).toLocaleDateString()}</span>
+        {job.urgentHiring && <span className="urgent-hiring-badge">Urgent Hiring</span>}
       </div>
     </div>
   );

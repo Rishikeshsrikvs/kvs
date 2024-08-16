@@ -21,7 +21,7 @@ const Feedbacklandslider = () => {
   useEffect(() => {
     const fetchFeedbacks = async () => {
       try {
-        const response = await axios.get('https://srikvstech.onrender.com/testimonials');
+        const response = await axios.get('https://srikvs.onrender.com/testimonials');
         console.log('Fetched data:', response.data.message);
         const feedbacks = response.data.message;
 
@@ -30,7 +30,7 @@ const Feedbacklandslider = () => {
           feedbacks.map(async feedback => {
             if (feedback.profileImage) {
               try {
-                const imageResponse = await axios.get(`https://srikvstech.onrender.com/getimage/${feedback.profileImage}`, {
+                const imageResponse = await axios.get(`https://srikvs.onrender.com/getimage/${feedback.profileImage}`, {
                   responseType: 'blob' // Fetch image as a blob
                 });
                 // Create a URL for the image blob

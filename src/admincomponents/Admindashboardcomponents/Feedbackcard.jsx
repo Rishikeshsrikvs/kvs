@@ -8,7 +8,7 @@ export const Feedbackcard = ({ feedback }) => {
   const { token } = useAuth();
   const handleApprove = async () => {
     try {
-      await axios.put(`https://srikvstech.onrender.com/api/admin/testimonialApproval`,
+      await axios.put(`https://srikvs.onrender.com/api/admin/testimonialApproval`,
         {testimonialId:feedback._id, 
         headers: {
         authorization: `${token}`,
@@ -25,7 +25,7 @@ export const Feedbackcard = ({ feedback }) => {
 
   const handleReject = async () => {
     try {
-      await axios.put(`https://srikvstech.onrender.com/api/admin/testimonialDecline`,
+      await axios.put(`https://srikvs.onrender.com/api/admin/testimonialDecline`,
         {testimonialId:feedback._id,
         headers: {
           authorization: `${token}`,

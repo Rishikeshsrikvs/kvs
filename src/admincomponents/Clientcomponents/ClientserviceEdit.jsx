@@ -8,6 +8,8 @@ export const ClientserviceEdit = () => {
   const navigate = useNavigate();
   const { token } = useAuth();
   const { clientId } = useParams();
+
+  
   
   const [formData, setFormData] = useState({
     services: [],
@@ -23,10 +25,13 @@ export const ClientserviceEdit = () => {
   useEffect(() => {
     const fetchClientData = async () => {
       try {
-        const response = await axios.get(`https://srikvstech.onrender.com/api/admin/getClient/${clientId}`, {
+        const response = await axios.get(`https://srikvs.onrender.com/api/admin/getClient/${clientId}`, {
           headers: { authorization: `${token}` },
         });
-        const clientData = response.data.clientDetails;
+    
+        // Access clientDetailes from response.data
+        const clientData = response.data.clientDetailes || {};
+    
         setFormData({
           services: clientData.client_Plan || [],
           gst: clientData.client_GST || '',
@@ -41,6 +46,7 @@ export const ClientserviceEdit = () => {
         setError('Failed to load client data.');
       }
     };
+    
 
     fetchClientData();
   }, [clientId, token]);
@@ -94,17 +100,24 @@ export const ClientserviceEdit = () => {
       setError('Please fill out all fields correctly.');
       return;
     }
-
+  
     const clientData = {
       client_Plan: formData.services.map(service => ({
         name: service.name,
         package: service.package,
         price: service.amount // Use the manually entered amount
-      }))
+      })),
+      client_GST: formData.gst,
+      client_logo: formData.clientLogoKey,
+      client_email: formData.email,
+      client_mobile: formData.phone,
+      client_Location: formData.location,
+      client_govt_id: formData.adharNumber,
+      client_id:clientId,
     };
-
+  
     try {
-      const response = await axios.put(`https://srikvstech.onrender.com/api/admin/client/${clientId}`, 
+      const response = await axios.put(`https://srikvs.onrender.com/api/admin/clientUpdate`, 
         clientData,
         {
           headers: { 'authorization': `${token}` },
@@ -122,6 +135,7 @@ export const ClientserviceEdit = () => {
       console.error('Error:', error);
     }
   };
+  
 
   const validateForm = () => {
     const { services } = formData;
@@ -144,7 +158,7 @@ export const ClientserviceEdit = () => {
             <h1>Edit Client Services and Package</h1>
           </div>
           <div className="client-name">
-            <h2>Client: {clientId}</h2> {/* Display client name */}
+            <h2>Client Id: {clientId}</h2> {/* Display client name */}
           </div>
           <div className='service1'>
             <div className="service1left">

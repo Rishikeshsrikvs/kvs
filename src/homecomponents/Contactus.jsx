@@ -60,7 +60,7 @@ const Contactus = () => {
     });
   
     try {
-      const response = await axios.post('https://srikvstech.onrender.com/testimonial', {
+      const response = await axios.post('https://srikvs.onrender.com/testimonial', {
         "clients": activeTab === 'clients',
         "name": feedbackData.name || '',
         "profileImage": feedbackData.profileImage ? feedbackData.profileImage.name : '',

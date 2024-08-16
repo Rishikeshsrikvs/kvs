@@ -16,7 +16,7 @@ const Aclients = () => {
   useEffect(() => {
     const fetchClients = async () => {
       try {
-        const response = await axios.get('https://srikvstech.onrender.com/api/admin/getClients', {
+        const response = await axios.get('https://srikvs.onrender.com/api/admin/getClients', {
           headers: {
             authorization: `${token}`,
           },

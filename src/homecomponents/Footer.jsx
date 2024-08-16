@@ -20,8 +20,8 @@ export const Footer = () => {
               <Link to="https://www.instagram.com/srikvstech/" target="_blank"><img src={instaicon} alt="Instagram" /></Link>
             </div>
         </div>
-        <div className="footnav">
-          <p className="footnavhead footnavleft">Navigation</p>
+        <div className="footnav footnavleft">
+          <p className="footnavhead ">Navigation</p>
           <Link to="/about"><p>About Us</p></Link>
           <Link to="/services"><p>Services</p></Link>
           <Link to="/projects"><p>Projects</p></Link>
