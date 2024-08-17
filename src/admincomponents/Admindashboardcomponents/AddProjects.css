@@ -1,0 +1,11 @@
+.addpromain{
+    height: 100vh;
+    width: 100%;
+}
+.addprocon{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}

@@ -1,0 +1,111 @@
+/* src/components/JobApplicants.css */
+.applicants-container {
+    padding: 50px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .job-details {
+    margin-bottom: 20px;
+    padding: 15px;
+   
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  .job-details h2{
+    color: blue;
+    text-align: center;
+    font-size: 180%;
+    margin: 10px auto;
+  }
+  .jobdetailssub{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-evenly;
+  
+
+  }
+  .jobdetailssub p{
+    width:36% ;
+  }
+  .appllititle{
+    text-align: center;
+    padding: 10px 20px;
+    margin: 5px auto;
+    background-color: aquamarine;
+  }
+  .job-details h2 {
+    margin-top: 0;
+  }
+  
+  .job-details p {
+    margin: 5px 0;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .applicantcon {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    background-color: aliceblue;
+    padding:10px 20px ;
+    align-items: center;
+  }
+  
+  .applicantcon h3 {
+    margin-top: 0;
+    width: 25%;
+  }
+  
+  .applicantcon p {
+    margin: 5px 0;
+    width: 32.5%;
+  }
+  
+  .applicantcon div{
+    width: 10%;
+  }
+  .applicantcon div button{
+    padding: 5px 10px;
+    color: white;
+    border: none;
+    background-color: rgb(131, 2, 2);
+  }
+
+  .applicants-container {
+    /* Your existing styles */
+  }
+  
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .popup {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+  }
+  
+  .popup button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  

@@ -1,16 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import './Aprojects.css';
 import { Project } from './Project';
+import { useAuth } from '../Auth/AuthContext';
 
 export const Aprojects = () => {
   const [projects, setProjects] = useState([]);
   const [likedProjects, setLikedProjects] = useState([]);
+  const navigate = useNavigate();
+  const token = useAuth();
 
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await axios.get('http://localhost:3500/projects');
+        const response = await axios.get('https://srikvs.onrender.com/api/admin/projects', {
+          headers: {
+            authorization: `${token}`,
+          },
+        });
         setProjects(response.data);
         setLikedProjects(response.data.filter(project => project.favorite));
       } catch (error) {
@@ -23,7 +31,13 @@ export const Aprojects = () => {
 
   const handleLike = async (id, isLiked) => {
     try {
-      await axios.patch(`http://localhost:3500/projects/${id}`, { favorite: isLiked });
+      await axios.patch(`https://srikvs.ornder.com/api/admin/projects/${id}`, 
+      { favorite: isLiked }, 
+      {
+        headers: {
+          authorization: token, // Replace 'your_token_here' with the actual token
+        },
+      });
       setProjects(prevProjects =>
         prevProjects.map(project =>
           project.id === id ? { ...project, favorite: isLiked } : project
@@ -50,8 +64,15 @@ export const Aprojects = () => {
     }
   };
 
+  const navigateToAddProject = () => {
+    navigate('/admin/add-project'); // Update the path according to your routing setup
+  };
+
   return (
     <div className="projectmaincontainer">
+      <button className="add-project-button" onClick={navigateToAddProject}>
+        Add Project
+      </button>
       <h2>PROJECT SITE</h2>
       <h1>PICK THE FAVOURITES OF OUR WORKS</h1>
       <div className="card-container">

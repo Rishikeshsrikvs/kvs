@@ -1,19 +1,19 @@
+// src/components/Careerview.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Job } from './Job';
 import { useAuth } from '../Auth/AuthContext';
 
 export const Careerview = () => {
   const [jobs, setJobs] = useState([]);
   const { token } = useAuth();
+  const navigate = useNavigate();
 
   const fetchJobs = async () => {
     try {
       const response = await axios.get('https://srikvs.onrender.com/api/admin/getjobs', {
-        headers: {
-          'authorization': `${token}`,
-        },
+        headers: { 'authorization': `${token}` },
       });
       setJobs(response.data);
     } catch (error) {
@@ -27,8 +27,10 @@ export const Careerview = () => {
 
   const handleDelete = (deletedJobId) => {
     setJobs(prevJobs => prevJobs.filter(job => job._id !== deletedJobId));
-    // Optionally, re-fetch jobs from the server
-    // fetchJobs(); 
+  };
+
+  const handleJobClick = (jobId) => {
+    navigate(`/admin/job-applicants/${jobId}`);
   };
 
   return (
@@ -47,7 +49,10 @@ export const Careerview = () => {
         <div className="contentright">
           <div className="jobcontainer">
             {jobs.map((job) => (
-              <Job key={job._id} job={job} onDelete={handleDelete} />
+              <div key={job._id} onClick={() => handleJobClick(job._id)}>
+                <Job job={job} onDelete={handleDelete} />
+              </div>
+             
             ))}
           </div>
         </div>

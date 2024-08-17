@@ -1,73 +1,92 @@
 .projectmaincontainer {
-    padding: 30px;
-  }
-  
-  .projectmaincontainer > h2,
-  .projectmaincontainer h1 {
-    margin-bottom: 10px;
-  }
-  
+  padding: 30px;
+  position: relative;
+}
+
+.projectmaincontainer > h2,
+.projectmaincontainer h1 {
+  margin-bottom: 10px;
+}
+
+.add-project-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-project-button:hover {
+  background-color: #45a049;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.project {
+  width: 28%;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  position: relative;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.projectimage {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.projectimg {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.projectdetails {
+  padding: 10px;
+  background-color: rgb(206, 199, 199);
+}
+
+.favheart {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.favheart-outline {
+  background-image: url('./../../assets/images/heartoutline.png');
+  background-size: cover;
+}
+
+.favheart-filled {
+  background-image: url('./../../assets/images/heartfilled.png');
+  background-size: cover;
+}
+
+@media screen and (max-width: 900px) {
   .card-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    flex-direction: row;
   }
-  
+
   .project {
-    width: 28%;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    position: relative;
+    width: 48%;
   }
-  
-  .projectimage {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-  }
-  
-  .projectimg {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-  }
-  
-  .projectdetails {
-    padding: 10px;
-    background-color: rgb(206, 199, 199);
-  }
-  
-  .favheart {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    top: 10px;
-    right: 10px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .favheart-outline {
-    background-image: url('./../../assets/images/heartfilled.png'); /* Replace with your outline heart image */
-    background-size: cover;
-  }
-  
-  .favheart-filled {
-    background-image: url('./../../assets/images/heartoutline.png'); /* Replace with your filled heart image */
-    background-size: cover;
-  }
-  
-  @media screen and (max-width: 900px) {
-    .card-container {
-      flex-direction: row;
-    }
-  
-    .project {
-      width: 48%;
-    }
-  }
-  
+}

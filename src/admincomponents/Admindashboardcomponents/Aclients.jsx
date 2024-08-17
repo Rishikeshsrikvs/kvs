@@ -1,15 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import jsPDF from 'jspdf';
 import './../Admindashboardcomponents/Aclients.css';
 import { useAuth } from '../Auth/AuthContext';
-import Clientrow from '../Clientcomponents/Clientrow';// Import the simplified Clientrow component
+import Clientrow from '../Clientcomponents/Clientrow';
 
 const Aclients = () => {
   const [clients, setClients] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [selectedClient, setSelectedClient] = useState(null);
+  const [showPopup, setShowPopup] = useState(false);
+  const popupRef = useRef(null);
 
   const { token } = useAuth();
 
@@ -32,6 +35,22 @@ const Aclients = () => {
 
     fetchClients();
   }, [token]);
+
+  const handleClickOutside = (e) => {
+    if (popupRef.current && !popupRef.current.contains(e.target)) {
+      setShowPopup(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const openPopup = (client) => {
+    setSelectedClient(client);
+    setShowPopup(true);
+  };
 
   const downloadPDF = () => {
     const doc = new jsPDF('p', 'mm', 'a4');
@@ -99,7 +118,7 @@ const Aclients = () => {
           </thead>
           <tbody>
             {clients.map((client) => (
-              <Clientrow key={client.client_id} client={client} />
+              <Clientrow key={client.client_id} client={client} openPopup={() => openPopup(client)} />
             ))}
           </tbody>
         </table>
@@ -110,6 +129,21 @@ const Aclients = () => {
         </Link>
         <button onClick={downloadPDF}>Download</button>
       </div>
+
+      {showPopup && selectedClient && (
+        <div className="popup-overlay">
+          <div className="popup" ref={popupRef}>
+            <h3>Client Details for {selectedClient.client_name}</h3>
+            <p><strong>Client ID:</strong> {selectedClient.client_id}</p>
+            <p><strong>Name:</strong> {selectedClient.client_name}</p>
+            <p><strong>Phone:</strong> {selectedClient.client_mobile}</p>
+            <p><strong>Email:</strong> {selectedClient.client_email}</p>
+            <p><strong>Location:</strong> {selectedClient.client_Location}</p>
+            {/* Add more client details as necessary */}
+            <button onClick={() => setShowPopup(false)}>Close</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

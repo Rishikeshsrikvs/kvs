@@ -13,7 +13,8 @@ import { Invoice } from './admincomponents/Clientcomponents/Invoice';
 import { Clientservice } from './admincomponents/Clientcomponents/Clientservice';
 import { Careerresponse } from './admincomponents/Careercomponents/Careerresponse';
 import { ClientserviceEdit } from './admincomponents/Clientcomponents/ClientserviceEdit';
-
+import { AddProject } from './admincomponents/Admindashboardcomponents/AddProject';
+import JobApplicants from './admincomponents/Careercomponents/JobApplicants';
 export const Admin = () => {
   return (
     <AuthProvider>
@@ -33,6 +34,8 @@ export const Admin = () => {
                 <Route path="response/:jobId" element={<Careerresponse />} />
                 <Route path="clientservice" element={<Clientservice />} />
                 <Route path="clientservice-edit/:clientId" element={<ClientserviceEdit />} />
+                <Route path="job-applicants/:jobId" element={<JobApplicants />} />
+                <Route path="add-project" element={<AddProject />} />
                 
               </Routes>
             </ProtectedRoute>
