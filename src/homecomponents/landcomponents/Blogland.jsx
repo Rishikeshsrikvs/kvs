@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../../api/api';
 import "./Blogland.css";
 import nearrow from './../../assets/images/ne arrow.svg';
 
@@ -8,7 +8,7 @@ const Blogland = () => {
 
     useEffect(() => {
         // Fetching the blogs from the API
-        axios.get('https://srikvs.onrender.com/blogs')
+        api.get('/blogs')
             .then(response => {
                 // Sort the blogs by date in descending order and then slice the first three
                 const sortedBlogs = response.data.sort((a, b) => new Date(b.blogDate) - new Date(a.blogDate));
@@ -25,7 +25,7 @@ const Blogland = () => {
                 <div key={index} className="landblogcard">
                     <div className="lbimg">
                         <img 
-                            src={`https://srikvs.onrender.com/getBlogImage/${blog.imageName}`} 
+                            src={`https://srikvstech.onrender.com/getBlogImage/${blog.imageName}`} 
                             alt={blog.blogTitle} 
                         />
                     </div>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import api from '../../api/api';
 import axios from 'axios';
 import './Feedbackslider.css';
 import fb1 from './../../assets/images/feedbackclient/cart.webp';
@@ -21,7 +22,7 @@ const Feedbacklandslider = () => {
   useEffect(() => {
     const fetchFeedbacks = async () => {
       try {
-        const response = await axios.get('https://srikvs.onrender.com/testimonials');
+        const response = await api.get('/testimonials');
         console.log('Fetched data:', response.data.message);
         const feedbacks = response.data.message;
 
@@ -30,7 +31,7 @@ const Feedbacklandslider = () => {
           feedbacks.map(async feedback => {
             if (feedback.profileImage) {
               try {
-                const imageResponse = await axios.get(`https://srikvs.onrender.com/getimage/${feedback.profileImage}`, {
+                const imageResponse = await axios.get(`https://srikvstech.onrender.com/getimage/${feedback.profileImage}`, {
                   responseType: 'blob' // Fetch image as a blob
                 });
                 // Create a URL for the image blob

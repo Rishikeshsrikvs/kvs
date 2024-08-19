@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import api from '../api/api';
 import './Contactus.css';
 
 const Contactus = () => {
@@ -60,7 +60,7 @@ const Contactus = () => {
     });
   
     try {
-      const response = await axios.post('https://srikvs.onrender.com/testimonial', {
+      const response = await api.post('/testimonial', {
         "clients": activeTab === 'clients',
         "name": feedbackData.name || '',
         "profileImage": feedbackData.profileImage ? feedbackData.profileImage.name : '',

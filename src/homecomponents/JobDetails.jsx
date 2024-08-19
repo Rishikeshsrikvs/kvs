@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import './JobDetails.css';
-import axios from 'axios';
+import api from '../api/api';
 import formdown from './../assets/images/career/formdown.png';
 import formup from './../assets/images/career/formup.png';
 import careertitleback from './../assets/images/career/careertitle.png';
@@ -197,7 +197,7 @@ const JobDetails = () => {
     }
 
     try {
-      const response = await axios.post('https://srikvs.onrender.com/apply', data, {
+      const response = await api.post('/apply', data, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

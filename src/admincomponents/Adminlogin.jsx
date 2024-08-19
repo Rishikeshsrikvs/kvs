@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import api from '../api/api';
 import { useAuth } from './Auth/AuthContext';
 import logo from './../assets/images/logo.png';
+import axios from 'axios';
 import './Adminlogin.css';
 
 export const Adminlogin = () => {
-  const { login } = useAuth();
-  const navigate = useNavigate();
-  const [username, setUsername] = useState('Admin');
-  const [password, setPassword] = useState('Skv@12345');
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const { login } = useAuth();  // Using AuthContext to manage authentication state
+  const navigate = useNavigate();  // For navigation after successful login
+  const [username, setUsername] = useState('Admin');  // Default admin username
+  const [password, setPassword] = useState('Skv@12345');  // Default admin password
+  const [loading, setLoading] = useState(false);  // Loading state to disable form while submitting
+  const [error, setError] = useState('');  // Error state for displaying error messages
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,27 +20,24 @@ export const Adminlogin = () => {
     setError('');
 
     try {
-      const response = await axios.post('https://srikvs.onrender.com/api/admin/adminlogin', {
+      const response = await api.post('/api/admin/adminlogin', {
         adminEmail: username,
         adminPassword: password,
-      }, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
       });
 
       const { status, data } = response;
+
       if (status === 200 && data.token) {
-        login(data.token); // Store JWT token in AuthContext
-        navigate('/admin/dashboard');
+        login(data.token);  // Store JWT token in AuthContext
+        navigate('/admin/dashboard');  // Navigate to dashboard after successful login
       } else {
         setError('Invalid credentials');
       }
     } catch (error) {
       setError('Error connecting to server');
-      console.error('Login error', error);
+      console.error('Login error:', error);
     } finally {
-      setLoading(false);
+      setLoading(false);  // Reset loading state
     }
   };
 
@@ -59,7 +57,7 @@ export const Adminlogin = () => {
               name="uname"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              disabled={loading}
+              disabled={loading}  // Disable input while loading
             />
           </div>
           <div className="inputcon">
@@ -68,18 +66,20 @@ export const Adminlogin = () => {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              disabled={loading}
+              disabled={loading}  // Disable input while loading
             />
           </div>
           <input
             className="formsubmit"
             type="submit"
             value="Sign In"
-            disabled={loading}
+            disabled={loading}  // Disable submit button while loading
           />
         </form>
-        {error && <p className="error">{error}</p>}
+        {error && <p className="error">{error}</p>}  // Display error message if any
       </div>
     </div>
   );
 };
+
+export default Adminlogin;

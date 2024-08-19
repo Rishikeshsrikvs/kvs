@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+
+import api from '../api/api';
 import { useNavigate } from 'react-router-dom';
 import './Blogs.css';
 import bb1 from './../assets/images/Blogs/bb1.png';
@@ -14,7 +15,7 @@ const Blogs = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get('https://srikvs.onrender.com/blogs')
+        api.get('/blogs')
             .then(response => {
                 const sortedBlogs = response.data.sort((a, b) => new Date(b.blogDate) - new Date(a.blogDate));
                 setBlogs(sortedBlogs);

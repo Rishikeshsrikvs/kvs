@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import api from '../api/api';
 import "./Career.css";
+
 
 const Career = () => {
   const [jobs, setJobs] = useState([]);
@@ -11,7 +12,7 @@ const Career = () => {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const response = await axios.get('https://srikvs.onrender.com/getjobs');
+        const response = await api.get('/getjobs');
         setJobs(response.data);
         setLoading(false);
       } catch (err) {

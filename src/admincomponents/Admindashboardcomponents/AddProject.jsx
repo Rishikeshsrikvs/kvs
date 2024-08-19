@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import api from '../../api/api';
 import './AddProjects.css';
 import { useAuth } from '../Auth/AuthContext';
 
@@ -57,7 +57,7 @@ export const AddProject = () => {
   
     
     try {
-      await axios.post('https://srikvs.ornder.com/api/admin/projectUpload', formData, {
+      await api.post('/api/admin/projectUpload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           authorization: `${token}`, // Replace with actual token
@@ -117,7 +117,7 @@ export const AddProject = () => {
           {errors.projectDescription && <p className="error">{errors.projectDescription}</p>}
         </div>
         <div>
-          <label>Project View (Image):</label>
+          <label>Project Image:</label>
           <input
             type="file"
             onChange={(e) => setProjectView(e.target.files[0])}
@@ -132,7 +132,7 @@ export const AddProject = () => {
               checked={favorite}
               onChange={(e) => setFavorite(e.target.checked)}
             />
-            Favorite (true/false)
+            Favorite 
           </label>
         </div>
         <div className='addprobtn'><button type="submit">Add Project</button></div>

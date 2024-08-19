@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import axios from 'axios';
+import api from '../../api/api';
 import { Link } from 'react-router-dom';
 import jsPDF from 'jspdf';
 import './../Admindashboardcomponents/Aclients.css';
@@ -19,7 +19,7 @@ const Aclients = () => {
   useEffect(() => {
     const fetchClients = async () => {
       try {
-        const response = await axios.get('https://srikvs.onrender.com/api/admin/getClients', {
+        const response = await api.get('/api/admin/getClients', {
           headers: {
             authorization: `${token}`,
           },
