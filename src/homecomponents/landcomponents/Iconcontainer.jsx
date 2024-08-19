@@ -13,7 +13,7 @@ import pr from './../../assets/images/sm logo/PR.svg';
 import teams from './../../assets/images/sm logo/teamslogo.svg';
 import trello from './../../assets/images/sm logo/trello.svg';
 import wh from './../../assets/images/sm logo/whatsapplogo.svg';
-import x from './../../assets/images/sm logo/x.svg';
+import x from './../../assets/images/sm logo/x.png';
 import bloger from './../../assets/images/sm logo/bloger.svg';
 
 
@@ -37,7 +37,7 @@ export const Iconcontainer = () => {
         <img src="" alt="" className=''/>
     </div>
     <div className="iconrow">
-        <img src={x} alt="" className=''/>
+        <img  id="ximage" src={x} alt="" className=''/>
         <img src={teams} alt="" className=''/>
         <img src={canva} alt="" className=''/>
         <img src={linkedin} alt="" className=''/>
