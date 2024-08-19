@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../../api/api';
 import "./Atestms.css";
 import { Feedbackcard } from './Feedbackcard';
 import { useAuth } from '../Auth/AuthContext';
@@ -13,7 +13,7 @@ export const Atestms = () => {
   useEffect(() => {
     const fetchFeedbacks = async () => {
       try {
-        const response = await axios.get('https://srikvs.onrender.com/api/admin/testimonials' ,{
+        const response = await api.get('/api/admin/testimonials' ,{
           headers: {
             authorization: `${token}`,
           },

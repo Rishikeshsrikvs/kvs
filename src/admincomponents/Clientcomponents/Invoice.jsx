@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../../api/api';
 import { useLocation } from 'react-router-dom';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
@@ -24,8 +24,8 @@ export const Invoice = () => {
   useEffect(() => {
     const fetchClientData = async () => {
       try {
-        const response = await axios.get(
-          `https://srikvs.onrender.com/api/admin/getClient/${client_id}`,
+        const response = await api.get(
+          `/api/admin/getClient/${client_id}`,
           {
             headers: {
               authorization: `${token}`,

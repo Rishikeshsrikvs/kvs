@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../../api/api';
 import { useParams } from 'react-router-dom';
 import { useAuth } from '../Auth/AuthContext';
 
@@ -14,7 +14,7 @@ const JobApplicants = () => {
     const fetchJobAndApplicants = async () => {
       try {
         // Fetch job details
-        const jobResponse = await axios.get(`https://srikvs.onrender.com/api/admin/getjob/${jobId}`, {
+        const jobResponse = await api.get(`/api/admin/getjob/${jobId}`, {
           headers: { 'authorization': `${token}` },
         });
         setJobDetails(jobResponse.data);
@@ -22,7 +22,7 @@ const JobApplicants = () => {
         // Fetch applicants
         const applicantIds = jobResponse.data.applicantIds.map(applicant => applicant.applicantId);
         const applicantPromises = applicantIds.map(id =>
-          axios.get(`https://srikvs.onrender.com/api/admin/applicant/${id}`, {
+          api.get(`/api/admin/applicant/${id}`, {
             headers: { 'authorization': `${token}` },
           })
         );

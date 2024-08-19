@@ -134,7 +134,7 @@ content creation, paid campaigns, profile management and more.</p>
       <div className="service4main">
         <div className="ser4cont">
             <h1>From unveiling user needs, crafting narratives, and simplifying interactions to creating harmonious experiences And engineering for growth, we’re in the business of making a positive impact on our collective future.</h1>
-            <Link to="/contactus" className="ser4btn">let’s collaborate</Link>
+            <Link to="/home/contactus" className="ser4btn">let’s collaborate</Link>
         </div>
       </div>
     </div>

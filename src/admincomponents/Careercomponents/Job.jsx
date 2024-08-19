@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+import api from '../../api/api';
 import { useAuth } from '../Auth/AuthContext';
 
 export const Job = ({ job, onDelete }) => {
@@ -7,7 +7,7 @@ export const Job = ({ job, onDelete }) => {
 
   const handleDelete = async () => {
     try {
-      const response = await axios.delete(`https://srikvs.onrender.com/api/admin/jobDelete/${job._id}`, {
+      const response = await api.delete(`/api/admin/jobDelete/${job._id}`, {
         headers: {
           'authorization': `${token}`,
         },

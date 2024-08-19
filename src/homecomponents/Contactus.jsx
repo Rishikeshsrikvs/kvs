@@ -209,7 +209,7 @@ const Contactus = () => {
           <p>
             Discover the power of our expertise and solutions by accessing our comprehensive brochures. Gain deeper insights into our services, approach, and success stories, empowering you to make informed decisions for your business. Simply click the links below to download our brochures and embark on a transformative journey with us.
           </p>
-          <Link to="/brochureform" className="cn3rightbtn">
+          <Link to="/home/brochureform" className="cn3rightbtn">
             DOWNLOAD BROCHURE
           </Link>
         </div>

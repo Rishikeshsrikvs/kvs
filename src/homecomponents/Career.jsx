@@ -48,7 +48,7 @@ const Career = () => {
         <div className="career2right">
           {jobs.map(job => (
             <Link
-              to={`/career/${job._id}`} // Use the URL path with the job ID
+              to={`/home/career/${job._id}`} // Use the URL path with the job ID
               state={{ job }} // Pass the job data via state
               className="cjobcard"
               key={job._id}

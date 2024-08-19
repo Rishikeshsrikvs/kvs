@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../../api/api';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useAuth } from '../Auth/AuthContext';
 import "./Clientservice.css";
@@ -25,7 +25,7 @@ export const ClientserviceEdit = () => {
   useEffect(() => {
     const fetchClientData = async () => {
       try {
-        const response = await axios.get(`https://srikvs.onrender.com/api/admin/getClient/${clientId}`, {
+        const response = await api.get(`/api/admin/getClient/${clientId}`, {
           headers: { authorization: `${token}` },
         });
     
@@ -117,7 +117,7 @@ export const ClientserviceEdit = () => {
     };
   
     try {
-      const response = await axios.put(`https://srikvs.onrender.com/api/admin/clientUpdate`, 
+      const response = await api.put(`/api/admin/clientUpdate`, 
         clientData,
         {
           headers: { 'authorization': `${token}` },

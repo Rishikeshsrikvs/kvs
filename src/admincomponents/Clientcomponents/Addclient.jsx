@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Addclient.css';
-import axios from 'axios';
+import api from '../../api/api';
 import { useAuth } from '../Auth/AuthContext';
 import upload from './../../assets/images/upload.png';
 
@@ -21,6 +21,8 @@ export const Addclient = () => {
   const [logo, setLogo] = useState(null); // State to manage the logo file
   const [uploadStatus, setUploadStatus] = useState('');
   const [fileName, setFileName] = useState(''); // State to store the file name
+  const [fileError, setFileError] = useState(''); // State to manage file size errors
+  const [logoError, setLogoError] = useState(''); // State to manage logo required errors
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -33,8 +35,20 @@ export const Addclient = () => {
 
   const handleLogo = (e) => {
     const file = e.target.files[0]; // Update the logo state with the selected file
-    setLogo(file);
-    setFileName(file ? file.name : ''); // Update file name state
+    if (file) {
+      if (file.size > 1 * 1024 * 1024) { // Check if file size exceeds 1 MB
+        setFileError('File size exceeds 1 MB.');
+        setLogo(null);
+        setFileName('');
+      } else {
+        setFileError(''); // Clear any previous file size error
+        setLogo(file);
+        setFileName(file.name); // Update file name state
+      }
+    } else {
+      setFileError('');
+      setFileName('');
+    }
   };
 
   const validateField = (name, value) => {
@@ -75,8 +89,8 @@ export const Addclient = () => {
     formData.append('imageType', 'Logo');
 
     try {
-      const response = await axios.post(
-        'https://srikvs.onrender.com/api/admin/clientLogoUpload',
+      const response = await api.post(
+        '/api/admin/clientLogoUpload',
         formData,
         {
           headers: {
@@ -99,12 +113,16 @@ export const Addclient = () => {
     if (!validateForm()) return;
 
     let clientLogoKey = '';
+    if (!logo) {
+      setLogoError('Logo is required.');
+      return;
+    }
+
     if (logo) {
       clientLogoKey = await handleLogoUpload();
       if (!clientLogoKey) return; // If logo upload failed, exit the function
     }
-    console.log(formData);
-    
+
     // Navigate to Clientservice and pass the client details via state
     navigate('/admin/clientservice', {
       state: {
@@ -174,6 +192,8 @@ export const Addclient = () => {
                 className="item"
                 onChange={handleLogo} // Attach handleLogo function
               />
+              {fileError && <p className="error">{fileError}</p>} {/* Display file size error */}
+              {logoError && <p className="error">{logoError}</p>} {/* Display logo required error */}
             </div>
             <div className="inputcontainer">
               <input
@@ -231,16 +251,14 @@ export const Addclient = () => {
               {errors.adharNumber && <p className="error">{errors.adharNumber}</p>}
             </div>
           </div>
-          {uploadStatus && <p>{uploadStatus}</p>}
-          {errors.submit && <p className="error">{errors.submit}</p>}
-          <div className="addclient-submit">
-            <input
-              type="submit"
-              value="Create Client"
-            />
-          </div>
+          <button type="submit" className="button">
+            Add Client
+          </button>
+          {uploadStatus && <p className="upload-status">{uploadStatus}</p>} {/* Display upload status */}
         </form>
       </div>
     </div>
   );
 };
+
+export default Addclient;

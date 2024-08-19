@@ -9,7 +9,7 @@ export const Parent = () => {
     <BrowserRouter>
       <Routes>
         {/* Public Routes */}
-        <Route path="/*" element={<Home />} /> Base route for the Home page
+        <Route path="/home/*" element={<Home />} /> Base route for the Home page
         <Route path="/admin/*" element={<Admin />} />
         <Route path="/check" element={<Check />} />
       </Routes>

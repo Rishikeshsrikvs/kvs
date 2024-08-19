@@ -1,6 +1,6 @@
 // src/components/Careerview.js
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../../api/api';
 import { Link, useNavigate } from 'react-router-dom';
 import { Job } from './Job';
 import { useAuth } from '../Auth/AuthContext';
@@ -12,7 +12,7 @@ export const Careerview = () => {
 
   const fetchJobs = async () => {
     try {
-      const response = await axios.get('https://srikvs.onrender.com/api/admin/getjobs', {
+      const response = await api.get('/api/admin/getjobs', {
         headers: { 'authorization': `${token}` },
       });
       setJobs(response.data);

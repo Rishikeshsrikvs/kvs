@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import upload from './../../../assets/images/upload.png';
-import axios from 'axios'; // Import Axios for API calls
+import api from '../../../api/api'; // Import Axios for API calls
 import { useAuth } from '../../Auth/AuthContext';
 
 export const Blogedit = () => {
@@ -41,8 +41,8 @@ export const Blogedit = () => {
     formData.append('blog-image', file);
 
     try {
-      const response = await axios.post(
-        'https://srikvs.onrender.com/api/admin/blogUpload',
+      const response = await api.post(
+        '/api/admin/blogUpload',
         formData,
         {
           headers: {

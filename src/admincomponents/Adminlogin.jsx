@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import api from '../api/api';
+import api from '../api/api';  // API instance with base URL set
 import { useAuth } from './Auth/AuthContext';
 import logo from './../assets/images/logo.png';
-import axios from 'axios';
 import './Adminlogin.css';
 
 export const Adminlogin = () => {
@@ -17,7 +16,7 @@ export const Adminlogin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setError('');
+    setError('');  // Reset error state on form submission
 
     try {
       const response = await api.post('/api/admin/adminlogin', {
@@ -31,10 +30,10 @@ export const Adminlogin = () => {
         login(data.token);  // Store JWT token in AuthContext
         navigate('/admin/dashboard');  // Navigate to dashboard after successful login
       } else {
-        setError('Invalid credentials');
+        setError('Invalid credentials');  // Set error message for invalid credentials
       }
     } catch (error) {
-      setError('Error connecting to server');
+      setError('Error connecting to server');  // Set error message for server connection issues
       console.error('Login error:', error);
     } finally {
       setLoading(false);  // Reset loading state
@@ -76,7 +75,7 @@ export const Adminlogin = () => {
             disabled={loading}  // Disable submit button while loading
           />
         </form>
-        {error && <p className="error">{error}</p>}  // Display error message if any
+        {error && <p className="error">{error}</p>} 
       </div>
     </div>
   );

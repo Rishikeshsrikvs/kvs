@@ -30,7 +30,7 @@ export const Land = () => {
                         <h1>UNLEASH YOUR DIGITAL</h1>
                         <h1 className='color'>POTENTIAL</h1>
                         <p>It's Time To Transform Your Online Presence And Accelerate <br />Your Business Growth With Sri KVS Tech.<br/>Let's Start The Journey Together And Witness The Transformation</p>
-                        <Link to="/contactus"><span className='Enquirespan'><CircularText/></span></Link>
+                        <Link to="/home/contactus"><span className='Enquirespan'><CircularText/></span></Link>
                     </div>
                     <div className="land1right">
                         <img src={cube}  className='imagelandright' alt="Cube" />
@@ -59,7 +59,7 @@ export const Land = () => {
                     <h1 className='landabouttext'>PROVIDING THE BEST FOR THE BEST</h1>
                     <h6 className='landabouth6'>It's time to transform your online presence and accelerate your 
                     business growth with Sri KVS Tech. Let's start the journey together and witness the transformation.</h6>
-                    <Link to="/about" className='landaboutbtn'>Know More</Link>
+                    <Link to="/home/about" className='landaboutbtn'>Know More</Link>
                   </div>
                   <div className="landaboutright">
                     <Iconcontainer/>
@@ -100,7 +100,7 @@ export const Land = () => {
                                             <p className='wydown'>Your Project Vision</p>
                                         </div>
                                         <div className='wyrbright'>
-                                            <Link to="/contactus" className='letstartbtn'>LET'S STRART</Link>
+                                            <Link to="/home/contactus" className='letstartbtn'>LET'S STRART</Link>
                                         </div>
                                     </div>
                                     <div className="wyround"></div>
@@ -117,7 +117,7 @@ export const Land = () => {
                     </div>
                     <Blogland/>
                     <div className="landblogbtncn">
-                        <Link to="/blogs" className='landblogbtn'>Click For More Blogs</Link>
+                        <Link to="/home/blogs" className='landblogbtn'>Click For More Blogs</Link>
                     </div>
                 </div>
                 <div className='landcontactusmain'>
@@ -139,7 +139,7 @@ export const Land = () => {
                             <p>with a lot of creativity, we can make your dream come true</p>
                         </div>
                         <div className="landcubtn">
-                            <Link to="/contactus" className='landcubtnsub'>CONTACT US</Link>
+                            <Link to="/home/contactus" className='landcubtnsub'>CONTACT US</Link>
                         </div>
                     </div>
                     

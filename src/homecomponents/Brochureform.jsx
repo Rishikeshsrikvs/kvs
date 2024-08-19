@@ -29,7 +29,7 @@ const Brochureform = () => {
                         <input type="text" placeholder='Enter your Phone number' />
                     </div>
                     <div className="brformbtncn">
-                        <Link to="/brochuredownload">
+                        <Link to="/home/brochuredownload">
                             <div className="brformbtn">Send Message</div>
                         </Link>
                     </div>

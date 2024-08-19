@@ -14,7 +14,7 @@ export const Aprojects = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await axios.get('https://srikvs.onrender.com/api/admin/projects', {
+        const response = await api.get('/api/admin/projects', {
           headers: {
             authorization: `${token}`,
           },
@@ -31,7 +31,7 @@ export const Aprojects = () => {
 
   const handleLike = async (id, isLiked) => {
     try {
-      await axios.patch(`https://srikvs.ornder.com/api/admin/projects/${id}`, 
+      await api.patch(`/api/admin/projects/${id}`, 
       { favorite: isLiked }, 
       {
         headers: {

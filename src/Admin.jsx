@@ -37,6 +37,7 @@ export const Admin = () => {
                 <Route path="job-applicants/:jobId" element={<JobApplicants />} />
                 <Route path="add-project" element={<AddProject />} />
                 
+                
               </Routes>
             </ProtectedRoute>
           }

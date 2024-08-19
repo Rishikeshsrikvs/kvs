@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import api from '../../api/api';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../Auth/AuthContext';
 import "./Clientservice.css";
@@ -114,7 +114,7 @@ export const Clientservice = () => {
     console.log('Client Data:', clientData);
     
     try {
-      const response = await axios.post('https://srikvs.onrender.com/api/admin/clientSignUp', 
+      const response = await api.post('/api/admin/clientSignUp', 
         clientData,
         {
           headers: {

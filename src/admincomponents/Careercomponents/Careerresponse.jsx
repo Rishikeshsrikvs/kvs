@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../../api/api';
 import { useParams, Link } from 'react-router-dom';
 
 export const Careerresponse = () => {
@@ -9,7 +9,7 @@ export const Careerresponse = () => {
   useEffect(() => {
     const fetchJobResponses = async () => {
       try {
-        const response = await axios.get('http://localhost:3500/jobs'); // Replace with your JSON server URL
+        const response = await api.get('/jobs'); // Replace with your JSON server URL
         const jobs = response.data;
         const job = jobs.find(job => job.jobId === jobId);
         if (job && job.response) {

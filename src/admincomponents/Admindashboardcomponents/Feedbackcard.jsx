@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import api from '../../api/api';
 import { useAuth } from '../Auth/AuthContext';
 
 
@@ -8,7 +8,7 @@ export const Feedbackcard = ({ feedback }) => {
   const { token } = useAuth();
   const handleApprove = async () => {
     try {
-      await axios.put(`https://srikvs.onrender.com/api/admin/testimonialApproval`,
+      await api.put(`/api/admin/testimonialApproval`,
         {testimonialId:feedback._id, 
         headers: {
         authorization: `${token}`,
@@ -25,7 +25,7 @@ export const Feedbackcard = ({ feedback }) => {
 
   const handleReject = async () => {
     try {
-      await axios.put(`https://srikvs.onrender.com/api/admin/testimonialDecline`,
+      await api.put(`/api/admin/testimonialDecline`,
         {testimonialId:feedback._id,
         headers: {
           authorization: `${token}`,

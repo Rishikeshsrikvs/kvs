@@ -22,11 +22,11 @@ export const Footer = () => {
         </div>
         <div className="footnav footnavleft">
           <p className="footnavhead ">Navigation</p>
-          <Link to="/about"><p>About Us</p></Link>
-          <Link to="/services"><p>Services</p></Link>
-          <Link to="/projects"><p>Projects</p></Link>
-          <Link to="/blogs"><p>Blogs</p></Link>
-          <Link to="/careers"><p>Careers</p></Link>
+          <Link to="about"><p>About Us</p></Link>
+          <Link to="services"><p>Services</p></Link>
+          <Link to="projects"><p>Projects</p></Link>
+          <Link to="blogs"><p>Blogs</p></Link>
+          <Link to="career"><p>Careers</p></Link>
         </div>
         <div className="footnav footnavcenter">
           <p className="footnavhead">Services</p>

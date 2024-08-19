@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import api from '../../api/api';
 import logo from './../../assets/images/logo.png';
 import { useAuth } from '../Auth/AuthContext';
 
@@ -36,7 +36,7 @@ export const Careerpost = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://srikvs.onrender.com/api/admin/jobpost', 
+      const response = await api.post('/api/admin/jobpost', 
         formData,
         {
         headers: {
