@@ -87,7 +87,7 @@
 .landfeedbackcard {
   border: 1px solid #ccc;
   border-radius: 8px;
-  padding: 20px;
+  padding: 13px;
  
   text-align: center;
   height: 240px;
@@ -95,6 +95,7 @@
   background-color: #fff;
   color: black;
   display: flex;
+  gap: 10px;
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box; /* Ensure padding and borders are included in width/height */
@@ -105,7 +106,11 @@
   padding: 10px 20px;
   font-size: 110%;
   text-align: left;
-  flex: 1;
+  overflow-y: hidden;
+  height: 90%;
+  margin-bottom: 10px;
+  
+ 
 
 }
 
@@ -113,6 +118,7 @@
   display: flex;
   height: 10%;
   align-items: center;
+  
   justify-content: space-between;
 }
 

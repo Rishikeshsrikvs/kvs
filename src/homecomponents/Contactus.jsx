@@ -8,7 +8,8 @@ const Contactus = () => {
   
   const [feedbackData, setFeedbackData] = useState({
     name: '',
-    profileImage: '',
+    profileImage: null,  // Changed to null for better handling
+    profileImageName: '', // New state for storing the file name
     contact: '',
     review: '',
     clientId: '',
@@ -33,64 +34,58 @@ const Contactus = () => {
     setFeedbackData({
       ...feedbackData,
       profileImage: file,
+      profileImageName: file ? file.name : '' // Set file name when a file is selected
     });
   };
 
   const handleSubmit = async () => {
-    const formData = new FormData();
-  
-    // Set 'clients' field based on the active tab
+    const formData = new FormData(); // Use FormData for file uploads
     formData.append('clients', activeTab === 'clients');
-  
-    // Append other fields conditionally
-    formData.append('name', feedbackData.name || '');
-    formData.append('profileImage', feedbackData.profileImage || '');
-    formData.append('contact', feedbackData.contact || '');
-    formData.append('description', feedbackData.review || '');
-    formData.append('clientId', activeTab === 'clients' ? feedbackData.clientId || '' : '');
-  
-    // Log FormData for debugging (in the specified format)
-    console.log({
-      "clients": activeTab === 'clients',
-      "name": feedbackData.name || '',
-      "profileImage": feedbackData.profileImage ? feedbackData.profileImage.name : '',
-      "contact": feedbackData.contact || '',
-      "description": feedbackData.review || '',
-      "clientId": activeTab === 'clients' ? feedbackData.clientId || '' : ''
-    });
-  
-    try {
-      const response = await api.post('/testimonial', {
-        "clients": activeTab === 'clients',
-        "name": feedbackData.name || '',
-        "profileImage": feedbackData.profileImage ? feedbackData.profileImage.name : '',
-        "contact": feedbackData.contact || '',
-        "description": feedbackData.review || '',
-        "clientId": activeTab === 'clients' ? feedbackData.clientId || '' : ''
-      });
-  
-      console.log(response.data);
+    formData.append('description', feedbackData.review);
 
-      // Show success alert and reset form fields
-      setFormSubmitted(true);
-      setFeedbackData({
-        name: '',
-        profileImage: null, // Ensure the file input is cleared
-        contact: '',
-        review: '',
-        clientId: '',
-      });
-      setActiveTab('friends'); // or reset to 'clients' if needed
-
-      // Hide the success alert after a few seconds
-      setTimeout(() => {
-        setFormSubmitted(false);
-      }, 3000);
-      
-    } catch (error) {
-      console.error('Error:', error);
+    if (activeTab === 'clients') {
+        // Only include `clientId` for the 'clients' tab
+        formData.append('clientId', feedbackData.clientId);
+    } else if (activeTab === 'friends') {
+        // Include `name`, `contact`, and optionally `feedbackProfile` for the 'friends' tab
+        formData.append('name', feedbackData.name);
+        formData.append('contact', feedbackData.contact);
+        if (feedbackData.profileImage) {
+            formData.append('feedbackProfile', feedbackData.profileImage); // Include the image file if selected
+        }
     }
-  };
+
+    try {
+        const response = await api.post('/testimonial', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data', // Ensure the correct content type for file uploads
+            },
+        });
+
+        console.log(response.data);
+
+        // Show success alert and reset form fields
+        setFormSubmitted(true);
+        setFeedbackData({
+            name: '',
+            profileImage: null, // Ensure the file input is cleared
+            profileImageName: '', // Reset file name
+            contact: '',
+            review: '',
+            clientId: '',
+        });
+        setActiveTab('friends'); // or reset to 'clients' if needed
+
+        // Hide the success alert after a few seconds
+        setTimeout(() => {
+            setFormSubmitted(false);
+        }, 3000);
+
+    } catch (error) {
+        console.error('Error:', error);
+    }
+};
+
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
@@ -169,8 +164,13 @@ const Contactus = () => {
                     <input type="text" name="name" value={feedbackData.name} onChange={handleInputChange} />
                   </div>
                   <div className="cn3in">
-                    <label htmlFor="">Profile image</label>
-                    <input type="file" name="profileImage" onChange={handleFileChange} />
+                    <label htmlFor="proname">Profile image</label>
+
+                    <div className="prodiv">
+                      <label htmlFor="proname">Choose an image</label>
+                      <span>{feedbackData.profileImageName || 'No file chosen'}</span> {/* Display the selected file name */}
+                      <input type="file" name="profileImage" id='proname'  onChange={handleFileChange} />
+                    </div>
                   </div>
                   
                   <div className="cn3in">
@@ -209,9 +209,7 @@ const Contactus = () => {
           <p>
             Discover the power of our expertise and solutions by accessing our comprehensive brochures. Gain deeper insights into our services, approach, and success stories, empowering you to make informed decisions for your business. Simply click the links below to download our brochures and embark on a transformative journey with us.
           </p>
-          <Link to="/home/brochureform" className="cn3rightbtn">
-            DOWNLOAD BROCHURE
-          </Link>
+          <Link to="/home/brochureform" className="brochure-button">Request Brochure</Link>
         </div>
       </div>
     </div>

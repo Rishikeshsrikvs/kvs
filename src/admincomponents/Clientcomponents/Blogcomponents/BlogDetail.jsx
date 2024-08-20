@@ -22,7 +22,7 @@ const BlogDetail = () => {
                 <h1>{blog.blogTitle}</h1>
                 <div className="blogimg">
                     <img
-                        src={`https://srikvs.onrender.com/getBlogImage/${blog.imageName}`}
+                        src={`https://srikvstech.onrender.com/getBlogImage/${blog.imageName}`}
                         alt={blog.blogTitle}
                     />
                 </div>

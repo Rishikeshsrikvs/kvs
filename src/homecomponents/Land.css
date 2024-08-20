@@ -151,48 +151,95 @@
     padding-right: 7%;
     
 }
-.iconflexcontainer{
+
+/* ---------------------- */
+
+.iconflexcontainer {
     display: flex;
     flex-direction: column;
     width: 100%;
     gap: 25px;
     margin-top: 40px;
-
 }
-.iconrow{
 
-display: flex;
-gap: 7%;
-flex-direction: row-reverse;
-
-}
-.iconrow img{
-    width: 60px;
-    
+.iconrow {
+    display: flex;
+    gap: 7%;
+    flex-direction: row;
 }
 
 .iconrow img {
     width: 60px;
-    transition: transform 0.5s ease;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Apply individual animations */
+.iconrow img:nth-child(1) {
+    animation: bubble1 5s ease-in-out infinite;
+}
+
+.iconrow img:nth-child(2) {
+    animation: bubble2 5s ease-in-out infinite;
+}
+
+.iconrow img:nth-child(3) {
+    animation: bubble3 5s ease-in-out infinite;
+}
+
+.iconrow img:nth-child(4) {
+    animation: bubble4 5s ease-in-out infinite;
+}
+
+.iconrow img:nth-child(5) {
+    animation: bubble5 5s ease-in-out infinite;
+}
+
+.iconrow img:nth-child(6) {
+    animation: bubble6 5s ease-in-out infinite;
+}
+
+/* Define unique animations */
+@keyframes bubble1 {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-20px) scale(1.1); }
+    100% { transform: translateY(0) scale(1); }
+}
+
+@keyframes bubble2 {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-30px) scale(1.2); }
+    100% { transform: translateY(0) scale(1); }
+}
+
+@keyframes bubble3 {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-25px) scale(1.15); }
+    100% { transform: translateY(0) scale(1); }
+}
+
+@keyframes bubble4 {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-15px) scale(1.1); }
+    100% { transform: translateY(0) scale(1); }
+}
+
+@keyframes bubble5 {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-20px) scale(1.2); }
+    100% { transform: translateY(0) scale(1); }
+}
+
+@keyframes bubble6 {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-10px) scale(1.1); }
+    100% { transform: translateY(0) scale(1); }
 }
 
 .iconrow img:hover {
-    animation: zoomInOut 0.5s ease;
+    transform: scale(1.2);
+    filter: brightness(1.2);
 }
-@keyframes zoomInOut {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(0.6) ;
-    }
-    75% {
-        transform: scale(0.7);
-    }
-    100% {
-        transform: scale(0.6) ;
-    }
-}
+
 
 
 /* ------------------------------ */

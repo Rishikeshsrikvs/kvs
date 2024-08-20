@@ -1,6 +1,7 @@
 .workparentcontainer{
     background-color: #141414;
     color: white;
+    overflow-x: hidden;
 }
 .work1main{
     height: 100vh;

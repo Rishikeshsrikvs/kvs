@@ -1,0 +1,110 @@
+/* Aboutteam.css */
+
+.aboutteammain {
+    padding: 10%;
+    
+    text-align: center;
+  }
+  
+  .aboutteamcon {
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #FFFFFF;
+    padding: 5%;
+    border-radius: 10px;
+    gap: 20px;
+
+  }
+  
+  .aboutteamcon h1 {
+    color: #FFFFFF;
+    font-family: Outfit;
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 60.48px;
+    text-align: center;
+
+  }
+  
+  .aboutteamcon > span {
+    display: block;
+    width: 90%;
+    height: 3px;
+    background-color: #FFFFFF;
+    margin: 10px auto 30px auto;
+  }
+  
+  .teamcon {
+    display: flex;
+
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .team-member {
+    
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    transition: transform 0.3s;
+    display: flex;
+    justify-content: space-between;
+  }
+  .memberprofile{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 35%;
+    justify-content: left;
+  }
+  /* .team-member:hover {
+    transform: translateY(-10px);
+  } */
+  
+  .team-member-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+   
+  }
+  
+  .team-member h3 {
+    color: #FFFFFF;
+    font-family: Outfit;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 40.32px;
+    text-align: left;
+
+  }
+  
+  .team-member p {
+    font-family: Outfit;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 30.24px;
+    text-align: left;
+    color: #FFFFFF80;
+    text-align: center;
+    width: 35%;
+    text-transform: uppercase;
+
+  }
+  .inspanmain{
+    width: 30%;
+    border: 1px solid #FFFFFF;
+    display: flex;
+    align-items: center;
+    width: 250px;
+    border-radius: 4px;
+    gap: 10px;
+  }

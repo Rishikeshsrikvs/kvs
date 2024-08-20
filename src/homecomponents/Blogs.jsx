@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-
 import api from '../api/api';
 import { useNavigate } from 'react-router-dom';
 import './Blogs.css';
@@ -12,21 +11,45 @@ import bb6 from './../assets/images/Blogs/bb6.png';
 
 const Blogs = () => {
     const [blogs, setBlogs] = useState([]);
+    const [blogImages, setBlogImages] = useState({});
     const navigate = useNavigate();
 
     useEffect(() => {
+        // Fetch blogs data
         api.get('/blogs')
             .then(response => {
                 const sortedBlogs = response.data.sort((a, b) => new Date(b.blogDate) - new Date(a.blogDate));
                 setBlogs(sortedBlogs);
+
+                // Fetch blog images
+                sortedBlogs.forEach(blog => {
+                    fetchBlogImage(blog.imageName, blog._id);  // Call the image fetching function for each blog
+                });
             })
             .catch(error => {
                 console.error("Error fetching the blogs:", error);
             });
     }, []);
 
+    const fetchBlogImage = async (imageName, blogId) => {
+        try {
+            const imageResponse = await api.get(`/getBlogImage/${imageName}`, { responseType: 'blob' });
+            
+            // Create a blob URL for the image and save it in state
+            const imageBlob = new Blob([imageResponse.data], { type: imageResponse.headers['content-type'] });
+            const imageUrl = URL.createObjectURL(imageBlob);
+
+            setBlogImages(prevState => ({
+                ...prevState,
+                [blogId]: imageUrl
+            }));
+        } catch (error) {
+            console.error(`Error fetching image for blogId ${blogId}:`, error);
+        }
+    };
+
     const handleCardClick = (blog) => {
-        navigate(`/blog/${blog._id}`,{ state: { blog } });
+        navigate(`/home/blog/${blog._id}`, { state: { blog } });
     };
 
     return (
@@ -50,15 +73,15 @@ const Blogs = () => {
                 <h2>Latest Blogs</h2>
                 <div className='blogcon'>
                     {blogs.slice(0, 4).map((blog) => (
-                        <div 
-                            key={blog._id} 
+                        <div
+                            key={blog._id}
                             className="blogcard"
                             onClick={() => handleCardClick(blog)}
                         >
                             <div className="blogcardimg">
-                                <img 
-                                    src={`https://srikvs.onrender.com/getBlogImage/${blog.imageName}`} 
-                                    alt={blog.blogTitle} 
+                                <img
+                                    src={blogImages[blog._id] || 'fallback-image-url'}  // Use blogImages state or a fallback image
+                                    alt={blog.blogTitle}
                                 />
                             </div>
                             <div className="blogdetail">
@@ -74,15 +97,15 @@ const Blogs = () => {
                 <h2>More Blogs</h2>
                 <div className='blogcon'>
                     {blogs.slice(4, 8).map((blog) => (
-                        <div 
-                            key={blog._id} 
+                        <div
+                            key={blog._id}
                             className="blogcard"
                             onClick={() => handleCardClick(blog)}
                         >
                             <div className="blogcardimg">
-                                <img 
-                                    src={`https://srikvs.onrender.com/getBlogImage/${blog.imageName}`} 
-                                    alt={blog.blogTitle} 
+                                <img
+                                    src={blogImages[blog._id] || 'fallback-image-url'}  // Use blogImages state or a fallback image
+                                    alt={blog.blogTitle}
                                 />
                             </div>
                             <div className="blogdetail">
@@ -95,6 +118,6 @@ const Blogs = () => {
             </div>
         </div>
     );
-}
+};
 
 export default Blogs;

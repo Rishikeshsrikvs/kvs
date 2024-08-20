@@ -12,18 +12,6 @@ import servicevi from './../../assets/images/landservice/servicevid.mp4';
 
 const services = [
   {
-    title: 'WEBSITE',
-    title2: "WEBSITE DEVELOPMENT",
-    description: 'Our Web Design and Development service aims to create a compelling online presence, optimize user experience, and drive conversions for your business.',
-    images: [we1, we2, servicevi]
-  },
-  {
-    title: 'SEO',
-    title2: "SEARCH ENGINE OPTIMIZATION",
-    description: "Our Search Engine Optimization service improves your website's visibility on search engines, increasing organic traffic and boosting your online presence.",
-    images: [se1, se2, servicevi]
-  },
-  {
     title: 'SMM',
     title2: "SOCIAL MEDIA MARKETING",
     description: 'Our Social Media Management service helps you engage with your audience, build brand awareness, and drive traffic to your website.',
@@ -34,6 +22,18 @@ const services = [
     title2: "BRANDING",
     description: 'Transform your online identity and make a lasting impression with our tailored SEO services. We focus on amplifying your brand’s visibility, driving meaningful engagement, and showcasing your unique value.',
     images: [br1, br2, servicevi]
+  },
+  {
+    title: 'WEBSITE',
+    title2: "WEBSITE DEVELOPMENT",
+    description: 'Our Web Design and Development service aims to create a compelling online presence, optimize user experience, and drive conversions for your business.',
+    images: [we1, we2, servicevi]
+  },
+  {
+    title: 'SEO',
+    title2: "SEARCH ENGINE OPTIMIZATION",
+    description: "Our Search Engine Optimization service improves your website's visibility on search engines, increasing organic traffic and boosting your online presence.",
+    images: [se1, se2, servicevi]
   }
 ];
 

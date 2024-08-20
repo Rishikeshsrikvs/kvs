@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import api from '../../api/api';
-import axios from 'axios';
 import './Feedbackslider.css';
 import fb1 from './../../assets/images/feedbackclient/cart.webp';
 import fb2 from './../../assets/images/feedbackclient/central.jpg';
@@ -23,24 +22,31 @@ const Feedbacklandslider = () => {
     const fetchFeedbacks = async () => {
       try {
         const response = await api.get('/testimonials');
-        console.log('Fetched data:', response.data.message);
+        console.log('Fetched feedbacks:', response.data.message);
         const feedbacks = response.data.message;
-
-        // Fetch images for each feedback
+        console.log();
+        
         const feedbacksWithImages = await Promise.all(
           feedbacks.map(async feedback => {
             if (feedback.profileImage) {
               try {
-                const imageResponse = await axios.get(`https://srikvstech.onrender.com/getimage/${feedback.profileImage}`, {
+                const imageResponse = await api.get(`/getProfileImage/${feedback.profileImage}`, {
                   responseType: 'blob' // Fetch image as a blob
                 });
-                // Create a URL for the image blob
-                const imageBlob = new Blob([imageResponse.data], { type: imageResponse.headers['content-type'] });
-                const imageUrl = URL.createObjectURL(imageBlob);
-                
-                return { ...feedback, imageUrl };
-              } catch (error) {
-                console.error('Error fetching image:', error);
+
+                // Check if the response contains a valid blob
+                if (imageResponse.data.size > 0) {
+                  const imageBlob = new Blob([imageResponse.data], { type: imageResponse.headers['content-type'] });
+                  const imageUrl = URL.createObjectURL(imageBlob);
+
+                  return { ...feedback, imageUrl };
+                } else {
+                  console.warn(`Empty image for feedback: ${feedback.client_name}`);
+                  return { ...feedback, imageUrl: getRandomFallbackImage() };
+                }
+
+              } catch (err) {
+                console.error('Error fetching image:', err);
                 return { ...feedback, imageUrl: getRandomFallbackImage() };
               }
             } else {
@@ -51,14 +57,23 @@ const Feedbacklandslider = () => {
 
         setFeedbacks(feedbacksWithImages);
         setLoading(false);
-      } catch (error) {
+      } catch (err) {
         setError('Error fetching feedback data.');
         setLoading(false);
-        console.error('Error:', error);
+        console.error('Error fetching feedbacks:', err);
       }
     };
 
     fetchFeedbacks();
+
+    // Cleanup object URLs to prevent memory leaks
+    return () => {
+      feedbacks.forEach(feedback => {
+        if (feedback.imageUrl && feedback.imageUrl.startsWith('blob:')) {
+          URL.revokeObjectURL(feedback.imageUrl);
+        }
+      });
+    };
   }, []);
 
   const renderFeedbacks = () => {
@@ -71,6 +86,7 @@ const Feedbacklandslider = () => {
               src={feedback.imageUrl}
               alt={feedback.client_name || 'Client Image'}
               loading="lazy" // Lazy load images
+              onError={(e) => { e.target.src = getRandomFallbackImage(); }} // Fallback on image error
             />
             <span>
               <h4>{feedback.client_name}</h4>

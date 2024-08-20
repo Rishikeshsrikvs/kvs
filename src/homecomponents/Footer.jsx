@@ -30,13 +30,14 @@ export const Footer = () => {
         </div>
         <div className="footnav footnavcenter">
           <p className="footnavhead">Services</p>
-          <Link to="/website-designing"><p>Website Designing</p></Link>
-          <Link to="/social-media-marketing"><p>Social Media Marketing</p></Link>
-          <Link to="/seo"><p>SEO</p></Link>
+          <Link to="services"><p>Social Media Marketing</p></Link>
+          <Link to="services"><p>Website Designing</p></Link>
+          <Link to="services"><p>SEO</p></Link>
         </div>
         <div className="footnav footnavaddress">
           <p className="footnavhead">Contact Us</p>
-          <Link to=""><p>+91 9444885453</p></Link>
+          <Link to=""><p>+91 7358121384</p></Link>
+          <Link to=""><p>+91 7358121385</p></Link>
           <Link to=""><p>info@srikvstech.com</p></Link>
           <p>No.19, Kamaraj Nagar,<br/>Main Road, Avadi,<br/>Chennai-600071</p>
         </div>

@@ -8,8 +8,8 @@ import './Adminlogin.css';
 export const Adminlogin = () => {
   const { login } = useAuth();  // Using AuthContext to manage authentication state
   const navigate = useNavigate();  // For navigation after successful login
-  const [username, setUsername] = useState('Admin');  // Default admin username
-  const [password, setPassword] = useState('Skv@12345');  // Default admin password
+  const [username, setUsername] = useState('');  // Default admin username
+  const [password, setPassword] = useState('');  // Default admin password
   const [loading, setLoading] = useState(false);  // Loading state to disable form while submitting
   const [error, setError] = useState('');  // Error state for displaying error messages
 

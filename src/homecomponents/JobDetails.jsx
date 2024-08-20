@@ -396,7 +396,8 @@ const JobDetails = () => {
           {/* Resume Upload */}
           <div className="jd4in jd4resume">
             <label htmlFor='resume'>Upload Resume</label>
-            <input type="file" name="resume" onChange={handleFileChange} />
+
+            <input type="file" name="resume" title = "Choose" onChange={handleFileChange} />
             {errors.resume && <p className="error">{errors.resume}</p>}
           </div>
 

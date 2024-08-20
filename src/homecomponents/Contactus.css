@@ -275,7 +275,7 @@ text-align: left;
     width: 100%;
 
 }
-.cn3in label{
+.cn3in > label {
     font-family: Outfit;
     font-size: 28px;
     font-weight: 700;
@@ -284,11 +284,30 @@ text-align: left;
     display: block;
     margin-bottom: 10px;
 }
-.cn3in textarea,.cn3in input{
+.cn3in textarea,.cn3in input,.prodiv{
     background-color: #13071E66;
     display: block;
     color: white;
     
+}
+.prodiv{
+    min-height: 30px;
+    display: flex;
+    gap: 20px;
+    padding: 3px 10px;
+    align-items: center;
+}
+.prodiv span{
+    overflow-y: hidden;
+}
+.prodiv input{
+    display: none;
+}
+.prodiv label{
+    padding: 2px 5px ;
+    background-color: #264AE0;
+    border-radius: 3px;
+    white-space: nowrap;
 }
 .cn3in textarea{
     width: 100%;

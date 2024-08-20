@@ -6,7 +6,7 @@ import { Check } from './Check';
 
 export const Parent = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter >
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         

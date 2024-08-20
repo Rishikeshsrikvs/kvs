@@ -1,6 +1,7 @@
 .aboutparentcontainer{
     
     background: #0D0C0D;
+    overflow-x: hidden;
 
 }
 .aboutland {

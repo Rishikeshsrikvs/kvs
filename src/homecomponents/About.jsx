@@ -12,7 +12,7 @@ import a25i1 from './../assets/images/Aboutimages/a25i1.png';
 import a25i2 from './../assets/images/Aboutimages/a25i2.png';
 import a25i3 from './../assets/images/Aboutimages/a25i3.png';
 import a25i4 from './../assets/images/Aboutimages/a25i4.png';
-
+import Aboutteam from './landcomponents/Aboutteam';
 export const About = () => {
   
   // Scroll to the top of the page when the component is mounted
@@ -97,6 +97,7 @@ export const About = () => {
           </div>
         </div>
       </div>
+     <Aboutteam/>
       <div className="aboutyearcontainer">
         <div className="abyearssplit">
           <h1><AnimatedNumber value={75} duration="2000" />+</h1>
