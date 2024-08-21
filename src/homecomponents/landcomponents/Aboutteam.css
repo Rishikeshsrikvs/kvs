@@ -108,3 +108,56 @@
     border-radius: 4px;
     gap: 10px;
   }
+
+
+
+  @media (max-width: 768px){
+    .team-member{
+        flex-wrap: wrap;
+    }
+    .memberprofile{
+      width: 100%;
+    }
+    .team-member p{
+      width: 60%;
+      font-size: 15px;
+      line-height: 18px;
+      text-align: left;
+
+    }
+    .team-member-img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+     
+    }
+    
+    .team-member h3 {
+      color: #FFFFFF;
+      font-family: Outfit;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 40.32px;
+      text-align: left;
+  
+    }
+    .inimg{
+      width: 40%;
+    }
+  
+    .inspanmain{
+      
+      border: 1px solid #FFFFFF;
+      display: flex;
+      align-items: center;
+      width: auto;
+      border-radius: 4px;
+      gap: 10px;
+    }
+    .inspanmain img{
+      width: 20px;
+    }
+
+  }

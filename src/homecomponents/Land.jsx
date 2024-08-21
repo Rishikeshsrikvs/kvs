@@ -102,8 +102,9 @@ export const Land = () => {
                                         <div className='wyrbright'>
                                             <Link to="/home/contactus" className='letstartbtn'>LET'S STRART</Link>
                                         </div>
+                                        <div className="wyround"></div>
                                     </div>
-                                    <div className="wyround"></div>
+                                    
                                 </div>
                             </div>
                         </div>

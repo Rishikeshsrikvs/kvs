@@ -340,6 +340,7 @@ color: white;
     text-align: center;
     background: inherit;
     padding: 10px 20px;
+    margin-top: 20px;
     border: 2px solid white;
     border-radius: 35px;
 
@@ -357,4 +358,65 @@ color: white;
 }
 .abyearssplit h1,.abyearssplit h4{
     text-align: center;
+}
+
+@media (max-width: 768px){
+    .aboutland {
+         /* Position relative to place pseudo-element */
+        height: 50vh;
+        /* Ensure text is readable */
+    }
+    .aboutland > h1{
+        font-size: 30px;
+        line-height: 30px;
+    }
+    .about2main{
+        flex-direction: column;
+    }
+    .about25main{
+        height: auto;
+    }
+    .about2left{
+        width: 100%;
+    }
+    .about2left > img{
+        width: 150px;
+        height: 160px;
+       
+        border-radius: 7px 0px 0px 0px;
+        opacity: 0px;
+        position: absolute;
+    
+    }
+    .about2right{
+        width: 100%;
+        font-size: 70%;
+    }
+    .a25cardcon{
+        flex-direction: column;
+    }
+    .a25cardcon>div{
+        width: 70%;
+    }
+    .about3sub{
+        flex-direction: column;
+        width: 100%;
+    }
+    .about3left,.about3right{
+        width: 100%;
+    }
+    .about3left{
+    font-size: 70%;
+    padding: 5%;
+    }
+    .ab3p{
+        line-height: 20px;
+    }
+    .about3main{
+       
+    }
+    .aboutyearcontainer{
+        flex-direction: column;
+
+    }
 }

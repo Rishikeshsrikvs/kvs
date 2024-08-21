@@ -73,24 +73,45 @@ p.footnavhead {
 .footnavaddress p {
     text-align: left;
 }
+.footad{
+    margin-left:20px ;
+}
 
 /* Responsive styles */
 @media (max-width: 768px) {
     .footermaincontainer {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         padding: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
         padding-right: 20px;
     }
-
-    .kvsdetails, .footnav, .footnavcenter, .footnavaddress {
+    .footersm {
+        justify-content: center;
+    }
+    .footersm a{
+        width: 30px;
+    }
+    .footersm img {
+        
+     
+    }
+    .kvsdetails {
         width: 100%;
         text-align: center;
         margin-bottom: 20px;
     }
-
+    .footnav, .footnavcenter, .footnavaddress {
+        width: 50%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .footnavaddress{
+        width: 70%;
+    }
     .kvsdetails img {
-        width: 200px;
+        
     }
 
     .kvsdetails p {

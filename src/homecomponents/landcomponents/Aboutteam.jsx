@@ -6,6 +6,11 @@ import harish from './../../assets/images/team/harish.jpg';
 import vimalraj from './../../assets/images/team/vimalraj.jpeg';
 import balasir from './../../assets/images/team/Bala sir.png';
 import profile from './../../assets/images/team/profile.png';
+import charumathi from './../../assets/images/team/charumathi.jpeg';
+import saraswathi from './../../assets/images/team/saraswathi.jpeg';
+import balamani from './../../assets/images/team/balamnani.jpeg';
+import surya from './../../assets/images/team/surya.jpeg';
+
 
 const Aboutteam = () => {
   // Array of team members
@@ -15,13 +20,13 @@ const Aboutteam = () => {
       name: 'Baalakrishanan',
       role: 'Managing Director',
       imageUrl: balasir,
-      linkedin: "",  // Corrected key
+      linkedin: "https://www.linkedin.com/company/am-baalakrishnan",  // Corrected key
     },
     {
       id: 2,
       name: 'Charumathy',
       role: 'Manager',
-      imageUrl: profile,
+      imageUrl: charumathi,
       linkedin: "",  // Corrected key
     },
     {
@@ -36,14 +41,14 @@ const Aboutteam = () => {
       name: 'Dhanam',
       role: 'Digital Marketing Executive',
       imageUrl: profile,
-      linkedin: "",  // Corrected key
+      linkedin: "https://www.linkedin.com/in/dhanam-arivuselvan-91583a25a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",  // Corrected key
     },
     {
       id: 5,
       name: 'Saraswathi',
       role: 'Digital Marketing Executive',
-      imageUrl: profile,
-      linkedin: "",  // Corrected key and URL
+      imageUrl: saraswathi,
+      linkedin: "https://www.linkedin.com/in/saraswathi-murugesan-32a1b12a6?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",  // Corrected key and URL
     },
     {
       id: 6,
@@ -57,21 +62,21 @@ const Aboutteam = () => {
       name: 'Rishikesh',
       role: 'Frontend Developer',
       imageUrl: profile,
-      linkedin: "",  // Corrected key
+      linkedin: "https://www.linkedin.com/in/rishikesh-a-456174251?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",  // Corrected key
     },
     {
       id: 8,
       name: 'Surya',
       role: 'UI & UX Designer',
-      imageUrl: profile,
-      linkedin: "",  // Corrected key
+      imageUrl: surya,
+      linkedin: "https://www.linkedin.com/in/suryar17/",  // Corrected key
     },
     {
       id: 9,
       name: 'Bala Manikumar',
       role: 'Graphic Designer',
-      imageUrl: profile,
-      linkedin: "",  // Corrected key
+      imageUrl: balamani,
+      linkedin: "https://www.linkedin.com/in/bala-manikumar-299344235?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",  // Corrected key
     },
     {
       id: 10,

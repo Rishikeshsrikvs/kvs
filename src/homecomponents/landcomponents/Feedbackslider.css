@@ -156,3 +156,16 @@
     transform: translateX(-100%);
   }
 }
+
+
+@media (max-width: 768px) {
+  .landfeedbacktitle > h1{
+    font-size: 200%
+  }
+  .landfeedbacktitle > p{
+    font-size: 100%;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: lighter;
+  }
+}
