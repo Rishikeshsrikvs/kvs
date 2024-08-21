@@ -11,7 +11,7 @@ const Clientrow = ({ client, openPopup }) => {
       <td>{client.client_email}</td>
       <td>{client.client_Location}</td>
       <td>
-        <Link to={`/admin/clientservice-edit/${client.client_id}`}>
+        <Link to={`/admin/SHRA/clientservice-edit/${client.client_id}`}>
           <button className='renewbt'>Renew</button>
         </Link>
       </td>

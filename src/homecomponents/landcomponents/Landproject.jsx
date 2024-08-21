@@ -40,7 +40,7 @@ const Landproject = () => {
                     </div>
                     <div className='projectbtns'>
                         <div className="allprjt">
-                            <Link to="/home/projects" className='allprjtbtn'><span>ALL PROJECT</span><img src={ne} alt="" /></Link>
+                            <Link to="/projects" className='allprjtbtn'><span>ALL PROJECT</span><img src={ne} alt="" /></Link>
                         </div>
                         <div className='arrowbtns'>
                             <button onClick={handlePrev}><img src={pre} alt="Previous" /></button>

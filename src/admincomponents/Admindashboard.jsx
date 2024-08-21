@@ -17,7 +17,7 @@ export const Admindashboard = () => {
         </div>
         <div className="main-content">     
          <Routes>
-            <Route exact path="clients" element={<Aclients/>} />
+            <Route path="/clients" element={<Aclients/>} />
             <Route path="testimonials" element={<Atestms />} />
             <Route path="blogs" element={<Ablogs />} />
             <Route path="career" element={<Acareer />} />

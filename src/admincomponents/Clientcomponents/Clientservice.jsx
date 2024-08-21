@@ -130,7 +130,7 @@ export const Clientservice = () => {
 
       if (response.status === 201) {
         console.log(response.data.client_id);
-         navigate(`/admin/invoice`, { state: { client_id: response.data.client_id, discount: formData.discount } });
+         navigate(`/admin/SHRA/invoice`, { state: { client_id: response.data.client_id, discount: formData.discount } });
        
       } else {
         setError('Failed to create client.');

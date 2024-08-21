@@ -126,7 +126,7 @@ export const ClientserviceEdit = () => {
       console.log(response);
       
       if (response.status === 200) {
-        navigate(`/admin/invoice`, { state: { client_id: clientId } });
+        navigate(`/admin/SHRA/invoice`, { state: { client_id: clientId } });
       } else {
         setError('Failed to update client.');
       }

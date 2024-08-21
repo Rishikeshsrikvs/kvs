@@ -19,7 +19,7 @@ export const Admin = () => {
   return (
     <AuthProvider>
       <Routes>
-        <Route path="login" element={<Adminlogin />} />
+      <Route path="login" element={<Adminlogin />} />
         <Route
           path="/*"
           element={

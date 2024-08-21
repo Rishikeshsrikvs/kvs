@@ -32,7 +32,7 @@ export const Header = () => {
   return (
     <div className={`navbar-container ${isVisible ? 'visible' : 'hidden'}`}>
       <div className='navbar-logo'>
-        <NavLink to="/home/"><img src={logo} alt="Logo" /></NavLink>
+        <NavLink to="/"><img src={logo} alt="Logo" /></NavLink>
         <div className={`navbar-toggle ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
           <span className="bar"></span>
           <span className="bar"></span>

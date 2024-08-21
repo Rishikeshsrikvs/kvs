@@ -65,7 +65,7 @@ export const Aprojects = () => {
   };
 
   const navigateToAddProject = () => {
-    navigate('/admin/add-project'); // Update the path according to your routing setup
+    navigate('/admin/SHRA/add-project'); // Update the path according to your routing setup
   };
 
   return (

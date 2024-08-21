@@ -69,7 +69,7 @@ export const Careerpost = () => {
     <div className='careerpost'>
       <div className="cptitle">
         <div className="cptitleleft">
-          <Link to="/admin/dashboard/career"><button className='cpbackmenubtn'>BACK</button></Link>
+          <Link to="/admin/SHRA/dashboard/career"><button className='cpbackmenubtn'>BACK</button></Link>
         </div>
         <div className='cpright'>
           <button className='cppublishbtn' onClick={handleSubmit}>PUBLISH</button>

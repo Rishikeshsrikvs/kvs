@@ -166,6 +166,7 @@
     display: flex;
     gap: 7%;
     flex-direction: row;
+    justify-content: right;
 }
 
 .iconrow img {
@@ -702,67 +703,72 @@
 
 @media (max-width: 768px) {
     .landaboutcontainer {
-        flex-direction: column;
+        flex-direction: row;
         height: auto;
         padding: 5% 2%;
-    }
+        height: auto;
+        font-size: 100%;
+    }   
 
     .landaboutleft {
         width: 100%;
-        padding-left: 0;
-        text-align: center;
+        padding-left:5%;
+        
+        gap: 10px;
+        font-weight: lighter;
     }
-
+    .landabouttext{
+        font-size: 100%;
+    }
     .landaboutbtn {
         width: 180px;
         padding: 15px;
+        font-size:50% ;
+        width: 70px;
+        padding: 5px 3px;
     }
-
-    .landaboutright {
-        width: 100%;
-        padding-right: 0;
-        justify-content: center;
+    .landaboutright{
+        padding-right: 2%;
     }
-
-    .iconflexcontainer {
-        flex-direction: row;
-        justify-content: center;
-        gap: 10px;
+    
+    .iconrow img{
+        width: 20px;
     }
 
     .landservicescontainer {
         padding: 5% 2%;
+       
     }
-
+    .landsert1{
+        font-size: 100%;
+    }
+    .landsert2{
+        font-size: 100%;
+    }
     .landwhyuscontainer {
         flex-direction: column;
         height: auto;
         padding: 5% 2%;
     }
-
-    .wygrid {
-        flex-direction: column;
-        gap: 20px;
-        padding: 5%;
-    }
-
-    .wyleft, .wyright {
-        width: 100%;
-    }
-
-    .wyltext {
-        padding: 20px;
+    .wytextcontainer span {
+        position: absolute;
+        top:160px; 
+         
+        transform-origin: bottom left;
+        transform: rotate(-90deg) translateY(100%);
+        background-color: black;
+        color: white;
+        font-size: 150%;
+        width: 200px;
+        font-weight: bolder;
         text-align: center;
-    }
-
-    .wyrightbottom {
-        height: auto;
-    }
-
-    .wyrbleft h2 {
-        font-size: 40px;
-    }
-
+        padding: 6px; 
+    } 
+    
+    .wytitle{
+        font-size: 80%;
+        margin-left: 10%;    }
+   
     .landblogmain {
         height: auto;
         padding: 10% 5%;
@@ -804,7 +810,7 @@
         padding: 10%;
     }
 
-    .landaboutcontainer {
+    /* .landaboutcontainer {
         
         height: auto;
         padding: 10px 0;
@@ -822,7 +828,7 @@
     .landabouth6{
         width: 70%;
         font-size: 60%;
-    }
+    } */
     .landservicescontainer {
         padding: 10% 5%;
     }
@@ -836,23 +842,7 @@
     }
 
    
-    .wytextcontainer span {
-        position: absolute;
-        top:160px; 
-         
-        transform-origin: bottom left;
-        transform: rotate(-90deg) translateY(100%);
-        background-color: black;
-        color: white;
-        font-size: 150%;
-        width: 200px;
-        font-weight: bolder;
-        text-align: center;
-        padding: 6px; 
-    } 
-    .wytitle{
-        font-size: 80%;
-        margin-left: 30px;    }
+   
  
     .landwhyuscontainer{
         height:2000px;
@@ -870,10 +860,6 @@
         width: 100%;
        
     }
-    .wyrightup{
-        display: none;
-    }
-    .wyrightbottommain{
-
-    }
+   
+   
 }

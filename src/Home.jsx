@@ -23,16 +23,16 @@ export const Home = () => {
      <main>
         <Routes>
           <Route path='/' element={<Land/>}/>
-          <Route path='about' element={<About/>}/>
-          <Route path='projects' element={<Works/>}/>
-          <Route path='services' element={<Services/>}/>
-          <Route path='blogs' element={<Blogs/>}/>
-          <Route path='career' element={<Career/>}/>
-          <Route path="career/:id" element={<JobDetails/>} />
-          <Route path='contactus' element={<Contactus/>}/>
-          <Route path='brochureform' element={<Brochureform/>}/>
-          <Route path='brochuredownload' element={<Brochuredownload/>}/>
-          <Route path="blog/:id" element={<BlogDetail />} />
+          <Route path='/about' element={<About/>}/>
+          <Route path='/projects' element={<Works/>}/>
+          <Route path='/services' element={<Services/>}/>
+          <Route path='/blogs' element={<Blogs/>}/>
+          <Route path='/career' element={<Career/>}/>
+          <Route path="/career/:id" element={<JobDetails/>} />
+          <Route path='/contactus' element={<Contactus/>}/>
+          <Route path='/brochureform' element={<Brochureform/>}/>
+          <Route path='/brochuredownload' element={<Brochuredownload/>}/>
+          <Route path="/blog/:id" element={<BlogDetail />} />
           {/* <Route path="/check" element={<Check />} />
           <Route path="/admin/*" element={<Admin />} /> */}
 

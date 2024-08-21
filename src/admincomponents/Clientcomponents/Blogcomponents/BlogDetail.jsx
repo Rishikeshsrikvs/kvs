@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './BlogDetail.css';
+import api from '../../../api/api';
 
 const BlogDetail = () => {
     const location = useLocation();
@@ -22,7 +23,7 @@ const BlogDetail = () => {
                 <h1>{blog.blogTitle}</h1>
                 <div className="blogimg">
                     <img
-                        src={`https://srikvstech.onrender.com/getBlogImage/${blog.imageName}`}
+                        src={`${api.defaults.baseURL}/getBlogImage/${blog.imageName}`}
                         alt={blog.blogTitle}
                     />
                 </div>

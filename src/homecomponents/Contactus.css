@@ -290,6 +290,13 @@ text-align: left;
     color: white;
     
 }
+.prodiv >label{
+    display: flex;
+    gap: 10px;
+}
+.prodiv >label>img{
+    width: 20px;
+}
 .prodiv{
     min-height: 30px;
     display: flex;
@@ -330,9 +337,11 @@ text-align: left;
     letter-spacing: -0.01em;
     background-color: #FBFBFB;
     color: #02081E;
-    border-radius: 40px;
+    border: npne;
+    border-radius: 20px;
     padding: 10px 20px;
     margin-top: 10px;
+    outline: none;
 
 }
 .cn3right h1{

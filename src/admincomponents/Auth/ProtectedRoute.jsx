@@ -6,8 +6,8 @@ const ProtectedRoute = ({ children }) => {
   const { isAuthenticated } = useAuth(); // Assuming `isAuthenticated` is provided by AuthContext
 
   if (!isAuthenticated) {
-    // Redirect to login if not authenticated
-    return <Navigate to="/admin/login" />;
+    // Redirect to the new login route if not authenticated
+    return <Navigate to="/admin/SHRA/login" />;
   }
 
   return children;

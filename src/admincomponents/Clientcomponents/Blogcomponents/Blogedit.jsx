@@ -75,7 +75,7 @@ export const Blogedit = () => {
   return (
     <div className='editblogmaincontainer'>
       <div className="ebtitle">
-        <Link to="/admin/dashboard">
+        <Link to="/admin/SHRA/dashboard/blogs">
           <button>BACK TO MAINPAGE</button>
         </Link>
         <div className="btnleft">

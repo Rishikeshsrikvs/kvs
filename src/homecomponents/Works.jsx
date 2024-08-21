@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import "./Works.css"
+import { Link } from 'react-router-dom';
 import Workmarq from './landcomponents/Workmarq';
 import leftbig from './../assets/images/workimages/work1leftbig.png';
 import leftsmall from './../assets/images/workimages/work1leftsmall.png';
@@ -78,9 +79,9 @@ const Works = () => {
             
             <div className="work4cards work4cardfinal">
               <h1>And This Place Is <br/><span>Allotted</span> <br/>Your Project</h1>
-              <div className="workflexbtn">
+              <Link to="/contactus" className="workflexbtn">
               Get Started Now
-              </div>
+              </Link>
             </div>
         </div>
         <Feedbacklandslider/>

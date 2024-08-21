@@ -30,7 +30,7 @@ export const Careerview = () => {
   };
 
   const handleJobClick = (jobId) => {
-    navigate(`/admin/job-applicants/${jobId}`);
+    navigate(`/admin/SHRA/job-applicants/${jobId}`);
   };
 
   return (
@@ -41,8 +41,8 @@ export const Careerview = () => {
           <h4>Manage job and response</h4>
         </div>
         <div className="righttitle">
-          <Link to="/"><button>BACK</button></Link>
-          <Link to="/admin/postjob"><button>POST A JOB</button></Link>
+          <Link to="/admin/SHRA/dashboard"><button>BACK</button></Link>
+          <Link to="/admin/SHRA/postjob"><button>POST A JOB</button></Link>
         </div>
       </div>
       <div className="cvcontentcon">

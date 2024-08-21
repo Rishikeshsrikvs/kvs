@@ -7,7 +7,7 @@ export const Ablogs = () => {
       <div className='blogtitle'>
         <h1>CREATE YOUR AMAZING BLOG</h1>
         
-        <Link to="/admin/createblog"><button className='newbt'>CREATE NEW</button></Link>
+        <Link to="/admin/SHRA/createblog"><button className='newbt'>CREATE NEW</button></Link>
       </div>
     </div>
   )

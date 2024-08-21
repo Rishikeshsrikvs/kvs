@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import api from '../../api/api';
+
 import { useLocation } from 'react-router-dom';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
@@ -7,6 +7,7 @@ import './invoice.css';
 import download from './../../assets/images/download.png';
 import logo from './../../assets/images/logo.png';
 import { useAuth } from '../Auth/AuthContext';
+import api from '../../api/api';
 
 export const Invoice = () => {
   const [clientData, setClientData] = useState(null);
@@ -77,8 +78,8 @@ export const Invoice = () => {
         due_amount: parseFloat(dueAmount),
       };
 
-      const response = await axios.post(
-        'https://srikvs.onrender.com/api/admin/invoiceUpload',
+      const response = await api.post(
+        '/api/admin/invoiceUpload',
         data,
         {
           headers: {

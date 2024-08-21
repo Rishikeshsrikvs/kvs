@@ -2,97 +2,151 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../api/api';
 import './Contactus.css';
-
+import upload from './../assets/images/upload.png';
 const Contactus = () => {
   const [activeTab, setActiveTab] = useState('friends');
   
-  const [feedbackData, setFeedbackData] = useState({
+  const [friendFeedback, setFriendFeedback] = useState({
     name: '',
-    profileImage: null,  // Changed to null for better handling
-    profileImageName: '', // New state for storing the file name
+    profileImage: null,
+    profileImageName: '',
     contact: '',
     review: '',
-    clientId: '',
   });
 
-  const [formSubmitted, setFormSubmitted] = useState(false); // State to manage success alert
+  const [clientFeedback, setClientFeedback] = useState({
+    clientId: '',
+    description: '',
+  });
+
+  const [contactFormData, setContactFormData] = useState({
+    contactName: '',
+    contact: '',
+    message: ''
+  });
+
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [contactFormSubmitted, setContactFormSubmitted] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleInputChange = (e) => {
+  const handleFriendInputChange = (e) => {
     const { name, value } = e.target;
-    setFeedbackData({
-      ...feedbackData,
+    setFriendFeedback({
+      ...friendFeedback,
+      [name]: value,
+    });
+  };
+
+  const handleClientInputChange = (e) => {
+    const { name, value } = e.target;
+    setClientFeedback({
+      ...clientFeedback,
       [name]: value,
     });
   };
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
-    setFeedbackData({
-      ...feedbackData,
+    setFriendFeedback({
+      ...friendFeedback,
       profileImage: file,
-      profileImageName: file ? file.name : '' // Set file name when a file is selected
+      profileImageName: file ? file.name : ''
     });
   };
 
-  const handleSubmit = async () => {
-    const formData = new FormData(); // Use FormData for file uploads
-    formData.append('clients', activeTab === 'clients');
-    formData.append('description', feedbackData.review);
-
-    if (activeTab === 'clients') {
-        // Only include `clientId` for the 'clients' tab
-        formData.append('clientId', feedbackData.clientId);
-    } else if (activeTab === 'friends') {
-        // Include `name`, `contact`, and optionally `feedbackProfile` for the 'friends' tab
-        formData.append('name', feedbackData.name);
-        formData.append('contact', feedbackData.contact);
-        if (feedbackData.profileImage) {
-            formData.append('feedbackProfile', feedbackData.profileImage); // Include the image file if selected
-        }
+  const handleFriendSubmit = async () => {
+    const formData = new FormData();
+    formData.append('name', friendFeedback.name);
+    formData.append('contact', friendFeedback.contact);
+    formData.append('description', friendFeedback.review);
+    if (friendFeedback.profileImage) {
+      formData.append('feedbackProfile', friendFeedback.profileImage);
     }
 
     try {
-        const response = await api.post('/testimonial', formData, {
-            headers: {
-                'Content-Type': 'multipart/form-data', // Ensure the correct content type for file uploads
-            },
-        });
+      const response = await api.post('/testimonial', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
 
-        console.log(response.data);
+      console.log(response.data);
+      setFormSubmitted(true);
+      setFriendFeedback({
+        name: '',
+        profileImage: null,
+        profileImageName: '',
+        contact: '',
+        review: '',
+      });
 
-        // Show success alert and reset form fields
-        setFormSubmitted(true);
-        setFeedbackData({
-            name: '',
-            profileImage: null, // Ensure the file input is cleared
-            profileImageName: '', // Reset file name
-            contact: '',
-            review: '',
-            clientId: '',
-        });
-        setActiveTab('friends'); // or reset to 'clients' if needed
-
-        // Hide the success alert after a few seconds
-        setTimeout(() => {
-            setFormSubmitted(false);
-        }, 3000);
+      setTimeout(() => {
+        setFormSubmitted(false);
+      }, 3000);
 
     } catch (error) {
-        console.error('Error:', error);
+      console.error('Error:', error);
     }
-};
+  };
+
+  const handleClientSubmit = async () => {
+    try {
+      const response = await api.post('/clientTestimonial', clientFeedback);
+
+      console.log(response.data);
+      setFormSubmitted(true);
+      setClientFeedback({
+        clientId: '',
+        description: '',
+      });
+
+      setTimeout(() => {
+        setFormSubmitted(false);
+      }, 3000);
+
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+ 
+  const handleContactInputChange = (e) => {
+    const { name, value } = e.target;
+    setContactFormData({
+      ...contactFormData,
+      [name]: value,
+    });
+  };
+
+  // Handle contact form submission
+  const handleContactFormSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await api.post('/contact', contactFormData);
+      console.log(response.data);
+
+      setContactFormSubmitted(true);
+      setContactFormData({
+        contactName: '',
+        contact: '',
+        message: ''
+      });
+
+      setTimeout(() => {
+        setContactFormSubmitted(false);
+      }, 3000);
+
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
 
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
-    setFeedbackData({
-      ...feedbackData,
-      clientId: '',
-    });
   };
 
   return (
@@ -106,29 +160,49 @@ const Contactus = () => {
       </div>
       <div className="contact2main">
         <div className="cn2left">
-            <form action="">
-                <div className='cn2lefttitle' >
-                    <h1>Contact Us</h1>
-                    <p>Get in touch with us for any inquiries.</p>
-                </div>
-                <div className="cn2incon">
-                    <div className="cn2in">
-                        <label htmlFor="">Name</label>
-                        <input type="text" />
-                    </div>
-                    <div className="cn2in">
-                        <label htmlFor="">Email</label>
-                        <input type="text" />
-                    </div>
-                    <div className="cn2in">
-                        <label htmlFor="">Message</label>
-                        <input type="text" />
-                    </div>
-                </div>
-                <div className="cn2submit">
-                    <button>Send Message</button>
-                </div>
-            </form>
+        <form onSubmit={handleContactFormSubmit}>
+            <div className='cn2lefttitle'>
+              <h1>Contact Us</h1>
+              <p>Get in touch with us for any inquiries.</p>
+            </div>
+            <div className="cn2incon">
+              <div className="cn2in">
+                <label htmlFor="contactName">Name</label>
+                <input 
+                  type="text" 
+                  name="contactName" 
+                  value={contactFormData.contactName} 
+                  onChange={handleContactInputChange} 
+                />
+              </div>
+              <div className="cn2in">
+                <label htmlFor="contact">Email</label>
+                <input 
+                  type="email" 
+                  name="contact" 
+                  value={contactFormData.contact} 
+                  onChange={handleContactInputChange} 
+                />
+              </div>
+              <div className="cn2in">
+                <label htmlFor="message">Message</label>
+                <input 
+                  type="text" 
+                  name="message" 
+                  value={contactFormData.message} 
+                  onChange={handleContactInputChange} 
+                />
+              </div>
+            </div>
+            <div className="cn2submit">
+              <button type="submit">Send Message</button>
+            </div>
+            {contactFormSubmitted && (
+            <div className="success-alert">
+              Your message has been sent successfully!
+            </div>
+          )}
+          </form>
         </div>
         <div className="cn2right">
             <div className="cn2text">
@@ -139,7 +213,7 @@ const Contactus = () => {
         </div>
       </div>
       <div className="cn3main">
-        <div className="cn3left">
+      <div className="cn3left">
           <h1>Feedback</h1>
           <div className="feedback-tabs">
             <button
@@ -160,56 +234,60 @@ const Contactus = () => {
               {activeTab === 'friends' && (
                 <>
                   <div className="cn3in">
-                    <label htmlFor="">Name</label>
-                    <input type="text" name="name" value={feedbackData.name} onChange={handleInputChange} />
+                    <label htmlFor="name">Name</label>
+                    <input type="text" name="name" value={friendFeedback.name} onChange={handleFriendInputChange} />
                   </div>
                   <div className="cn3in">
                     <label htmlFor="proname">Profile image</label>
-
                     <div className="prodiv">
-                      <label htmlFor="proname">Choose an image</label>
-                      <span>{feedbackData.profileImageName || 'No file chosen'}</span> {/* Display the selected file name */}
+                      <label htmlFor="proname"> <img src={upload} alt="" /><span>Choose an image</span></label>
+                      <span>{friendFeedback.profileImageName || 'No file chosen'}</span>
                       <input type="file" name="profileImage" id='proname'  onChange={handleFileChange} />
                     </div>
                   </div>
                   
                   <div className="cn3in">
-                    <label htmlFor="">Contact / Email</label>
-                    <input type="text" name="contact" value={feedbackData.contact} onChange={handleInputChange} />
+                    <label htmlFor="contact">Contact / Email</label>
+                    <input type="text" name="contact" value={friendFeedback.contact} onChange={handleFriendInputChange} />
                   </div>
                   <div className="cn3in">
-                    <label htmlFor="">Review</label>
-                    <textarea name="review" value={feedbackData.review} onChange={handleInputChange}></textarea>
+                    <label htmlFor="review">Review</label>
+                    <textarea name="review" value={friendFeedback.review} onChange={handleFriendInputChange}></textarea>
+                  </div>
+                  <div className="cn3submit">
+                    <button onClick={handleFriendSubmit} className='cn3fbbtn'>Send Feedback</button>
                   </div>
                 </>
               )}
               {activeTab === 'clients' && (
                 <>
                   <div className="cn3in">
-                    <label htmlFor="">Client Id</label>
-                    <input type="text" name="clientId" value={feedbackData.clientId} onChange={handleInputChange} />
+                    <label htmlFor="clientId">Client ID</label>
+                    <input type="text" name="clientId" value={clientFeedback.clientId} onChange={handleClientInputChange} />
                   </div>
                   <div className="cn3in">
-                    <label htmlFor="">Review</label>
-                    <textarea name="review" value={feedbackData.review} onChange={handleInputChange}></textarea>
+                    <label htmlFor="description">Review</label>
+                    <textarea name="description" value={clientFeedback.description} onChange={handleClientInputChange}></textarea>
+                  </div>
+                  <div className="cn3submit">
+                    <button onClick={handleClientSubmit} className='cn3fbbtn'>Send Feedback</button>
                   </div>
                 </>
               )}
-              <div className="cn3fbbtn" onClick={handleSubmit}>Send Message</div>
-              {formSubmitted && (
-                <div className="success-alert">
-                  Feedback submitted successfully!
-                </div>
-              )}
             </div>
           </div>
+          {formSubmitted && (
+            <div className="success-alert">
+              Your feedback has been submitted successfully!
+            </div>
+          )}
         </div>
         <div className="cn3right">
           <h1>BROCHURES</h1>
           <p>
             Discover the power of our expertise and solutions by accessing our comprehensive brochures. Gain deeper insights into our services, approach, and success stories, empowering you to make informed decisions for your business. Simply click the links below to download our brochures and embark on a transformative journey with us.
           </p>
-          <Link to="/home/brochureform" className="brochure-button">Request Brochure</Link>
+          <Link to="/brochureform" className="cn3rightbtn">Request Brochure</Link>
         </div>
       </div>
     </div>

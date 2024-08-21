@@ -30,7 +30,7 @@ export const Careerresponse = () => {
           <h2>RESPONSE FOR THE POST</h2>
           <h3>Manage Jobs And Response</h3>
         </div>
-        <Link to="/admin/jobs"><button>BACK TO MENU</button></Link>
+        <Link to="/admin/SHRA/jobs"><button>BACK TO MENU</button></Link>
       </div>
       <div className="resmaincon">
         <table>

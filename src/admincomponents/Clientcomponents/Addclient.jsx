@@ -124,7 +124,7 @@ export const Addclient = () => {
     }
 
     // Navigate to Clientservice and pass the client details via state
-    navigate('/admin/clientservice', {
+    navigate('/admin/SHRA/clientservice', {
       state: {
         clientDetails: {
           client_name: formData.clientName,

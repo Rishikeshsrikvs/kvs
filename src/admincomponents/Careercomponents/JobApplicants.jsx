@@ -40,7 +40,7 @@ const JobApplicants = () => {
 
   const downloadResume = async (applicantId) => {
     try {
-      const response = await axios.get(`https://srikvs.onrender.com/api/admin/getresume/${applicantId}`, {
+      const response = await api.get(`/api/admin/getresume/${applicantId}`, {
         headers: { 'authorization': `${token}` },
         responseType: 'blob', // Ensure the response is handled as a blob
       });

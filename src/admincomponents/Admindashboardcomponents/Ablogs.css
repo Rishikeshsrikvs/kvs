@@ -35,17 +35,22 @@ a{text-decoration: none;}
     padding: 20px 8%;
     justify-content: space-between;
     background-color: white;
+   
 }
 
 .ebtitle button{
     padding: 10px 10px;
-    
+    background: #4766E9;
     color: white;
     border: none;
     border-radius: 2px;
+    border-radius: 4px;
 }
 .ebtitle > button{
     background: #4766E9;
+}
+.ebtitle button:hover{
+    background-color: #333;
 }
 .btnleft{
     display: flex;
