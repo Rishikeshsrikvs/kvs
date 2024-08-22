@@ -19,7 +19,7 @@
 }
 .landfeedback1{
   position: absolute;
-  background:url('./../assets/images/feedbackback.png') no-repeat 100% 100%;
+  background:url('./../../assets/images/feedbackback.png') no-repeat 100% 100%;
   height: 100%;
   z-index: 6467;
 
@@ -32,7 +32,7 @@
 }
 .landfeedback2{
   position: absolute;
-  background:url('./../assets/images/feedbackback.png') no-repeat bottom/100% 100%;
+  background:url('./../../assets/images/feedbackback.png') no-repeat bottom/100% 100%;
   height: 100%;
   z-index: 56356;
   width: 700px;

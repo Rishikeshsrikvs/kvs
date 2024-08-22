@@ -339,11 +339,7 @@
     align-items: center;
     padding: 20px;
 }
-.wytitle{
-   
-    
-    
-}
+
 .wytitle >h1{
     font-size: 350%;
     letter-spacing: 2px;
@@ -837,10 +833,6 @@
     .landblogtitle span{
         width: 40px;
     }
-    .contactback{
-        
-        
-     }
      .contactback img{
        
         transform: rotate(7deg);
