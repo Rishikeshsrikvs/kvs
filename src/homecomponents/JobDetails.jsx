@@ -271,7 +271,7 @@ const JobDetails = () => {
           <div className='jdcard3'>
             <h1>SALARY</h1>
             <div className='jdline'></div>
-            <h1>{job.salaryMin} - {job.salaryMax}LPA</h1>
+            <h1>{job.salaryMin} - {job.salaryMax} LPA</h1>
           </div>
           <div className='jdcard4'>
             <h1>LOCATION</h1>
@@ -284,7 +284,7 @@ const JobDetails = () => {
       <div className="jd3main">
         <h1>Job Highlights</h1>
         <div className="jd3dcon">
-          <p>{job.jobDescription}</p>
+          <pre>{job.jobDescription}</pre>
         </div>
         <h1>About</h1>
         <div className="jd3dcon">
@@ -397,7 +397,7 @@ const JobDetails = () => {
           <div className="jd4in jd4resume">
             <label htmlFor='resume'>Upload Resume</label>
 
-            <input type="file" name="resume" title = "Choose" onChange={handleFileChange} />
+            <input type="file" name="resume" id="resumejd4in"title = "Choose" onChange={handleFileChange} />
             {errors.resume && <p className="error">{errors.resume}</p>}
           </div>
 

@@ -148,10 +148,15 @@
 }
 .jdskillcon h2{
   width: 100%;
+  font-size: 80%;
 }
-
-.jd3dcon p{
-  font-size: 200%;
+.jd3dcon{
+width: 80%;
+overflow-x: hidden;
+}
+.jd3dcon pre{
+  font-size: 100%;
+  font-family:outfit ;
 }
 @media (max-width: 1200px) {
   .jd2cardcon {
@@ -176,7 +181,7 @@
   }
 }
 .jd3main{
-  height: 100vh;
+  height: auto;
   padding: 4%;
 }
 .jd3dcon{
@@ -184,6 +189,9 @@
  
   
   padding: 4%;
+}
+#resumejd4in{
+  display: none;
 }
 .jd4main{
   width: 100%;

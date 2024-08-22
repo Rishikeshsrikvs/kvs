@@ -73,7 +73,7 @@ export const Careerpost = () => {
         </div>
         <div className='cpright'>
           <button className='cppublishbtn' onClick={handleSubmit}>PUBLISH</button>
-          <button className='cppreviewbtn'>PREVIEW</button>
+          
         </div>
       </div>
       <div className="cpsubtitle">
@@ -167,7 +167,7 @@ export const Careerpost = () => {
                     </div>
                   <div>
                     <h4>Description: </h4>
-                    <p>{formData.jobDescription || "JOB DESCRIPTION"}</p>
+                    <pre>{formData.jobDescription || "JOB DESCRIPTION"}</pre>
                     </div>
                 
               </div>

@@ -1,33 +1,62 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import "./Landproject.css";
 import ne from './../../assets/images/ne arrow.svg';
-import next from './../../assets/images/next.png'; // Corrected image path
-import pre from './../../assets/images/pre.png';  // Corrected image path
+import next from './../../assets/images/next.png';
+import pre from './../../assets/images/pre.png';
 import projectimage from './../../assets/images/blogland.png';
+
 const Landproject = () => {
     const projects = [
-        { title: 'Social Media Management', description: 'Managing your brand’s presence on social media platforms.', image: 'path_to_image_8.jpg' },
-        { title: 'Digital Marketing', description: 'Effective digital marketing strategies to boost your brand.', image: 'path_to_image_3.jpg' },
-        { title: 'SEO Optimization', description: 'Optimize your website for better search engine rankings.', image: 'path_to_image_4.jpg' },
-        { title: 'Content Creation', description: 'Creating engaging content for your brand.', image: 'path_to_image_7.jpg' },
-        { title: 'Website Design Development', description: 'We provide visual designs and mobile and web interface development.', image: 'path_to_image_1.jpg' },
-        { title: 'E-commerce Development', description: 'We build scalable and secure e-commerce platforms.', image: 'path_to_image_2.jpg' },
-        { title: 'UI/UX Design', description: 'Crafting user-friendly interfaces and experiences.', image: 'path_to_image_5.jpg' },
-        { title: 'App Development', description: 'Developing mobile applications tailored to your needs.', image: 'path_to_image_6.jpg' },
-        // Add more projects as needed
+        { title: 'Social Media Management', description: 'Managing your brand’s presence on social media platforms.', image: projectimage },
+        { title: 'Digital Marketing', description: 'Effective digital marketing strategies to boost your brand.', image: projectimage },
+        { title: 'SEO Optimization', description: 'Optimize your website for better search engine rankings.', image: projectimage },
+        { title: 'Content Creation', description: 'Creating engaging content for your brand.', image: projectimage },
+        { title: 'Website Design Development', description: 'We provide visual designs and mobile and web interface development.', image: projectimage },
+        { title: 'E-commerce Development', description: 'We build scalable and secure e-commerce platforms.', image: projectimage },
+        { title: 'UI/UX Design', description: 'Crafting user-friendly interfaces and experiences.', image: projectimage },
+        { title: 'App Development', description: 'Developing mobile applications tailored to your needs.', image: projectimage }
     ];
 
     const itemsPerPage = 4;
-    const [scrollPosition, setScrollPosition] = useState(0);
+    const totalItems = projects.length;
+    const [currentIndex, setCurrentIndex] = useState(itemsPerPage);
+    const sliderRef = useRef(null);
 
     const handleNext = () => {
-        setScrollPosition(prev => prev + 1);
+        setCurrentIndex((prevIndex) => prevIndex + 1);
     };
 
     const handlePrev = () => {
-        setScrollPosition(prev => Math.max(prev - 1, 0));
+        setCurrentIndex((prevIndex) => prevIndex - 1);
     };
+
+    useEffect(() => {
+        const slider = sliderRef.current;
+
+        if (currentIndex >= totalItems + itemsPerPage) {
+            setTimeout(() => {
+                slider.style.transition = 'none';
+                setCurrentIndex(itemsPerPage); 
+            }, 500);
+        }
+
+        if (currentIndex <= 0) {
+            setTimeout(() => {
+                slider.style.transition = 'none';
+                setCurrentIndex(totalItems); 
+            }, 500);
+        }
+
+        slider.style.transition = 'transform 0.5s ease-in-out';
+        slider.style.transform = `translateX(-${currentIndex * 25}%)`;
+    }, [currentIndex, totalItems, itemsPerPage]);
+
+    const clonedProjects = [
+        ...projects.slice(-itemsPerPage), 
+        ...projects, 
+        ...projects.slice(0, itemsPerPage)
+    ];
 
     return (
         <div className="lprmain">
@@ -40,7 +69,10 @@ const Landproject = () => {
                     </div>
                     <div className='projectbtns'>
                         <div className="allprjt">
-                            <Link to="/projects" className='allprjtbtn'><span>ALL PROJECT</span><img src={ne} alt="" /></Link>
+                            <Link to="/projects" className='allprjtbtn'>
+                                <span>ALL PROJECT</span>
+                                <img src={ne} alt="Next arrow" />
+                            </Link>
                         </div>
                         <div className='arrowbtns'>
                             <button onClick={handlePrev}><img src={pre} alt="Previous" /></button>
@@ -48,11 +80,11 @@ const Landproject = () => {
                         </div>
                     </div>
                 </div>
-                <div className='landprojectcardcontainer' style={{ transform: `translateX(-${scrollPosition * 100}%)` }}>
-                    {projects.map((project, index) => (
+                <div className='landprojectcardcontainer' ref={sliderRef}>
+                    {clonedProjects.map((project, index) => (
                         <div key={index} className="landprojectcard">
                             <div className="landprojectimagecon">
-                                <img className="landprojectimg" src={projectimage} alt={project.title} />
+                                <img className="landprojectimg" src={project.image} alt={project.title} />
                             </div>
                             <div className="landprojectdetail">
                                 <h1>{project.title}</h1>
@@ -64,6 +96,6 @@ const Landproject = () => {
             </div>
         </div>
     );
-}
+};
 
 export default Landproject;
