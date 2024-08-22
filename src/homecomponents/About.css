@@ -22,7 +22,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('./../assets/images/Aboutimages/aboutbackg.gif') no-repeat center center;
+    background:url('./../assets/images/Aboutimages/aboutbackg.gif') no-repeat center center;
     background-size: 100% 100%;
     filter: blur(2px);
     opacity: 15%; /* Apply blur effect */
@@ -367,10 +367,11 @@ color: white;
         /* Ensure text is readable */
     }
     .aboutland > h1{
-        font-size: 30px;
-        line-height: 30px;
+        font-size: 35px;
+        line-height: 40px;
     }
     .about2main{
+        height: auto;
         flex-direction: column;
     }
     .about25main{
@@ -378,15 +379,25 @@ color: white;
     }
     .about2left{
         width: 100%;
+        height: 300px;
     }
     .about2left > img{
-        width: 150px;
+        width: 250px;
         height: 160px;
        
         border-radius: 7px 0px 0px 0px;
         opacity: 0px;
+        
         position: absolute;
-    
+        
+    }
+    .abt22{
+        left: 15%;
+        top: 20%;
+    }
+    .abt21{
+        left: 30%;
+        top: 30%;
     }
     .about2right{
         width: 100%;
@@ -408,15 +419,34 @@ color: white;
     .about3left{
     font-size: 70%;
     padding: 5%;
+    gap: 10px;
     }
     .ab3p{
         line-height: 20px;
     }
     .about3main{
-       
+        height: 70vh;
+    }
+    .about3mainback{
+       display: none;
+    
+    }
+    .about3sub{
+        flex-direction: column;
+        align-items: center;
     }
     .aboutyearcontainer{
         flex-direction: column;
 
+    }
+    .about3right{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+    }
+    .about3right img{
+        width: 80%;
     }
 }

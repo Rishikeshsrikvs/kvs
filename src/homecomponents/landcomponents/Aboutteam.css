@@ -119,7 +119,7 @@
       width: 100%;
     }
     .team-member p{
-      width: 60%;
+      width: 65%;
       font-size: 15px;
       line-height: 18px;
       text-align: left;
@@ -144,7 +144,7 @@
   
     }
     .inimg{
-      width: 40%;
+      width: 35%;
     }
   
     .inspanmain{
@@ -152,12 +152,14 @@
       border: 1px solid #FFFFFF;
       display: flex;
       align-items: center;
-      width: auto;
+      width:110px ;
       border-radius: 4px;
       gap: 10px;
     }
     .inspanmain img{
       width: 20px;
     }
-
+    .inspanmain span{
+      font-size: 80%;
+    }
   }

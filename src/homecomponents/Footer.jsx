@@ -39,7 +39,8 @@ export const Footer = () => {
           <p>+91 7358121384</p>
           <p>+91 7358121385</p>
           <p>info@srikvstech.com</p>
-          <p className='footad'>No.19, Kamaraj Nagar,Main Road, Avadi,Chennai-600071</p>
+          <p className='footad'>No.19, Kamaraj Nagar,<br/>Main Road,
+             Avadi,<br/>Chennai-600071</p>
         </div>
     </div>
   );

@@ -90,7 +90,7 @@ export const About = () => {
             <div className="ab3colortitle">No worries! We've got you covered!</div>
             <h1 className="ab3main">WE HELP PEOPLE CREATE AND <span>BUILD WEALTH</span></h1>
             <p className='ab3p'>At SRI kvs TECH, we’re fueled by an insatiable drive to push the limits of digital creativity, combined with a team of talented individuals with the capabilities</p>
-            <div className="btncontainer"><Link to="/home/contactus" className='ab3btn'>Book A Call</Link></div>
+            <div className="btncontainer"><Link to="/contactus" className='ab3btn'>Book A Call</Link></div>
           </div>
           <div className="about3right">
             <img src={about3} alt="" />

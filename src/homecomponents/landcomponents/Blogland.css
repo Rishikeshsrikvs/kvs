@@ -13,13 +13,13 @@
   flex-direction: column;
   gap: 7%;
   color: black;
-  width: 23vw;
+  width: 23%;
   padding: 2%;
 
   border-radius: 10px;
 }
 .lbimg {
-  height: 25vh;
+  height: 20vh;
 }
 .lbimg img {
   width: 100%;
@@ -69,11 +69,21 @@
     background-color: white;
     display: flex;
     flex-direction: column;
-    gap: 7%;
+    gap: 20px;
     color: black;
     width: 90%;
     padding: 2%;
-
+    padding: 20px;
     border-radius: 10px;
+  }
+  .lbdetail{
+    gap: 10px
+  }
+  .lbdetail p{
+    min-height: 5vh;
+    max-height: 14vh;
+  }
+  .lbimg {
+    height:16vh;
   }
 }

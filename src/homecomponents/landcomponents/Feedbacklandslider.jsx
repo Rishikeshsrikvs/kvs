@@ -22,26 +22,24 @@ const Feedbacklandslider = () => {
     const fetchFeedbacks = async () => {
       try {
         const response = await api.get('/testimonials');
-        console.log('Fetched feedbacks:', response.data.message);
         const feedbacks = response.data.message;
-        console.log();
-        
+
         const feedbacksWithImages = await Promise.all(
           feedbacks.map(async feedback => {
-            if (feedback.profileImage) {
+            if (feedback.imageName) {
               try {
-                const imageResponse = await api.get(`/getProfileImage/${feedback.profileImage}`, {
+                const imageResponse = await api.get(`/getProfileImage/${feedback.imageName}`, {
                   responseType: 'blob' // Fetch image as a blob
                 });
 
-                // Check if the response contains a valid blob
-                if (imageResponse.data.size > 0) {
-                  const imageBlob = new Blob([imageResponse.data], { type: imageResponse.headers['content-type'] });
+                // Check if the blob is a valid image by checking its size and type
+                if (imageResponse.data.size > 0 && imageResponse.data.type.startsWith('image/')) {
+                  const imageBlob = new Blob([imageResponse.data], { type: imageResponse.data.type });
                   const imageUrl = URL.createObjectURL(imageBlob);
 
                   return { ...feedback, imageUrl };
                 } else {
-                  console.warn(`Empty image for feedback: ${feedback.client_name}`);
+                  console.warn(`Invalid image for feedback: ${feedback.client_name}`);
                   return { ...feedback, imageUrl: getRandomFallbackImage() };
                 }
 
@@ -89,7 +87,7 @@ const Feedbacklandslider = () => {
               onError={(e) => { e.target.src = getRandomFallbackImage(); }} // Fallback on image error
             />
             <span>
-              <h4>{feedback.client_name}</h4>
+              <h4>{feedback.name}</h4>
             </span>
           </div>
         </div>
@@ -107,7 +105,10 @@ const Feedbacklandslider = () => {
 
   return (
     <div className="landfeedbackmain">
-      <div className='landfeedback1'></div>
+      
+        {/* <div className='landfeedback1'></div> */}
+        <div className='landfeedback2'></div>
+      
       <div className="landfeedbacksub">
         <div className="landfeedbacktitle">
           <h1>What do we do exactly?</h1>
@@ -119,7 +120,7 @@ const Feedbacklandslider = () => {
           </div>
         </div>
       </div>
-      <div className='landfeedback2'></div>
+      
     </div>
   );
 };
