@@ -186,22 +186,113 @@ margin-bottom: 10px;
 }
 .ser4cont h1{
     font-family: Outfit;
-font-size: 48px;
-font-weight: 700;
-line-height: 60.48px;
-text-align: center;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 60.48px;
+    text-align: center;
 
 }
-.ser4cont .ser4btn{
+.ser4btn{
     font-family: Playfair Display;
     font-size: 40px;
     font-style: italic;
     font-weight: 600;
-    line-height: 53.32px;
-    display: inline-block;
+    line-height: 33.32px;
+    
     border-radius: 50px;
     padding: 10px 15px;
-    border: 4px solid #FFFFFF
+    border: 2px solid #FFFFFF
 
     
 } 
+@media (max-width: 768px){
+    .services1main{
+        height: 40vh;
+        padding-top: 20vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    
+    }
+    .ser1grd{
+        font-size: 90px;
+    }
+    .ser1nor{
+        font-size: 45px;
+    }
+    .service2main{
+        height: auto;
+        gap: 10px;
+    }
+    .ser2text{
+        line-height: 44.2px;
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+    .sersubmain{
+        height: auto;
+        flex-direction: column;
+    }
+    .service3sub{
+        height: auto;
+    }
+    .sersubmain > div{
+        width: 100%;
+    }
+    .sersubbar{
+        background-color: white;
+        height: 5vh;
+        margin-top: 0;
+    }
+    .ser3colorbar{
+        height: 2vh;
+        
+    }
+    .sersubleft,.sersubright{
+        padding: 20px;
+    }
+    .sersubleft h1{
+        font-size: 30px;
+        line-height: 40.31px;
+    }
+    .sersubleft p{
+        font-size: 15px;
+    }
+    .sersubright{
+        flex: 1;
+    
+    }
+    .sersubright{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .sersubright img{
+        width: 90%;
+       position: static;
+        
+    }
+    .service3sub:nth-child(even) .sersubmain {
+        flex-direction: column;
+    
+      }
+      .service4main{
+        height: auto;
+        display: flex;
+        padding: 5px;
+        justify-content: center;
+        
+        
+    }
+    .ser4cont h1{
+        font-size: 20px;
+        line-height: 33.32px;
+    }
+    .ser4btn{
+        font-size: 20px;
+        padding: 3px 13px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+}

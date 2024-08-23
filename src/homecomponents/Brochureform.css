@@ -143,3 +143,33 @@
     border-radius: 8px;
 
 }
+@media (max-width: 754px){
+    .brformright >h1{
+        font-size: 20px;
+
+    }
+    .brochureformparent{
+        height: auto;
+        padding-top: 100px;
+        position: relative;
+    }
+    .brochureformback{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    .brochureformmain{
+        position: relative;
+        width: 100%;
+        height: auto;
+       
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 2;
+    }
+    .brochureformcontainer{
+        width: 80%;
+        height: 400px;
+    }
+}

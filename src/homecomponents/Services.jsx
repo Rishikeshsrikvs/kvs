@@ -93,7 +93,7 @@ const Services = () => {
         </div>
         <div className="service3sub service34">
                 <div className="sersubbar"></div>
-                <div className="sersubmain sersubmainright">
+                <div className="sersubmain ">
                     <div className="sersubleft">
 
                         <span className='ser3colorbar'></span>

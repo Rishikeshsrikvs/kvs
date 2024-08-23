@@ -167,7 +167,7 @@ color: white;
     display:flex;
     flex-direction: column;
     align-items:flex-start;
-    padding: 2%;
+    padding: 4%;
     border-radius: 10px;
     justify-content: space-evenly;
 }
@@ -259,11 +259,7 @@ color: white;
   background-size: 100px 100px;
   margin-top: 40px;
 }
-.a25card4 .a25img{
-    width: 100%;
-    height: 100%;
 
-}
 
 
 .about3mainback{
@@ -396,7 +392,7 @@ color: white;
         top: 20%;
     }
     .abt21{
-        left: 30%;
+        left: 20%;
         top: 30%;
     }
     .about2right{
@@ -425,10 +421,11 @@ color: white;
         line-height: 20px;
     }
     .about3main{
-        height: 70vh;
+        height: 80vh;
     }
     .about3mainback{
        display: none;
+       height: auto;
     
     }
     .about3sub{

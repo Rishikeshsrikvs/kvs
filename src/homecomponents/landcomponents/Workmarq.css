@@ -71,4 +71,9 @@
       transform: translateX(-50%);
     }
   }
+  @media (max-width: 768px){
+    .marqmain{
+      height: 30vh;
+    }
+  }
   

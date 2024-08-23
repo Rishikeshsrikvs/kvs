@@ -89,3 +89,38 @@
     border-radius: 6px;
 
 }
+@media (max-width: 754px){
+    .bdparent{
+        height: auto;
+    }
+    .bdmain{
+        height: 700px;
+        width: 90%;
+        background: none;
+    }
+    .bdsplit{
+        height: auto;
+        flex-direction: column;
+
+    }
+    .bdleft,.bdright{
+        width: 100%;
+        height: 300px;
+
+    }
+    .bdcenter{
+        width: 80%;
+    }
+    .bdcenter h1{
+        font-size: 19px;
+    }
+    .bdcenter p{
+        font-size: 12px;
+    }
+    .bdcenter > img{
+        width: 100px;
+        height: 60px;
+        
+    
+    }
+}

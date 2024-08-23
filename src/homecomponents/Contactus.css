@@ -378,3 +378,71 @@ text-align: left;
     margin-top: 20px;
 
 }
+
+@media (max-width: 754px){
+.contactusparent{
+    
+}
+.contact1main{
+    height: auto;
+    padding-top: 100px;
+}
+.contact1sub{
+    display: flex;
+    height: auto;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 20px;
+    
+}
+.cn1big{
+    font-size: 34px;
+    line-height: 30.31px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.cn1small{
+    font-size: 20px;
+    line-height: 30.31px;
+    width: 100%;
+}
+.contact2main{
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    padding: 5vh 4vh;
+    height:auto;
+    
+}
+.cn2left{
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 20px;
+    height: auto;
+}
+.cn2left form{
+    padding: 10px;
+    
+}
+.cn2right{
+    width: 100%;
+    height: auto;
+}
+.cn2text h2{
+    font-size: 20px;
+    line-height: 10.24px;
+}
+.cn2text p{
+    font-size: 12px
+}
+.cn3main{
+    height: auto;
+    flex-direction: column;
+}
+.cn3left,.cn3right{
+    width: 100%;
+}
+}

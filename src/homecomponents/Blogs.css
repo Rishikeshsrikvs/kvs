@@ -72,7 +72,7 @@
 
   }
   .blogcard{
-    height:380px ;
+    height:480px ;
     width: 23%;
     background: #FFFFFF;
     display: flex;
@@ -85,7 +85,7 @@
    
     width: 100%;
     
-   
+   padding: 4%;
     height: 30vh;
    
     
@@ -99,11 +99,38 @@
     color: #141414;
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    padding: 4%;
     flex: 1;
+    overflow-y: hidden;
 
     
   }
   .blogdetail .bgtiltle{
     text-align: center;
+    font-size: 150%;
+    margin-bottom: 10px;
+  }
+  
+  .blogdetail p{
+    overflow-y: hidden;
+    text-align: justify;
+    padding: 0 4%;
+  }
+
+  @media (max-width: 768px){
+    .blog1main{
+      height: 200px;
+    }
+    .blog1sub h1 {
+      font-size: 26px;
+      line-height: 40.97px;
+    }
+    .blogcon{
+      gap: 20px;
+      flex-direction: column;
+    }
+    .blogcard{
+      width: 100%;
+    }
+
   }

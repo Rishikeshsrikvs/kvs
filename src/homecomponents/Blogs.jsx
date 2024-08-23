@@ -49,7 +49,7 @@ const Blogs = () => {
     };
 
     const handleCardClick = (blog) => {
-        navigate(`/home/blog/${blog._id}`, { state: { blog } });
+        navigate(`/blog/${blog._id}`, { state: { blog } });
     };
 
     return (

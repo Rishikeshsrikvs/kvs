@@ -233,8 +233,8 @@ export const Invoice = () => {
         </div>
         <div className="invoicefoot">
           <div className="note">
-            <p>Disclaimer: No refunds are provided for packages that are purchased.</p>
-            <p>Note: lorem liuwwoie wwoifuyhwoe weiuifyhwue.</p>
+            <p>Disclaimer : No refunds will be issued for purchased packages.</p>
+            {/* <p>Note: lorem liuwwoie wwoifuyhwoe weiuifyhwue.</p> */}
           </div>
           <div className="downloadcon">
             <button onClick={generateInvoice}>

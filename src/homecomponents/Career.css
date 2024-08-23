@@ -123,3 +123,49 @@
     margin-right: 50px;
 }
 
+@media (max-width: 768px){
+    .career1main{
+        height: 50vh;
+       
+    }
+    .career1text h1,.career1text h1 span{
+        line-height: 60.28px;
+        font-size: 50px;
+    }
+    .career2left{
+        width: 100%;
+        padding: 4%;
+    }
+    .career2main{
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+
+    }
+    .cjup h1 {
+        font-size: 28px;
+        margin: 0;
+      }
+      .cjobright p{
+        font-size: 50px;
+      }
+      .cjdown li {
+  
+        font-family: Outfit;
+        font-size: 13px;
+        font-weight: 300;
+        line-height: 10.24px;
+        text-align: left;
+        display: inline-block;
+        float: left;
+        padding: 3px 10px;
+    
+      }
+      .cjobcard{
+        height: 130px;
+        width: 90%;
+        margin: 10px auto;
+      }
+
+
+}

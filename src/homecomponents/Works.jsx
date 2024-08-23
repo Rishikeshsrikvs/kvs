@@ -28,7 +28,7 @@ const Works = () => {
           <img src={workrect} alt="" className='work1rect'/>
           <div className="work1mainsub">
             <div className="work1left">
-              <img  className="w1lb" src={leftbig} alt="" />
+              <img  className="w1lb" src={leftbig} alt=""  />
               <img  className="w1ls" src={leftsmall} alt="" />
             </div>
             <div className="work1center">
@@ -77,7 +77,7 @@ const Works = () => {
                 <img src={wk5} alt="" />
             </div>
             
-            <div className="work4cards work4cardfinal">
+            <div className=" work4cardfinal">
               <h1>And This Place Is <br/><span>Allotted</span> <br/>Your Project</h1>
               <Link to="/contactus" className="workflexbtn">
               Get Started Now
