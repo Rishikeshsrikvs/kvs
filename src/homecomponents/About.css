@@ -341,6 +341,10 @@ color: white;
     border-radius: 35px;
 
 }
+.ab3btn:hover{
+    background:linear-gradient(145deg,#ff99a2,#e406b5,#35088A);
+    
+}
 
 /* ------------- */
 

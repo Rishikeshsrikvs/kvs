@@ -205,6 +205,12 @@ margin-bottom: 10px;
 
     
 } 
+.ser4btn:hover{
+    background:linear-gradient(145deg,#ff99a2,#e406b5,#35088A);
+    border-color: #141414;
+}
+
+
 @media (max-width: 768px){
     .services1main{
         height: 40vh;

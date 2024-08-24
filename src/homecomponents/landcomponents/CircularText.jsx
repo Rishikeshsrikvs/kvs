@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import './CircularText.css'; // Make sure to create this CSS file
+import center from './../../assets/images/ws3.png';
 
 const CircularText = () => {
     useEffect(() => {
@@ -17,6 +18,7 @@ const CircularText = () => {
                     </span>
                 ))}
             </p>
+            <img src={center} alt="center logo" className="center-image" />
         </div>
     );
 };

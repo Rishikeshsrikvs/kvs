@@ -19,7 +19,7 @@ export const Atestms = () => {
           },
         }
         ); // Adjust the URL as necessary
-        console.log(response.data);
+      
         
         setFeedbacks(response.data);
         setLoading(false);

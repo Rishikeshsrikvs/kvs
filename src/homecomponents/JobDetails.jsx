@@ -9,6 +9,8 @@ import careertitleback from './../assets/images/career/careertitle.png';
 const JobDetails = () => {
   const location = useLocation();
   const job = location.state?.job;
+  const [resumeName, setResumeName] = useState('');
+
 
   const [formData, setFormData] = useState({
     candidateName: '',
@@ -102,13 +104,15 @@ const JobDetails = () => {
       ...formData,
       resume: file,
     });
-
+  
+    setResumeName(file ? file.name : '');
     const fieldError = validateField('resume', file);
     setErrors({
       ...errors,
       resume: fieldError,
     });
   };
+  
 
   const handleEducationChange = (index, e) => {
     const { name, value } = e.target;
@@ -172,13 +176,12 @@ const JobDetails = () => {
     setErrors(formErrors);
     return Object.keys(formErrors).length === 0;
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) {
       return;
     }
-
+  
     const data = new FormData();
     for (const key in formData) {
       if (key === 'education') {
@@ -195,7 +198,7 @@ const JobDetails = () => {
         data.append(key, formData[key]);
       }
     }
-
+  
     try {
       const response = await api.post('/apply', data, {
         headers: {
@@ -229,11 +232,13 @@ const JobDetails = () => {
         appliedJob: job?._id || '',
         resume: null,
       });  // Reset form data
+      setResumeName(''); // Reset resume name
       setErrors({});
     } catch (error) {
       console.error('Error:', error);
     }
   };
+  
 
   if (!job) {
     return <p>No job details available.</p>;
@@ -358,6 +363,12 @@ const JobDetails = () => {
             <label>Behance Profile</label>
             <input type="text" name="behanceLink" value={formData.behanceLink} onChange={handleInputChange} />
           </div>
+          <div className='jd4in'>
+                <label>Courses Done</label>
+                <input type="text" name="coursesDone" />
+                
+          </div>
+          
 
           {/* Education Fields */}
           {formData.education.map((edu, index) => (
@@ -383,11 +394,11 @@ const JobDetails = () => {
                 <input type="text" name="university" value={edu.university} onChange={(e) => handleEducationChange(index, e)} />
                 {errors[`education[${index}].university`] && <p className="error">{errors[`education[${index}].university`]}</p>}
               </div>
-              <div>
+              {/*<div>
                 <label>Courses Done</label>
                 <input type="text" name="coursesDone" value={edu.coursesDone.join(', ')} onChange={(e) => handleCoursesChange(index, e)} />
                 {errors[`education[${index}].coursesDone`] && <p className="error">{errors[`education[${index}].coursesDone`]}</p>}
-              </div>
+              </div> */}
               <button className="removeedu"type="button" onClick={() => removeEducation(index)}>Remove Education</button>
             </div>
           ))}
@@ -395,9 +406,9 @@ const JobDetails = () => {
 
           {/* Resume Upload */}
           <div className="jd4in jd4resume">
-            <label htmlFor='resume'>Upload Resume</label>
-
-            <input type="file" name="resume" id="resumejd4in"title = "Choose" onChange={handleFileChange} />
+            <label htmlFor='resumejd4in'>Upload Resume</label>
+            {resumeName && <p className="resume-name">{resumeName}</p>}
+            <input type="file" name="resume" id="resumejd4in" title="Choose" onChange={handleFileChange} />
             {errors.resume && <p className="error">{errors.resume}</p>}
           </div>
 

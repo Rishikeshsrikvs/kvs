@@ -37,21 +37,6 @@ const Services = () => {
                     <div className="sersubleft">
 
                         <span className='ser3colorbar'></span>
-                        <h1>website Design & development</h1>
-                        <p>Join the conversation and drive engagement on Twitter with our Twitter marketing services. From real-time updates and trending topics to hashtag campaigns and promoted tweets, we'll help you leverage the power of Twitter to connect with your audience and drive results.</p>
-                    </div>
-                    <div className="sersubright">
-                        <img src={sercard1} alt="" />
-                    </div>
-                </div>
-                
-        </div>
-        <div className="service3sub service32">
-                <div className="sersubbar"></div>
-                <div className="sersubmain sersubmainright">
-                    <div className="sersubleft">
-
-                        <span className='ser3colorbar'></span>
                         <h1>DIGITAL MARKETING</h1>
                         <div className='ser3list'>
                           <ul>
@@ -69,7 +54,57 @@ const Services = () => {
                 </div>
                 
         </div>
+        <div className="service3sub service32">
+                <div className="sersubbar"></div>
+                <div className="sersubmain ">
+                    <div className="sersubleft">
+
+                        <span className='ser3colorbar'></span>
+                        <h1>Social media marketing</h1>
+                        <p>In today's digital world, social media is the primary marketing platform. Partnering 
+                        with a trusted social media company is crucial for businesses.</p>
+                    <p>At Sri KVS Tech, our social media experts ensure you stay ahead in this dynamic arena, 
+driving brand influence, leads, and sales. Trusted by startups to top brands, we offer 
+comprehensive social media services including strategy development, optimization, 
+content creation, paid campaigns, profile management and more.</p>
+                    </div>
+                    <div className="sersubright">
+                        <img src={sercard4} alt="" />
+                    </div>
+                </div>
+        </div>
         <div className="service3sub service33">
+                <div className="sersubbar"></div>
+                <div className="sersubmain ">
+                    <div className="sersubleft">
+
+                        <span className='ser3colorbar'></span>
+                        <h1>Branding</h1>
+                        <p>With millions of websites struggling for attention on search engines, standing out from the crowd can be challenging. This is where SEO services come into play. By leveraging the power of SEO, businesses can enhance their visibility, attract more organic traffic, and ultimately boost their revenue.</p>
+                    <p>At Sri KVS Tech, we specialize in boosting your online visibility through our advanced SEO strategies. Our focus is on improving search engine rankings and increasing organic traffic to your website. By using the latest SEO techniques and staying up to date on digital trends, we ensure your company reaches its maximum potential.</p>
+                    </div>
+                    <div className="sersubright">
+                        <img src={sercard5} alt="" />
+                    </div>
+                </div>
+                
+        </div>
+        <div className="service3sub service34">
+                <div className="sersubbar"></div>
+                <div className="sersubmain">
+                    <div className="sersubleft">
+
+                        <span className='ser3colorbar'></span>
+                        <h1>website Design & development</h1>
+                        <p>Join the conversation and drive engagement on Twitter with our Twitter marketing services. From real-time updates and trending topics to hashtag campaigns and promoted tweets, we'll help you leverage the power of Twitter to connect with your audience and drive results.</p>
+                    </div>
+                    <div className="sersubright">
+                        <img src={sercard1} alt="" />
+                    </div>
+                </div>
+                
+        </div>
+        <div className="service3sub service35">
                 <div className="sersubbar"></div>
                 <div className="sersubmain">
                     <div className="sersubleft">
@@ -90,41 +125,6 @@ const Services = () => {
                     </div>
                 </div>
                 
-        </div>
-        <div className="service3sub service34">
-                <div className="sersubbar"></div>
-                <div className="sersubmain ">
-                    <div className="sersubleft">
-
-                        <span className='ser3colorbar'></span>
-                        <h1>Social media marketing</h1>
-                        <p>In today's digital world, social media is the primary marketing platform. Partnering 
-                        with a trusted social media company is crucial for businesses.</p>
-                    <p>At Sri KVS Tech, our social media experts ensure you stay ahead in this dynamic arena, 
-driving brand influence, leads, and sales. Trusted by startups to top brands, we offer 
-comprehensive social media services including strategy development, optimization, 
-content creation, paid campaigns, profile management and more.</p>
-                    </div>
-                    <div className="sersubright">
-                        <img src={sercard4} alt="" />
-                    </div>
-                </div>
-                
-        </div>
-        <div className="service3sub service35">
-                <div className="sersubbar"></div>
-                <div className="sersubmain ">
-                    <div className="sersubleft">
-
-                        <span className='ser3colorbar'></span>
-                        <h1>Branding</h1>
-                        <p>With millions of websites struggling for attention on search engines, standing out from the crowd can be challenging. This is where SEO services come into play. By leveraging the power of SEO, businesses can enhance their visibility, attract more organic traffic, and ultimately boost their revenue.</p>
-                    <p>At Sri KVS Tech, we specialize in boosting your online visibility through our advanced SEO strategies. Our focus is on improving search engine rankings and increasing organic traffic to your website. By using the latest SEO techniques and staying up to date on digital trends, we ensure your company reaches its maximum potential.</p>
-                    </div>
-                    <div className="sersubright">
-                        <img src={sercard5} alt="" />
-                    </div>
-                </div>
                 
         </div>
         

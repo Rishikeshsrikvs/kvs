@@ -45,7 +45,7 @@ export const Careerpost = () => {
       }
       );
       if (response.status === 201) {
-        console.log('Job posted successfully');
+       
         // Reset form data if needed
         setFormData({
           jobName: '',

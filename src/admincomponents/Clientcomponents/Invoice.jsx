@@ -88,7 +88,7 @@ export const Invoice = () => {
         }
       );
 
-      console.log('Invoice generated successfully:', response.data);
+     
 
       if (response.data && response.data.invoice_no) {
         setInvoiceNumber(response.data.invoice_no);
@@ -96,7 +96,7 @@ export const Invoice = () => {
         setIssueDate(formatDate(response.data.date_of_issue));
         setDueDate(formatDate(response.data.due_date));
 
-        console.log(issueDate,dueDate);
+      
       } else {
         console.error("Invoice number not found in response data");
       }

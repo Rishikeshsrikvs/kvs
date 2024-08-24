@@ -12,7 +12,7 @@ import Brochureform from './homecomponents/Brochureform'
 import Contactus from './homecomponents/Contactus'
 import Brochuredownload from './homecomponents/Brochuredownload'
 import JobDetails from './homecomponents/JobDetails'
-import BlogDetail from './admincomponents/Clientcomponents/Blogcomponents/BlogDetail';
+import BlogDetail from './homecomponents/landcomponents/BlogDetail'
 // import { Check } from './Check'
 // import { Admin } from './Admin'
 

@@ -155,6 +155,9 @@ margin-top: 10px;
 
 
 }
+.cn2submit button:hover{
+    background-color: #e06126;
+}
 .cn2right{
     
     background: #FFFFFF;
@@ -258,6 +261,7 @@ text-align: left;
   flex-direction: column;
     justify-content: space-evenly;
     height: 100%;
+
     width: 80%;
     padding: 4%;
     margin-top: 10px;
@@ -337,12 +341,16 @@ text-align: left;
     letter-spacing: -0.01em;
     background-color: #FBFBFB;
     color: #02081E;
-    border: npne;
+    border: none;
     border-radius: 20px;
     padding: 10px 20px;
     margin-top: 10px;
     outline: none;
 
+}
+.cn3fbbtn:hover{
+    background-color: #264AE0;
+    color: white;
 }
 .cn3right h1{
     color: #FFFFFF;
@@ -366,8 +374,8 @@ text-align: left;
 
 }
 .cn3rightbtn{
-    background-color: #264AE0;
-    color: white;
+    background-color: white;
+    color: black;
     font-family: Outfit;
     font-size: 20px;
     font-weight: 700;
@@ -377,6 +385,10 @@ text-align: left;
     border-radius: 20px;
     margin-top: 20px;
 
+}
+.cn3rightbtn:hover{
+background-color: #264AE0;
+color: white;
 }
 
 @media (max-width: 754px){
@@ -444,5 +456,26 @@ text-align: left;
 }
 .cn3left,.cn3right{
     width: 100%;
+}
+.cn3rightbtn{
+    margin-bottom: 20PX;
+}
+.feedback-tabs{
+    margin-top: 20px;
+}
+.cn3fbbtn{
+    font-size:20px ;
+    font-weight: bolder;
+    width: 100%;
+    padding: 5px 10px;
+    margin: 10px auto;
+    line-height: 18.28px;
+    white-space: nowrap;
+}
+.cn3feedbackcon{
+    align-items: center;
+}
+.cn2submit button{
+    white-space: nowrap;
 }
 }

@@ -232,10 +232,15 @@ line-height: 85.31px;
 }
 .workflexbtn{
     border-radius: 35px;
-    
+    border:1px solid white;
     padding: 10px 15px;
     margin-top: 20px;
     
+}
+.workflexbtn:hover{
+    background:linear-gradient(145deg,#ff99a2,#e406b5,#35088A);
+    border-color: #141414;
+  
 }
 
 

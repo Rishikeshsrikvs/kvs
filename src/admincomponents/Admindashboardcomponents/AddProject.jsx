@@ -51,8 +51,7 @@ export const AddProject = () => {
     formData.append('project-view', projectView);
     formData.append('favourite', favorite);
     
-  console.log(projectName,projectEmail,projectDescription,projectView,favorite);
-  console.log(token);
+
   
   
     

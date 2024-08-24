@@ -111,7 +111,7 @@ export const Clientservice = () => {
       })),
       client_GST: formData.gst
     };
-    console.log('Client Data:', clientData);
+    
     
     try {
       const response = await api.post('/api/admin/clientSignUp', 
@@ -122,14 +122,14 @@ export const Clientservice = () => {
           },
         }
       );
-      console.log(response);
+      
       
       //for  checking
       // navigate(`/admin/invoice`, { state: { clientdata: clientData, discount: formData.discount } });
 
 
       if (response.status === 201) {
-        console.log(response.data.client_id);
+      
          navigate(`/admin/SHRA/invoice`, { state: { client_id: response.data.client_id, discount: formData.discount } });
        
       } else {

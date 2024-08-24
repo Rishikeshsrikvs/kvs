@@ -126,7 +126,7 @@ const Contactus = () => {
 
     try {
       const response = await api.post('/contact', contactFormData);
-      console.log(response.data);
+   
 
       setContactFormSubmitted(true);
       setContactFormData({

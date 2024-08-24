@@ -14,7 +14,7 @@ const Logoslider = () => {
         const response = await api.get('/getAllLogo');
         
         const logoDetails = response.data;
-        console.log(response);
+       
         
         
         // Fetch images using tokens

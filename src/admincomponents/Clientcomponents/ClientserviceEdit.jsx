@@ -123,7 +123,7 @@ export const ClientserviceEdit = () => {
           headers: { 'authorization': `${token}` },
         }
       );
-      console.log(response);
+     
       
       if (response.status === 200) {
         navigate(`/admin/SHRA/invoice`, { state: { client_id: clientId } });

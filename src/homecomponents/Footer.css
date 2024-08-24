@@ -1,14 +1,16 @@
 .footermaincontainer {
-    height: auto;
+    height: 70vh;
     color: white;
     display: flex;
-    padding: 25px;
+    padding-top: 60px;
+padding: 25px;
     padding-right: 60px;
     flex-direction: row;
     justify-content: space-between;
     background: #000000 url('./../assets/images/footerback.png') no-repeat bottom / 100% 130px;
     flex-wrap: wrap;
     overflow: hidden;
+
 }
 
 .kvsdetails {
@@ -49,7 +51,7 @@
     display: flex;
     margin-top: 20px;
     flex-direction: column;
-    gap: 5%;
+    gap: 9%;
     font-size: 120%;
     align-items: center;
 }
