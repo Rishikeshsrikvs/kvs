@@ -2,20 +2,19 @@ import React, { useState } from 'react';
 import api from '../../api/api';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../Auth/AuthContext';
-import "./Clientservice.css";
+import './Clientservice.css';
+
+
 
 export const Clientservice = () => {
   const navigate = useNavigate();
   const { token } = useAuth();
-  
-  
   const location = useLocation();
   
-  // Retrieve client details from location state
   const clientDetails = location.state?.clientDetails || {};
   const {
     client_name = '',
-    client_logo = '',
+    client_logo = null,
     client_email = '',
     client_mobile = '',
     client_Location = '',
@@ -27,7 +26,7 @@ export const Clientservice = () => {
   const [formData, setFormData] = useState({
     services: client_Plan,
     gst: client_GST,
-    clientLogoKey: client_logo,
+    logo: client_logo,
     email: client_email,
     phone: client_mobile,
     location: client_Location,
@@ -99,7 +98,7 @@ export const Clientservice = () => {
 
     const clientData = {
       client_name: client_name,
-      client_logo: formData.clientLogoKey,
+      client_logo: formData.logo,
       client_email: formData.email,
       client_mobile: formData.phone,
       client_Location: formData.location,
@@ -111,6 +110,10 @@ export const Clientservice = () => {
       })),
       client_GST: formData.gst
     };
+    console.log(formData.logo);
+    console.log(formData.phone);
+    console.log(client_name);
+    
     
     
     try {
@@ -118,20 +121,14 @@ export const Clientservice = () => {
         clientData,
         {
           headers: {
-            'authorization': `${token}`,
+            authorization: token,
+            'Content-Type': 'multipart/form-data',
           },
         }
       );
-      
-      
-      //for  checking
-      // navigate(`/admin/invoice`, { state: { clientdata: clientData, discount: formData.discount } });
-
 
       if (response.status === 201) {
-      
-         navigate(`/admin/SHRA/invoice`, { state: { client_id: response.data.client_id, discount: formData.discount } });
-       
+        navigate(`/admin/SHRA/invoice`, { state: { client_id: response.data.client_id} });
       } else {
         setError('Failed to create client.');
       }
@@ -142,10 +139,10 @@ export const Clientservice = () => {
   };
 
   const validateForm = () => {
-    const { services, discount, email, phone, location, adharNumber } = formData;
-    if (!email || !phone || !location || !adharNumber || services.length === 0 || !discount) {
-      return false;
-    }
+    const { services
+      , email, phone, location } = formData;
+  
+    
     for (const service of services) {
       if (!service.package || !service.amount) {
         return false;
@@ -179,15 +176,6 @@ export const Clientservice = () => {
                     <label>{service.name}</label>
                   </div>
                 ))}
-              </div>
-              <div className="discount">
-                <input
-                  type="text"
-                  placeholder='Discount'
-                  name='discount'
-                  value={formData.discount}
-                  onChange={(e) => setFormData({ ...formData, discount: e.target.value })}
-                />
               </div>
             </div>
             <div className="service1right">

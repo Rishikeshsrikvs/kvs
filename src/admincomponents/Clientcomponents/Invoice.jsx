@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
-import { useLocation } from 'react-router-dom';
-import jsPDF from 'jspdf';
+import { useLocation, useNavigate } from 'react-router-dom';import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import './invoice.css';
 import download from './../../assets/images/download.png';
@@ -13,13 +11,16 @@ export const Invoice = () => {
   const [clientData, setClientData] = useState(null);
   const [invoiceNumber, setInvoiceNumber] = useState('');
   const [monthOfInvoice, setMonthOfInvoice] = useState(''); // Initial value for month of invoice
-  const [discount, setDiscount] = useState(0); // Initial value for discount in percentage
+  const [yearOfInvoice, setYearOfInvoice] = useState(new Date().getFullYear()); // Initial value for year
+  const [discount, setDiscount] = useState(0); // Initial value for discount
   const [issueDate, setIssueDate] = useState(''); // State for issue date
   const [dueAmount, setDueAmount] = useState(0);
   const [dueDate, setDueDate] = useState(''); // State for due date
+  const [applyGST, setApplyGST] = useState(true); // Toggle state for GST
 
   const { token } = useAuth();
   const location = useLocation();
+  const navigate = useNavigate();
   const { client_id } = location.state || {};
 
   useEffect(() => {
@@ -36,8 +37,6 @@ export const Invoice = () => {
 
         if (response.data && response.data.clientDetailes) {
           setClientData(response.data.clientDetailes);
-         
-          
         } else {
           console.error("Client details not found in response data");
         }
@@ -53,7 +52,10 @@ export const Invoice = () => {
     const [datePart] = dateString.split('T');
     return datePart; // This will be in YYYY-MM-DD format
   };
-  
+
+  const formatMonthYear = (month, year) => {
+    return `${month} ${year}`;
+  };
 
   if (!clientData) {
     return <div>Loading...</div>;
@@ -61,18 +63,19 @@ export const Invoice = () => {
 
   const gstRate = 0.18;
   const totalPrice = clientData.client_Plan?.reduce((acc, service) => acc + parseFloat(service.price), 0) || 0;
-  const gstAmount = totalPrice * gstRate;
+  const gstAmount = applyGST ? totalPrice * gstRate : 0; // Only apply GST if toggle is checked
   const totalPriceWithGst = totalPrice + gstAmount;
   const discountPercentage = parseFloat(discount) / 100 || 0;
   const discountAmount = totalPriceWithGst * discountPercentage;
-  const finalAmount = totalPriceWithGst - discountAmount+ parseFloat(dueAmount || 0);
- 
+  const finalAmount = totalPriceWithGst - discountAmount + parseFloat(dueAmount || 0);
 
   const generateInvoice = async () => {
     try {
+      const formattedMonthYear = formatMonthYear(monthOfInvoice, yearOfInvoice);
+
       const data = {
         client_id,
-        month_of_invoice: monthOfInvoice, // Value from state
+        month_of_invoice: formattedMonthYear, // Value from state
         total_amount: finalAmount,
         discount: parseFloat(discount), // Value from state
         due_amount: parseFloat(dueAmount),
@@ -88,15 +91,10 @@ export const Invoice = () => {
         }
       );
 
-     
-
       if (response.data && response.data.invoice_no) {
         setInvoiceNumber(response.data.invoice_no);
-        
         setIssueDate(formatDate(response.data.date_of_issue));
         setDueDate(formatDate(response.data.due_date));
-
-      
       } else {
         console.error("Invoice number not found in response data");
       }
@@ -134,7 +132,9 @@ export const Invoice = () => {
       if (downloadButton) downloadButton.style.display = 'block';
     });
   };
-
+  const handleBackClick = () => {
+    navigate(`/admin/SHRA/dashboard/clients`); // Go back to the previous page
+  };
   return (
     <div className="invoicemaincontainer">
       <div id="invoice-content" className="invoiceecontainer">
@@ -165,13 +165,32 @@ export const Invoice = () => {
             <div className="rigtdetailsrow"><span className="lb">Due Date :</span> <span className="rb">{dueDate}</span></div>
             <div className="rigtdetailsrow">
               <span className="lb">Month of Invoice:</span>
-              <input
-                type="text"
-                className='rb'
-                value={monthOfInvoice}
-                placeholder='Aug 2024'
-                onChange={(e) => setMonthOfInvoice(e.target.value)}
-              />
+              <div className="dropdown-container">
+                <select
+                  className="rb"
+                  value={monthOfInvoice}
+                  onChange={(e) => setMonthOfInvoice(e.target.value)}
+                >
+                  <option value="">Select Month</option>
+                  {["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"].map(
+                    (month, index) => (
+                      <option key={index} value={month}>
+                        {month}
+                      </option>
+                    )
+                  )}
+                </select>
+
+                <input
+                  type="number"
+                  className="rb"
+                  placeholder='year'
+                  value={yearOfInvoice}
+                  onChange={(e) => setYearOfInvoice(parseInt(e.target.value, 10))}
+                  min={2000}
+                  max={new Date().getFullYear() + 10}
+                />
+              </div>
             </div>
             <div className="rigtdetailsrow">
               <span className="lb">Discount (%):</span>
@@ -179,7 +198,7 @@ export const Invoice = () => {
                 type="number"
                 className='rb'
                 value={discount}
-                onChange={(e) => setDiscount(e.target.value)}
+                onChange={(e) => setDiscount(parseFloat(e.target.value))}
               />
             </div>
             <div className="rigtdetailsrow">
@@ -188,13 +207,22 @@ export const Invoice = () => {
                 type="number"
                 className='rb'
                 value={dueAmount}
-                onChange={(e) => setDueAmount(e.target.value)}
+                onChange={(e) => setDueAmount(parseFloat(e.target.value))}
+              />
+            </div>
+            <div className="rigtdetailsrow">
+              <span className="lb">Apply GST:</span>
+              <input
+                type="checkbox"
+                className='rb'
+                checked={applyGST}
+                onChange={() => setApplyGST(!applyGST)}
               />
             </div>
           </div>
         </div>
         <div className="invoicetable">
-          <table>
+        <table>
             <thead>
               <tr>
                 <th>No</th>
@@ -212,40 +240,37 @@ export const Invoice = () => {
                   <td>{parseFloat(service.price).toFixed(2)}</td>
                 </tr>
               ))}
-              <tr>
-                <td colSpan={3} id="gstlabel">GST (18%)</td>
-                <td>{gstAmount.toFixed(2)}</td>
-              </tr>
+              {applyGST && (
+                <tr>
+                  <td colSpan={3} id="gstlabel">GST (18%)</td>
+                  <td>{gstAmount.toFixed(2)}</td>
+                </tr>
+              )}
               <tr>
                 <td colSpan={3} id="discountlabel">Discount ({discount}%)</td>
                 <td>{discountAmount.toFixed(2)}</td>
               </tr>
               <tr>
-                <td colSpan={3} id="discountlabel">Due Amount </td>
+                <td colSpan={3} id="dueAmountLabel">Due Amount </td>
                 <td>{parseFloat(dueAmount || 0).toFixed(2)}</td>
               </tr>
               <tr>
-                <td colSpan={3} id="totallabel">Total</td>
-                <td>{finalAmount.toFixed(2)}</td>
+                <td colSpan={3} id="totallabel">Total Amount</td>
+                <td id="totalvalue">{finalAmount.toFixed(2)}</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <div className="invoicefoot">
-          <div className="note">
-            <p>Disclaimer : No refunds will be issued for purchased packages.</p>
-            {/* <p>Note: lorem liuwwoie wwoifuyhwoe weiuifyhwue.</p> */}
-          </div>
-          <div className="downloadcon">
+      </div>
+      <div className="downloadcon">
+            <button onClick={handleBackClick}><span>BACK</span></button>
             <button onClick={generateInvoice}>
               <span>GENERATE</span> 
             </button>
             <button onClick={downloadPDF}>
               <img src={download} alt="Download" /><span>PRINT</span> 
             </button>
-          </div>
-        </div>
-      </div>
+       </div>
     </div>
   );
 };

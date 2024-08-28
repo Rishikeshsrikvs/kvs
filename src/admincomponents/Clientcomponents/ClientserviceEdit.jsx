@@ -2,25 +2,28 @@ import React, { useState, useEffect } from 'react';
 import api from '../../api/api';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useAuth } from '../Auth/AuthContext';
-import "./Clientservice.css";
+import './Clientserviceedit.css';
+import upload from './../../assets/images/upload.png';
 
 export const ClientserviceEdit = () => {
   const navigate = useNavigate();
   const { token } = useAuth();
   const { clientId } = useParams();
 
-  
-  
   const [formData, setFormData] = useState({
-    services: [],
-    gst: '',
+    clientName: '',
     clientLogoKey: '',
     email: '',
     phone: '',
     location: '',
     adharNumber: '',
+    gst: '',
+    services: [],
   });
+
+  const [fileError, setFileError] = useState('');
   const [error, setError] = useState('');
+  const [originalData, setOriginalData] = useState({});
 
   useEffect(() => {
     const fetchClientData = async () => {
@@ -28,48 +31,61 @@ export const ClientserviceEdit = () => {
         const response = await api.get(`/api/admin/getClient/${clientId}`, {
           headers: { authorization: `${token}` },
         });
-    
-        // Access clientDetailes from response.data
+
         const clientData = response.data.clientDetailes || {};
-    
-        setFormData({
-          services: clientData.client_Plan || [],
-          gst: clientData.client_GST || '',
+        const initialData = {
+          clientName: clientData.client_name || '',
           clientLogoKey: clientData.client_logo || '',
           email: clientData.client_email || '',
           phone: clientData.client_mobile || '',
           location: clientData.client_Location || '',
           adharNumber: clientData.client_govt_id || '',
-        });
+          gst: clientData.client_GST || '',
+          services: clientData.client_Plan || [],
+        };
+
+        setFormData(initialData);
+        setOriginalData(initialData);
       } catch (error) {
         console.error('Error fetching client data:', error);
         setError('Failed to load client data.');
       }
     };
-    
 
     fetchClientData();
   }, [clientId, token]);
 
   const servicesList = [
-    // List of services
     {
-      name: "Social Media Marketing",
-      packages: [{ name: "Elite" }, { name: "Pro" }, { name: "Standard" }]
+      name: 'Social Media Marketing',
+      packages: [{ name: 'Elite' }, { name: 'Pro' }, { name: 'Standard' }],
     },
     {
-      name: "Search Engine Optimization",
-      packages: [{ name: "Elite" }, { name: "Pro" }, { name: "Standard" }]
+      name: 'Search Engine Optimization',
+      packages: [{ name: 'Elite' }, { name: 'Pro' }, { name: 'Standard' }],
     },
     {
-      name: "Web Development",
+      name: 'Web Development',
       packages: [
-        { name: "Static Plan" }, { name: "Static Plus Plan" }, { name: "Static Standard" },
-        { name: "Standard Plan" }, { name: "Standard Plus Plan" }, { name: "Premium Plan" },
-        { name: "Exclusive Plan" }, { name: "Customised Plan" }
-      ]
-    }
+        { name: 'Static Plan' },
+        { name: 'Static Plus Plan' },
+        { name: 'Static Standard' },
+        { name: 'Standard Plan' },
+        { name: 'Standard Plus Plan' },
+        { name: 'Premium Plan' },
+        { name: 'Exclusive Plan' },
+        { name: 'Customised Plan' },
+      ],
+    },
   ];
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
 
   const handleServiceChange = (index, e) => {
     const { name, value } = e.target;
@@ -79,52 +95,71 @@ export const ClientserviceEdit = () => {
     setFormData({ ...formData, services: updatedServices });
   };
 
+  const handleLogoChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      if (file.size > 1 * 1024 * 1024) {
+        setFileError('File size exceeds 1 MB.');
+        setFormData({ ...formData, clientLogoKey: '' });
+      } else {
+        setFileError('');
+        setFormData({ ...formData, clientLogoKey: file });
+      }
+    }
+  };
+
   const handleCheckboxChange = (e) => {
     const { value, checked } = e.target;
     if (checked) {
-      setFormData(prevData => ({
+      setFormData((prevData) => ({
         ...prevData,
-        services: [...prevData.services, { name: value, package: '', amount: '' }]
+        services: [...prevData.services, { name: value, package: '', amount: '' }],
       }));
     } else {
-      setFormData(prevData => ({
+      setFormData((prevData) => ({
         ...prevData,
-        services: prevData.services.filter(service => service.name !== value)
+        services: prevData.services.filter((service) => service.name !== value),
       }));
     }
   };
 
+  const validateFormData = () => {
+    if (JSON.stringify(formData) === JSON.stringify(originalData)) {
+      setError('No changes were made to update.');
+      return false;
+    }
+    return true;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!validateForm()) {
-      setError('Please fill out all fields correctly.');
+
+    if (!validateFormData()) {
       return;
     }
-  
+
     const clientData = {
-      client_Plan: formData.services.map(service => ({
+      client_name: formData.clientName || undefined,
+      client_logo: formData.clientLogoKey || undefined,
+      client_email: formData.email || undefined,
+      client_mobile: formData.phone || undefined,
+      client_Location: formData.location || undefined,
+      client_govt_id: formData.adharNumber || undefined,
+      client_GST: formData.gst || undefined,
+      client_Plan: formData.services.map((service) => ({
         name: service.name,
-        package: service.package,
-        price: service.amount // Use the manually entered amount
+        package: service.package || undefined,
+        price: service.amount || undefined,
       })),
-      client_GST: formData.gst,
-      client_logo: formData.clientLogoKey,
-      client_email: formData.email,
-      client_mobile: formData.phone,
-      client_Location: formData.location,
-      client_govt_id: formData.adharNumber,
-      client_id:clientId,
+      client_id: clientId,
     };
-  
+
     try {
-      const response = await api.put(`/api/admin/clientUpdate`, 
-        clientData,
-        {
-          headers: { 'authorization': `${token}` },
-        }
-      );
-     
-      
+      const response = await api.put(`/api/admin/clientUpdate/${clientId}`, clientData, {
+        headers: { authorization: token },
+        'Content-Type': 'multipart/form-data',
+      });
+
       if (response.status === 200) {
         navigate(`/admin/SHRA/invoice`, { state: { client_id: clientId } });
       } else {
@@ -135,20 +170,6 @@ export const ClientserviceEdit = () => {
       console.error('Error:', error);
     }
   };
-  
-
-  const validateForm = () => {
-    const { services } = formData;
-    if (services.length === 0) {
-      return false;
-    }
-    for (const service of services) {
-      if (!service.package || !service.amount) {
-        return false;
-      }
-    }
-    return true;
-  };
 
   return (
     <div className='Clientservicemaincontainer'>
@@ -157,9 +178,85 @@ export const ClientserviceEdit = () => {
           <div className="Clientservice-title">
             <h1>Edit Client Services and Package</h1>
           </div>
-          <div className="client-name">
-            <h2>Client Id: {clientId}</h2> {/* Display client name */}
+
+          <div className="inputcontainer">
+            <input
+              type="text"
+              placeholder="Client Name"
+              name="clientName"
+              value={formData.clientName}
+              onChange={handleChange}
+            />
           </div>
+
+          <div className="inputcontainer">
+            <label htmlFor="logo-upload" className="item logolabel">
+              Client Logo:
+              <span>
+                <img src={upload} alt="Upload" />
+                <h5>Upload</h5>
+              </span>
+            </label>
+            <input
+              id="logo-upload"
+              type="file"
+              onChange={handleLogoChange}
+            />
+            {formData.clientLogoKey && (
+              <p>{formData.clientLogoKey.name}</p>
+            )}
+          </div>
+
+          <div className="inputcontainer">
+            <input
+              type="email"
+              placeholder="Email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="inputcontainer">
+            <input
+              type="text"
+              placeholder="Phone Number"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="inputcontainer">
+            <input
+              type="text"
+              placeholder="Location"
+              name="location"
+              value={formData.location}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="inputcontainer">
+            <input
+              type="text"
+              placeholder="Aadhar No"
+              name="adharNumber"
+              value={formData.adharNumber}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="inputcontainer">
+            <input
+              type="text"
+              placeholder="GST No"
+              name="gst"
+              value={formData.gst}
+              onChange={handleChange}
+            />
+          </div>
+
           <div className='service1'>
             <div className="service1left">
               <h4>Services</h4>
@@ -169,7 +266,7 @@ export const ClientserviceEdit = () => {
                     <input
                       type="checkbox"
                       value={service.name}
-                      checked={formData.services.some(s => s.name === service.name)}
+                      checked={formData.services.some((s) => s.name === service.name)}
                       onChange={handleCheckboxChange}
                     />
                     <label>{service.name}</label>
@@ -177,6 +274,7 @@ export const ClientserviceEdit = () => {
                 ))}
               </div>
             </div>
+
             <div className="service1right">
               {formData.services.map((service, index) => (
                 service.name && (
@@ -208,12 +306,16 @@ export const ClientserviceEdit = () => {
               ))}
             </div>
           </div>
+
           {error && <p className="error">{error}</p>}
-          <div className="generate">
-            <button type="submit">Update and Generate Invoice</button>
+
+          <div className="Clientservicebuttoncontainer">
+            <button type="submit" className="btn btn-primary">Update</button>
           </div>
         </form>
       </div>
     </div>
   );
 };
+
+export default ClientserviceEdit;

@@ -1,7 +1,7 @@
 /* AnimatedNumber.css */
 
 .animated-number {
-    font-size: 2em;
+    font-size: 1em;
     font-weight: bold;
     color: white; /* Change to your desired color */
     transition: color .5s ease-in-out;

@@ -30,10 +30,11 @@ export const Land = () => {
                         <h1>UNLEASH YOUR DIGITAL</h1>
                         <h1 className='color'>POTENTIAL</h1>
                         <p>It's Time To Transform Your Online Presence And Accelerate <br />Your Business Growth With Sri KVS Tech.<br/>Let's Start The Journey Together And Witness The Transformation</p>
-                        <Link to="/contactus"><span className='Enquirespan'><CircularText/></span></Link>
+                        
                     </div>
                     <div className="land1right">
                         <img src={cube}  className='imagelandright' alt="Cube" />
+                        <Link to="/contactus"><span className='Enquirespan'><CircularText/></span></Link>
                     </div>
                 </div>
                 <div className="land1yearcontainer">
@@ -100,7 +101,7 @@ export const Land = () => {
                                             <p className='wydown'>Your Project Vision</p>
                                         </div>
                                         <div className='wyrbright'>
-                                            <Link to="/home/contactus" className='letstartbtn'>LET'S STRART</Link>
+                                            <Link to="/contactus" className='letstartbtn'>LET'S STRART</Link>
                                         </div>
                                         <div className="wyround"></div>
                                     </div>

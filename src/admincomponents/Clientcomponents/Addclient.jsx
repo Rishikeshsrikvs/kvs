@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Addclient.css';
-import api from '../../api/api';
 import { useAuth } from '../Auth/AuthContext';
 import upload from './../../assets/images/upload.png';
 
@@ -12,17 +11,14 @@ export const Addclient = () => {
     clientName: '',
     location: '',
     email: '',
-    gstNo: '',
     phone: '',
+    gstNo: '',
     adharNumber: '',
-    clientLogo: '' // To store the S3 key of the uploaded logo
+    clientLogo: null // To store the selected file directly
   });
   const [errors, setErrors] = useState({});
-  const [logo, setLogo] = useState(null); // State to manage the logo file
-  const [uploadStatus, setUploadStatus] = useState('');
-  const [fileName, setFileName] = useState(''); // State to store the file name
-  const [fileError, setFileError] = useState(''); // State to manage file size errors
-  const [logoError, setLogoError] = useState(''); // State to manage logo required errors
+  const [fileName, setFileName] = useState('');
+  const [fileError, setFileError] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,20 +30,30 @@ export const Addclient = () => {
   };
 
   const handleLogo = (e) => {
-    const file = e.target.files[0]; // Update the logo state with the selected file
+    const file = e.target.files[0];
     if (file) {
-      if (file.size > 1 * 1024 * 1024) { // Check if file size exceeds 1 MB
+      if (file.size > 1 * 1024 * 1024) {
         setFileError('File size exceeds 1 MB.');
-        setLogo(null);
         setFileName('');
+        setFormData({
+          ...formData,
+          clientLogo: null
+        });
       } else {
-        setFileError(''); // Clear any previous file size error
-        setLogo(file);
-        setFileName(file.name); // Update file name state
+        setFileError('');
+        setFileName(file.name);
+        setFormData({
+          ...formData,
+          clientLogo: file // Store the actual file object
+        });
       }
     } else {
       setFileError('');
       setFileName('');
+      setFormData({
+        ...formData,
+        clientLogo: null
+      });
     }
   };
 
@@ -60,17 +66,8 @@ export const Addclient = () => {
       case 'location':
         newErrors.location = value ? '' : 'Location is required.';
         break;
-      case 'email':
-        newErrors.email = /\S+@\S+\.\S+/.test(value) ? '' : 'Valid Email is required.';
-        break;
-      case 'gstNo':
-        newErrors.gstNo = value.length >= 10 ? '' : 'GST Number should be at least 10 digits.';
-        break;
       case 'phone':
         newErrors.phone = value.length === 10 ? '' : 'Phone Number should be 10 digits.';
-        break;
-      case 'adharNumber':
-        newErrors.adharNumber = value.length === 12 ? '' : 'Aadhar Number should be 12 digits.';
         break;
       default:
         break;
@@ -78,62 +75,21 @@ export const Addclient = () => {
     setErrors(newErrors);
   };
 
-  const handleLogoUpload = async () => {
-    if (!logo) {
-      setUploadStatus('Please select an image file.');
-      return null;
-    }
-
-    const formData = new FormData();
-    formData.append('client-logo', logo);
-    formData.append('imageType', 'Logo');
-
-    try {
-      const response = await api.post(
-        '/api/admin/clientLogoUpload',
-        formData,
-        {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-            'authorization': `${token}`, // Use the token from useAuth hook
-          },
-        }
-      );
-      setUploadStatus(`Image uploaded successfully! Image name: ${response.data.imagename}`);
-      return response.data.imagename; // Assuming the response includes the image name
-    } catch (error) {
-      setUploadStatus('Error uploading the image.');
-      console.error('Error uploading logo:', error);
-      return null;
-    }
-  };
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!validateForm()) return;
 
-    let clientLogoKey = '';
-    if (!logo) {
-      setLogoError('Logo is required.');
-      return;
-    }
-
-    if (logo) {
-      clientLogoKey = await handleLogoUpload();
-      if (!clientLogoKey) return; // If logo upload failed, exit the function
-    }
-
-    // Navigate to Clientservice and pass the client details via state
+    // Pass the client details including the file object to the next component
     navigate('/admin/SHRA/clientservice', {
       state: {
         clientDetails: {
           client_name: formData.clientName,
-          client_logo: clientLogoKey,
+          client_logo: formData.clientLogo, // Pass the file object here
           client_email: formData.email,
           client_mobile: formData.phone,
           client_Location: formData.location,
           client_govt_id: formData.adharNumber,
-          client_Plan: [], // Empty array for now, you can update this later
+          client_Plan: [],
           client_GST: formData.gstNo
         }
       }
@@ -142,14 +98,11 @@ export const Addclient = () => {
 
   const validateForm = () => {
     const newErrors = {};
-    const { clientName, location, email, gstNo, phone, adharNumber } = formData;
+    const { clientName, location, phone } = formData;
 
     if (!clientName) newErrors.clientName = 'Client Name is required.';
     if (!location) newErrors.location = 'Location is required.';
-    if (!email || !/\S+@\S+\.\S+/.test(email)) newErrors.email = 'Valid Email is required.';
-    if (!gstNo || gstNo.length < 10) newErrors.gstNo = 'GST Number should be at least 10 digits.';
     if (!phone || phone.length !== 10) newErrors.phone = 'Phone Number should be 10 digits.';
-    if (!adharNumber || adharNumber.length !== 12) newErrors.adharNumber = 'Aadhar Number should be 12 digits.';
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -183,17 +136,16 @@ export const Addclient = () => {
                 <span>
                   <img src={upload} alt="Upload" />
                   <h5>Upload</h5>
-                  <p className="file-name">{fileName}</p> {/* Display file name */}
+                  <p className="file-name">{fileName}</p>
                 </span>
               </label>
               <input
                 id="logo-upload"
                 type="file"
                 className="item"
-                onChange={handleLogo} // Attach handleLogo function
+                onChange={handleLogo}
               />
-              {fileError && <p className="error">{fileError}</p>} {/* Display file size error */}
-              {logoError && <p className="error">{logoError}</p>} {/* Display logo required error */}
+              {fileError && <p className="error">{fileError}</p>}
             </div>
             <div className="inputcontainer">
               <input
@@ -220,17 +172,6 @@ export const Addclient = () => {
             <div className="inputcontainer">
               <input
                 type="text"
-                placeholder="GST No"
-                className="item"
-                name="gstNo"
-                value={formData.gstNo}
-                onChange={handleChange}
-              />
-              {errors.gstNo && <p className="error">{errors.gstNo}</p>}
-            </div>
-            <div className="inputcontainer">
-              <input
-                type="text"
                 placeholder="Phone Number"
                 className="item"
                 name="phone"
@@ -242,7 +183,18 @@ export const Addclient = () => {
             <div className="inputcontainer">
               <input
                 type="text"
-                placeholder="Aadhar Number"
+                placeholder="GST No"
+                className="item"
+                name="gstNo"
+                value={formData.gstNo}
+                onChange={handleChange}
+              />
+              {errors.gstNo && <p className="error">{errors.gstNo}</p>}
+            </div>
+            <div className="inputcontainer">
+              <input
+                type="text"
+                placeholder="Aadhar No"
                 className="item"
                 name="adharNumber"
                 value={formData.adharNumber}
@@ -250,15 +202,12 @@ export const Addclient = () => {
               />
               {errors.adharNumber && <p className="error">{errors.adharNumber}</p>}
             </div>
+           <div className="addclient-submit">
+            <input type="submit" />
+           </div>
           </div>
-          <button type="submit" className="button">
-            Add Client
-          </button>
-          {uploadStatus && <p className="upload-status">{uploadStatus}</p>} {/* Display upload status */}
         </form>
       </div>
     </div>
   );
 };
-
-export default Addclient;

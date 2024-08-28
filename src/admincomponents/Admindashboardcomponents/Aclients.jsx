@@ -52,6 +52,27 @@ const Aclients = () => {
     setShowPopup(true);
   };
 
+  const deleteClient = async (clientId) => {
+    try {
+      await api.delete('/api/admin/deleteClient', {
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: token,
+        },
+        data: {
+          client_id: clientId,
+        },
+      });
+
+      // Refresh the client list after deletion
+      setClients(prevClients => prevClients.filter(client => client.client_id !== clientId));
+      alert('Client deleted successfully!');
+    } catch (error) {
+      console.error('Error deleting client:', error);
+      alert('Failed to delete client.');
+    }
+  };
+
   const downloadPDF = () => {
     const doc = new jsPDF('p', 'mm', 'a4');
     doc.setFontSize(12);
@@ -118,7 +139,13 @@ const Aclients = () => {
           </thead>
           <tbody>
             {clients.map((client) => (
-              <Clientrow key={client.client_id} client={client} openPopup={() => openPopup(client)} />
+              <Clientrow
+                key={client.client_id}
+                client={client}
+                onRefresh={() => setClients(clients.filter(c => c.client_id !== client.client_id))} // Pass refresh function
+                onDelete={deleteClient} // Pass delete function
+                openPopup={() => openPopup(client)}
+              />
             ))}
           </tbody>
         </table>

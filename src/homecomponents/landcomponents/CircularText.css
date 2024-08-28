@@ -31,7 +31,7 @@
 .circularspan {
     position: absolute;
     left: 50%;
-    transform-origin: 0px 80px;
+    transform-origin: 0px 75px;
     transform-style: flat;
     text-transform: uppercase;
     font-weight: 900;
@@ -45,9 +45,9 @@
 
 .center-image {
     position: absolute;
-    top: 44%;
+    top: 34%;
 
-    left: 35%;
+    left: 33%;
     
     width: 60px; /* Adjust size as needed */
     height: 60px; /* Adjust size as needed */
