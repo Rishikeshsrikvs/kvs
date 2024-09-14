@@ -81,7 +81,7 @@
 .land1yearcontainer{
     color: white;
     display: flex;
-    padding: 0;
+    padding: 0 10%;
     background: linear-gradient(360deg, #18181E,#141414 0%, #2F2F2F 51.15%, #141414 100%);
 
     justify-content: space-between;
@@ -737,6 +737,7 @@
     }
     .landabouttext{
         font-size: 100%;
+        line-height: 30.48px;
     }
     .landaboutbtn {
         width: 180px;
@@ -918,11 +919,12 @@
     }
 
     .land1right img {
-        width: 100%;
+        width: 80%;
     }
 
     .land1yearcontainer {
         padding: 10%;
+        height: unset;
     }
 
     /* .landaboutcontainer {
@@ -949,18 +951,7 @@
    
    
  
-    .landwhyuscontainer{
-        
-    }
-  
-    .wyleft{
-       
-        
-    }
-    .wyright{
-        
-       
-    }
+
    
    
 }

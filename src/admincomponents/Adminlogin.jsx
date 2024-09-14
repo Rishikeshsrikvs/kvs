@@ -55,6 +55,7 @@ export const Adminlogin = () => {
               type="text"
               name="uname"
               value={username}
+              autocomplete="off"
               onChange={(e) => setUsername(e.target.value)}
               disabled={loading}  // Disable input while loading
             />
@@ -64,6 +65,7 @@ export const Adminlogin = () => {
             <input
               type="password"
               value={password}
+              autocomplete="off"
               onChange={(e) => setPassword(e.target.value)}
               disabled={loading}  // Disable input while loading
             />

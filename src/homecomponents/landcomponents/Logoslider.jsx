@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import api from '../../api/api';
 import './Logoslider.css';
-
+import Marquee from "react-fast-marquee";
 const Logoslider = () => {
   const [logos, setLogos] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -59,13 +59,14 @@ const Logoslider = () => {
 
   return (
     <div className="land1clientlogocontainer">
-      <div className="scrolling-wrapper">
-        {allLogos.map((logo, index) => (
-          <div className="scrolling" key={index}>
+    
+      <Marquee className="scrolling-wrapper" speed={70} pauseOnHover={"true"}>
+      {allLogos.map((logo, index) => (
+         
             <img src={logo} alt={`Logo ${index}`} />
-          </div>
+         
         ))}
-      </div>
+      </Marquee>
     </div>
   );
 };

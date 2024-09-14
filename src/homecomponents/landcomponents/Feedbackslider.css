@@ -86,11 +86,10 @@
 
 
 .landsider-wrapper {
-  display: flex;
-  width: max-content; /* Ensures wrapper adjusts to content size */
-  gap: 30px;
-  animation: marquee 50s linear infinite; /* Adjust speed based on content size */
+  
+  width: 100%; /* Ensures wrapper adjusts to content size */
 }
+ 
 
 .landfeedbackcard {
   border: 1px solid #ccc;
@@ -106,6 +105,7 @@
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
+  margin-right: 20px;
 }
 
 .landfeedback {

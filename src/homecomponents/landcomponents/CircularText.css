@@ -7,16 +7,27 @@
     height: 160px;
     margin: 0;
     padding: 0;
+    
 }
 .circularp {
     height: 160px;
     width: 160px;
-    position: relative;
+    position: absolute;
     animation: effect 10s linear infinite;
     text-align: center;
     border-radius: 50%;
-    margin: 0;
-    padding: 0;
+  
+}
+.centerlogocon{
+    
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
 }
 
 @keyframes effect {
@@ -45,12 +56,20 @@
 
 .center-image {
     position: absolute;
-    top: 34%;
-
-    left: 33%;
-    
+  
     width: 60px; /* Adjust size as needed */
     height: 60px; /* Adjust size as needed */
-    transform: translate(-50%, -50%);
+   
     animation: effect 5s  reverse infinite ;
+}
+
+@media (max-width: 768px){
+    .center-image {
+       
+        object-fit: contain;
+         /* Adjust size as needed */
+        height: 60px; /* Adjust size as needed */
+       
+        animation: effect 5s  reverse infinite ;
+    }
 }

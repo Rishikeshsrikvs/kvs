@@ -18,7 +18,7 @@ const CircularText = () => {
                     </span>
                 ))}
             </p>
-            <img src={center} alt="center logo" className="center-image" />
+            <div className="centerlogocon"><img src={center} alt="center logo" className="center-image" /></div>
         </div>
     );
 };

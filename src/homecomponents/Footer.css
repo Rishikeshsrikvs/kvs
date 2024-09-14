@@ -1,5 +1,5 @@
 .footermaincontainer {
-    height: 70vh;
+    height: 60vh;
     color: white;
     display: flex;
     padding-top: 60px;
@@ -17,7 +17,7 @@ padding: 25px;
     width: 45%;
 }
 
-.kvsdetails img {
+.footer-logo {
     width: 270px;
     margin: 0 auto;
 }
@@ -95,11 +95,21 @@ p.footnavhead {
     .footersm a{
         width: 30px;
     }
-   
+    .footer-logo {
+        width: 150px;
+        margin: 0 auto;
+    }
     .kvsdetails {
         width: 100%;
         text-align: center;
         margin-bottom: 20px;
+    }
+    .kvsdetails p{
+        font-size: 10px;
+    }
+    .footersm a{
+        width: 30px;
+        font-size: 10px;
     }
     .footnav, .footnavcenter, .footnavaddress {
         width: 50%;
@@ -113,12 +123,19 @@ p.footnavhead {
 
     .kvsdetails p {
         padding-left: 0;
-        font-size: 80%;
+        font-size: 10px;
+        line-height: 20px;
     }
 
    
+    .footnavleft,.footnavcenter{
+        gap: 13px;
+    }
+    .footnavaddress{
+        gap: 8px;
+    }
 
     .footnav p {
-        font-size: 100%;
+        font-size: 10px;
     }
 }

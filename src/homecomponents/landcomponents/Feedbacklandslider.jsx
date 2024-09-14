@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import api from '../../api/api';
 import './Feedbackslider.css';
+import Marquee from "react-fast-marquee";
 import fb1 from './../../assets/images/feedbackclient/cart.webp';
 import fb2 from './../../assets/images/feedbackclient/central.jpg';
 import fb3 from './../../assets/images/feedbackclient/eifil.jpg';
@@ -115,9 +116,13 @@ const Feedbacklandslider = () => {
           <p>We only do 3 things. But we do them really well.</p>
         </div>
         <div className='landfeedbackslider'>
-          <div className='landsider-wrapper'>
+         
+          <Marquee className="landsider-wrapper" speed={100} pauseOnHover={"true"}>
             {renderFeedbacks()}
-          </div>
+            </Marquee>
+
+         
+
         </div>
       </div>
       

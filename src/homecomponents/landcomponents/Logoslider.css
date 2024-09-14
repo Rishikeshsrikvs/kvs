@@ -2,24 +2,19 @@
   overflow: hidden;
   background-color: #141414;
   width: 100%;
-  padding-top: 5%;
+  padding:3% 0;
 }
 
 .scrolling-wrapper {
-  display: flex;
-  width: calc(100% * 2); /* Double the width to accommodate the duplicate */
-  animation: marquee 20s linear infinite; /* Adjust duration as needed */
+
+  width: 100%/* Double the width to accommodate the duplicate */
 }
 
-.scrolling-wrapper .scrolling {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: calc(100% / 2); /* Adjust width for each half of the loop */
-}
 
-.scrolling img {
+.scrolling-wrapper img {
   height: 120px;
+ 
+  object-fit: cover;
   margin-right: 30px; /* Space between logos */
 }
 
