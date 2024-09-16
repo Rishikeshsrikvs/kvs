@@ -10,6 +10,10 @@ const Career = () => {
   const [error, setError] = useState('');
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     const fetchJobs = async () => {
       try {
         const response = await api.get('/getjobs');

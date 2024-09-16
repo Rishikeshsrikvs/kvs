@@ -142,7 +142,7 @@ margin-top: 10px;
     color: white;
     outline: none;
     border: none;
-    width: 45%;
+    width: 55%;
     padding: 10px 20px;
 
     font-family: Outfit;
@@ -389,6 +389,9 @@ text-align: left;
 .cn3rightbtn:hover{
 background-color: #264AE0;
 color: white;
+}
+.cn3submit button{
+    border: 2ps solid red;
 }
 
 @media (max-width: 754px){

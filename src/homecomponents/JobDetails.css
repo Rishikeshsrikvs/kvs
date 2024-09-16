@@ -126,6 +126,8 @@
 
 .jdcard2 {
   transform: translateY(40%);
+  height: unset;
+  min-height: 300px;
 }
 
 .jdcard3 {

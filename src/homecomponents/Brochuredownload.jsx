@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect } from 'react';
 import "./Brochuredownload.css";
 import socialgif from './../assets/images/Brochureform/social.gif';
 import webgif from './../assets/images/Brochureform/web.gif';
@@ -7,6 +8,9 @@ import socialMediaPDF from './../assets/images/Brochureform/social brocure.pdf';
 import webDesignPDF from './../assets/images/Brochureform/WEBSITE BROCHURE.pdf';    // Importing the PDF file
 
 const Brochuredownload = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className='bdparent'>
       <div className="bdmain">

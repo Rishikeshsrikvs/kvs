@@ -13,7 +13,9 @@ const Blogs = () => {
     const [blogs, setBlogs] = useState([]);
     const [blogImages, setBlogImages] = useState({});
     const navigate = useNavigate();
-
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
     useEffect(() => {
         // Fetch blogs data
         api.get('/blogs')

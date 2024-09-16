@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import './JobDetails.css';
 import api from '../api/api';
@@ -10,7 +11,10 @@ const JobDetails = () => {
   const location = useLocation();
   const job = location.state?.job;
   const [resumeName, setResumeName] = useState('');
-
+   
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const [formData, setFormData] = useState({
     candidateName: '',

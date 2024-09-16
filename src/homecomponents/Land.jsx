@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Land.css';
 import CircularText from './landcomponents/CircularText';
@@ -21,7 +22,9 @@ import wsleftdown from './../assets/images/wsleftdown.png';
 import Logoslider from './landcomponents/Logoslider';
 export const Land = () => {
     const duration = 4000; // Animation duration in milliseconds
-
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
     return (
         <div className='landmaincontainer'>
             <div className="land1">
@@ -119,7 +122,7 @@ export const Land = () => {
                     </div>
                     <Blogland/>
                     <div className="landblogbtncn">
-                        <Link to="/blogs" className='landblogbtn'>Click For More Blogs</Link>
+                        <Link to="blogs" className='landblogbtn'>Click For More Blogs</Link>
                     </div>
                 </div>
                 <div className='landcontactusmain'>

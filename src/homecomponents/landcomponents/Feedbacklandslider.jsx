@@ -30,22 +30,17 @@ const Feedbacklandslider = () => {
             if (feedback.imageName) {
               try {
                 const imageResponse = await api.get(`/getProfileImage/${feedback.imageName}`, {
-                  responseType: 'blob' // Fetch image as a blob
+                  responseType: 'blob'
                 });
 
-                // Check if the blob is a valid image by checking its size and type
                 if (imageResponse.data.size > 0 && imageResponse.data.type.startsWith('image/')) {
                   const imageBlob = new Blob([imageResponse.data], { type: imageResponse.data.type });
                   const imageUrl = URL.createObjectURL(imageBlob);
-
                   return { ...feedback, imageUrl };
                 } else {
-                  console.warn(`Invalid image for feedback: ${feedback.client_name}`);
                   return { ...feedback, imageUrl: getRandomFallbackImage() };
                 }
-
               } catch (err) {
-                console.error('Error fetching image:', err);
                 return { ...feedback, imageUrl: getRandomFallbackImage() };
               }
             } else {
@@ -59,13 +54,11 @@ const Feedbacklandslider = () => {
       } catch (err) {
         setError('Error fetching feedback data.');
         setLoading(false);
-        console.error('Error fetching feedbacks:', err);
       }
     };
 
     fetchFeedbacks();
 
-    // Cleanup object URLs to prevent memory leaks
     return () => {
       feedbacks.forEach(feedback => {
         if (feedback.imageUrl && feedback.imageUrl.startsWith('blob:')) {
@@ -74,27 +67,6 @@ const Feedbacklandslider = () => {
       });
     };
   }, []);
-
-  const renderFeedbacks = () => {
-    return [...feedbacks, ...feedbacks].map((feedback, index) => (
-      <div className='landfeedbackcard' key={index}>
-        <div className='landfeedback'>{feedback.description}</div>
-        <div className='landclientcontainer'>
-          <div className='landclient'>
-            <img
-              src={feedback.imageUrl}
-              alt={feedback.client_name || 'Client Image'}
-              loading="lazy" // Lazy load images
-              onError={(e) => { e.target.src = getRandomFallbackImage(); }} // Fallback on image error
-            />
-            <span>
-              <h4>{feedback.name}</h4>
-            </span>
-          </div>
-        </div>
-      </div>
-    ));
-  };
 
   if (loading) {
     return <p>Loading...</p>;
@@ -106,26 +78,40 @@ const Feedbacklandslider = () => {
 
   return (
     <div className="landfeedbackmain">
-      
-        {/* <div className='landfeedback1'></div> */}
-        <div className='landfeedback2'></div>
-      
+      <div className='landfeedback2'></div>
       <div className="landfeedbacksub">
         <div className="landfeedbacktitle">
           <h1>What do we do exactly?</h1>
           <p>We only do 3 things. But we do them really well.</p>
         </div>
-        <div className='landfeedbackslider'>
-         
-          <Marquee className="landsider-wrapper" speed={100} pauseOnHover={"true"}>
-            {renderFeedbacks()}
-            </Marquee>
+        <Marquee className="landsider-wrapper" speed={90} pauseOnHover={true} >
+          {[...feedbacks, ...feedbacks].map((feedback, index) =>(
+            <div className='landfeedbackcard' key={index} >
+              <div className='landfeedback'>{feedback.description}</div>
+              <div className='landclientcontainer'>
+                <div className='landclient'>
+                  <img
+                    src={feedback.imageUrl}
+                    alt={feedback.client_name || 'Client Image'}
+                    loading="lazy"
+                    onError={(e) => { e.target.src = getRandomFallbackImage(); }}
+                  />
+                  <span>
+                    <h4>{feedback.name}</h4>
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
 
-         
+        {/* <h1>wsedfiwe</h1>
 
-        </div>
+        <h1>wsedfiwe</h1> */}
+
+        
+
+        </Marquee>
       </div>
-      
     </div>
   );
 };

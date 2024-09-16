@@ -1,15 +1,13 @@
-import React, { useRef } from 'react';
+
+
+
+import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import { Navigation, Pagination } from 'swiper/modules'; // Import necessary modules
+import "./Landproject.css";
 import ne from './../../assets/images/ne arrow.svg';
 import next from './../../assets/images/next.png';
 import pre from './../../assets/images/pre.png';
 import projectimage from './../../assets/images/blogland.png';
-import './Landproject.css';
 
 const Landproject = () => {
     const projects = [
@@ -23,8 +21,45 @@ const Landproject = () => {
         { title: 'App Development', description: 'Developing mobile applications tailored to your needs.', image: projectimage }
     ];
 
-    // Create a ref for Swiper instance
-    const swiperRef = useRef(null);
+    const itemsPerPage = 4;
+    const totalItems = projects.length;
+    const [currentIndex, setCurrentIndex] = useState(itemsPerPage);
+    const sliderRef = useRef(null);
+
+    const handleNext = () => {
+        setCurrentIndex((prevIndex) => prevIndex + 1);
+    };
+
+    const handlePrev = () => {
+        setCurrentIndex((prevIndex) => prevIndex - 1);
+    };
+
+    useEffect(() => {
+        const slider = sliderRef.current;
+
+        if (currentIndex >= totalItems + itemsPerPage) {
+            setTimeout(() => {
+                slider.style.transition = 'none';
+                setCurrentIndex(itemsPerPage); 
+            }, 500);
+        }
+
+        if (currentIndex <= 0) {
+            setTimeout(() => {
+                slider.style.transition = 'none';
+                setCurrentIndex(totalItems); 
+            }, 500);
+        }
+
+        slider.style.transition = 'transform 0.5s ease-in-out';
+        slider.style.transform = `translateX(-${currentIndex * 25}%)`;
+    }, [currentIndex, totalItems, itemsPerPage]);
+
+    const clonedProjects = [
+        ...projects.slice(-itemsPerPage), 
+        ...projects, 
+        ...projects.slice(0, itemsPerPage)
+    ];
 
     return (
         <div className="lprmain">
@@ -43,32 +78,14 @@ const Landproject = () => {
                             </Link>
                         </div>
                         <div className='arrowbtns'>
-                            <button className="prev-button"><img src={pre} alt="Previous" /></button>
-                            <button className="next-button"><img src={next} alt="Next" /></button>
+                            <button onClick={handlePrev}><img src={pre} alt="Previous" /></button>
+                            <button onClick={handleNext}><img src={next} alt="Next" /></button>
                         </div>
                     </div>
                 </div>
-
-                <Swiper
-                    className='landprojectcardcontainer'
-                    ref={swiperRef} // Attach Swiper instance to ref
-                    slidesPerView={3}
-                    spaceBetween={150}
-                    centeredSlides={true}
-                    autoplay={{
-                        delay: 1000,
-                        disableOnInteraction: false,
-                    }}
-                    navigation={{
-                        nextEl: '.next-button',
-                        prevEl: '.prev-button',
-                    }}
-                    loop={true}
-                    pagination={{ clickable: true }}
-                    modules={[Navigation, Pagination]} // Include the Navigation and Pagination modules
-                >
-                    {projects.map((project, index) => (
-                        <SwiperSlide key={index} className="landprojectcard">
+                <div className='landprojectcardcontainer' ref={sliderRef}>
+                    {clonedProjects.map((project, index) => (
+                        <div key={index} className="landprojectcard">
                             <div className="landprojectimagecon">
                                 <img className="landprojectimg" src={project.image} alt={project.title} />
                             </div>
@@ -76,9 +93,9 @@ const Landproject = () => {
                                 <h1>{project.title}</h1>
                                 <p>{project.description}</p>
                             </div>
-                        </SwiperSlide>
+                        </div>
                     ))}
-                </Swiper>
+                </div>
             </div>
         </div>
     );

@@ -107,7 +107,7 @@ export const Careerpost = () => {
           </div>
           <div className="cpsideinput">
             <label htmlFor="skills">SKILLS REQUIRED</label>
-            <input type="text" name="skills" value={formData.skills} onChange={handleChange} />
+            <input type="text" name="skills" maxlength="40" value={formData.skills} onChange={handleChange} />
           </div>
           <div className="cpsideinput">
             <label htmlFor="numberOfVacancies">NUMBER OF VACANCIES</label>
