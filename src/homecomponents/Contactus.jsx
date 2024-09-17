@@ -220,7 +220,7 @@ const Contactus = () => {
               <input type="text" name="name" value={friendFeedback.name} onChange={handleFriendInputChange} />
               {formErrors.name && <span className="error">{formErrors.name}</span>}
             </div>
-            <div className="cn3in">
+            <div className="cn3in cn3image">
               <label htmlFor="proname">Profile image</label>
               <div className="prodiv">
                 <label htmlFor="proname">

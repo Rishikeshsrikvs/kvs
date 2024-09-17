@@ -12,10 +12,10 @@
 
 
 .scrolling-wrapper img {
-  height: 120px;
+  height: 150px;
  
   object-fit: cover;
-  margin-right: 30px; /* Space between logos */
+  margin-right: 40px; /* Space between logos */
 }
 
 @keyframes marquee {

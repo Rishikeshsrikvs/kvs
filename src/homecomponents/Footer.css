@@ -26,20 +26,20 @@ padding: 25px;
     padding: 20px;
     padding-left: 30px;
     color: #9B9B9C;
-    font-size: 90%;
+    font-size: 14px;
     line-height: 25px;
 }
 
 .footersm {
     display: flex;
 
-    gap: 2%;
+    gap: 6%;
     padding-left: 10%;
 
     
 }
 .footersm a{
-    width: 30px;
+    width: 45px;
 }
 .footersm img {
     width: 100%;

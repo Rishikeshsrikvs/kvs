@@ -2,9 +2,9 @@ import React from 'react';
 import './Footer.css';
 import logo from './../assets/images/logo.png';
 import { Link } from 'react-router-dom';
-import fbicon from './../assets/images/footfb.png';
-import inicon from './../assets/images/footin.png';
-import instaicon from './../assets/images/footinsta.png';
+import fbicon from './../assets/images/face.svg';
+import inicon from './../assets/images/linked.svg';
+import instaicon from './../assets/images/insta.svg';
 
 export const Footer = () => {
   return (
