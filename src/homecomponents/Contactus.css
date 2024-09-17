@@ -348,7 +348,7 @@ text-align: left;
     background-color: #FBFBFB;
     color: #02081E;
     border: none;
-    border-radius: 10px;
+    border-radius: 6px;
     padding: 10px 20px;
     margin-top: 10px;
     outline: none;
@@ -380,8 +380,8 @@ text-align: left;
 
 }
 .cn3rightbtn{
-    background-color: white;
-    color: black;
+    background-color: #264AE0;
+    color: white;
     font-family: Outfit;
     font-size: 20px;
     font-weight: 700;
@@ -393,8 +393,8 @@ text-align: left;
 
 }
 .cn3rightbtn:hover{
-background-color: #264AE0;
-color: white;
+background-color: white;
+color: #264AE0;
 }
 .cn3submit button{
     border: 2ps solid red;
@@ -465,9 +465,17 @@ color: white;
 }
 .cn3left,.cn3right{
     width: 100%;
+    margin-top: 6vh;
 }
 .cn3rightbtn{
     margin-bottom: 20PX;
+}
+.cn3right P{
+    font-size: 14PX;
+    line-height: 23px
+}
+.cn3right   h1{
+    margin-bottom: 4px;
 }
 .feedback-tabs{
     margin-top: 20px;

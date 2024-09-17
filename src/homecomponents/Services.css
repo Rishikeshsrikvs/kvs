@@ -54,7 +54,14 @@
     line-height: 88.2px;
     text-align: center;
     text-transform: uppercase;
+    word-spacing: 10px;
 
+}
+.se2ts1{
+    color: #FF2567;
+}
+.se2ts2{
+    color: #1CE4F2;
 }
 .service2left{
     width: 15%;

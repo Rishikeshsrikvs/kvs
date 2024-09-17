@@ -84,33 +84,33 @@ const Feedbacklandslider = () => {
           <h1>What do we do exactly?</h1>
           <p>We only do 3 things. But we do them really well.</p>
         </div>
-        <Marquee className="landsider-wrapper" speed={90} pauseOnHover={true} >
-          {[...feedbacks, ...feedbacks].map((feedback, index) =>(
-            <div className='landfeedbackcard' key={index} >
-              <div className='landfeedback'>{feedback.description}</div>
-              <div className='landclientcontainer'>
-                <div className='landclient'>
-                  <img
-                    src={feedback.imageUrl}
-                    alt={feedback.client_name || 'Client Image'}
-                    loading="lazy"
-                    onError={(e) => { e.target.src = getRandomFallbackImage(); }}
-                  />
-                  <span>
-                    <h4>{feedback.name}</h4>
-                  </span>
-                </div>
-              </div>
-            </div>
-          ))}
+        <Marquee
+  className="landsider-wrapper"
+  speed={70}
+  pauseOnHover={true}
+  gradient={false} // Remove the gradient effect, which can sometimes create an illusion of stuttering
+  loop={0} // Infinite looping (already the default, but you can explicitly specify)
+>
+  {feedbacks.map((feedback, index) => (
+    <div className='landfeedbackcard' key={index}>
+      <div className='landfeedback'>{feedback.description}</div>
+      <div className='landclientcontainer'>
+        <div className='landclient'>
+          <img
+            src={feedback.imageUrl}
+            alt={feedback.client_name || 'Client Image'}
+            loading="lazy"
+            onError={(e) => { e.target.src = getRandomFallbackImage(); }}
+          />
+          <span>
+            <h4>{feedback.name}</h4>
+          </span>
+        </div>
+      </div>
+    </div>
+  ))}
+</Marquee>
 
-        {/* <h1>wsedfiwe</h1>
-
-        <h1>wsedfiwe</h1> */}
-
-        
-
-        </Marquee>
       </div>
     </div>
   );

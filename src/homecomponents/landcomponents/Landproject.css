@@ -194,6 +194,50 @@
     }
 
     .landprojectimg {
-        height: 120px;
+        height: 100%;
+        width:100% ;
     }
+    .landprojectcard {
+    
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-right: 20px;
+        width: 80% !important;
+        height: 320px;
+        margin-top: 18px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: azure;
+        transition: transform 0.3s ease-in-out;
+        
+    }
+    
+    .landprojectcard:hover {
+        transform: scale(1.03);
+    
+        box-shadow: #d17ae2 0px 0px 80px ;
+    }
+    
+    /* Card image container */
+    .landprojectimagecon {
+        height: 20vh;
+        margin-bottom: 20px;
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    
+    .landprojectimg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+    
 }

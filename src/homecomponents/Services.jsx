@@ -25,7 +25,7 @@ const Services = () => {
       <div className="service2main">
         <img src={ser2left} alt="" className="service2left" />
         <div className="ser2text">
-        Whatever the challenge, <br/> we have the solution
+        Whatever the <span className="se2ts1">challengers</span>, <br/> we have the <span className="se2ts2">solution</span>
         </div>
         <img src={ser2right} alt="" className="service2right" />
 

@@ -60,7 +60,7 @@
     width: 60px; /* Adjust size as needed */
     height: 60px; /* Adjust size as needed */
    
-    animation: effect 5s  reverse infinite ;
+    animation: effect 5s  reverse infinite  linear;
 }
 
 @media (max-width: 768px){

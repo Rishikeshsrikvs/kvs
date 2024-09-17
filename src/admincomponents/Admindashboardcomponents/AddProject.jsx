@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import api from '../../api/api';
 import './AddProjects.css';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../Auth/AuthContext';
 
 export const AddProject = () => {
+  const navigate = useNavigate();
   const [projectName, setProjectName] = useState('');
   const [projectEmail, setProjectEmail] = useState('');
   const [projectDescription, setProjectDescription] = useState('');
-  const [projectView, setProjectView] = useState(null);
+  const [projectImage1, setProjectImage1] = useState(null); // For first image
+  const [projectImage2, setProjectImage2] = useState(null); // For second image
   const [favorite, setFavorite] = useState(false);
   const [errors, setErrors] = useState({});
   const [successMessage, setSuccessMessage] = useState('');
@@ -30,12 +33,17 @@ export const AddProject = () => {
       formErrors.projectDescription = 'Project Description is required';
     }
 
-    if (!projectView) {
-      formErrors.projectView = 'Project View (Image) is required';
+    if (!projectImage1 || !projectImage2) {
+      formErrors.projectImages = 'Both images are required';
     }
 
     setErrors(formErrors);
     return Object.keys(formErrors).length === 0;
+  };
+
+  const handleImageChange = (e, setImage) => {
+    const file = e.target.files[0];
+    setImage(file);
   };
 
   const handleSubmit = async (e) => {
@@ -48,22 +56,19 @@ export const AddProject = () => {
     formData.append('projectName', projectName);
     formData.append('projectEmail', projectEmail);
     formData.append('projectDescription', projectDescription);
-    formData.append('project-view', projectView);
+    formData.append('project-images', projectImage1); // Append first image
+    formData.append('project-images', projectImage2); // Append second image
     formData.append('favourite', favorite);
-    
 
-  
-  
-    
     try {
       await api.post('/api/admin/projectUpload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
-          authorization: `${token}`, // Replace with actual token
+          authorization: `${token}`, // Ensure token is passed correctly
         },
       });
       setSuccessMessage('Project added successfully!');
-      resetForm();
+      resetForm(); // Reset form after success
     } catch (error) {
       console.error('Error adding project:', error);
       alert('Failed to add project.');
@@ -74,19 +79,20 @@ export const AddProject = () => {
     setProjectName('');
     setProjectEmail('');
     setProjectDescription('');
-    setProjectView(null);
+    setProjectImage1(null); // Reset first image
+    setProjectImage2(null); // Reset second image
     setFavorite(false);
     setErrors({});
   };
 
   return (
     <div className="addpromain">
-      <h2>Add New Project</h2>
-      <div className="backcon">
-        <button>back</button>
+      <h1>Add New Project</h1>
+      <div className="arpbackcon">
+        <button onClick={() => navigate(-1)}>back</button>
       </div>
-      <form onSubmit={handleSubmit} className='addprocon'>
-        <div>
+      <form onSubmit={handleSubmit} className="addprocon">
+        <div className="aprcard">
           <label>Project Name:</label>
           <input
             type="text"
@@ -96,7 +102,7 @@ export const AddProject = () => {
           />
           {errors.projectName && <p className="error">{errors.projectName}</p>}
         </div>
-        <div>
+        <div className="aprcard">
           <label>Project Email:</label>
           <input
             type="email"
@@ -106,35 +112,58 @@ export const AddProject = () => {
           />
           {errors.projectEmail && <p className="error">{errors.projectEmail}</p>}
         </div>
-        <div>
+        <div className="aprcard">
           <label>Project Description:</label>
           <textarea
+            maxlength="600"
             value={projectDescription}
             onChange={(e) => setProjectDescription(e.target.value)}
             required
           />
           {errors.projectDescription && <p className="error">{errors.projectDescription}</p>}
         </div>
-        <div>
-          <label>Project Image:</label>
-          <input
-            type="file"
-            onChange={(e) => setProjectView(e.target.files[0])}
-            required
-          />
-          {errors.projectView && <p className="error">{errors.projectView}</p>}
-        </div>
-        <div>
-          <label>
+        <div className="aprcard">
+          <label>Project Images:</label>
+          <div className="aprimg">
+            <label htmlFor="aprim1">Choose image 1</label>
+            <input
+              type="file"
+              id="aprim1"
+              accept="image/*"
+              onChange={(e) => handleImageChange(e, setProjectImage1)}
+              required
+            />
+            {projectImage1 && (
+              <span className="uploadedimgtext">{projectImage1.name}</span>
+            )}
+            {errors.projectImages && <p className="error">{errors.projectImages}</p>}
+          </div>
+          <div className="aprimg">
+            <label htmlFor="aprim2">Choose image 2</label>
+            <input
+              type="file"
+              id="aprim2"
+              accept="image/*"
+              onChange={(e) => handleImageChange(e, setProjectImage2)}
+              required
+            />
+            {projectImage2 && (
+              <span className="uploadedimgtext">{projectImage2.name}</span>
+            )}
+            {errors.projectImages && <p className="error">{errors.projectImages}</p>}
+          </div>
+          <div className="arpfav">
+            <label>FAVORITE</label>
             <input
               type="checkbox"
               checked={favorite}
               onChange={(e) => setFavorite(e.target.checked)}
             />
-            Favorite 
-          </label>
+          </div>
         </div>
-        <div className='addprobtn'><button type="submit">Add Project</button></div>
+        <div className="addprobtn">
+          <button type="submit">Add Project</button>
+        </div>
       </form>
       {successMessage && <p className="success">{successMessage}</p>}
     </div>

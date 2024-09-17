@@ -16,20 +16,23 @@ import seo from './../../assets/images/project/seo.jpg';
 import web from './../../assets/images/project/web.jpg';
 import app from './../../assets/images/project/app.jpg';
 import content from './../../assets/images/project/content.jpg';
-
-
+import ecom from './../../assets/images/project/ecom.jpg';
+import social from './../../assets/images/project/social.jpg';
+import ui from './../../assets/images/project/ui.png';
 import './Landproject.css';
 
 const Landproject = () => {
     const projects = [
-        { title: 'Social Media Management', description: 'Managing your brand’s presence on social media platforms.', image: projectimage },
+        { title: 'Website Design Development', description: 'We provide visual designs and mobile and web interface development.', image: web },
+        { title: 'App Development', description: 'Developing mobile applications tailored to your needs.', image: app },
+        { title: 'UI/UX Design', description: 'Crafting user-friendly interfaces and experiences.', image: ui },
+        { title: 'Social Media Management', description: 'Managing your brand’s presence on social media platforms.', image: social },
         { title: 'Digital Marketing', description: 'Effective digital marketing strategies to boost your brand.', image: digima },
         { title: 'SEO Optimization', description: 'Optimize your website for better search engine rankings.', image: seo },
         { title: 'Content Creation', description: 'Creating engaging content for your brand.', image: content },
-        { title: 'Website Design Development', description: 'We provide visual designs and mobile and web interface development.', image: web },
-        { title: 'E-commerce Development', description: 'We build scalable and secure e-commerce platforms.', image: projectimage },
-        { title: 'UI/UX Design', description: 'Crafting user-friendly interfaces and experiences.', image: projectimage },
-        { title: 'App Development', description: 'Developing mobile applications tailored to your needs.', image: app }
+        { title: 'E-commerce Development', description: 'We build scalable and secure e-commerce platforms.', image: ecom },
+       
+        
     ];
 
     // Create a ref for Swiper instance
@@ -74,6 +77,20 @@ const Landproject = () => {
                         prevEl: '.prev-button',
                     }}
                     loop={true}
+                    breakpoints={{
+                        320: {
+                            slidesPerView: 1, // 1 slide for mobile view
+                            spaceBetween: 20,
+                        },
+                        768: {
+                            slidesPerView: 2, // 2 slides for tablet view
+                            spaceBetween: 40,
+                        },
+                        1024: {
+                            slidesPerView: 4, // 4 slides for desktop view
+                            spaceBetween: 60,
+                        },
+                    }}
                     pagination={{ clickable: true }}
                     modules={[Navigation, Pagination]} // Include the Navigation and Pagination modules
                 >

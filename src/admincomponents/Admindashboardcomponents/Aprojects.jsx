@@ -9,63 +9,88 @@ export const Aprojects = () => {
   const [projects, setProjects] = useState([]);
   const [likedProjects, setLikedProjects] = useState([]);
   const navigate = useNavigate();
-  const token = useAuth();
+  const { token } = useAuth();
 
-  useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const response = await api.get('/api/admin/projects', {
-          headers: {
-            authorization: `${token}`,
-          },
-        });
-        setProjects(response.data);
-        setLikedProjects(response.data.filter(project => project.favorite));
-      } catch (error) {
-        console.error('Error fetching projects:', error);
-      }
-    };
-
-    fetchProjects();
-  }, []);
-
-  const handleLike = async (id, isLiked) => {
+  // Fetch projects from API
+  const fetchProjects = async () => {
     try {
-      await api.patch(`/api/admin/projects/${id}`, 
-      { favorite: isLiked }, 
-      {
+      const response = await api.get('/api/admin/projects', {
         headers: {
-          authorization: token, // Replace 'your_token_here' with the actual token
+          authorization: token,
         },
       });
-      setProjects(prevProjects =>
-        prevProjects.map(project =>
-          project.id === id ? { ...project, favorite: isLiked } : project
-        )
-      );
-      setLikedProjects(prevLikedProjects =>
-        isLiked
-          ? [...prevLikedProjects, projects.find(project => project.id === id)]
-          : prevLikedProjects.filter(project => project.id !== id)
-      );
+      console.log(response.data);
+      
+      setProjects(response.data);
+      setLikedProjects(response.data.filter(project => project.favorite));
+    } catch (error) {
+      console.error('Error fetching projects:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchProjects();
+  }, [token]);
+
+  // Handle like/unlike project
+  const handleLike = async (id, isLiked) => {
+    // Optimistically update the UI
+    setProjects(prevProjects =>
+      prevProjects.map(project =>
+        project._id === id ? { ...project, favourite: isLiked } : project
+      )
+    );
+
+    try {
+      const formData = new URLSearchParams();
+      formData.append('id', id);
+      formData.append('favourite', isLiked);
+
+      await api.put('/api/admin/uptoFav', formData, {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          authorization: token,
+        },
+      });
+
+      // Refetch projects after successful like/unlike
+      fetchProjects();
     } catch (error) {
       console.error('Error updating project like status:', error);
+      // Revert UI change if the request fails
+      setProjects(prevProjects =>
+        prevProjects.map(project =>
+          project._id === id ? { ...project, favourite: !isLiked } : project
+        )
+      );
     }
   };
 
   const handleProjectLike = (id, isLiked) => {
-    const project = projects.find(p => p.id === id);
-    if (project.favorite && isLiked === false) {
-      handleLike(id, false);
-    } else if (!project.favorite && isLiked === true && likedProjects.length < 4) {
-      handleLike(id, true);
-    } else if (!project.favorite && isLiked === true && likedProjects.length >= 4) {
-      alert('You can only like up to 4 projects.');
+    const project = projects.find(p => p._id === id);
+    if (project) {
+      if (project.favourite && !isLiked) {
+        handleLike(id, false);
+      } else if (!project.favourite && isLiked && likedProjects.length < 4) {
+        handleLike(id, true);
+      } else if (!project.favourite && isLiked && likedProjects.length >= 4) {
+        alert('You can only like up to 4 projects.');
+      }
     }
   };
+  const handleProjectdelete = async(id) => {
+    await api.delete(`/api/admin/project/${id}`, {
+      headers: {
+        authorization: token,
+      },
+    });
+    fetchProjects();
+  }
+
+
 
   const navigateToAddProject = () => {
-    navigate('/admin/SHRA/add-project'); // Update the path according to your routing setup
+    navigate('/admin/SHRA/add-project');
   };
 
   return (
@@ -78,9 +103,10 @@ export const Aprojects = () => {
       <div className="card-container">
         {projects.map(project => (
           <Project
-            key={project.id}
+            key={project._id}
             project={project}
             onLike={handleProjectLike}
+            onDelete={handleProjectdelete}
           />
         ))}
       </div>
