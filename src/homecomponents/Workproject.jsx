@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './Works.css';
 import rightbig from './../assets/images/workimages/work1rightbig.png';
 import rightsmall from './../assets/images/workimages/work1rightsmall.png';
@@ -6,7 +6,14 @@ import next from './../assets/images/next.png';
 import pre from './../assets/images/pre.png';
 import api from '../api/api';
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { Navigation, Pagination } from 'swiper/modules';
+
 const Workproject = () => {
+  const swiperRef = useRef(null);
   const [favprojects, setFavProjects] = useState([]);
   const [projectDetails, setProjectDetails] = useState([]);
 
@@ -25,15 +32,10 @@ const Workproject = () => {
     try {
       const detailsPromises = favprojects.map(async (project) => {
         const response = await api.get(`/getProject/${project._id}`);
-        console.log();
-        
         return response.data;
-
       });
       const allProjectDetails = await Promise.all(detailsPromises);
       setProjectDetails(allProjectDetails);
-    
-      
     } catch (error) {
       console.error('Error fetching project details:', error);
     }
@@ -48,39 +50,59 @@ const Workproject = () => {
       fetchProjects();
     }
   }, [favprojects]);
-  console.log(projectDetails);
+
   return (
-    <>
-      {projectDetails.length > 0 && projectDetails.map((project, index) => (
-        <div className="work2main" key={index}>
-          <div className="work2left">
-            <img className="w2imgbig" 
-              src={`${api.defaults.baseURL}/getProjectImage1/${project.projectImageName1}`} 
-              alt="Project Image 1" 
-            />
-            <img className="w2imgsm" 
-              src={`${api.defaults.baseURL}/getProjectImage2/${project.projectImageName2}`} 
-              alt="Project Image 2" 
-            />
-          </div>
-          <div className="work2right">
-            <h1 className="w2color">
-              software/<span>websites</span>
-            </h1>
-            <h1 className="w2normal">{project.projectName}</h1>
-            <p>{project.projectDescription}</p>
-            <div className="work2btn">
-              <img src={pre} alt="Previous" />
-              <img src={next} alt="Next" />
-            </div>
-          </div>
-        </div>
-      ))}
-    </>
+    <div className="work2maincontainer">
+      <Swiper
+        className="swiper-wrapper"
+        ref={swiperRef}
+        slidesPerView={1}
+        spaceBetween={60}
+        navigation={{
+          nextEl: '.nextproject',
+          prevEl: '.preproject',
+        }}
+        loop={true}
+        pagination={{ clickable: true }}
+        modules={[Navigation, Pagination]}
+      >
+        {projectDetails.length > 0 &&
+          projectDetails.map((project, index) => (
+            <SwiperSlide className="work2main" key={index} style={{ height: 'unset' }}>
+              <div className="work2left">
+                <img
+                  className="w2imgbig"
+                  src={`${api.defaults.baseURL}/getProjectImage1/${project.projectImageName1}`}
+                  alt="Project Image 1"
+                />
+                <img
+                  className="w2imgsm"
+                  src={`${api.defaults.baseURL}/getProjectImage2/${project.projectImageName2}`}
+                  alt="Project Image 2"
+                />
+              </div>
+              <div className="work2right">
+                <h1 className="w2color">
+                  software/<span>websites</span>
+                </h1>
+                <h1 className="w2normal">{project.projectName}</h1>
+                <p>{project.projectDescription}</p>
+              </div>
+            </SwiperSlide>
+          ))}
+      </Swiper>
+
+      {/* Navigation buttons outside the Swiper */}
+      <div className="work2btn">
+        <img className="preproject" src={pre} alt="Previous" />
+        <img className="nextproject" src={next} alt="Next" />
+      </div>
+    </div>
   );
 };
 
 export default Workproject;
+
 
 
 

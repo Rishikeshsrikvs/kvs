@@ -20,7 +20,7 @@ export const Aprojects = () => {
         },
       });
       console.log(response.data);
-      
+
       setProjects(response.data);
       setLikedProjects(response.data.filter(project => project.favorite));
     } catch (error) {
@@ -70,24 +70,30 @@ export const Aprojects = () => {
     const project = projects.find(p => p._id === id);
     if (project) {
       if (project.favourite && !isLiked) {
-        handleLike(id, false);
-      } else if (!project.favourite && isLiked && likedProjects.length < 4) {
+        // If the project is liked and the user wants to unlike it
+        if (likedProjects.length > 4) {
+          handleLike(id, false);
+        } else {
+          alert('You must like at least 4 projects.');
+        }
+      } else if (!project.favourite && isLiked && likedProjects.length < 10) {
+        // If the user wants to like the project and they haven't reached the limit
         handleLike(id, true);
-      } else if (!project.favourite && isLiked && likedProjects.length >= 4) {
-        alert('You can only like up to 4 projects.');
+      } else if (!project.favourite && isLiked && likedProjects.length >= 10) {
+        // If the user has reached the maximum limit of 10 likes
+        alert('You can only like up to 10 projects.');
       }
     }
   };
-  const handleProjectdelete = async(id) => {
+
+  const handleProjectdelete = async (id) => {
     await api.delete(`/api/admin/project/${id}`, {
       headers: {
         authorization: token,
       },
     });
     fetchProjects();
-  }
-
-
+  };
 
   const navigateToAddProject = () => {
     navigate('/admin/SHRA/add-project');

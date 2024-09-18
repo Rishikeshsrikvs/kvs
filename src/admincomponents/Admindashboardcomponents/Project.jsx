@@ -58,7 +58,7 @@ export const Project = ({ project, onLike , onDelete}) => {
       </div>
       <div className="projectdetails">
         <h3>{project.projectName}</h3>
-        <p>{project.projectEmail}</p>
+        
         <p>{project.projectDescription}</p>
         <button onClick={handleDelete}>delete</button>
       </div>

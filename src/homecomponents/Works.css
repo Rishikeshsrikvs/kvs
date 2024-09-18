@@ -114,11 +114,17 @@ margin: 4vh 0;
   
   /* work2 */
 
+  .work2maincontainer{
+    height: unset;
+    position: relative;
+  }
 .work2main{
-    height: 100vh;
+    height: 100vh !important;
+    width: 100vw ;
     display: flex;
     flex-direction: row;
     align-items: center;
+   
    
 }
 .work2left{
@@ -133,6 +139,8 @@ margin: 4vh 0;
 .w2imgbig{
     
   height: 500px;
+  width: 400px;
+  border-radius: 5px;
     
 }
 .w2imgsm{
@@ -141,14 +149,17 @@ margin: 4vh 0;
     right: 15%;
     bottom: -30px;
     height: 300px;
+    width: 200px;
+    border-radius: 5px;
+
 }
 .work2right{
     width: 55%;
     display: flex;
     flex-direction: column;
-    justify-content:space-around;
+    gap: 10px;
     height: 100%;
-    padding: 5% 0;
+    padding: 8% 0;
 }
 .w2color{
     font-size: 320%;
@@ -175,7 +186,12 @@ line-height: 85.31px;
     font-family: Outfit;
     color: #B127CB;
 }
-
+.work2btn {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    z-index: 123;
+}
 .work2btn  img{
     background-color: #2F2F2F;
     width: 50px;
@@ -183,6 +199,9 @@ line-height: 85.31px;
     margin: 20px;
     padding: 10px;
     border-radius: 50%;
+}
+.work2btn  img:hover{
+    background-color: black;
 }
 .work4main{
     height: 100vh;
@@ -337,6 +356,7 @@ margin: 0;
 .work2main{
     height: auto;
     gap: 30px;
+    height: 70vh;
     flex-direction: row-reverse;
     flex-direction: column;
 }
@@ -354,22 +374,35 @@ margin: 0;
     font-size: 270%;
 }
 .work2right > p{
+    width: 90%;
+    padding: 1%;
+    margin: 0 auto;
+    font-size: 13px;
+
+}
+.work2left{
+   
     width: 100%;
-    padding: 5%;
+    display: block;
+    height: 300px;
+    margin: 20px auto;
 }
 .w2imgsm{
-    width: 250px;
+    width: 200px;
     position: absolute;
-   
-    left: 30%;
+    right: unset;
+    left: 40%;
     top: 50px;
-    height: 300px;
+    height: 200px;
+   
 }
 
 .w2imgbig{
-    width: 250px;
-    margin-top: 20px;
-    height: 300px;
+    width: 200px;
+    position: absolute;
+    height: 200px;
+    left: 20%;
+    
       
   }
   .work4main{

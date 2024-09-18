@@ -152,6 +152,10 @@
     justify-content: center
 
 }
+.landaboutbtn:hover{
+    background-color: blue;
+    color: white;
+}
 .landaboutright{
     width: 50%;
     display: flex;

@@ -154,7 +154,7 @@ const Aclients = () => {
         <Link to="/admin/SHRA/add">
           <button>Add Clients</button>
         </Link>
-        <button onClick={downloadPDF}>Download</button>
+        {/* <button onClick={downloadPDF}>Download</button> */}
       </div>
 
       {showPopup && selectedClient && (
