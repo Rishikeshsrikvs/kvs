@@ -40,14 +40,17 @@
 }
 .invoicedetails{
     display: flex;
-    
+ 
     padding: 10px  5%;
     margin-top: 20px;
     gap: 10px;
     justify-content: space-between;
 }
-.rigtdetails{
+.rightdetails{
     display: flex;
+    width: 40%;
+    height: 100%;
+ 
     flex-direction: column;
     justify-content: space-evenly;
    
@@ -59,9 +62,10 @@
 }
 .rigtdetailsrow{
     display: flex;
-    width: 70%;
+    width: 100%;
+    
     margin-bottom: 5px;
-    justify-content: center;
+    
    
     
    
@@ -71,22 +75,31 @@
 
 .rigtdetailsrow .lb{
     width: 50%;
+    text-align: left;
    
 }
 .rigtdetailsrow .rb ,.rigtdetailsrow .dropdown-container {
    
-    padding: 5px;
    
-    width: 60%;
+  
     
+}
+.rigtdetailsrow .dropdown-container{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+     width: 40%;
 }
 .dropdown-container .rb{
     margin-top: 5px;
+    padding: 5px;
 }
 .rigtdetailsrow input.rb ,.rigtdetailsrow select.rb{
     outline: none;
     background-color: rgb(224, 219, 219);
     border: none;
+    width: 70px;
+    padding: 5px;
 }
 .rightdetailsrow input:focus{
     outline: none;
