@@ -10,7 +10,8 @@ import { Blogedit } from './admincomponents/Clientcomponents/Blogcomponents/Blog
 import { Careerpost } from './admincomponents/Careercomponents/Careerpost';
 import { Careerview } from './admincomponents/Careercomponents/Careerview';
 import { Invoice } from './admincomponents/Clientcomponents/Invoice';
-import { Clientservice } from './admincomponents/Clientcomponents/Clientservice';
+
+import Clientservice from './admincomponents/Clientcomponents/Clientservice';
 import { Careerresponse } from './admincomponents/Careercomponents/Careerresponse';
 import { ClientserviceEdit } from './admincomponents/Clientcomponents/ClientserviceEdit';
 import { AddProject } from './admincomponents/Admindashboardcomponents/AddProject';

@@ -102,8 +102,16 @@ export const Invoice = () => {
       console.error('Error generating invoice:', error);
     }
   };
-
+  const setBackgroundNone = () => {
+    const gstbtn = document.querySelector('#gstbtn');
+    gstbtn.style.display='none';
+    const elements = document.querySelectorAll('.rb');
+    elements.forEach(element => {
+      element.style.backgroundColor = 'white'; // or '' to reset to default
+    });
+  };
   const downloadPDF = () => {
+    setBackgroundNone();
     const downloadButton = document.querySelector('.downloadcon');
     if (downloadButton) downloadButton.style.display = 'none';
 
@@ -157,7 +165,7 @@ export const Invoice = () => {
             <h3>{clientData.client_id}</h3>
             <h3>{clientData.client_email}</h3>
             <h3>{clientData.client_Location}</h3>
-            <h3>GST: {clientData.client_GST}</h3>
+            <h3>GST No: {clientData.client_GST}</h3>
           </div>
           <div className="rightdetails">
             <div className="rigtdetailsrow"><span className="lb">Invoice No :</span><span className="rb"> {invoiceNumber}</span></div>
@@ -210,7 +218,7 @@ export const Invoice = () => {
                 onChange={(e) => setDueAmount(parseFloat(e.target.value))}
               />
             </div>
-            <div className="rigtdetailsrow">
+            <div className="rigtdetailsrow" id='gstbtn'>
               <span className="lb">Apply GST:</span>
               <input
                 type="checkbox"

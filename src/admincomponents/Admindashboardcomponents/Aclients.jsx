@@ -151,7 +151,7 @@ const Aclients = () => {
         </table>
       </div>
       <div className="clientbutton">
-        <Link to="/admin/SHRA/add">
+        <Link to="/admin/SHRA/clientservice">
           <button>Add Clients</button>
         </Link>
         {/* <button onClick={downloadPDF}>Download</button> */}
