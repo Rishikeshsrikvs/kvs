@@ -1,30 +1,30 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './Addclient.css';
-import { useAuth } from '../Auth/AuthContext';
-import upload from './../../assets/images/upload.png';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./Addclient.css";
+import { useAuth } from "../Auth/AuthContext";
+import upload from "./../../assets/images/upload.png";
 
 export const Addclient = () => {
   const navigate = useNavigate();
   const { token } = useAuth();
   const [formData, setFormData] = useState({
-    clientName: '',
-    location: '',
-    email: '',
-    phone: '',
-    gstNo: '',
-    adharNumber: '',
-    clientLogo: null // To store the selected file directly
+    clientName: "",
+    location: "",
+    email: "",
+    phone: "",
+    gstNo: "",
+    adharNumber: "",
+    clientLogo: null, // To store the selected file directly
   });
   const [errors, setErrors] = useState({});
-  const [fileName, setFileName] = useState('');
-  const [fileError, setFileError] = useState('');
+  const [fileName, setFileName] = useState("");
+  const [fileError, setFileError] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     });
     validateField(name, value);
   };
@@ -33,26 +33,26 @@ export const Addclient = () => {
     const file = e.target.files[0];
     if (file) {
       if (file.size > 1 * 1024 * 1024) {
-        setFileError('File size exceeds 1 MB.');
-        setFileName('');
+        setFileError("File size exceeds 1 MB.");
+        setFileName("");
         setFormData({
           ...formData,
-          clientLogo: null
+          clientLogo: null,
         });
       } else {
-        setFileError('');
+        setFileError("");
         setFileName(file.name);
         setFormData({
           ...formData,
-          clientLogo: file // Store the actual file object
+          clientLogo: file, // Store the actual file object
         });
       }
     } else {
-      setFileError('');
-      setFileName('');
+      setFileError("");
+      setFileName("");
       setFormData({
         ...formData,
-        clientLogo: null
+        clientLogo: null,
       });
     }
   };
@@ -60,14 +60,15 @@ export const Addclient = () => {
   const validateField = (name, value) => {
     let newErrors = { ...errors };
     switch (name) {
-      case 'clientName':
-        newErrors.clientName = value ? '' : 'Client Name is required.';
+      case "clientName":
+        newErrors.clientName = value ? "" : "Client Name is required.";
         break;
-      case 'location':
-        newErrors.location = value ? '' : 'Location is required.';
+      case "location":
+        newErrors.location = value ? "" : "Location is required.";
         break;
-      case 'phone':
-        newErrors.phone = value.length === 10 ? '' : 'Phone Number should be 10 digits.';
+      case "phone":
+        newErrors.phone =
+          value.length === 10 ? "" : "Phone Number should be 10 digits.";
         break;
       default:
         break;
@@ -80,7 +81,7 @@ export const Addclient = () => {
     if (!validateForm()) return;
 
     // Pass the client details including the file object to the next component
-    navigate('/admin/SHRA/clientservice', {
+    navigate("/admin/SHRA/clientservice", {
       state: {
         clientDetails: {
           client_name: formData.clientName,
@@ -90,9 +91,9 @@ export const Addclient = () => {
           client_Location: formData.location,
           client_govt_id: formData.adharNumber,
           client_Plan: [],
-          client_GST: formData.gstNo
-        }
-      }
+          client_GST: formData.gstNo,
+        },
+      },
     });
   };
 
@@ -100,9 +101,10 @@ export const Addclient = () => {
     const newErrors = {};
     const { clientName, location, phone } = formData;
 
-    if (!clientName) newErrors.clientName = 'Client Name is required.';
-    if (!location) newErrors.location = 'Location is required.';
-    if (!phone || phone.length !== 10) newErrors.phone = 'Phone Number should be 10 digits.';
+    if (!clientName) newErrors.clientName = "Client Name is required.";
+    if (!location) newErrors.location = "Location is required.";
+    if (!phone || phone.length !== 10)
+      newErrors.phone = "Phone Number should be 10 digits.";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -128,7 +130,9 @@ export const Addclient = () => {
                 value={formData.clientName}
                 onChange={handleChange}
               />
-              {errors.clientName && <p className="error">{errors.clientName}</p>}
+              {errors.clientName && (
+                <p className="error">{errors.clientName}</p>
+              )}
             </div>
             <div className="inputcontainer">
               <label htmlFor="logo-upload" className="item logolabel">
@@ -200,11 +204,13 @@ export const Addclient = () => {
                 value={formData.adharNumber}
                 onChange={handleChange}
               />
-              {errors.adharNumber && <p className="error">{errors.adharNumber}</p>}
+              {errors.adharNumber && (
+                <p className="error">{errors.adharNumber}</p>
+              )}
             </div>
-           <div className="addclient-submit">
-            <input type="submit" />
-           </div>
+            <div className="addclient-submit">
+              <input type="submit" />
+            </div>
           </div>
         </form>
       </div>

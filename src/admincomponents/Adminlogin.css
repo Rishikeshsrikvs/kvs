@@ -1,87 +1,84 @@
-.adminloginmaincon{
-    
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    padding: 50px;
-    height: 100vh;
-    background-size: 100% 100%;
-    background: url("https://srikvs-blog-image.s3.ap-south-1.amazonaws.com/MicrosoftTeams-image+(3).png");
+.adminloginmaincon {
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding: 50px;
+  height: 100vh;
+  background-size: 100% 100%;
+  background: url("https://srikvs-blog-image.s3.ap-south-1.amazonaws.com/MicrosoftTeams-image+(3).png");
 }
 .background-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures the video covers the entire container */
-    z-index: -1; /* Ensure video stays behind other content */
-  }
-.adminlogincon{
-    width: 37%;
-    background-color: rgb(250, 250, 250);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding:20px 20px;
-    border-radius: 7px;
-   
-    margin: 5.3% auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video covers the entire container */
+  z-index: -1; /* Ensure video stays behind other content */
 }
-.adminlogincon img{
-    width: 180px;
-    color:white;
-    filter: drop-shadow(0px 0px 10px white);
+.adminlogincon {
+  width: 37%;
+  background-color: rgb(250, 250, 250);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 20px;
+  border-radius: 7px;
+
+  margin: 5.3% auto;
 }
-.adminlogincon .title{
-    margin-top: 12px;
-    margin-bottom: 12px;
-    color: black;
+.adminlogincon img {
+  width: 180px;
+  color: white;
+  filter: drop-shadow(0px 0px 10px white);
 }
-.title h1{
-    font-size: 220%;
+.adminlogincon .title {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  color: black;
 }
-.title h5{
-    text-align: center;
-    margin-top: 10px;
+.title h1 {
+  font-size: 220%;
 }
-.formcon{
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    width: 75%;
-    
+.title h5 {
+  text-align: center;
+  margin-top: 10px;
+}
+.formcon {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 75%;
 }
 
-.inputcon{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
+.inputcon {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
 }
-.inputcon input{
-    width: 100%;
-    padding: 10px 10px;
-    border: none;
-    outline: none;
-    border-radius: 5px;
-    background-color: rgb(211, 212, 212);
+.inputcon input {
+  width: 100%;
+  padding: 10px 10px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  background-color: rgb(211, 212, 212);
 }
-.formcon label{
-    padding-left: 5px;
-    color: black;
+.formcon label {
+  padding-left: 5px;
+  color: black;
 }
-.formsubmit{
-    background-color: black;
-    color: white;
-    padding: 10px 10px;
-    border: none;
-    width: 150px;
-    outline: none;
-    margin: 0 auto;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    font-size: 100%;
+.formsubmit {
+  background-color: black;
+  color: white;
+  padding: 10px 10px;
+  border: none;
+  width: 150px;
+  outline: none;
+  margin: 0 auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-size: 100%;
 }
-

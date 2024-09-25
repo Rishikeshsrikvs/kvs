@@ -1,4 +1,5 @@
-import React from 'react';
+
+import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './BlogDetail.css';
 import api from '../../api/api';
@@ -7,7 +8,11 @@ const BlogDetail = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const { blog } = location.state || {}; // Access blog details from state
-
+    
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
+    
     const handleBackClick = () => {
         navigate(-1); // Go back to the previous page
     };

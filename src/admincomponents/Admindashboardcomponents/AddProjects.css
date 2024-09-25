@@ -1,103 +1,100 @@
-.addpromain{
-    height: 100vh;
-    width: 100%;
-    padding: 6%;
+.addpromain {
+  height: 100vh;
+  width: 100%;
+  padding: 6%;
 }
-.addpromain > h1{
-    font-size: 50px;
-    text-transform: uppercase;
+.addpromain > h1 {
+  font-size: 50px;
+  text-transform: uppercase;
 }
-.arpbackcon{
-    width: 95%;
-    text-align: right;
-    margin: 2vh auto;
+.arpbackcon {
+  width: 95%;
+  text-align: right;
+  margin: 2vh auto;
 }
-.arpbackcon button{
-    padding: 10px 30px;
-    background-color: black;
-    color: white;
-    font-size: 20px;
-    text-transform: uppercase;
-    border-radius: 5px;
+.arpbackcon button {
+  padding: 10px 30px;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase;
+  border-radius: 5px;
 }
-.addprocon{
-    display: flex;
-    flex-wrap: wrap;
-
+.addprocon {
+  display: flex;
+  flex-wrap: wrap;
 }
-.aprcard{
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    margin: 2vh auto;
-    gap: 10px;
+.aprcard {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin: 2vh auto;
+  gap: 10px;
 }
-.aprcard label{
-    text-transform: uppercase;
-    font-size: 20px;
-}
-
-.aprcard input{
-    width: 70%;
-    font-size: 20px;
-    padding: 5px;
-    background-color: azure;
-    border-radius: 5px;
-}
-.aprcard textarea{
-    height: 200px;
-    width: 70%;
-    font-size: 20px;
-    padding: 5px;
-    background-color: azure;
-    border-radius: 5px;
-    border: 1px solid black;
-}
-.aprimg{
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 30px;
-
-}
-.aprimg input{
-    display: none;
-}
-.aprimg p{
-    height: 40px;
-    width: 100%;
+.aprcard label {
+  text-transform: uppercase;
+  font-size: 20px;
 }
 
-.aprimg label{
-    background-color: black;
-    color: white;
-    width: 40%;
-    padding: 10px;
-    border-radius: 5px;
-  
+.aprcard input {
+  width: 70%;
+  font-size: 20px;
+  padding: 5px;
+  background-color: azure;
+  border-radius: 5px;
 }
-.arpfav{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 20px;
+.aprcard textarea {
+  height: 200px;
+  width: 70%;
+  font-size: 20px;
+  padding: 5px;
+  background-color: azure;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+.aprimg {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+.aprimg input {
+  display: none;
+}
+.aprimg p {
+  height: 40px;
+  width: 100%;
+}
+
+.aprimg label {
+  background-color: black;
+  color: white;
+  width: 40%;
+  padding: 10px;
+  border-radius: 5px;
+}
+.arpfav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
 }
 .arpfav input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
-  }
-.addprobtn{
-    width: 100%;
-    margin-top: 30px;
-    text-align: center;
+  width: 20px;
+  height: 20px;
 }
-.addprobtn button{
-    background-color: black;
-    color: white;
-    padding: 10px 30px;
-    font-size: 20px;
-    text-transform: uppercase;
-    border: none;
+.addprobtn {
+  width: 100%;
+  margin-top: 30px;
+  text-align: center;
 }
-.addprobtn button:hover{
-    background-color: gray;
+.addprobtn button {
+  background-color: black;
+  color: white;
+  padding: 10px 30px;
+  font-size: 20px;
+  text-transform: uppercase;
+  border: none;
+}
+.addprobtn button:hover {
+  background-color: gray;
 }

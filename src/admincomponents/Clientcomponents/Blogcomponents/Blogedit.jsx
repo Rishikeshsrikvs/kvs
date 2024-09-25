@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import upload from './../../../assets/images/upload.png';
-import api from '../../../api/api'; // Import Axios for API calls
-import { useAuth } from '../../Auth/AuthContext';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import upload from "./../../../assets/images/upload.png";
+import api from "../../../api/api"; // Import Axios for API calls
+import { useAuth } from "../../Auth/AuthContext";
 
 export const Blogedit = () => {
-  const [blogTitle, setBlogTitle] = useState('');
-  const [blogDescription, setBlogDescription] = useState('');
-  const [fileName, setFileName] = useState('');
-  const [fileSrc, setFileSrc] = useState('');
+  const [blogTitle, setBlogTitle] = useState("");
+  const [blogDescription, setBlogDescription] = useState("");
+  const [fileName, setFileName] = useState("");
+  const [fileSrc, setFileSrc] = useState("");
   const [file, setFile] = useState(null); // Store the file for upload
   const [preview, setPreview] = useState(false);
   const { token } = useAuth();
@@ -36,51 +36,51 @@ export const Blogedit = () => {
   // Function to handle blog publish
   const handlePublish = async () => {
     const formData = new FormData();
-    formData.append('blogTitle', blogTitle);
-    formData.append('blogDescription', blogDescription);
-    formData.append('blog-image', file);
+    formData.append("blogTitle", blogTitle);
+    formData.append("blogDescription", blogDescription);
+    formData.append("blog-image", file);
 
     try {
-      const response = await api.post(
-        '/api/admin/blogUpload',
-        formData,
-        {
-          headers: {
-            authorization: `${token}`,
-            'Content-Type': 'multipart/form-data',
-          },
-        }
-      );
-      alert('Blog uploaded successfully!');
+      const response = await api.post("/api/admin/blogUpload", formData, {
+        headers: {
+          authorization: `${token}`,
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      alert("Blog uploaded successfully!");
 
       // Reset the form after successful upload
-      setBlogTitle('');
-      setBlogDescription('');
-      setFileName('');
-      setFileSrc('');
+      setBlogTitle("");
+      setBlogDescription("");
+      setFileName("");
+      setFileSrc("");
       setFile(null);
       setPreview(false);
 
       // Reset the file input field
-      const fileInput = document.getElementById('inputfile');
+      const fileInput = document.getElementById("inputfile");
       if (fileInput) {
-        fileInput.value = '';
+        fileInput.value = "";
       }
     } catch (error) {
-      alert('Failed to upload blog');
+      alert("Failed to upload blog");
       console.error(error);
     }
   };
 
   return (
-    <div className='editblogmaincontainer'>
+    <div className="editblogmaincontainer">
       <div className="ebtitle">
         <Link to="/admin/SHRA/dashboard/blogs">
           <button>BACK TO MAINPAGE</button>
         </Link>
         <div className="btnleft">
-          <button className='prebtn' onClick={handlePreview}>PREVIEW</button>
-          <button className='pubbtn' onClick={handlePublish}>PUBLISH</button>
+          <button className="prebtn" onClick={handlePreview}>
+            PREVIEW
+          </button>
+          <button className="pubbtn" onClick={handlePublish}>
+            PUBLISH
+          </button>
         </div>
       </div>
       <div className="subtitle">
@@ -89,30 +89,32 @@ export const Blogedit = () => {
       <div className="blogcontainer">
         <div className="leftcon">
           <label>Blog Title:</label>
-          <input 
-            type="text" 
+          <input
+            type="text"
             value={blogTitle}
             onChange={(e) => setBlogTitle(e.target.value)}
             placeholder="Enter blog title"
           />
           <label>Blog Description:</label>
-          <textarea 
+          <textarea
             value={blogDescription}
             onChange={(e) => setBlogDescription(e.target.value)}
             placeholder="Enter blog description"
           />
-          <label htmlFor="inputfile" className='inputblogfile'>
+          <label htmlFor="inputfile" className="inputblogfile">
             <img src={upload} alt="" />
             <span>Choose a file</span>
           </label>
-          <input 
-            id="inputfile" 
-            type="file" 
-            className='inputfile-hidden' 
-            onChange={handleFileChange} 
+          <input
+            id="inputfile"
+            type="file"
+            className="inputfile-hidden"
+            onChange={handleFileChange}
           />
           <div className="filenamecontainer">
-            {fileName && <div className="filename">Selected file: {fileName}</div>}
+            {fileName && (
+              <div className="filename">Selected file: {fileName}</div>
+            )}
           </div>
         </div>
         <div className="rightcon">
@@ -121,7 +123,13 @@ export const Blogedit = () => {
               <div className="subtitle">Blog Preview:</div>
               <div className="filecontent">
                 <h2>{blogTitle}</h2>
-                {fileSrc && <img src={fileSrc} alt="Uploaded Preview" className="uploaded-image" />}
+                {fileSrc && (
+                  <img
+                    src={fileSrc}
+                    alt="Uploaded Preview"
+                    className="uploaded-image"
+                  />
+                )}
                 <p>{blogDescription}</p>
               </div>
             </div>

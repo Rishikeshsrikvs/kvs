@@ -1,423 +1,378 @@
-.workparentcontainer{
-    background-color: #141414;
-    color: white;
-    overflow-x: hidden;
+.workparentcontainer {
+  background-color: #141414;
+  color: white;
+  overflow-x: hidden;
 }
-.work1main{
-    height: 100vh;
-    position: relative;
-    background: linear-gradient(to top,#241c29 20%,#141414) no-repeat bottom/100% 50%;
+.work1main {
+  height: 100vh;
+  position: relative;
+  background: linear-gradient(to top, #241c29 20%, #141414) no-repeat
+    bottom/100% 50%;
 }
-.work1rect{
-    
-    width: 100%;
-    height: 85vh;
-    position: absolute;
+.work1rect {
+  width: 100%;
+  height: 85vh;
+  position: absolute;
 }
-.work1mainsub{
-    height: 85vh;
-    display: flex;
-    flex-direction: row;
-   padding-top: 20vh;
-   width: 100%;
-    color: white;
-    justify-content: center;
-    position: absolute;
+.work1mainsub {
+  height: 85vh;
+  display: flex;
+  flex-direction: row;
+  padding-top: 20vh;
+  width: 100%;
+  color: white;
+  justify-content: center;
+  position: absolute;
 }
-.work1left{
-    width: 30%;
-    position: relative;
-
-}
-
-.w1lb,.w1ls,.w1rb,.w1rs{
-    position: absolute;
-    
-}
-.w1ls{
- right: 0;
- bottom: 0;
-}
-.w1rs{
-    left: 0;
-    bottom: 0;
-}
-.w1lb,.w1rb{
-    left: 50%;
-    right: 50%;
-    transform: translateX(-50%);
+.work1left {
+  width: 30%;
+  position: relative;
 }
 
-.work1center{
-    width: 25%;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
+.w1lb,
+.w1ls,
+.w1rb,
+.w1rs {
+  position: absolute;
 }
-.work1center h1{
-    font-family: Playfair Display;
-font-size: 64px;
-font-weight: 600;
-line-height: 80.64px;
-text-align: center;
-
+.w1ls {
+  right: 0;
+  bottom: 0;
 }
-.work1center h1 span{
-    font-family: Playfair Display;
-font-size: 64px;
-font-style: italic;
-font-weight: 600;
-line-height: 85.31px;
-text-align: center;
-
+.w1rs {
+  left: 0;
+  bottom: 0;
 }
-.work1center p{
-font-family: Outfit;
-font-size: 110%;
-font-weight:lighter;
-line-height: 18.9px;
-text-align: center;
-padding: 3% 20%;
-margin: 4vh 0;
-
-}
-.work1center .work1btn{
-    text-align: center;
-    padding:3px 20px ;
-    padding-top: 5px;
-    display: inline-block;
-    border-radius: 30px;
-    font-size: 110%;
-    
-
+.w1lb,
+.w1rb {
+  left: 50%;
+  right: 50%;
+  transform: translateX(-50%);
 }
 
-.work1right{
-    width: 30%;
-    position: relative;
+.work1center {
+  width: 25%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.work1center h1 {
+  font-family: Playfair Display;
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 80.64px;
+  text-align: center;
+}
+.work1center h1 span {
+  font-family: Playfair Display;
+  font-size: 64px;
+  font-style: italic;
+  font-weight: 600;
+  line-height: 85.31px;
+  text-align: center;
+}
+.work1center p {
+  font-family: Outfit;
+  font-size: 110%;
+  font-weight: lighter;
+  line-height: 18.9px;
+  text-align: center;
+  padding: 3% 20%;
+  margin: 4vh 0;
+}
+.work1center .work1btn {
+  text-align: center;
+  padding: 3px 20px;
+  padding-top: 5px;
+  display: inline-block;
+  border-radius: 30px;
+  font-size: 110%;
+}
+
+.work1right {
+  width: 30%;
+  position: relative;
 }
 .arrow {
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    display: inline-block;
-    padding: 3px;
-    transform: rotate(45deg);
-    margin-top: -5px;
-    line-height: auto;
-    -webkit-transform: rotate(45deg);
-  }
-  
-  /* ------------------------ */
-  
-  /* work2 */
-
-  .work2maincontainer{
-    height: unset;
-    position: relative;
-  }
-.work2main{
-    height: 100vh !important;
-    width: 100vw ;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-   
-   
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  margin-top: -5px;
+  line-height: auto;
+  -webkit-transform: rotate(45deg);
 }
-.work2left{
-    width: 45%;
-    position: relative;
-    display: flex;
-    justify-content:center;
-    align-items: center;
-    
 
+/* ------------------------ */
+
+/* work2 */
+
+.work2maincontainer {
+  height: unset;
+  position: relative;
 }
-.w2imgbig{
-    
+.work2main {
+  height: 100vh !important;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.work2left {
+  width: 45%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.w2imgbig {
   height: 500px;
   width: 400px;
   border-radius: 5px;
-    
 }
-.w2imgsm{
-    position: absolute;
-   
-    right: 15%;
-    bottom: -30px;
-    height: 300px;
-    width: 200px;
-    border-radius: 5px;
+.w2imgsm {
+  position: absolute;
 
+  right: 15%;
+  bottom: -30px;
+  height: 300px;
+  width: 200px;
+  border-radius: 5px;
 }
-.work2right{
-    width: 55%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    height: 100%;
-    padding: 8% 0;
+.work2right {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  padding: 8% 0;
 }
-.w2color{
-    font-size: 320%;
-    line-height: 50.4px;
-    letter-spacing: 2px;
-
+.w2color {
+  font-size: 320%;
+  line-height: 50.4px;
+  letter-spacing: 2px;
 }
-.w2normal{
-    font-family: Playfair Display;
-font-size: 64px;
-font-style: italic;
-font-weight: 700;
-line-height: 85.31px;
-
-
+.w2normal {
+  font-family: Playfair Display;
+  font-size: 64px;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 85.31px;
 }
-.work2right > p{
-    width: 65%;
-    font-size: 120%;
-    line-height: 24px;
-    letter-spacing: 2px;
+.work2right > p {
+  width: 65%;
+  font-size: 120%;
+  line-height: 24px;
+  letter-spacing: 2px;
 }
-.w2color span{
-    font-family: Outfit;
-    color: #B127CB;
+.w2color span {
+  font-family: Outfit;
+  color: #b127cb;
 }
 .work2btn {
-    position: absolute;
-    bottom: 5%;
-    left: 50%;
-    z-index: 123;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  z-index: 123;
 }
-.work2btn  img{
-    background-color: #2F2F2F;
-    width: 50px;
-    height: 50px;
-    margin: 20px;
-    padding: 10px;
-    border-radius: 50%;
+.work2btn img {
+  background-color: #2f2f2f;
+  width: 50px;
+  height: 50px;
+  margin: 20px;
+  padding: 10px;
+  border-radius: 50%;
 }
-.work2btn  img:hover{
-    background-color: black;
+.work2btn img:hover {
+  background-color: black;
 }
-.work4main{
-    height: 100vh;
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-
+.work4main {
+  height: 100vh;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
 }
-.work4cards{
-    width: 33.33%;
-    overflow: hidden;
-    text-align: center;
-    
-
+.work4cards {
+  width: 33.33%;
+  overflow: hidden;
+  text-align: center;
 }
-.work4cards img{
-    width: 100%;
-    height: 100%;
+.work4cards img {
+  width: 100%;
+  height: 100%;
 }
-.work4cardfinal{
-    display: flex;
-    width: 33.33%;
-    align-items: center;
-    box-sizing: border-box;
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-    
-   
-
+.work4cardfinal {
+  display: flex;
+  width: 33.33%;
+  align-items: center;
+  box-sizing: border-box;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
 }
-.work4cardfinal h1{
-    padding: 5px 20px;
-    width: 50%;
-    font-weight: lighter;
-    white-space: nowrap;
-    
+.work4cardfinal h1 {
+  padding: 5px 20px;
+  width: 50%;
+  font-weight: lighter;
+  white-space: nowrap;
 }
-.work4cardfinal h1 span{
-    font-family: Playfair Display;
-    font-size: 40px;
-    font-style: italic;
-    font-weight: 600;
-    line-height: 53.32px;
-    text-align: center;
-
+.work4cardfinal h1 span {
+  font-family: Playfair Display;
+  font-size: 40px;
+  font-style: italic;
+  font-weight: 600;
+  line-height: 53.32px;
+  text-align: center;
 }
-.workflexbtn{
-    border-radius: 35px;
-    border:1px solid white;
-    padding: 10px 15px;
-    margin-top: 20px;
-    
+.workflexbtn {
+  border-radius: 35px;
+  border: 1px solid white;
+  padding: 10px 15px;
+  margin-top: 20px;
 }
-.workflexbtn:hover{
-    background:linear-gradient(145deg,#ff99a2,#e406b5,#35088A);
-    border-color: #141414;
-  
+.workflexbtn:hover {
+  background: linear-gradient(145deg, #ff99a2, #e406b5, #35088a);
+  border-color: #141414;
 }
 
-
-@media (max-width: 768px){
-.workparentcontainer{
+@media (max-width: 768px) {
+  .workparentcontainer {
     padding-top: 90px;
-}
-    .work1main{
+  }
+  .work1main {
     height: 95vh;
-
-}
-.work1mainsub{
-    
-    
+  }
+  .work1mainsub {
     flex-direction: column;
-}
-.work1mainsub>div{
+  }
+  .work1mainsub > div {
     width: 100%;
     padding: 10px 0;
-}
-.w1lb,.w1rb{
+  }
+  .w1lb,
+  .w1rb {
     width: 45%;
     height: 80%;
-}
-.w1ls,.w1rs{
+  }
+  .w1ls,
+  .w1rs {
     width: 35%;
-}
-.w1ls{
+  }
+  .w1ls {
     right: 10px;
     bottom: 2px;
-   }
-   .w1rs{
-       left: 10px;
-       bottom: 0;
-   }
-.work1left{
+  }
+  .w1rs {
+    left: 10px;
+    bottom: 0;
+  }
+  .work1left {
     height: 400px;
-    
-    
-}
-.work1center{
+  }
+  .work1center {
     height: 300px;
 
     justify-content: center;
     font-size: 80%;
     gap: 0;
-    
-    
-
-}
-.work1center h1{
-   
-font-size: 44px;
-font-weight: 600;
-line-height: 50.64px;
-text-align: center;
-
-}
-.work1center h1 span{
-font-family: Playfair Display;
-font-size: 46px;
-font-style: italic;
-font-weight: 600;
-line-height: 0;
-text-align: center;
-padding: 10px;
-
-}
-.work1center p{
-font-family: Outfit;
-
-font-weight:lighter;
-line-height: 18.9px;
-text-align: center;
-padding: 3% 20%;
-margin: 0;
-
-
-}
-.work1center .work1btn{
+  }
+  .work1center h1 {
+    font-size: 44px;
+    font-weight: 600;
+    line-height: 50.64px;
     text-align: center;
-    padding:3px 20px ;
+  }
+  .work1center h1 span {
+    font-family: Playfair Display;
+    font-size: 46px;
+    font-style: italic;
+    font-weight: 600;
+    line-height: 0;
+    text-align: center;
+    padding: 10px;
+  }
+  .work1center p {
+    font-family: Outfit;
+
+    font-weight: lighter;
+    line-height: 18.9px;
+    text-align: center;
+    padding: 3% 20%;
+    margin: 0;
+  }
+  .work1center .work1btn {
+    text-align: center;
+    padding: 3px 20px;
     padding-top: 5px;
     display: inline-block;
     border-radius: 30px;
     font-size: 110%;
-    
-
-}
-.work1right{
+  }
+  .work1right {
     height: 400px;
-   
-}
-.work2main{
+  }
+  .work2main {
     height: auto;
     gap: 30px;
     height: 70vh;
     flex-direction: row-reverse;
     flex-direction: column;
-}
-.work2left{
+  }
+  .work2left {
     width: 100%;
-}
-.work2right{
+  }
+  .work2right {
     width: 100%;
     text-align: center;
-}
-.w2color{
+  }
+  .w2color {
     font-size: 270%;
-}
-.w2normal{
+  }
+  .w2normal {
     font-size: 270%;
-}
-.work2right > p{
+  }
+  .work2right > p {
     width: 90%;
     padding: 1%;
     margin: 0 auto;
     font-size: 13px;
-
-}
-.work2left{
-   
+  }
+  .work2left {
     width: 100%;
     display: block;
     height: 300px;
     margin: 20px auto;
-}
-.w2imgsm{
+  }
+  .w2imgsm {
     width: 200px;
     position: absolute;
     right: unset;
     left: 40%;
     top: 50px;
     height: 200px;
-   
-}
+  }
 
-.w2imgbig{
+  .w2imgbig {
     width: 200px;
     position: absolute;
     height: 200px;
     left: 20%;
-    
-      
   }
-  .work4main{
+  .work4main {
     flex-wrap: nowrap;
     height: auto;
     flex-direction: column;
   }
-  .work4cards{
+  .work4cards {
     width: 100%;
     height: 220px;
   }
-  .work4cardfinal{
+  .work4cardfinal {
     height: 220px;
-   
+
     width: 100%;
-    
   }
 }

@@ -41,11 +41,11 @@
     border-bottom: none;
   }
    */
-.jobdetailparent{
+.jobdetailparent {
   background-color: #141414;
-  color: #FFFFFF;
+  color: #ffffff;
 }
-.jd1main{
+.jd1main {
   height: 100vh;
   width: 100%;
   display: flex;
@@ -53,7 +53,7 @@
   justify-content: flex-end;
   padding: 3%;
 }
-.jd1main >h1{
+.jd1main > h1 {
   font-family: Outfit;
   font-size: 110px;
   font-weight: 900;
@@ -62,31 +62,31 @@
   text-transform: uppercase;
   white-space: nowrap;
 }
-.jd4titleback1{
+.jd4titleback1 {
   margin-left: 4%;
   margin-right: 2%;
 }
-.jd4titleback1 img{
+.jd4titleback1 img {
   height: 130px;
 }
-.jd4titleback2 img{
+.jd4titleback2 img {
   height: 50px;
 }
-.jd2main{
+.jd2main {
   height: 100vh;
   padding: 2%;
 }
-.jd2cardcon{
+.jd2cardcon {
   width: 100%;
   height: 100%;
-  
+
   padding: 2%;
 }
 .jd2main {
   width: 100%;
   text-align: center;
   display: flex;
-  
+
   flex-direction: column;
 }
 
@@ -105,7 +105,9 @@
 }
 
 .jdcard1,
-.jdcard2,.jdcard3,.jdcard4 {
+.jdcard2,
+.jdcard3,
+.jdcard4 {
   background-color: transparent;
   height: 300px;
   border-radius: 10px;
@@ -115,7 +117,7 @@
   align-items: center;
   font-size: 1.5rem;
   color: white;
-  border: 1px solid #FFFFFF40;
+  border: 1px solid #ffffff40;
   padding: 10px 20px;
 }
 
@@ -126,8 +128,8 @@
 
 .jdcard2 {
   transform: translateY(40%);
-  height: unset;
-  min-height: 300px;
+  /* height: unset;
+  min-height: 300px; */
 }
 
 .jdcard3 {
@@ -137,77 +139,82 @@
 .jdcard4 {
   transform: translateY(80%);
 }
-.jdline{
+.jdline {
   width: 80%;
   height: 3px;
-  background-color:#FFFFFF40;
+  background-color: #ffffff40;
 }
-.jdskillcon{
+.jdskillcon {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
 }
-.jdskillcon h2{
+.jdskillcon::-webkit-scrollbar {
+  display: none;
+}
+
+.jdskillcon h2 {
   width: 100%;
-  font-size: 80%;
+  font-size: 90%;
+  line-height: 40px;
 }
-.jd3dcon{
-width: 80%;
-overflow-x: hidden;
+.jd3dcon {
+  width: 80%;
+  overflow-x: hidden;
 }
-.jd3dcon pre{
+.jd3dcon pre {
   font-size: 100%;
-  font-family:outfit ;
+  font-family: outfit;
 }
-.jd3main{
+.jd3main {
   height: auto;
   padding: 4%;
 }
-.jd3dcon{
+.jd3dcon {
   width: 100%;
- 
-  
+
   padding: 4%;
 }
-#resumejd4in{
+#resumejd4in {
   display: none;
 }
-.jd4main{
+.jd4main {
   width: 100%;
   height: auto;
   padding: 2%;
-  
 }
-.jd4back1{
+.jd4back1 {
   position: absolute;
   z-index: 4;
   width: 180px;
-  height:auto;
+  height: auto;
   top: -50px;
   left: -30px;
 }
-.jd4back1 img{
-  width:100%;
+.jd4back1 img {
+  width: 100%;
   height: 100%;
-  
 }
-.jd4back2{
+.jd4back2 {
   position: absolute;
   width: 200px;
   z-index: 1;
   bottom: -30px;
   right: -40px;
 }
-.jd4back2 img{
+.jd4back2 img {
   width: 100%;
   height: 100%;
 }
 .jd4sub {
-  width:90%;
+  width: 90%;
   height: 90%;
 
-  
   position: relative;
   margin: 0 auto;
   padding: 20px;
@@ -215,7 +222,7 @@ overflow-x: hidden;
   border-radius: 2px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   background-color: #f9f9f9;
-  
+
   color: #141414;
   display: flex;
   flex-direction: column;
@@ -225,14 +232,12 @@ overflow-x: hidden;
 
 .jd4sub h1 {
   text-align: center;
- 
+
   margin-bottom: 20px;
   font-family: Outfit;
   font-size: 64px;
   font-weight: 700;
   line-height: 80.64px;
-  
-
 }
 
 .jd4in {
@@ -243,18 +248,18 @@ overflow-x: hidden;
 .jd4in label {
   display: block;
   margin-bottom: 5px;
- 
+
   font-family: Outfit;
   font-size: 30px;
   font-weight: 500;
-  
-  text-align: left;
 
+  text-align: left;
 }
 
 .jd4in input[type="text"],
 .jd4in input[type="email"],
-.jd4in input[type="tel"],.jd4in input[type="url"] {
+.jd4in input[type="tel"],
+.jd4in input[type="url"] {
   width: 100%;
   padding: 8px;
   box-sizing: border-box;
@@ -262,10 +267,8 @@ overflow-x: hidden;
   font-size: 20px;
   background-color: transparent;
   border-bottom: 1px solid #000000;
-  
-  
 }
-input:focus{
+input:focus {
   outline: none;
 }
 /* .jd4resume {
@@ -276,8 +279,8 @@ input:focus{
   align-items: left;
   
 } */
-.education-section{
- padding: 10px 20px;
+.education-section {
+  padding: 10px 20px;
   background-color: #c7bfbf;
 }
 .jd4resume input[type="file"] {
@@ -287,7 +290,7 @@ input:focus{
 .jd4resume label {
   background-color: #333;
   color: #fff;
-  
+
   display: inline-block;
   padding: 8px 16px;
   border-radius: 5px;
@@ -296,11 +299,9 @@ input:focus{
   font-family: Outfit;
   font-size: 25px;
   font-weight: 500;
-  
- 
-
 }
-.removeedu,.addedu{
+.removeedu,
+.addedu {
   background-color: #333;
   color: white;
   font-size: 100%;
@@ -308,26 +309,23 @@ input:focus{
   border: none;
   padding: 5px 10px;
 }
-.removeedu{
+.removeedu {
   margin-top: 5px;
 }
 .jd4submit {
   display: block;
-  
+
   padding: 10px;
   background-color: #6200ee;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 18px;
   font-family: Outfit;
- 
+
   font-weight: 500;
   text-transform: nowrap;
-  
-  
-
 }
 
 .jd4submit:hover {
@@ -335,119 +333,114 @@ input:focus{
 }
 @media (max-width: 1200px) {
   .jd2cardcon {
-      grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (max-width: 900px) {
   .jd2cardcon {
-      grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 754px) {
-  
-  .jd1main{
+  .jd1main {
     height: 40vh;
     padding-top: 140px;
   }
-  .jd1main >h1{
+  .jd1main > h1 {
     font-size: 30px;
     line-height: 40.28px;
   }
-  .jd4titleback1 img{
+  .jd4titleback1 img {
     height: 50px;
   }
-  .jd4titleback2 img{
+  .jd4titleback2 img {
     height: 20px;
   }
-  .jd2main{
+  .jd2main {
     height: auto;
   }
   .jd2main > h1 {
     font-size: 20px;
-    margin-left :20px
+    margin-left: 20px;
   }
-  .jd2cardcon{
+  .jd2cardcon {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     height: auto;
-    justify-content:space-between;
+    justify-content: space-between;
   }
   .jd2cardcon {
     grid-template-columns: 1fr;
-}
-.jd2cardcon 
-.jdcard1,
-.jdcard2 {
+  }
+  .jd2cardcon .jdcard1,
+  .jdcard2 {
     transform: none;
-}
+  }
   .jd2cardcon > div {
-  background-color: transparent;
-  height: 200px;
-  width: 47%;
-  padding: 5px;
-  margin-bottom: 20px;
-  justify-content: space-evenly;
-  transform: none;
-}
-.jdskillcon h2{
-  font-size: 10px;
-}
-.jd2cardcon > div>h1{
-  font-size: 15px;
-
-}
-.jd3main{
-  padding-bottom: 40px;
-}
-.jd3dcon pre,.jd3dcon p{
-  font-size: 60%;
-}
-.jd4sub > h1{
-  font-size: 34px;
-}
-.jd4in {
-  margin-bottom: 7px;
-  width: 90%;
-}
-.jd4in label{
-  font-size: 20px;
-  margin-bottom: 2px;
-}
-.jd4in input[type="text"],
-.jd4in input[type="email"],
-.jd4in input[type="tel"],
-.jd4in input[type="url"] {
-
-  font-size: 10px;
-
-}
-.jd4submit{
-  font-size: 10px;
-  padding: 5px;
-
-}
-  .jd4resume  label,.removeedu,.addedu{
+    background-color: transparent;
+    height: 200px;
+    width: 47%;
+    padding: 5px;
+    margin-bottom: 20px;
+    justify-content: space-evenly;
+    transform: none;
+  }
+  .jdskillcon h2 {
+    font-size: 10px;
+  }
+  .jd2cardcon > div > h1 {
+    font-size: 15px;
+  }
+  .jd3main {
+    padding-bottom: 40px;
+  }
+  .jd3dcon pre,
+  .jd3dcon p {
+    font-size: 60%;
+  }
+  .jd4sub > h1 {
+    font-size: 34px;
+  }
+  .jd4in {
+    margin-bottom: 7px;
+    width: 90%;
+  }
+  .jd4in label {
+    font-size: 20px;
+    margin-bottom: 2px;
+  }
+  .jd4in input[type="text"],
+  .jd4in input[type="email"],
+  .jd4in input[type="tel"],
+  .jd4in input[type="url"] {
+    font-size: 10px;
+  }
+  .jd4submit {
+    font-size: 10px;
+    padding: 5px;
+  }
+  .jd4resume label,
+  .removeedu,
+  .addedu {
     font-size: 10px;
     padding: 4px 8px;
   }
-  .jd4back1{
+  .jd4back1 {
     position: absolute;
     z-index: 4;
     width: 60px;
-    height:auto;
+    height: auto;
     top: -50px;
     left: -30px;
   }
-  .jd4back2{
+  .jd4back2 {
     position: absolute;
     width: 60px;
     z-index: 1;
     bottom: -30px;
     right: -40px;
   }
-  
-
 }

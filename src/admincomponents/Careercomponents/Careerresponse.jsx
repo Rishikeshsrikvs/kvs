@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import api from '../../api/api';
-import { useParams, Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import api from "../../api/api";
+import { useParams, Link } from "react-router-dom";
 
 export const Careerresponse = () => {
   const { jobId } = useParams(); // Extract jobId from the URL
@@ -9,14 +9,14 @@ export const Careerresponse = () => {
   useEffect(() => {
     const fetchJobResponses = async () => {
       try {
-        const response = await api.get('/jobs'); // Replace with your JSON server URL
+        const response = await api.get("/jobs"); // Replace with your JSON server URL
         const jobs = response.data;
-        const job = jobs.find(job => job.jobId === jobId);
+        const job = jobs.find((job) => job.jobId === jobId);
         if (job && job.response) {
           setResponses(job.response);
         }
       } catch (error) {
-        console.error('Error fetching job responses:', error);
+        console.error("Error fetching job responses:", error);
       }
     };
 
@@ -24,13 +24,15 @@ export const Careerresponse = () => {
   }, [jobId]);
 
   return (
-    <div className='responsecontainer'>
+    <div className="responsecontainer">
       <div className="reshead">
         <div className="restitle">
           <h2>RESPONSE FOR THE POST</h2>
           <h3>Manage Jobs And Response</h3>
         </div>
-        <Link to="/admin/SHRA/jobs"><button>BACK TO MENU</button></Link>
+        <Link to="/admin/SHRA/jobs">
+          <button>BACK TO MENU</button>
+        </Link>
       </div>
       <div className="resmaincon">
         <table>
@@ -46,14 +48,22 @@ export const Careerresponse = () => {
             </tr>
           </thead>
           <tbody>
-            {responses.map(response => (
+            {responses.map((response) => (
               <tr key={response.applicantId}>
                 <td>{response.applicantId}</td>
                 <td>{response.applicantName}</td>
                 <td>{response.location}</td>
                 <td>{response.experience}</td>
                 <td>{response.email}</td>
-                <td><a href={response.resume} target="_blank" rel="noopener noreferrer">View Resume</a></td>
+                <td>
+                  <a
+                    href={response.resume}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View Resume
+                  </a>
+                </td>
                 <td>{response.phone}</td>
               </tr>
             ))}

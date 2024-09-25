@@ -1,98 +1,103 @@
-.maincontainer{
-    
-    border-radius: 10px;
-    
-    height: 90%;
-    
-    
+.maincontainer {
+  border-radius: 10px;
+
+  height: 90%;
 }
-.actitle{
-    text-align: right;
-   
-    
+.actitle {
+  text-align: right;
 }
 
-.actitle span{
-    padding: 10px 9%;
-    display:inline-block;
-    background-color: blue;
-    color: white;
-    border-radius: 5px 5px 0px 0px;
-    font-size: 120%;
+.actitle span {
+  padding: 10px 9%;
+  display: inline-block;
+  background-color: blue;
+  color: white;
+  border-radius: 5px 5px 0px 0px;
+  font-size: 120%;
 }
-.container{
-    padding: 6%;
-    height: 100%;
-    border-radius: 5px 0 5px 5px;
-    background-color: rgb(224, 223, 222);
-
+.container {
+  padding: 6%;
+  height: 100%;
+  border-radius: 5px 0 5px 5px;
+  background-color: rgb(224, 223, 222);
 }
-.container table{
-    width: 100%;
-    font-size: 90%;
-    border: none;
-    border-collapse: collapse;
-    
+.container table {
+  width: 100%;
+  font-size: 90%;
+  border: none;
+  border-collapse: collapse;
 }
-.clientrow{
-    
-    width: 100%;
-    padding: 20px;
+.clientrow {
+  width: 100%;
+  padding: 20px 10px;
 }
-.container tr:nth-child(even) {background-color: #f2f2f2;}
-.container th,td{
-    padding: 10px 4%;
-    text-align: left;
-    padding: 8px;
-    text-align: left;
+.container tr:nth-child(even) {
+  background-color: #f2f2f2;
 }
-.renewbt{
-    border: none;
-    background-color: red;
-    color: white;
-    padding: 5px 8px;
-    margin-right: 5px;
+.container th,
+td {
+  padding: 10px 4%;
+  text-align: left;
+  padding: 8px;
+  text-align: left;
 }
-.clientbutton{
-    padding: 10px 20px;
-    display: flex;
-    justify-content: end;
-    gap: 20px;
-
+.container th {
+  text-align: center;
 }
-.clientbutton button{
-    padding: 5px 10px;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    background-color: #4766E9;
+.renewbt {
+  border: none;
+  background-color: blue;
+  color: white;
+  padding: 5px 8px;
+  margin: 3px auto;
+  width: 70%;
 }
-
-
+.dltbtn {
+  border: none;
+  background-color: red;
+  color: white;
+  padding: 5px 8px;
+  margin: 3px auto;
+  width: 70%;
+}
+.clientbutton {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: end;
+  gap: 20px;
+}
+.clientbutton button {
+  padding: 8px 20px;
+  color: white;
+  border: none;
+  font-size: 20px;
+  border-radius: 4px;
+  background-color: black;
+}
 
 .popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .popup {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    position: relative;
-    width: 80%;
-    max-width: 600px;
-  }
-  
-  .popup button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+  width: 80%;
+  max-width: 600px;
+}
+
+.popup button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}

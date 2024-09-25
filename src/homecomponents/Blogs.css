@@ -1,136 +1,127 @@
 .blogparent {
-    background: #141414;
-    overflow-x: hidden;
-    overflow-y: hidden; /* Added to prevent vertical scroll */
-    color: #FFFFFF;
-    height: auto;
-    
+  background: #141414;
+  overflow-x: hidden;
+  overflow-y: hidden; /* Added to prevent vertical scroll */
+  color: #ffffff;
+  height: auto;
 }
 
 .blog1main {
-    position: relative;
-    height: 400px;
-    align-items: center;
-    justify-content: center;
-    margin-top: 10vh;
-    overflow: hidden; /* Ensure no overflow */
+  position: relative;
+  height: 400px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10vh;
+  overflow: hidden; /* Ensure no overflow */
 }
 
 .blog1back {
-    display: flex;
-    flex-direction: row;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    z-index: 4;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 4;
 }
 
 .blog1sub {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    z-index: 5;
-    width: 100%;
-    height: 100%;
-    background-color: #141414E5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  background-color: #141414e5;
 }
 
 .blog1back img {
-    flex-grow: 1;
-    width: 100%;
-    height: 100%; /* Make sure the images fill the height of the container */
-    object-fit: cover; /* Ensure images cover the container without causing overflow */
+  flex-grow: 1;
+  width: 100%;
+  height: 100%; /* Make sure the images fill the height of the container */
+  object-fit: cover; /* Ensure images cover the container without causing overflow */
 }
 
 .blog1sub h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 96px;
-    font-style: italic;
-    font-weight: 600;
-    line-height: 127.97px;
-    text-align: center;
-    white-space: nowrap;
+  font-family: "Playfair Display", serif;
+  font-size: 96px;
+  font-style: italic;
+  font-weight: 600;
+  line-height: 127.97px;
+  text-align: center;
+  white-space: nowrap;
 }
-  /* ----------------------- */
+/* ----------------------- */
 
-  .blog2latest{
-    height: auto;
-    padding: 10px;
+.blog2latest {
+  height: auto;
+  padding: 10px;
+}
+.blog2latest h2 {
+  padding-left: 10px;
+  padding-top: 10px;
+}
+.blogcon {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px 2%;
+}
+.blogcard {
+  height: 480px;
+  width: 23%;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  border-radius: 13px;
+  transition: transform 0.3s ease;
+}
+.blogcard:hover {
+  transform: scale(1.1);
+}
+.blogcardimg {
+  width: 100%;
 
-  }
-  .blog2latest h2{
-    padding-left: 10px;
-    padding-top: 10px;
-  }
-  .blogcon{
-   
-    display: flex;
-    justify-content: space-evenly;
-    padding: 20px 2%;
-    
+  padding: 4%;
+  height: 30vh;
+}
+.blogcardimg img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+.blogdetail {
+  color: #141414;
+  display: flex;
+  flex-direction: column;
+  padding: 4%;
+  flex: 1;
+  overflow-y: hidden;
+}
+.blogdetail .bgtiltle {
+  text-align: center;
+  font-size: 150%;
+  margin-bottom: 10px;
+}
 
+.blogdetail p {
+  overflow-y: hidden;
+  text-align: justify;
+  padding: 0 4%;
+}
+
+@media (max-width: 768px) {
+  .blog1main {
+    height: 200px;
   }
-  .blogcard{
-    height:480px ;
-    width: 23%;
-    background: #FFFFFF;
-    display: flex;
+  .blog1sub h1 {
+    font-size: 26px;
+    line-height: 40.97px;
+  }
+  .blogcon {
+    gap: 20px;
     flex-direction: column;
-    border-radius: 13px;
-
-
   }
-  .blogcardimg{
-   
+  .blogcard {
     width: 100%;
-    
-   padding: 4%;
-    height: 30vh;
-   
-    
   }
-  .blogcardimg img{
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-  }
-  .blogdetail{
-    color: #141414;
-    display: flex;
-    flex-direction: column;
-    padding: 4%;
-    flex: 1;
-    overflow-y: hidden;
-
-    
-  }
-  .blogdetail .bgtiltle{
-    text-align: center;
-    font-size: 150%;
-    margin-bottom: 10px;
-  }
-  
-  .blogdetail p{
-    overflow-y: hidden;
-    text-align: justify;
-    padding: 0 4%;
-  }
-
-  @media (max-width: 768px){
-    .blog1main{
-      height: 200px;
-    }
-    .blog1sub h1 {
-      font-size: 26px;
-      line-height: 40.97px;
-    }
-    .blogcon{
-      gap: 20px;
-      flex-direction: column;
-    }
-    .blogcard{
-      width: 100%;
-    }
-
-  }
+}

@@ -1,113 +1,114 @@
 .Clientservicemaincontainer {
-    padding: 20px 10%;
-    font-size: 120%;
-    background-color: rgb(207, 204, 204);
+  padding: 20px 10%;
+  font-size: 120%;
+  background-color: rgb(207, 204, 204);
 }
 
 .Clientservicecontainer {
-    background-color: white;
-    padding: 5%;
-    height: auto;
-    border-radius: 5px;
+  background-color: white;
+  padding: 5%;
+  height: auto;
+  border-radius: 5px;
 }
 
 .Clientservice-title {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .inputcontainer {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 .inputcontainer input {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
 .service1 {
-    display: flex;
+  display: flex;
 }
 
-.service1right, .service1left {
-    width: 50%;
+.service1right,
+.service1left {
+  width: 50%;
 }
 
 .checkcontainer {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding: 4%;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 4%;
+  justify-content: space-between;
 }
 
 .serinput {
-    display: flex;
-    margin-bottom: 10px;
-    width: 50%;
-    align-items: center;
+  display: flex;
+  margin-bottom: 10px;
+  width: 50%;
+  align-items: center;
 }
 
 .serinput input {
-    margin-right: 8px;
+  margin-right: 8px;
 }
 
 .serinput label {
-    font-size: 90%;
+  font-size: 90%;
 }
 
 .service-details {
-    padding: 7px;
+  padding: 7px;
 }
 
 .serviceselect {
-    display: flex;
-    gap: 2%;
+  display: flex;
+  gap: 2%;
 }
 
 .package-select {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .package-price {
-    margin-left: 10px;
-    font-weight: bold;
-    color: #333;
+  margin-left: 10px;
+  font-weight: bold;
+  color: #333;
 }
 
 .service-details h5 {
-    margin-bottom: 3px;
+  margin-bottom: 3px;
 }
 
 .discount {
-    width: 100%;
-    margin-top: 20px;
+  width: 100%;
+  margin-top: 20px;
 }
 
 .discount input {
-    background-color: rgb(192, 188, 188);
-    border: none;
-    outline: none;
-    height: 40px;
-    width: 50%;
-    padding: 13px 15px;
-    border-radius: 2px;
+  background-color: rgb(192, 188, 188);
+  border: none;
+  outline: none;
+  height: 40px;
+  width: 50%;
+  padding: 13px 15px;
+  border-radius: 2px;
 }
 
 .generate {
-    text-align: center;
-    margin-top: 20px;
+  text-align: center;
+  margin-top: 20px;
 }
 
 .Clientservicebuttoncontainer > button {
-    width: 200px;
-    font-size: 110%;
-    border: none;
-    color: white;
-    border-radius: 3px;
-    padding: 10px 20px;
-    background-color: #264AE0;
+  width: 200px;
+  font-size: 110%;
+  border: none;
+  color: white;
+  border-radius: 3px;
+  padding: 10px 20px;
+  background-color: #264ae0;
 }

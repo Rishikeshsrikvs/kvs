@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import api from '../../api/api';
-import { useNavigate, useParams } from 'react-router-dom';
-import { useAuth } from '../Auth/AuthContext';
-import './Clientserviceedit.css';
-import upload from './../../assets/images/upload.png';
+import React, { useState, useEffect } from "react";
+import api from "../../api/api";
+import { useNavigate, useParams } from "react-router-dom";
+import { useAuth } from "../Auth/AuthContext";
+import "./Clientserviceedit.css";
+import upload from "./../../assets/images/upload.png";
 
 export const ClientserviceEdit = () => {
   const navigate = useNavigate();
@@ -11,18 +11,18 @@ export const ClientserviceEdit = () => {
   const { clientId } = useParams();
 
   const [formData, setFormData] = useState({
-    clientName: '',
-    clientLogoKey: '',
-    email: '',
-    phone: '',
-    location: '',
-    adharNumber: '',
-    gst: '',
+    clientName: "",
+    clientLogoKey: "",
+    email: "",
+    phone: "",
+    location: "",
+    adharNumber: "",
+    gst: "",
     services: [],
   });
 
-  const [fileError, setFileError] = useState('');
-  const [error, setError] = useState('');
+  const [fileError, setFileError] = useState("");
+  const [error, setError] = useState("");
   const [originalData, setOriginalData] = useState({});
 
   useEffect(() => {
@@ -34,21 +34,21 @@ export const ClientserviceEdit = () => {
 
         const clientData = response.data.clientDetailes || {};
         const initialData = {
-          clientName: clientData.client_name || '',
-          clientLogoKey: clientData.client_logo || '',
-          email: clientData.client_email || '',
-          phone: clientData.client_mobile || '',
-          location: clientData.client_Location || '',
-          adharNumber: clientData.client_govt_id || '',
-          gst: clientData.client_GST || '',
+          clientName: clientData.client_name || "",
+          clientLogoKey: clientData.client_logo || "",
+          email: clientData.client_email || "",
+          phone: clientData.client_mobile || "",
+          location: clientData.client_Location || "",
+          adharNumber: clientData.client_govt_id || "",
+          gst: clientData.client_GST || "",
           services: clientData.client_Plan || [],
         };
 
         setFormData(initialData);
         setOriginalData(initialData);
       } catch (error) {
-        console.error('Error fetching client data:', error);
-        setError('Failed to load client data.');
+        console.error("Error fetching client data:", error);
+        setError("Failed to load client data.");
       }
     };
 
@@ -57,24 +57,24 @@ export const ClientserviceEdit = () => {
 
   const servicesList = [
     {
-      name: 'Social Media Marketing',
-      packages: [{ name: 'Elite' }, { name: 'Pro' }, { name: 'Standard' }],
+      name: "Social Media Marketing",
+      packages: [{ name: "Elite" }, { name: "Pro" }, { name: "Standard" }],
     },
     {
-      name: 'Search Engine Optimization',
-      packages: [{ name: 'Elite' }, { name: 'Pro' }, { name: 'Standard' }],
+      name: "Search Engine Optimization",
+      packages: [{ name: "Elite" }, { name: "Pro" }, { name: "Standard" }],
     },
     {
-      name: 'Web Development',
+      name: "Web Development",
       packages: [
-        { name: 'Static Plan' },
-        { name: 'Static Plus Plan' },
-        { name: 'Static Standard' },
-        { name: 'Standard Plan' },
-        { name: 'Standard Plus Plan' },
-        { name: 'Premium Plan' },
-        { name: 'Exclusive Plan' },
-        { name: 'Customised Plan' },
+        { name: "Static Plan" },
+        { name: "Static Plus Plan" },
+        { name: "Static Standard" },
+        { name: "Standard Plan" },
+        { name: "Standard Plus Plan" },
+        { name: "Premium Plan" },
+        { name: "Exclusive Plan" },
+        { name: "Customised Plan" },
       ],
     },
   ];
@@ -99,10 +99,10 @@ export const ClientserviceEdit = () => {
     const file = e.target.files[0];
     if (file) {
       if (file.size > 1 * 1024 * 1024) {
-        setFileError('File size exceeds 1 MB.');
-        setFormData({ ...formData, clientLogoKey: '' });
+        setFileError("File size exceeds 1 MB.");
+        setFormData({ ...formData, clientLogoKey: "" });
       } else {
-        setFileError('');
+        setFileError("");
         setFormData({ ...formData, clientLogoKey: file });
       }
     }
@@ -113,7 +113,10 @@ export const ClientserviceEdit = () => {
     if (checked) {
       setFormData((prevData) => ({
         ...prevData,
-        services: [...prevData.services, { name: value, package: '', amount: '' }],
+        services: [
+          ...prevData.services,
+          { name: value, package: "", amount: "" },
+        ],
       }));
     } else {
       setFormData((prevData) => ({
@@ -125,7 +128,7 @@ export const ClientserviceEdit = () => {
 
   const validateFormData = () => {
     if (JSON.stringify(formData) === JSON.stringify(originalData)) {
-      setError('No changes were made to update.');
+      setError("No changes were made to update.");
       return false;
     }
     return true;
@@ -155,24 +158,28 @@ export const ClientserviceEdit = () => {
     };
 
     try {
-      const response = await api.put(`/api/admin/clientUpdate/${clientId}`, clientData, {
-        headers: { authorization: token },
-        'Content-Type': 'multipart/form-data',
-      });
+      const response = await api.put(
+        `/api/admin/clientUpdate/${clientId}`,
+        clientData,
+        {
+          headers: { authorization: token },
+          "Content-Type": "multipart/form-data",
+        }
+      );
 
       if (response.status === 200) {
         navigate(`/admin/SHRA/invoice`, { state: { client_id: clientId } });
       } else {
-        setError('Failed to update client.');
+        setError("Failed to update client.");
       }
     } catch (error) {
-      setError('Error connecting to server.');
-      console.error('Error:', error);
+      setError("Error connecting to server.");
+      console.error("Error:", error);
     }
   };
 
   return (
-    <div className='Clientservicemaincontainer'>
+    <div className="Clientservicemaincontainer">
       <div className="Clientservicecontainer">
         <form onSubmit={handleSubmit}>
           <div className="Clientservice-title">
@@ -197,14 +204,8 @@ export const ClientserviceEdit = () => {
                 <h5>Upload</h5>
               </span>
             </label>
-            <input
-              id="logo-upload"
-              type="file"
-              onChange={handleLogoChange}
-            />
-            {formData.clientLogoKey && (
-              <p>{formData.clientLogoKey.name}</p>
-            )}
+            <input id="logo-upload" type="file" onChange={handleLogoChange} />
+            {formData.clientLogoKey && <p>{formData.clientLogoKey.name}</p>}
           </div>
 
           <div className="inputcontainer">
@@ -257,7 +258,7 @@ export const ClientserviceEdit = () => {
             />
           </div>
 
-          <div className='service1'>
+          <div className="service1">
             <div className="service1left">
               <h4>Services</h4>
               <div className="checkcontainer">
@@ -266,7 +267,9 @@ export const ClientserviceEdit = () => {
                     <input
                       type="checkbox"
                       value={service.name}
-                      checked={formData.services.some((s) => s.name === service.name)}
+                      checked={formData.services.some(
+                        (s) => s.name === service.name
+                      )}
                       onChange={handleCheckboxChange}
                     />
                     <label>{service.name}</label>
@@ -276,41 +279,48 @@ export const ClientserviceEdit = () => {
             </div>
 
             <div className="service1right">
-              {formData.services.map((service, index) => (
-                service.name && (
-                  <div key={index} className="service-details">
-                    <h5>{service.name}</h5>
-                    <div className="serviceselect">
-                      <div className="package-select">
-                        <select
-                          name="package"
-                          value={service.package}
-                          onChange={(e) => handleServiceChange(index, e)}
-                        >
-                          <option value="">Select Package</option>
-                          {servicesList.find(s => s.name === service.name).packages.map((pkg, idx) => (
-                            <option key={idx} value={pkg.name}>{pkg.name}</option>
-                          ))}
-                        </select>
-                        <input
-                          type="text"
-                          name="amount"
-                          placeholder="Amount"
-                          value={service.amount}
-                          onChange={(e) => handleServiceChange(index, e)}
-                        />
+              {formData.services.map(
+                (service, index) =>
+                  service.name && (
+                    <div key={index} className="service-details">
+                      <h5>{service.name}</h5>
+                      <div className="serviceselect">
+                        <div className="package-select">
+                          <select
+                            name="package"
+                            value={service.package}
+                            onChange={(e) => handleServiceChange(index, e)}
+                          >
+                            <option value="">Select Package</option>
+                            {servicesList
+                              .find((s) => s.name === service.name)
+                              .packages.map((pkg, idx) => (
+                                <option key={idx} value={pkg.name}>
+                                  {pkg.name}
+                                </option>
+                              ))}
+                          </select>
+                          <input
+                            type="text"
+                            name="amount"
+                            placeholder="Amount"
+                            value={service.amount}
+                            onChange={(e) => handleServiceChange(index, e)}
+                          />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                )
-              ))}
+                  )
+              )}
             </div>
           </div>
 
           {error && <p className="error">{error}</p>}
 
           <div className="Clientservicebuttoncontainer">
-            <button type="submit" className="btn btn-primary">Update</button>
+            <button type="submit" className="btn btn-primary">
+              Update
+            </button>
           </div>
         </form>
       </div>

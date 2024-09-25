@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useAuth } from "../Auth/AuthContext";
-import upload from './../../assets/images/upload.png';
+import upload from "./../../assets/images/upload.png";
 import { useNavigate } from "react-router-dom";
 
 const Clientservice = () => {
   const { token } = useAuth();
-  const [fileName, setFileName] = useState('');
+  const [fileName, setFileName] = useState("");
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -26,7 +26,7 @@ const Clientservice = () => {
       ...formData,
       [name]: value,
     });
-    
+
     // Reset error for the specific field
     setErrors((prevErrors) => ({
       ...prevErrors,
@@ -39,7 +39,7 @@ const Clientservice = () => {
       ...formData,
       client_logo: e.target.files[0], // Only one file (for logo)
     });
-    setFileName(e.target.files[0]?.name || ''); // Update file name
+    setFileName(e.target.files[0]?.name || ""); // Update file name
   };
 
   const validateForm = () => {
@@ -49,10 +49,12 @@ const Clientservice = () => {
     const gstPattern = /^[0-9]{15}$/;
     const govtIdPattern = /^[A-Z0-9]{8,12}$/; // Customize as needed
 
-    if (!formData.client_name.trim()) newErrors.client_name = "Client name is required.";
-    if (!emailPattern.test(formData.client_email)) newErrors.client_email = "Invalid email format.";
-    if (!phonePattern.test(formData.client_mobile)) newErrors.client_mobile = "Invalid phone number. Must be 10 digits.";
-   
+    if (!formData.client_name.trim())
+      newErrors.client_name = "Client name is required.";
+    if (!emailPattern.test(formData.client_email))
+      newErrors.client_email = "Invalid email format.";
+    if (!phonePattern.test(formData.client_mobile))
+      newErrors.client_mobile = "Invalid phone number. Must be 10 digits.";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -119,7 +121,9 @@ const Clientservice = () => {
                 onChange={handleInputChange}
                 required
               />
-              {errors.client_name && <p className="error">{errors.client_name}</p>}
+              {errors.client_name && (
+                <p className="error">{errors.client_name}</p>
+              )}
             </div>
             <div className="inputcontainer">
               <label>Email:</label>
@@ -130,7 +134,9 @@ const Clientservice = () => {
                 onChange={handleInputChange}
                 required
               />
-              {errors.client_email && <p className="error">{errors.client_email}</p>}
+              {errors.client_email && (
+                <p className="error">{errors.client_email}</p>
+              )}
             </div>
             <div className="inputcontainer">
               <label>Mobile:</label>
@@ -141,7 +147,9 @@ const Clientservice = () => {
                 onChange={handleInputChange}
                 required
               />
-              {errors.client_mobile && <p className="error">{errors.client_mobile}</p>}
+              {errors.client_mobile && (
+                <p className="error">{errors.client_mobile}</p>
+              )}
             </div>
             <div className="inputcontainer">
               <label>Location:</label>
@@ -161,7 +169,9 @@ const Clientservice = () => {
                 value={formData.client_GST}
                 onChange={handleInputChange}
               />
-              {errors.client_GST && <p className="error">{errors.client_GST}</p>}
+              {errors.client_GST && (
+                <p className="error">{errors.client_GST}</p>
+              )}
             </div>
             <div className="inputcontainer">
               <label>Government ID:</label>
@@ -171,7 +181,9 @@ const Clientservice = () => {
                 value={formData.client_govt_id}
                 onChange={handleInputChange}
               />
-              {errors.client_govt_id && <p className="error">{errors.client_govt_id}</p>}
+              {errors.client_govt_id && (
+                <p className="error">{errors.client_govt_id}</p>
+              )}
             </div>
             <div className="inputcontainer">
               <label htmlFor="logo-upload" className="item logolabel">
@@ -196,14 +208,14 @@ const Clientservice = () => {
             </div>
           </div>
         </form>
-        {errors.api && <p className="error">{errors.api}</p>} {/* API error display */}
+        {errors.api && <p className="error">{errors.api}</p>}{" "}
+        {/* API error display */}
       </div>
     </div>
   );
 };
 
 export default Clientservice;
-
 
 // import React, { useState } from "react";
 // import axios from "axios";
@@ -254,7 +266,6 @@ export default Clientservice;
 //     if (!formData.client_name.trim()) newErrors.client_name = "Client name is required.";
 //     if (!emailPattern.test(formData.client_email)) newErrors.client_email = "Invalid email format.";
 //     if (!phonePattern.test(formData.client_mobile)) newErrors.client_mobile = "Invalid phone number. Must be 10 digits.";
-    
 
 //     setErrors(newErrors);
 //     return Object.keys(newErrors).length === 0;

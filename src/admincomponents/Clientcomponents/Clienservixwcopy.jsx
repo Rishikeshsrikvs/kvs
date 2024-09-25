@@ -1,26 +1,24 @@
-import React, { useState } from 'react';
-import api from '../../api/api';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { useAuth } from '../Auth/AuthContext';
-import './Clientservice.css';
-
-
+import React, { useState } from "react";
+import api from "../../api/api";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useAuth } from "../Auth/AuthContext";
+import "./Clientservice.css";
 
 export const Clientservice = () => {
   const navigate = useNavigate();
   const { token } = useAuth();
   const location = useLocation();
-  
+
   const clientDetails = location.state?.clientDetails || {};
   const {
-    client_name = '',
+    client_name = "",
     client_logo = null,
-    client_email = '',
-    client_mobile = '',
-    client_Location = '',
-    client_govt_id = '',
+    client_email = "",
+    client_mobile = "",
+    client_Location = "",
+    client_govt_id = "",
     client_Plan = [],
-    client_GST = ''
+    client_GST = "",
   } = clientDetails;
 
   const [formData, setFormData] = useState({
@@ -32,24 +30,16 @@ export const Clientservice = () => {
     location: client_Location,
     adharNumber: client_govt_id,
   });
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   const servicesList = [
     {
       name: "Social Media Marketing",
-      packages: [
-        { name: "Elite" },
-        { name: "Pro" },
-        { name: "Standard" }
-      ]
+      packages: [{ name: "Elite" }, { name: "Pro" }, { name: "Standard" }],
     },
     {
       name: "Search Engine Optimization",
-      packages: [
-        { name: "Elite" },
-        { name: "Pro" },
-        { name: "Standard" }
-      ]
+      packages: [{ name: "Elite" }, { name: "Pro" }, { name: "Standard" }],
     },
     {
       name: "Web Development",
@@ -61,9 +51,9 @@ export const Clientservice = () => {
         { name: "Standard Plus Plan" },
         { name: "Premium Plan" },
         { name: "Exclusive Plan" },
-        { name: "Customised Plan" }
-      ]
-    }
+        { name: "Customised Plan" },
+      ],
+    },
   ];
 
   const handleServiceChange = (index, e) => {
@@ -77,14 +67,17 @@ export const Clientservice = () => {
   const handleCheckboxChange = (e) => {
     const { value, checked } = e.target;
     if (checked) {
-      setFormData(prevData => ({
+      setFormData((prevData) => ({
         ...prevData,
-        services: [...prevData.services, { name: value, package: '', amount: '' }]
+        services: [
+          ...prevData.services,
+          { name: value, package: "", amount: "" },
+        ],
       }));
     } else {
-      setFormData(prevData => ({
+      setFormData((prevData) => ({
         ...prevData,
-        services: prevData.services.filter(service => service.name !== value)
+        services: prevData.services.filter((service) => service.name !== value),
       }));
     }
   };
@@ -92,7 +85,7 @@ export const Clientservice = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) {
-      setError('Please fill out all fields correctly.');
+      setError("Please fill out all fields correctly.");
       return;
     }
 
@@ -103,46 +96,41 @@ export const Clientservice = () => {
       client_mobile: formData.phone,
       client_Location: formData.location,
       client_govt_id: formData.adharNumber,
-      client_Plan: formData.services.map(service => ({
+      client_Plan: formData.services.map((service) => ({
         name: service.name,
         package: service.package,
-        price: service.amount // Use the manually entered amount
+        price: service.amount, // Use the manually entered amount
       })),
-      client_GST: formData.gst
+      client_GST: formData.gst,
     };
     console.log(formData.logo);
     console.log(formData.phone);
     console.log(client_name);
-    
-    
-    
+
     try {
-      const response = await api.post('/api/admin/clientSignUp', 
-        clientData,
-        {
-          headers: {
-            authorization: token,
-            'Content-Type': 'multipart/form-data',
-          },
-        }
-      );
+      const response = await api.post("/api/admin/clientSignUp", clientData, {
+        headers: {
+          authorization: token,
+          "Content-Type": "multipart/form-data",
+        },
+      });
 
       if (response.status === 201) {
-        navigate(`/admin/SHRA/invoice`, { state: { client_id: response.data.client_id} });
+        navigate(`/admin/SHRA/invoice`, {
+          state: { client_id: response.data.client_id },
+        });
       } else {
-        setError('Failed to create client.');
+        setError("Failed to create client.");
       }
     } catch (error) {
-      setError('Error connecting to server.');
-      console.error('Error:', error);
+      setError("Error connecting to server.");
+      console.error("Error:", error);
     }
   };
 
   const validateForm = () => {
-    const { services
-      , email, phone, location } = formData;
-  
-    
+    const { services, email, phone, location } = formData;
+
     for (const service of services) {
       if (!service.package || !service.amount) {
         return false;
@@ -152,7 +140,7 @@ export const Clientservice = () => {
   };
 
   return (
-    <div className='Clientservicemaincontainer'>
+    <div className="Clientservicemaincontainer">
       <div className="Clientservicecontainer">
         <form onSubmit={handleSubmit}>
           <div className="Clientservice-title">
@@ -161,7 +149,7 @@ export const Clientservice = () => {
           <div className="client-name">
             <h2>Client: {client_name}</h2>
           </div>
-          <div className='service1'>
+          <div className="service1">
             <div className="service1left">
               <h4>Services</h4>
               <div className="checkcontainer">
@@ -170,7 +158,9 @@ export const Clientservice = () => {
                     <input
                       type="checkbox"
                       value={service.name}
-                      checked={formData.services.some(s => s.name === service.name)}
+                      checked={formData.services.some(
+                        (s) => s.name === service.name
+                      )}
                       onChange={handleCheckboxChange}
                     />
                     <label>{service.name}</label>
@@ -179,34 +169,39 @@ export const Clientservice = () => {
               </div>
             </div>
             <div className="service1right">
-              {formData.services.map((service, index) => (
-                service.name && (
-                  <div key={index} className="service-details">
-                    <h5>{service.name}</h5>
-                    <div className="serviceselect">
-                      <div className="package-select">
-                        <select
-                          name="package"
-                          value={service.package}
-                          onChange={(e) => handleServiceChange(index, e)}
-                        >
-                          <option value="">Select Package</option>
-                          {servicesList.find(s => s.name === service.name).packages.map((pkg, idx) => (
-                            <option key={idx} value={pkg.name}>{pkg.name}</option>
-                          ))}
-                        </select>
-                        <input
-                          type="text"
-                          name="amount"
-                          placeholder="Amount"
-                          value={service.amount}
-                          onChange={(e) => handleServiceChange(index, e)}
-                        />
+              {formData.services.map(
+                (service, index) =>
+                  service.name && (
+                    <div key={index} className="service-details">
+                      <h5>{service.name}</h5>
+                      <div className="serviceselect">
+                        <div className="package-select">
+                          <select
+                            name="package"
+                            value={service.package}
+                            onChange={(e) => handleServiceChange(index, e)}
+                          >
+                            <option value="">Select Package</option>
+                            {servicesList
+                              .find((s) => s.name === service.name)
+                              .packages.map((pkg, idx) => (
+                                <option key={idx} value={pkg.name}>
+                                  {pkg.name}
+                                </option>
+                              ))}
+                          </select>
+                          <input
+                            type="text"
+                            name="amount"
+                            placeholder="Amount"
+                            value={service.amount}
+                            onChange={(e) => handleServiceChange(index, e)}
+                          />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                )
-              ))}
+                  )
+              )}
             </div>
           </div>
           {error && <p className="error">{error}</p>}
@@ -219,23 +214,20 @@ export const Clientservice = () => {
   );
 };
 
-
-
-
-import React, { useState } from 'react';
-import axios from 'axios';
-import { useAuth } from '../Auth/AuthContext';
+import React, { useState } from "react";
+import axios from "axios";
+import { useAuth } from "../Auth/AuthContext";
 
 const Clientservice = () => {
   const { token } = useAuth();
   const [formData, setFormData] = useState({
-    client_name: '',
-    client_email: '',
-    client_mobile: '',
-    client_Location: '',
-    client_GST: '',
-    client_govt_id: '',
-    client_Plan: '', // This should be JSON in string format
+    client_name: "",
+    client_email: "",
+    client_mobile: "",
+    client_Location: "",
+    client_GST: "",
+    client_govt_id: "",
+    client_Plan: "", // This should be JSON in string format
     client_logo: null, // This will hold the uploaded file
   });
 
@@ -258,30 +250,32 @@ const Clientservice = () => {
     e.preventDefault();
 
     const data = new FormData();
-    data.append('client_name', formData.client_name);
-    data.append('client_logo', formData.client_logo); // Ensure file is uploaded
-    data.append('client_email', formData.client_email);
-    data.append('client_mobile', formData.client_mobile);
-    data.append('client_Location', formData.client_Location);
-    data.append('client_GST', formData.client_GST);
-    data.append('client_govt_id', formData.client_govt_id);
-    data.append('client_Plan', formData.client_Plan); // Needs to be stringified JSON if it's an array
+    data.append("client_name", formData.client_name);
+    data.append("client_logo", formData.client_logo); // Ensure file is uploaded
+    data.append("client_email", formData.client_email);
+    data.append("client_mobile", formData.client_mobile);
+    data.append("client_Location", formData.client_Location);
+    data.append("client_GST", formData.client_GST);
+    data.append("client_govt_id", formData.client_govt_id);
+    data.append("client_Plan", formData.client_Plan); // Needs to be stringified JSON if it's an array
 
     try {
       const response = await axios.post(
-        'https://srikvstech-yaj97.ondigitalocean.app/api/admin/clientSignUp',
+        "https://srikvstech-yaj97.ondigitalocean.app/api/admin/clientSignUp",
         data,
         {
           headers: {
-
-            'Content-Type': 'multipart/form-data', // Required for file uploads
+            "Content-Type": "multipart/form-data", // Required for file uploads
           },
           headers: { authorization: token },
         }
       );
-      console.log('Client Created Successfully:', response.data);
+      console.log("Client Created Successfully:", response.data);
     } catch (error) {
-      console.error('Error creating client:', error.response ? error.response.data : error.message);
+      console.error(
+        "Error creating client:",
+        error.response ? error.response.data : error.message
+      );
     }
   };
 
@@ -351,9 +345,7 @@ const Clientservice = () => {
           type="text"
           name="client_Plan"
           value={formData.client_Plan}
-         
           placeholder={`e.g. [{"name":"Plan1","package":"Pro","price":1000}]`}
-        
         />
       </div>
       <div>

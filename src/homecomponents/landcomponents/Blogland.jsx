@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import api from '../../api/api';
 import "./Blogland.css";
 import nearrow from './../../assets/images/ne arrow.svg';
+import { useNavigate } from 'react-router-dom';
 
 const Blogland = () => {
     const [blogs, setBlogs] = useState([]);
     const [blogImages, setBlogImages] = useState({});
+    const navigate = useNavigate();
 
     useEffect(() => {
         // Fetching the blogs from the API
@@ -45,7 +47,7 @@ const Blogland = () => {
     return (
         <div className="landblogcordcon">
             {blogs.map((blog, index) => (
-                <div key={index} className="landblogcard">
+                <div key={index} className="landblogcard" onClick={()=>navigate('/blogs')}>
                     <div className="lbimg">
                         <img 
                             src={blogImages[blog._id] || 'fallback-image-url'}  // Use blogImages state or fallback image

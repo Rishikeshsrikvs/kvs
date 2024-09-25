@@ -1,40 +1,40 @@
-import React, { useState } from 'react';
-import api from '../../api/api';
-import './AddProjects.css';
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../Auth/AuthContext';
+import React, { useState } from "react";
+import api from "../../api/api";
+import "./AddProjects.css";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../Auth/AuthContext";
 
 export const AddProject = () => {
   const navigate = useNavigate();
-  const [projectName, setProjectName] = useState('');
-  const [projectEmail, setProjectEmail] = useState('');
-  const [projectDescription, setProjectDescription] = useState('');
+  const [projectName, setProjectName] = useState("");
+  const [projectEmail, setProjectEmail] = useState("");
+  const [projectDescription, setProjectDescription] = useState("");
   const [projectImage1, setProjectImage1] = useState(null); // For first image
   const [projectImage2, setProjectImage2] = useState(null); // For second image
   const [favorite, setFavorite] = useState(false);
   const [errors, setErrors] = useState({});
-  const [successMessage, setSuccessMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState("");
   const token = useAuth();
 
   const validateForm = () => {
     let formErrors = {};
 
     if (!projectName.trim()) {
-      formErrors.projectName = 'Project Name is required';
+      formErrors.projectName = "Project Name is required";
     }
 
     if (!projectEmail.trim()) {
-      formErrors.projectEmail = 'Project Email is required';
+      formErrors.projectEmail = "Project Email is required";
     } else if (!/\S+@\S+\.\S+/.test(projectEmail)) {
-      formErrors.projectEmail = 'Email address is invalid';
+      formErrors.projectEmail = "Email address is invalid";
     }
 
     if (!projectDescription.trim()) {
-      formErrors.projectDescription = 'Project Description is required';
+      formErrors.projectDescription = "Project Description is required";
     }
 
     if (!projectImage1 || !projectImage2) {
-      formErrors.projectImages = 'Both images are required';
+      formErrors.projectImages = "Both images are required";
     }
 
     setErrors(formErrors);
@@ -53,32 +53,32 @@ export const AddProject = () => {
     }
 
     const formData = new FormData();
-    formData.append('projectName', projectName);
-    formData.append('projectEmail', projectEmail);
-    formData.append('projectDescription', projectDescription);
-    formData.append('project-images', projectImage1); // Append first image
-    formData.append('project-images', projectImage2); // Append second image
-    formData.append('favourite', favorite);
+    formData.append("projectName", projectName);
+    formData.append("projectEmail", projectEmail);
+    formData.append("projectDescription", projectDescription);
+    formData.append("project-images", projectImage1); // Append first image
+    formData.append("project-images", projectImage2); // Append second image
+    formData.append("favourite", favorite);
 
     try {
-      await api.post('/api/admin/projectUpload', formData, {
+      await api.post("/api/admin/projectUpload", formData, {
         headers: {
-          'Content-Type': 'multipart/form-data',
+          "Content-Type": "multipart/form-data",
           authorization: `${token}`, // Ensure token is passed correctly
         },
       });
-      setSuccessMessage('Project added successfully!');
+      setSuccessMessage("Project added successfully!");
       resetForm(); // Reset form after success
     } catch (error) {
-      console.error('Error adding project:', error);
-      alert('Failed to add project.');
+      console.error("Error adding project:", error);
+      alert("Failed to add project.");
     }
   };
 
   const resetForm = () => {
-    setProjectName('');
-    setProjectEmail('');
-    setProjectDescription('');
+    setProjectName("");
+    setProjectEmail("");
+    setProjectDescription("");
     setProjectImage1(null); // Reset first image
     setProjectImage2(null); // Reset second image
     setFavorite(false);
@@ -110,7 +110,9 @@ export const AddProject = () => {
             onChange={(e) => setProjectEmail(e.target.value)}
             required
           />
-          {errors.projectEmail && <p className="error">{errors.projectEmail}</p>}
+          {errors.projectEmail && (
+            <p className="error">{errors.projectEmail}</p>
+          )}
         </div>
         <div className="aprcard">
           <label>Project Description:</label>
@@ -120,7 +122,9 @@ export const AddProject = () => {
             onChange={(e) => setProjectDescription(e.target.value)}
             required
           />
-          {errors.projectDescription && <p className="error">{errors.projectDescription}</p>}
+          {errors.projectDescription && (
+            <p className="error">{errors.projectDescription}</p>
+          )}
         </div>
         <div className="aprcard">
           <label>Project Images:</label>
@@ -136,7 +140,9 @@ export const AddProject = () => {
             {projectImage1 && (
               <span className="uploadedimgtext">{projectImage1.name}</span>
             )}
-            {errors.projectImages && <p className="error">{errors.projectImages}</p>}
+            {errors.projectImages && (
+              <p className="error">{errors.projectImages}</p>
+            )}
           </div>
           <div className="aprimg">
             <label htmlFor="aprim2">Choose image 2</label>
@@ -150,7 +156,9 @@ export const AddProject = () => {
             {projectImage2 && (
               <span className="uploadedimgtext">{projectImage2.name}</span>
             )}
-            {errors.projectImages && <p className="error">{errors.projectImages}</p>}
+            {errors.projectImages && (
+              <p className="error">{errors.projectImages}</p>
+            )}
           </div>
           <div className="arpfav">
             <label>FAVORITE</label>

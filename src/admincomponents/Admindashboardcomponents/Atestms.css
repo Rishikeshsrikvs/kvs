@@ -1,76 +1,69 @@
-.maincontainer{
-    padding: 20px;
-    
-   
+.maincontainer {
+  padding: 20px;
 }
-.title h1{
-    padding: 20px;
-    
-    text-align: center;
-}
-.cardcontainer{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 35px;
-    padding: 20px 9%;
-    
+.title h1 {
+  padding: 20px;
 
-
+  text-align: center;
 }
-.feedbackcard{
-    flex: 1 1 calc(50% - 20px); /* Two cards per row, subtracting the gap */
+.cardcontainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 35px;
+  padding: 20px 9%;
+}
+.feedbackcard {
+  flex: 1 1 calc(50% - 20px); /* Two cards per row, subtracting the gap */
   background-color: white;
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  
+
   font-size: 90%;
 }
-.clientcontainer{
-    display: flex;
-    justify-content: space-between;
-    padding: 5px;
+.clientcontainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
 }
-.client{
-    display: flex;
-    gap: 8px;
+.client {
+  display: flex;
+  gap: 8px;
 }
-.client img{
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: blueviolet;
+.client img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: blueviolet;
 }
-.clientlogo{
-    margin-right: 5px;
+.clientlogo {
+  margin-right: 5px;
 }
-.feedback{
-    text-align: left;
-    padding: 5px;
-    }
-.action{
-    text-align: right;
-
+.feedback {
+  text-align: left;
+  padding: 5px;
 }
-.action button{
-    padding: 3px 10px;
-    margin-left: 20px;
-    border: none;
-    border-radius: 2px;
+.action {
+  text-align: right;
+}
+.action button {
+  padding: 3px 10px;
+  margin-left: 20px;
+  border: none;
+  border-radius: 2px;
 }
 .button:hover {
-    background-color: #b0b0b0; /* Darker gray on hover */
-  }
-  
-  /* .button.approve {
+  background-color: #b0b0b0; /* Darker gray on hover */
+}
+
+/* .button.approve {
     background-color: #d3d3d3; /* Default gray background for approve button */
-  /* }
+/* }
   
   .button.reject {
     /* background-color: #d3d3d3; /* Default gray background for reject button 
   } */
-  .button.true {
-    background-color: green; /* Blue background for true state */
-  }
-  
+.button.true {
+  background-color: green; /* Blue background for true state */
+}

@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import api from '../api/api';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import api from "../api/api";
 import "./Career.css";
-
 
 const Career = () => {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -16,11 +15,11 @@ const Career = () => {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const response = await api.get('/getjobs');
+        const response = await api.get("/getjobs");
         setJobs(response.data);
         setLoading(false);
       } catch (err) {
-        setError('Failed to load jobs');
+        setError("Failed to load jobs");
         setLoading(false);
       }
     };
@@ -37,20 +36,25 @@ const Career = () => {
   }
 
   return (
-    <div className='careerparent'>
+    <div className="careerparent">
       <div className="career1main">
         <div className="career1text">
-          <h1>Careers <span>&</span></h1>
+          <h1>
+            Careers <span>&</span>
+          </h1>
           <h1>Vacancies</h1>
         </div>
       </div>
       <div className="career2main">
         <div className="career2left">
-          <p>Cannot find the suitable vacancy?<br/>
-          Drop us a line</p>
+          <p>
+            Cannot find the suitable vacancy?
+            <br />
+            Drop us a line
+          </p>
         </div>
         <div className="career2right">
-          {jobs.map(job => (
+          {jobs.map((job) => (
             <Link
               to={`/career/${job._id}`} // Use the URL path with the job ID
               state={{ job }} // Pass the job data via state
@@ -62,7 +66,9 @@ const Career = () => {
                   <h1>{job.jobName}</h1>
                 </div>
                 <ul className="cjdown">
-                  <li>{job.experienceMin} - {job.experienceMax} years experience</li>
+                  <li>
+                    {job.experienceMin} - {job.experienceMax} years experience
+                  </li>
                   <li>{job.location}</li>
                 </ul>
               </div>

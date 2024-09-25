@@ -1,141 +1,140 @@
 .addclientmaincontainer {
-    padding: 30px 10%;
-    font-size: 120%;
-    background-color: rgb(207, 204, 204);
+  padding: 30px 10%;
+  font-size: 120%;
+  background-color: rgb(207, 204, 204);
 }
 
 .adclientcontainer {
-    background-color: white;
-    padding: 8%;
-    height: 84vh;
-    border-radius: 5px;
+  background-color: white;
+  padding: 8%;
+  height: 84vh;
+  border-radius: 5px;
 }
 
 .addclient-title {
-    margin-bottom: 40px;
+  margin-bottom: 40px;
 }
 
 .addclienttitle span {
-    display: inline-block;
-    padding: 10px 20px;
-    color: white;
-    border: 2px;
-    background-color: blue;
+  display: inline-block;
+  padding: 10px 20px;
+  color: white;
+  border: 2px;
+  background-color: blue;
 }
 
 .addclient-inputs {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
 }
 .inputcontainer {
-    margin-bottom: 15px;
-    width: 48%;
+  margin-bottom: 15px;
+  width: 48%;
 }
-.inputcontainer input,.inputcontainer label{
-    width: 100%;
-
+.inputcontainer input,
+.inputcontainer label {
+  width: 100%;
 }
-.inputcontainer p{
-    font-size: 70%;
+.inputcontainer p {
+  font-size: 70%;
 }
 .item {
-    width: 40%;
-    border: none;
-    height: 30px;
-    padding: 20px;
-    background-color: rgb(207, 204, 204);
-    border-radius: 2px;
+  width: 40%;
+  border: none;
+  height: 30px;
+  padding: 20px;
+  background-color: rgb(207, 204, 204);
+  border-radius: 2px;
 }
 
 .error {
-    color: red;
-    font-size: 12px;
-    margin-top: 5px;
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
 }
 
 #logo-upload {
-    display: none;
+  display: none;
 }
 
 .logolabel {
-    padding: 3px;
-    height: 40px;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    color: gray;
-    font-size: 75%;
-    background: none;
+  padding: 3px;
+  height: 40px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  color: gray;
+  font-size: 75%;
+  background: none;
 }
 
 .logolabel span {
-    display: flex;
-    padding: 3px 15px;
-    border-radius: 2px;
-    text-align: center;
-    background-color: rgb(109, 109, 241);
-    color: white;
-    margin-left: 10px;
+  display: flex;
+  padding: 3px 15px;
+  border-radius: 2px;
+  text-align: center;
+  background-color: rgb(109, 109, 241);
+  color: white;
+  margin-left: 10px;
 }
 
 .logolabel span h5 {
-    margin-left: 10px;
-    margin-top: 2px;
-    font-size: 100%;
+  margin-left: 10px;
+  margin-top: 2px;
+  font-size: 100%;
 }
 
 .logolabel img {
-    width: 25px;
+  width: 25px;
 }
 
 .addclient-submit {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  width: 100%;
 }
 
 .addclient-submit input {
-    background-color: rgb(72, 72, 250);
-    margin-top: 20px;
-    color: white;
-    font-size: 110%;
-    height: 40px;
-    padding: 5px 5%;
-    border: none;
-    border-radius: 3px;
+  background-color: rgb(72, 72, 250);
+  margin-top: 20px;
+  color: white;
+  font-size: 110%;
+  height: 40px;
+  padding: 5px 5%;
+  border: none;
+  border-radius: 3px;
 }
 
-
 .logolabel {
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    color: gray;
-    font-size: 75%;
-    background: none;
-    border: 1px solid #ccc; /* Optional: Add border to make it stand out */
-    border-radius: 4px; /* Optional: Rounded corners for the label */
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  color: gray;
+  font-size: 75%;
+  background: none;
+  border: 1px solid #ccc; /* Optional: Add border to make it stand out */
+  border-radius: 4px; /* Optional: Rounded corners for the label */
 }
 
 .logolabel span {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Space between the image, file name, and "Upload" text */
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between the image, file name, and "Upload" text */
 }
 
 .logolabel img {
-    width: 25px; /* Size of the upload icon */
-    height: 25px; /* Size of the upload icon */
+  width: 25px; /* Size of the upload icon */
+  height: 25px; /* Size of the upload icon */
 }
 
 .file-name {
-    color: #333; /* Color of the file name text */
-    font-size: 100%; /* Font size of the file name text */
-    margin-left: 10px; /* Space between the icon and the file name */
-    white-space: nowrap; /* Prevent text from wrapping */
+  color: #333; /* Color of the file name text */
+  font-size: 100%; /* Font size of the file name text */
+  margin-left: 10px; /* Space between the icon and the file name */
+  white-space: nowrap; /* Prevent text from wrapping */
 }

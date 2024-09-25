@@ -1,465 +1,453 @@
-.aboutparentcontainer{
-    
-    background: #0D0C0D;
-    overflow-x: hidden;
-
+.aboutparentcontainer {
+  background: #0d0c0d;
+  overflow-x: hidden;
 }
 .aboutland {
-    position: relative; /* Position relative to place pseudo-element */
-    height: 100vh;
-    overflow: hidden; /* Ensure pseudo-element doesn’t overflow */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white; /* Ensure text is readable */
+  position: relative; /* Position relative to place pseudo-element */
+  height: 100vh;
+  overflow: hidden; /* Ensure pseudo-element doesn’t overflow */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white; /* Ensure text is readable */
 }
 
 /* Pseudo-element to apply blur effect to background image */
 .aboutland::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: black;
-    height: 100%;
-    background:url('./../assets/images/Aboutimages/aboutbackg.gif') no-repeat center center;
-    background-size: 100% 180%;
-    background-position: center;
-    background-repeat: no-repeat;
-    /* filter: blur(0px);
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: black;
+  height: 100%;
+  background: url("./../assets/images/Aboutimages/aboutbackg.gif") no-repeat
+    center center;
+  background-size: 100% 180%;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* filter: blur(0px);
     opacity: 15%;  */
-    z-index: 1;
+  z-index: 1;
 }
 
 /* Optional: Add a semi-transparent overlay to improve text readability */
 .aboutland::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3); /* Semi-transparent overlay */
-    z-index: 0; /* Ensure the overlay is above the blurred background but below the content */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Semi-transparent overlay */
+  z-index: 0; /* Ensure the overlay is above the blurred background but below the content */
 }
 
-.aboutland > h1{
-font-family: Playfair Display;
-font-size: 96px;
-font-style: italic;
-font-weight: 900;
-width: 70%;
-position: absolute;
-z-index: 23;
-text-align: center;
-line-height: 127.97px;
+.aboutland > h1 {
+  font-family: Playfair Display;
+  font-size: 96px;
+  font-style: italic;
+  font-weight: 900;
+  width: 70%;
+  position: absolute;
+  z-index: 23;
+  text-align: center;
+  line-height: 127.97px;
 
-color: white;
+  color: white;
+}
+.about2main {
+  height: 100vh;
+  display: flex;
+  gap: 2%;
+  justify-content: space-between;
+  background: url("./../assets/images/Aboutimages/about2back.png") no-repeat
+    center right / 180px 300px;
+}
+.about2left {
+  width: 40%;
+  position: relative;
+}
+.about2left > img {
+  width: 368px;
+  height: 455px;
 
+  border-radius: 7px 0px 0px 0px;
+  opacity: 0px;
+  position: absolute;
 }
-.about2main{
-    height: 100vh;
-    display: flex;
-    gap: 2%;
-    justify-content: space-between;
-    background: url('./../assets/images/Aboutimages/about2back.png')no-repeat center right /180px 300px ;
-    
-
+.abt22 {
+  left: 15%;
+  top: 20%;
 }
-.about2left{
-    width: 40%;
-    position: relative;
-   
-    
+.abt21 {
+  left: 30%;
+  top: 30%;
 }
-.about2left > img{
-    width: 368px;
-    height: 455px;
-   
-    border-radius: 7px 0px 0px 0px;
-    opacity: 0px;
-    position: absolute;
-
+.about2right {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  padding: 3%;
+  color: white;
+  padding: 5%;
+  justify-content: space-between;
 }
-.abt22{
-    left: 15%;
-    top: 20%;
-}
-.abt21{
-    left: 30%;
-    top: 30%;
-}
-.about2right{
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-    padding: 3%;
-    color: white;
-    padding: 5%;
-    justify-content: space-between;
-    
-
-}
-.a2color{
+.a2color {
   justify-content: left;
-    display: flex;
-    align-items: center;
-    
-    
+  display: flex;
+  align-items: center;
 }
-.a2colorline{
-    background: linear-gradient(90deg, #FF91B2 0%, #E406B5 52.5%, #7755FF 100%);
+.a2colorline {
+  background: linear-gradient(90deg, #ff91b2 0%, #e406b5 52.5%, #7755ff 100%);
 
-   
-    width: 100px;
-    height: 10px;
+  width: 100px;
+  height: 10px;
 }
 
 .a2color > span {
-    /* background: linear-gradient(90deg, #ff99a2, #e406b5); */
-    background-position: bottom;
-    background-size: 100% 50%;
-    background-repeat: no-repeat;
-    padding: 0px 5px;
-    
-    
-    text-align: center;
+  /* background: linear-gradient(90deg, #ff99a2, #e406b5); */
+  background-position: bottom;
+  background-size: 100% 50%;
+  background-repeat: no-repeat;
+  padding: 0px 5px;
+
+  text-align: center;
 }
-.a2main{
-    font-size: 500%;
-    
+.a2main {
+  font-size: 500%;
 }
-.about2right p{
-    font-size: 140%;
-   
-    line-height: 35px;
+.about2right p {
+  font-size: 140%;
+
+  line-height: 35px;
 }
-.about2right ul li{
-    list-style-type: disc;
-    margin-left: 40px;
+.about2right ul li {
+  list-style-type: disc;
+  margin-left: 40px;
 }
-.about2rightlasth1{
-    text-align: center;
+.about2rightlasth1 {
+  text-align: center;
 }
 
-.about25main{
-    height: 100vh;
-
+.about25main {
+  height: 100vh;
 }
-.about25main > h1{
-    text-align: center;
-    color:white;
-    margin: 20px auto;
+.about25main > h1 {
+  text-align: center;
+  color: white;
+  margin: 20px auto;
 }
-.a25cardcon{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    width: 100%;
-    padding: 2%;
+.a25cardcon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 2%;
 }
-.a25cardcon>div{
-    width: 26%;
-    background-color: white;
-    color: #0D0C0D;
-    height: 280px;
-    margin-bottom: 30px;
-    display:flex;
-    flex-direction: column;
-    align-items:flex-start;
-    padding: 4%;
-    border-radius: 10px;
-    justify-content: space-evenly;
+.a25cardcon > div {
+  width: 26%;
+  background-color: white;
+  color: #0d0c0d;
+  height: 280px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 4%;
+  border-radius: 10px;
+  justify-content: space-evenly;
 }
-.a25cardcon>div>h1{
-    font-size: 120%;
+.a25cardcon > div > h1 {
+  font-size: 120%;
 }
-.a25card1 .a25img{
-    width: 60px;
-    height: 60px;
-    padding: 10px;
-    background-color: #FAAB00;
-    border-radius: 10px;
+.a25card1 .a25img {
+  width: 60px;
+  height: 60px;
+  padding: 10px;
+  background-color: #faab00;
+  border-radius: 10px;
 }
-.a25card1{
-    background:
-    /* linear-gradient(to right,#FAAB00 10px, transparent 10px) 0 0, */
-    linear-gradient(to right,#FAAB00 10px, transparent 10px) 0 100%,
-    linear-gradient(to left,#FAAB00 10px, transparent 10px) 100% 0,
+.a25card1 {
+  background:
+    /* linear-gradient(to right,#FAAB00 10px, transparent 10px) 0 0, */ linear-gradient(
+        to right,
+        #faab00 10px,
+        transparent 10px
+      )
+      0 100%,
+    linear-gradient(to left, #faab00 10px, transparent 10px) 100% 0,
     /* linear-gradient(to left,#FAAB00 10px, transparent 10px) 100% 100%, */
-    /* linear-gradient(to bottom,#FAAB00 10px, transparent 10px) 0 0, */
-    linear-gradient(to bottom,#FAAB00 10px, transparent 10px) 100% 0,
-    linear-gradient(to top,#FAAB00 10px, transparent 10px) 0 100%;
-    /* linear-gradient(to top,#FAAB00 10px, transparent 10px) 100% 100%; */
+      /* linear-gradient(to bottom,#FAAB00 10px, transparent 10px) 0 0, */
+      linear-gradient(to bottom, #faab00 10px, transparent 10px) 100% 0,
+    linear-gradient(to top, #faab00 10px, transparent 10px) 0 100%;
+  /* linear-gradient(to top,#FAAB00 10px, transparent 10px) 100% 100%; */
 
   background-repeat: no-repeat;
   background-size: 100px 100px;
 }
-.a25card2 .a25img{
-    width: 60px;
-    height: 60px;
-    padding: 10px;
-    background-color: #0163FD;
-    border-radius: 10px;
+.a25card2 .a25img {
+  width: 60px;
+  height: 60px;
+  padding: 10px;
+  background-color: #0163fd;
+  border-radius: 10px;
 }
-.a25card2{
-    background:
-    /* linear-gradient(to right,#0163FD 10px, transparent 10px) 0 0, */
-    linear-gradient(to right,#0163FD 10px, transparent 10px) 0 100%,
-    linear-gradient(to left,#0163FD 10px, transparent 10px) 100% 0,
+.a25card2 {
+  background:
+    /* linear-gradient(to right,#0163FD 10px, transparent 10px) 0 0, */ linear-gradient(
+        to right,
+        #0163fd 10px,
+        transparent 10px
+      )
+      0 100%,
+    linear-gradient(to left, #0163fd 10px, transparent 10px) 100% 0,
     /* linear-gradient(to left,#0163FD 10px, transparent 10px) 100% 100%, */
-    /* linear-gradient(to bottom,#0163FD 10px, transparent 10px) 0 0, */
-    linear-gradient(to bottom,#0163FD 10px, transparent 10px) 100% 0,
-    linear-gradient(to top,#0163FD 10px, transparent 10px) 0 100%;
-    /* linear-gradient(to top,#0163FD 10px, transparent 10px) 100% 100%; */
+      /* linear-gradient(to bottom,#0163FD 10px, transparent 10px) 0 0, */
+      linear-gradient(to bottom, #0163fd 10px, transparent 10px) 100% 0,
+    linear-gradient(to top, #0163fd 10px, transparent 10px) 0 100%;
+  /* linear-gradient(to top,#0163FD 10px, transparent 10px) 100% 100%; */
 
   background-repeat: no-repeat;
   background-size: 100px 100px;
 }
-.a25card3 .a25img{
-    width: 60px;
-    height: 60px;
-    padding: 10px;
-    background-color: #CB01FD;
-    border-radius: 10px;
+.a25card3 .a25img {
+  width: 60px;
+  height: 60px;
+  padding: 10px;
+  background-color: #cb01fd;
+  border-radius: 10px;
 }
-.a25card3{
-    background:
-    /* linear-gradient(to right,#CB01FD 10px, transparent 10px) 0 0, */
-    linear-gradient(to right,#CB01FD 10px, transparent 10px) 0 100%,
-    linear-gradient(to left,#CB01FD 10px, transparent 10px) 100% 0,
+.a25card3 {
+  background:
+    /* linear-gradient(to right,#CB01FD 10px, transparent 10px) 0 0, */ linear-gradient(
+        to right,
+        #cb01fd 10px,
+        transparent 10px
+      )
+      0 100%,
+    linear-gradient(to left, #cb01fd 10px, transparent 10px) 100% 0,
     /* linear-gradient(to left,#CB01FD 10px, transparent 10px) 100% 100%, */
-    /* linear-gradient(to bottom,#CB01FD 10px, transparent 10px) 0 0, */
-    linear-gradient(to bottom,#CB01FD 10px, transparent 10px) 100% 0,
-    linear-gradient(to top,#CB01FD 10px, transparent 10px) 0 100%;
-    /* linear-gradient(to top,#CB01FD 10px, transparent 10px) 100% 100%  ; */
+      /* linear-gradient(to bottom,#CB01FD 10px, transparent 10px) 0 0, */
+      linear-gradient(to bottom, #cb01fd 10px, transparent 10px) 100% 0,
+    linear-gradient(to top, #cb01fd 10px, transparent 10px) 0 100%;
+  /* linear-gradient(to top,#CB01FD 10px, transparent 10px) 100% 100%  ; */
 
   background-repeat: no-repeat;
   background-size: 100px 100px;
 }
-.a25card4 .a25img{
-    width: 60px;
-    height: 60px;
-    padding: 10px;
-    background-color: #FD4D01;
-    border-radius: 10px;
+.a25card4 .a25img {
+  width: 60px;
+  height: 60px;
+  padding: 10px;
+  background-color: #fd4d01;
+  border-radius: 10px;
 }
-.a25card4{
-    background:
-    /* linear-gradient(to right,#FD4D01 10px, transparent 10px) 0 0, */
-    linear-gradient(to right,#FD4D01 10px, transparent 10px) 0 100%,
-    linear-gradient(to left,#FD4D01 10px, transparent 10px) 100% 0,
+.a25card4 {
+  background:
+    /* linear-gradient(to right,#FD4D01 10px, transparent 10px) 0 0, */ linear-gradient(
+        to right,
+        #fd4d01 10px,
+        transparent 10px
+      )
+      0 100%,
+    linear-gradient(to left, #fd4d01 10px, transparent 10px) 100% 0,
     /* linear-gradient(to left,#FD4D01 10px, transparent 10px) 100% 100%, */
-    /* linear-gradient(to bottom,#FD4D01 10px, transparent 10px) 0 0, */
-    linear-gradient(to bottom,#FD4D01 10px, transparent 10px) 100% 0,
-    linear-gradient(to top,#FD4D01 10px, transparent 10px) 0 100%;
-    /* linear-gradient(to top,#FD4D01 10px, transparent 10px) 100% 100%; */
+      /* linear-gradient(to bottom,#FD4D01 10px, transparent 10px) 0 0, */
+      linear-gradient(to bottom, #fd4d01 10px, transparent 10px) 100% 0,
+    linear-gradient(to top, #fd4d01 10px, transparent 10px) 0 100%;
+  /* linear-gradient(to top,#FD4D01 10px, transparent 10px) 100% 100%; */
 
   background-repeat: no-repeat;
   background-size: 100px 100px;
   margin-top: 40px;
 }
 
-
-
-.about3mainback{
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    width: 230px;
-    left: 40%;
-    top: 2%;
-
+.about3mainback {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 230px;
+  left: 40%;
+  top: 2%;
 }
-.about3main{
-    color: white;
-    height: 100vh;
-    position: relative;
+.about3main {
+  color: white;
+  height: 100vh;
+  position: relative;
 }
-.about3sub{
-    display: flex;
-    padding: 5%;
-    position: absolute;
+.about3sub {
+  display: flex;
+  padding: 5%;
+  position: absolute;
 }
-.about3left{
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    padding-top: 3%;
-    justify-content: space-between;
-    
-
+.about3left {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 3%;
+  justify-content: space-between;
 }
-.ab3colortitle{
-    background: linear-gradient(90deg, #ff99a2, #e406b5);
-    background-position: bottom;
-    background-size: 100% 50%;
-    background-repeat: no-repeat;
-    padding: 0px 5px;
-    font-size: 200%;
-    width: 80%;
-    font-weight: 700;
+.ab3colortitle {
+  background: linear-gradient(90deg, #ff99a2, #e406b5);
+  background-position: bottom;
+  background-size: 100% 50%;
+  background-repeat: no-repeat;
+  padding: 0px 5px;
+  font-size: 200%;
+  width: 80%;
+  font-weight: 700;
 }
-.ab3main{
-    font-size: 280%;
-    word-spacing: 3px;
-    
-
+.ab3main {
+  font-size: 280%;
+  word-spacing: 3px;
 }
-.ab3main > span{
-    word-spacing: 3px;
-    color: #141414;
-    text-shadow:
-        1px 1px 0 white,  
-        -1px -1px 0 white,
-        1px 1px 0 white,
-        1px 1px 0 white;
+.ab3main > span {
+  word-spacing: 3px;
+  color: #141414;
+  text-shadow: 1px 1px 0 white, -1px -1px 0 white, 1px 1px 0 white,
+    1px 1px 0 white;
 }
-.ab3p{
-    font-size: 150%;
-    padding: 0 5%;
-    line-height: 35px;
-    font-weight: lighter;
+.ab3p {
+  font-size: 150%;
+  padding: 0 5%;
+  line-height: 35px;
+  font-weight: lighter;
 }
-.about3right{
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.about3right {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.btncontainer{
-    text-align: center;
+.btncontainer {
+  text-align: center;
 }
-.ab3btn{
-    display: inline-block;
-    color: white;
-    text-align: center;
-    background: inherit;
-    padding: 10px 20px;
-    margin-top: 20px;
-    border: 2px solid white;
-    border-radius: 35px;
-
+.ab3btn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  background: inherit;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border: 2px solid white;
+  border-radius: 35px;
 }
-.ab3btn:hover{
-    background:linear-gradient(145deg,#ff99a2,#e406b5,#35088A);
-    
+.ab3btn:hover {
+  background: linear-gradient(145deg, #ff99a2, #e406b5, #35088a);
 }
 
 /* ------------- */
 
-.aboutyearcontainer{
-    color: white;
-    display: flex;
-    padding: 2% 10%;
-    justify-content: space-between;
-    font-size: 200%;
-   
+.aboutyearcontainer {
+  color: white;
+  display: flex;
+  padding: 2% 10%;
+  justify-content: space-between;
+  font-size: 200%;
 }
-.abyearssplit h1,.abyearssplit h4{
-    text-align: center;
+.abyearssplit h1,
+.abyearssplit h4 {
+  text-align: center;
 }
 
-@media (max-width: 768px){
-    .aboutland {
-         /* Position relative to place pseudo-element */
-        height: 50vh;
-        /* Ensure text is readable */
-    }
-    .aboutland > h1{
-        font-size: 35px;
-        line-height: 40px;
-    }
-    .about2main{
-        height: auto;
-        flex-direction: column;
-    }
-    .about25main{
-        height: auto;
-    }
-    .about2left{
-        width: 100%;
-        height: 300px;
-    }
-    .about2left > img{
-        width: 250px;
-        height: 160px;
-       
-        border-radius: 7px 0px 0px 0px;
-        opacity: 0px;
-        
-        position: absolute;
-        
-    }
-    .abt22{
-        left: 15%;
-        top: 20%;
-    }
-    .abt21{
-        left: 20%;
-        top: 30%;
-    }
-    .about2right{
-        width: 100%;
-        font-size: 70%;
-    }
-    .a25cardcon{
-        flex-direction: column;
-    }
-    .a25cardcon>div{
-        width: 70%;
-    }
-    .about3sub{
-        flex-direction: column;
-        width: 100%;
-    }
-    .about3left,.about3right{
-        width: 100%;
-    }
-    .about3left{
+@media (max-width: 768px) {
+  .aboutland {
+    /* Position relative to place pseudo-element */
+    height: 50vh;
+    /* Ensure text is readable */
+  }
+  .aboutland > h1 {
+    font-size: 35px;
+    line-height: 40px;
+  }
+  .about2main {
+    height: auto;
+    flex-direction: column;
+  }
+  .about25main {
+    height: auto;
+  }
+  .about2left {
+    width: 100%;
+    height: 300px;
+  }
+  .about2left > img {
+    width: 250px;
+    height: 160px;
+
+    border-radius: 7px 0px 0px 0px;
+    opacity: 0px;
+
+    position: absolute;
+  }
+  .abt22 {
+    left: 15%;
+    top: 20%;
+  }
+  .abt21 {
+    left: 20%;
+    top: 30%;
+  }
+  .about2right {
+    width: 100%;
+    font-size: 70%;
+  }
+  .a25cardcon {
+    flex-direction: column;
+  }
+  .a25cardcon > div {
+    width: 70%;
+  }
+  .about3sub {
+    flex-direction: column;
+    width: 100%;
+  }
+  .about3left,
+  .about3right {
+    width: 100%;
+  }
+  .about3left {
     font-size: 70%;
     padding: 5%;
     gap: 10px;
-    }
-    .ab3main{
-        font-size: 20px;
-    }
-    .ab3p{
-        font-size: 120%;
-        padding: 0 5%;
-        line-height: 25px;
-        font-weight: lighter;
-    }
-   
-    .about3main{
-        height: 100vh;
-    }
-    .about3mainback{
-       display: none;
-       height: auto;
-    
-    }
-    .about3sub{
-        flex-direction: column;
-        align-items: center;
-    }
-    .aboutyearcontainer{
-        flex-direction: column;
-        font-size: 100%;
-        gap: 10px;
+  }
+  .ab3main {
+    font-size: 20px;
+  }
+  .ab3p {
+    font-size: 120%;
+    padding: 0 5%;
+    line-height: 25px;
+    font-weight: lighter;
+  }
 
-    }
-    .about3right{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 10px;
-    }
-    .about3right img{
-        width: 80%;
-    }
+  .about3main {
+    height: 100vh;
+  }
+  .about3mainback {
+    display: none;
+    height: auto;
+  }
+  .about3sub {
+    flex-direction: column;
+    align-items: center;
+  }
+  .aboutyearcontainer {
+    flex-direction: column;
+    font-size: 100%;
+    gap: 10px;
+  }
+  .about3right {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+  .about3right img {
+    width: 80%;
+  }
 }

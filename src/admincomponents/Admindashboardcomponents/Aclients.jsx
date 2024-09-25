@@ -1,15 +1,15 @@
-import React, { useEffect, useState, useRef } from 'react';
-import api from '../../api/api';
-import { Link } from 'react-router-dom';
-import jsPDF from 'jspdf';
-import './../Admindashboardcomponents/Aclients.css';
-import { useAuth } from '../Auth/AuthContext';
-import Clientrow from '../Clientcomponents/Clientrow';
+import React, { useEffect, useState, useRef } from "react";
+import api from "../../api/api";
+import { Link } from "react-router-dom";
+import jsPDF from "jspdf";
+import "./../Admindashboardcomponents/Aclients.css";
+import { useAuth } from "../Auth/AuthContext";
+import Clientrow from "../Clientcomponents/Clientrow";
 
 const Aclients = () => {
   const [clients, setClients] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [selectedClient, setSelectedClient] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
   const popupRef = useRef(null);
@@ -19,7 +19,7 @@ const Aclients = () => {
   useEffect(() => {
     const fetchClients = async () => {
       try {
-        const response = await api.get('/api/admin/getClients', {
+        const response = await api.get("/api/admin/getClients", {
           headers: {
             authorization: `${token}`,
           },
@@ -27,9 +27,9 @@ const Aclients = () => {
         setClients(response.data.message);
         setLoading(false);
       } catch (error) {
-        setError('Error fetching client data.');
+        setError("Error fetching client data.");
         setLoading(false);
-        console.error('Error:', error);
+        console.error("Error:", error);
       }
     };
 
@@ -43,8 +43,8 @@ const Aclients = () => {
   };
 
   useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   const openPopup = (client) => {
@@ -54,9 +54,9 @@ const Aclients = () => {
 
   const deleteClient = async (clientId) => {
     try {
-      await api.delete('/api/admin/deleteClient', {
+      await api.delete("/api/admin/deleteClient", {
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
           authorization: token,
         },
         data: {
@@ -65,30 +65,32 @@ const Aclients = () => {
       });
 
       // Refresh the client list after deletion
-      setClients(prevClients => prevClients.filter(client => client.client_id !== clientId));
-      alert('Client deleted successfully!');
+      setClients((prevClients) =>
+        prevClients.filter((client) => client.client_id !== clientId)
+      );
+      alert("Client deleted successfully!");
     } catch (error) {
-      console.error('Error deleting client:', error);
-      alert('Failed to delete client.');
+      console.error("Error deleting client:", error);
+      alert("Failed to delete client.");
     }
   };
 
   const downloadPDF = () => {
-    const doc = new jsPDF('p', 'mm', 'a4');
+    const doc = new jsPDF("p", "mm", "a4");
     doc.setFontSize(12);
 
     // Title
-    doc.text('Client List', 14, 16);
+    doc.text("Client List", 14, 16);
 
     // Table Headers
-    doc.text('Client Id', 14, 30);
-    doc.text('Client Name', 40, 30);
-    doc.text('Phone', 80, 30);
-    doc.text('Email', 120, 30);
-    doc.text('Location', 160, 30);
+    doc.text("Client Id", 14, 30);
+    doc.text("Client Name", 40, 30);
+    doc.text("Phone", 80, 30);
+    doc.text("Email", 120, 30);
+    doc.text("Location", 160, 30);
 
     let yPosition = 40;
-    clients.forEach(client => {
+    clients.forEach((client) => {
       doc.text(client.client_id, 14, yPosition);
       doc.text(client.client_name, 40, yPosition);
       doc.text(client.client_mobile, 80, yPosition);
@@ -100,16 +102,16 @@ const Aclients = () => {
       if (yPosition > 270) {
         doc.addPage();
         yPosition = 20; // Reset Y position for the new page
-        doc.text('Client Id', 14, 30);
-        doc.text('Client Name', 40, 30);
-        doc.text('Phone', 80, 30);
-        doc.text('Email', 120, 30);
-        doc.text('Location', 160, 30);
+        doc.text("Client Id", 14, 30);
+        doc.text("Client Name", 40, 30);
+        doc.text("Phone", 80, 30);
+        doc.text("Email", 120, 30);
+        doc.text("Location", 160, 30);
       }
     });
 
     // Save the PDF
-    doc.save('clients.pdf');
+    doc.save("clients.pdf");
   };
 
   if (loading) {
@@ -121,10 +123,17 @@ const Aclients = () => {
   }
 
   return (
-    <div className='maincontainer'>
+    <div className="maincontainer">
       <div className="actitle">
+        <div className="clientbutton">
+          <Link to="/admin/SHRA/clientservice">
+            <button>Add Clients</button>
+          </Link>
+          {/* <button onClick={downloadPDF}>Download</button> */}
+        </div>
         <span>Our Clients</span>
       </div>
+
       <div className="container">
         <table>
           <thead>
@@ -142,7 +151,11 @@ const Aclients = () => {
               <Clientrow
                 key={client.client_id}
                 client={client}
-                onRefresh={() => setClients(clients.filter(c => c.client_id !== client.client_id))} // Pass refresh function
+                onRefresh={() =>
+                  setClients(
+                    clients.filter((c) => c.client_id !== client.client_id)
+                  )
+                } // Pass refresh function
                 onDelete={deleteClient} // Pass delete function
                 openPopup={() => openPopup(client)}
               />
@@ -150,22 +163,26 @@ const Aclients = () => {
           </tbody>
         </table>
       </div>
-      <div className="clientbutton">
-        <Link to="/admin/SHRA/clientservice">
-          <button>Add Clients</button>
-        </Link>
-        {/* <button onClick={downloadPDF}>Download</button> */}
-      </div>
 
       {showPopup && selectedClient && (
         <div className="popup-overlay">
           <div className="popup" ref={popupRef}>
             <h3>Client Details for {selectedClient.client_name}</h3>
-            <p><strong>Client ID:</strong> {selectedClient.client_id}</p>
-            <p><strong>Name:</strong> {selectedClient.client_name}</p>
-            <p><strong>Phone:</strong> {selectedClient.client_mobile}</p>
-            <p><strong>Email:</strong> {selectedClient.client_email}</p>
-            <p><strong>Location:</strong> {selectedClient.client_Location}</p>
+            <p>
+              <strong>Client ID:</strong> {selectedClient.client_id}
+            </p>
+            <p>
+              <strong>Name:</strong> {selectedClient.client_name}
+            </p>
+            <p>
+              <strong>Phone:</strong> {selectedClient.client_mobile}
+            </p>
+            <p>
+              <strong>Email:</strong> {selectedClient.client_email}
+            </p>
+            <p>
+              <strong>Location:</strong> {selectedClient.client_Location}
+            </p>
             {/* Add more client details as necessary */}
             <button onClick={() => setShowPopup(false)}>Close</button>
           </div>

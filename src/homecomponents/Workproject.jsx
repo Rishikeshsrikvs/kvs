@@ -1,16 +1,16 @@
-import React, { useEffect, useState, useRef } from 'react';
-import './Works.css';
-import rightbig from './../assets/images/workimages/work1rightbig.png';
-import rightsmall from './../assets/images/workimages/work1rightsmall.png';
-import next from './../assets/images/next.png';
-import pre from './../assets/images/pre.png';
-import api from '../api/api';
+import React, { useEffect, useState, useRef } from "react";
+import "./Works.css";
+import rightbig from "./../assets/images/workimages/work1rightbig.png";
+import rightsmall from "./../assets/images/workimages/work1rightsmall.png";
+import next from "./../assets/images/next.png";
+import pre from "./../assets/images/pre.png";
+import api from "../api/api";
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Navigation, Pagination } from "swiper/modules";
 
 const Workproject = () => {
   const swiperRef = useRef(null);
@@ -20,10 +20,10 @@ const Workproject = () => {
   // Fetch favorite projects
   const fetchFavProjects = async () => {
     try {
-      const response = await api.get('/getAllFavProject');
+      const response = await api.get("/getAllFavProject");
       setFavProjects(response.data);
     } catch (error) {
-      console.error('Error fetching favorite projects:', error);
+      console.error("Error fetching favorite projects:", error);
     }
   };
 
@@ -37,7 +37,7 @@ const Workproject = () => {
       const allProjectDetails = await Promise.all(detailsPromises);
       setProjectDetails(allProjectDetails);
     } catch (error) {
-      console.error('Error fetching project details:', error);
+      console.error("Error fetching project details:", error);
     }
   };
 
@@ -59,8 +59,8 @@ const Workproject = () => {
         slidesPerView={1}
         spaceBetween={60}
         navigation={{
-          nextEl: '.nextproject',
-          prevEl: '.preproject',
+          nextEl: ".nextproject",
+          prevEl: ".preproject",
         }}
         loop={true}
         pagination={{ clickable: true }}
@@ -68,7 +68,11 @@ const Workproject = () => {
       >
         {projectDetails.length > 0 &&
           projectDetails.map((project, index) => (
-            <SwiperSlide className="work2main" key={index} style={{ height: 'unset' }}>
+            <SwiperSlide
+              className="work2main"
+              key={index}
+              style={{ height: "unset" }}
+            >
               <div className="work2left">
                 <img
                   className="w2imgbig"
@@ -103,14 +107,9 @@ const Workproject = () => {
 
 export default Workproject;
 
-
-
-
-
 // import React, { useRef } from 'react';
 // import { useEffect, useState } from 'react';
 // import './Works.css';
-
 
 // import rightbig from './../assets/images/workimages/work1rightbig.png';
 // import rightsmall from './../assets/images/workimages/work1rightsmall.png';
@@ -119,26 +118,24 @@ export default Workproject;
 
 // import api from '../api/api';
 
-
 // const Workproject = () => {
 //     const [favprojects, setFavrojects] = useState([]);
 
 //      const fetchfavprojects = async() =>{
 //         const response= await api.get(/getAllFavProject);
-        
+
 //         setFavrojects(response.data);
 //         fetchProjects();
 //      }
 //      console.log(favprojects);
-     
+
 //     useEffect(()=>{
 //         fetchfavprojects();
 //     },[] );
 //     const fetchProjects = async({favprojects._id}) => {
 //         const response= await api.get(/getProject/${id});
 //         console.log(response.data);
-       
-         
+
 //     };
 
 //   return (
@@ -160,4 +157,4 @@ export default Workproject;
 //   )
 // }
 
-// export default Workproject 
+// export default Workproject

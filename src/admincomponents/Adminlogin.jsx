@@ -1,25 +1,25 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import api from '../api/api';  // API instance with base URL set
-import { useAuth } from './Auth/AuthContext';
-import logo from './../assets/images/logo.png';
-import './Adminlogin.css';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import api from "../api/api"; // API instance with base URL set
+import { useAuth } from "./Auth/AuthContext";
+import logo from "./../assets/images/logo.png";
+import "./Adminlogin.css";
 
 export const Adminlogin = () => {
-  const { login } = useAuth();  // Using AuthContext to manage authentication state
-  const navigate = useNavigate();  // For navigation after successful login
-  const [username, setUsername] = useState('');  // Default admin username
-  const [password, setPassword] = useState('');  // Default admin password
-  const [loading, setLoading] = useState(false);  // Loading state to disable form while submitting
-  const [error, setError] = useState('');  // Error state for displaying error messages
+  const { login } = useAuth(); // Using AuthContext to manage authentication state
+  const navigate = useNavigate(); // For navigation after successful login
+  const [username, setUsername] = useState(""); // Default admin username
+  const [password, setPassword] = useState(""); // Default admin password
+  const [loading, setLoading] = useState(false); // Loading state to disable form while submitting
+  const [error, setError] = useState(""); // Error state for displaying error messages
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setError('');  // Reset error state on form submission
+    setError(""); // Reset error state on form submission
 
     try {
-      const response = await api.post('/api/admin/adminlogin', {
+      const response = await api.post("/api/admin/adminlogin", {
         adminEmail: username,
         adminPassword: password,
       });
@@ -27,16 +27,16 @@ export const Adminlogin = () => {
       const { status, data } = response;
 
       if (status === 200 && data.token) {
-        login(data.token);  // Store JWT token in AuthContext
-        navigate('/admin/SHRA/dashboard');  // Navigate to dashboard after successful login
+        login(data.token); // Store JWT token in AuthContext
+        navigate("/admin/SHRA/dashboard"); // Navigate to dashboard after successful login
       } else {
-        setError('Invalid credentials');  // Set error message for invalid credentials
+        setError("Invalid credentials"); // Set error message for invalid credentials
       }
     } catch (error) {
-      setError('Error connecting to server');  // Set error message for server connection issues
-      console.error('Login error:', error);
+      setError("Error connecting to server"); // Set error message for server connection issues
+      console.error("Login error:", error);
     } finally {
-      setLoading(false);  // Reset loading state
+      setLoading(false); // Reset loading state
     }
   };
 
@@ -57,7 +57,7 @@ export const Adminlogin = () => {
               value={username}
               autocomplete="off"
               onChange={(e) => setUsername(e.target.value)}
-              disabled={loading}  // Disable input while loading
+              disabled={loading} // Disable input while loading
             />
           </div>
           <div className="inputcon">
@@ -67,17 +67,17 @@ export const Adminlogin = () => {
               value={password}
               autocomplete="off"
               onChange={(e) => setPassword(e.target.value)}
-              disabled={loading}  // Disable input while loading
+              disabled={loading} // Disable input while loading
             />
           </div>
           <input
             className="formsubmit"
             type="submit"
             value="Sign In"
-            disabled={loading}  // Disable submit button while loading
+            disabled={loading} // Disable submit button while loading
           />
         </form>
-        {error && <p className="error">{error}</p>} 
+        {error && <p className="error">{error}</p>}
       </div>
     </div>
   );

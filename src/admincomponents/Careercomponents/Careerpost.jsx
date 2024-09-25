@@ -1,25 +1,24 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import api from '../../api/api';
-import logo from './../../assets/images/logo.png';
-import { useAuth } from '../Auth/AuthContext';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import api from "../../api/api";
+import logo from "./../../assets/images/logo.png";
+import { useAuth } from "../Auth/AuthContext";
 
 // Utility function to generate a unique ID
 const generateJobId = () => `job-${Date.now()}`;
 
-
 export const Careerpost = () => {
   const { token } = useAuth();
   const [formData, setFormData] = useState({
-    jobName: '',
-    experienceMin: '', // Changed from 'experience' to 'experienceMin'
-    experienceMax: '', // Added experienceMax
-    location: '',
-    salaryMin: '', // Changed from 'salary' to 'salaryMin'
-    salaryMax: '', // Added salaryMax
-    skills: '',
-    jobDescription: '', // Changed from 'description' to 'jobDescription'
-    numberOfVacancies: '', // Changed from 'applications' to 'numberOfVacancies'
+    jobName: "",
+    experienceMin: "", // Changed from 'experience' to 'experienceMin'
+    experienceMax: "", // Added experienceMax
+    location: "",
+    salaryMin: "", // Changed from 'salary' to 'salaryMin'
+    salaryMax: "", // Added salaryMax
+    skills: "",
+    jobDescription: "", // Changed from 'description' to 'jobDescription'
+    numberOfVacancies: "", // Changed from 'applications' to 'numberOfVacancies'
     urgentHiring: false, // Added urgentHiring field as a boolean
   });
 
@@ -28,7 +27,7 @@ export const Careerpost = () => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     });
   };
 
@@ -36,44 +35,43 @@ export const Careerpost = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await api.post('/api/admin/jobpost', 
-        formData,
-        {
+      const response = await api.post("/api/admin/jobpost", formData, {
         headers: {
-          'authorization': `${token}`,
+          authorization: `${token}`,
         },
-      }
-      );
+      });
       if (response.status === 201) {
-       
         // Reset form data if needed
         setFormData({
-          jobName: '',
-          experienceMin: '',
-          experienceMax: '',
-          location: '',
-          salaryMin: '',
-          salaryMax: '',
-          skills: '',
-          jobDescription: '',
-          numberOfVacancies: '',
+          jobName: "",
+          experienceMin: "",
+          experienceMax: "",
+          location: "",
+          salaryMin: "",
+          salaryMax: "",
+          skills: "",
+          jobDescription: "",
+          numberOfVacancies: "",
           urgentHiring: false, // Reset urgentHiring field
         });
       }
     } catch (error) {
-      console.error('Failed to post job', error);
+      console.error("Failed to post job", error);
     }
   };
 
   return (
-    <div className='careerpost'>
+    <div className="careerpost">
       <div className="cptitle">
         <div className="cptitleleft">
-          <Link to="/admin/SHRA/dashboard/career"><button className='cpbackmenubtn'>BACK</button></Link>
+          <Link to="/admin/SHRA/dashboard/career">
+            <button className="cpbackmenubtn">BACK</button>
+          </Link>
         </div>
-        <div className='cpright'>
-          <button className='cppublishbtn' onClick={handleSubmit}>PUBLISH</button>
-          
+        <div className="cpright">
+          <button className="cppublishbtn" onClick={handleSubmit}>
+            PUBLISH
+          </button>
         </div>
       </div>
       <div className="cpsubtitle">
@@ -83,39 +81,85 @@ export const Careerpost = () => {
         <div className="cpsidecontainer">
           <div className="cpsideinput">
             <label htmlFor="jobName">JOB NAME</label>
-            <input type="text" name="jobName" value={formData.jobName} onChange={handleChange} />
+            <input
+              type="text"
+              name="jobName"
+              value={formData.jobName}
+              onChange={handleChange}
+            />
           </div>
           <div className="cpsideinput">
             <label htmlFor="experienceMin">MINIMUM EXPERIENCE</label>
-            <input type="number" name="experienceMin" value={formData.experienceMin} onChange={handleChange} />
+            <input
+              type="number"
+              name="experienceMin"
+              value={formData.experienceMin}
+              onChange={handleChange}
+            />
           </div>
           <div className="cpsideinput">
             <label htmlFor="experienceMax">MAXIMUM EXPERIENCE</label>
-            <input type="number" name="experienceMax" value={formData.experienceMax} onChange={handleChange} />
+            <input
+              type="number"
+              name="experienceMax"
+              value={formData.experienceMax}
+              onChange={handleChange}
+            />
           </div>
           <div className="cpsideinput">
             <label htmlFor="location">LOCATION</label>
-            <input type="text" name="location" value={formData.location} onChange={handleChange} />
+            <input
+              type="text"
+              name="location"
+              value={formData.location}
+              onChange={handleChange}
+            />
           </div>
           <div className="cpsideinput">
             <label htmlFor="salaryMin">MINIMUM SALARY</label>
-            <input type="number" name="salaryMin" value={formData.salaryMin} onChange={handleChange} />
+            <input
+              type="number"
+              name="salaryMin"
+              value={formData.salaryMin}
+              onChange={handleChange}
+            />
           </div>
           <div className="cpsideinput">
             <label htmlFor="salaryMax">MAXIMUM SALARY</label>
-            <input type="number" name="salaryMax" value={formData.salaryMax} onChange={handleChange} />
+            <input
+              type="number"
+              name="salaryMax"
+              value={formData.salaryMax}
+              onChange={handleChange}
+            />
           </div>
           <div className="cpsideinput">
             <label htmlFor="skills">SKILLS REQUIRED</label>
-            <input type="text" name="skills" maxlength="40" value={formData.skills} onChange={handleChange} />
+            <input
+              type="text"
+              name="skills"
+              maxlength="40"
+              value={formData.skills}
+              onChange={handleChange}
+            />
           </div>
           <div className="cpsideinput">
             <label htmlFor="numberOfVacancies">NUMBER OF VACANCIES</label>
-            <input type="number" name="numberOfVacancies" value={formData.numberOfVacancies} onChange={handleChange} />
+            <input
+              type="number"
+              name="numberOfVacancies"
+              value={formData.numberOfVacancies}
+              onChange={handleChange}
+            />
           </div>
-          <div className="cpsideinput" id='inputbox'>
+          <div className="cpsideinput" id="inputbox">
             <label htmlFor="jobDescription">JOB DESCRIPTION</label>
-            <textarea name="jobDescription" id="inputbox" value={formData.jobDescription} onChange={handleChange}></textarea>
+            <textarea
+              name="jobDescription"
+              id="inputbox"
+              value={formData.jobDescription}
+              onChange={handleChange}
+            ></textarea>
           </div>
           <div className="cpsideinput cpsidecheck">
             <label htmlFor="urgentHiring">URGENT HIRING :</label>
@@ -123,11 +167,13 @@ export const Careerpost = () => {
               type="checkbox"
               name="urgentHiring"
               checked={formData.urgentHiring}
-              onChange={(e) => setFormData({ ...formData, urgentHiring: e.target.checked })}
+              onChange={(e) =>
+                setFormData({ ...formData, urgentHiring: e.target.checked })
+              }
             />
           </div>
-          <div className='cpsidesubmit'>
-            <input  type="submit" onClick={handleSubmit} value="POST A JOB"/>
+          <div className="cpsidesubmit">
+            <input type="submit" onClick={handleSubmit} value="POST A JOB" />
           </div>
         </div>
         <div className="cpmaincontainer">
@@ -139,17 +185,33 @@ export const Careerpost = () => {
                 </div>
                 <div className="jobpoints">
                   <div className="jobpointsrow">
-                    <div className="experience jpitem"><h4>{formData.experienceMin || "MIN EXPERIENCE"} - {formData.experienceMax || "MAX EXPERIENCE"} years</h4></div>
-                    <div className="jpitem"><h4>Openings: {formData.numberOfVacancies || "0"}</h4></div>
+                    <div className="experience jpitem">
+                      <h4>
+                        {formData.experienceMin || "MIN EXPERIENCE"} -{" "}
+                        {formData.experienceMax || "MAX EXPERIENCE"} years
+                      </h4>
+                    </div>
+                    <div className="jpitem">
+                      <h4>Openings: {formData.numberOfVacancies || "0"}</h4>
+                    </div>
                   </div>
                   <div className="jobpointsrow">
-                    <div className="location jpitem"><h4>{formData.location || "LOCATION"}</h4></div>
+                    <div className="location jpitem">
+                      <h4>{formData.location || "LOCATION"}</h4>
+                    </div>
                     {formData.urgentHiring && (
-                        <div className="jpitem"><h4>URGENT HIRING</h4></div>
-                      )}
+                      <div className="jpitem">
+                        <h4>URGENT HIRING</h4>
+                      </div>
+                    )}
                   </div>
                   <div className="jobpointsrow">
-                    <div className="salary jpitem"><h4>{formData.salaryMin || "MIN SALARY"} - {formData.salaryMax || "MAX SALARY"} LPA</h4></div>
+                    <div className="salary jpitem">
+                      <h4>
+                        {formData.salaryMin || "MIN SALARY"} -{" "}
+                        {formData.salaryMax || "MAX SALARY"} LPA
+                      </h4>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -160,22 +222,22 @@ export const Careerpost = () => {
             <div className="cpjobcard2">
               <div className="cphighlights">
                 <h4>JOB HIGHLIGHTS</h4>
-                
-                  <div className='cpsub'>
-                    <h4>Skills:</h4>
-                    <p> {formData.skills || "SKILLS REQUIRED"}</p>
-                    </div>
-                  <div>
-                    <h4>Description: </h4>
-                    <pre>{formData.jobDescription || "JOB DESCRIPTION"}</pre>
-                    </div>
-                
+
+                <div className="cpsub">
+                  <h4>Skills:</h4>
+                  <p> {formData.skills || "SKILLS REQUIRED"}</p>
+                </div>
+                <div>
+                  <h4>Description: </h4>
+                  <pre>{formData.jobDescription || "JOB DESCRIPTION"}</pre>
+                </div>
               </div>
               <div className="cpaboutcn">
                 <h4>About</h4>
                 <p>
-                  We are a software research and development firm with over two solid decades of industrial experience, 
-                  having voyaged through various tasks, which consist of the following:
+                  We are a software research and development firm with over two
+                  solid decades of industrial experience, having voyaged through
+                  various tasks, which consist of the following:
                 </p>
               </div>
             </div>
