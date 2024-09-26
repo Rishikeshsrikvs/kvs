@@ -3,6 +3,8 @@ import api from '../../api/api';
 import "./Blogland.css";
 import nearrow from './../../assets/images/ne arrow.svg';
 import { useNavigate } from 'react-router-dom';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Blogland = () => {
     const [blogs, setBlogs] = useState([]);
@@ -10,6 +12,11 @@ const Blogland = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
+
+        AOS.init({
+            duration: 1000, // Animation duration in ms
+            once: false,     // Whether animation should happen only once
+          });
         // Fetching the blogs from the API
         api.get('/blogs')
             .then(response => {
@@ -47,7 +54,7 @@ const Blogland = () => {
     return (
         <div className="landblogcordcon">
             {blogs.map((blog, index) => (
-                <div key={index} className="landblogcard" onClick={()=>navigate('/blogs')}>
+                <div key={index} className="landblogcard" data-aos="fade-up" onClick={()=>navigate('/blogs')}>
                     <div className="lbimg">
                         <img 
                             src={blogImages[blog._id] || 'fallback-image-url'}  // Use blogImages state or fallback image

@@ -1,5 +1,9 @@
 import React from "react";
 import { useEffect } from "react";
+import ScrollReveal from "./ScrollReveal";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 import { Link } from "react-router-dom";
 import "./Land.css";
 import CircularText from "./landcomponents/CircularText";
@@ -24,31 +28,42 @@ export const Land = () => {
   const duration = 4000; // Animation duration in milliseconds
   useEffect(() => {
     window.scrollTo(0, 0);
+    AOS.init({
+      duration: 2000, // Animation duration in ms
+      once: false,     // Whether animation should happen only once
+    });
+    
   }, []);
   return (
     <div className="landmaincontainer">
       <div className="land1">
         <div className="land1spilt">
           <div className="land1left">
-            <h1>UNLEASH YOUR DIGITAL</h1>
-            <h1 className="color">POTENTIAL</h1>
-            <p>
+            
+            <h1 data-aos="fade-right">UNLEASH YOUR DIGITAL</h1>
+            <h1 className="color" data-aos="fade-right">POTENTIAL</h1>
+            
+           
+            <p data-aos="fade-right">
               It's Time To Transform Your Online Presence And Accelerate <br />
               Your Business Growth With Sri KVS Tech.
               <br />
               Let's Start The Journey Together And Witness The Transformation
             </p>
+          
           </div>
           <div className="land1right">
-            <img src={cube} className="imagelandright" alt="Cube" />
+            
+            <img src={cube} className="imagelandright" alt="Cube"/>
             <Link to="/contactus">
-              <span className="Enquirespan">
+              <span className="Enquirespan" data-aos="fade-up">
                 <CircularText />
               </span>
             </Link>
           </div>
         </div>
-        <div className="land1yearcontainer">
+        
+        <div className="land1yearcontainer" data-aos="fade-up">
           <div className="yearssplit">
             <h1>
               <AnimatedNumber value={75} duration="4000" />+
@@ -68,27 +83,36 @@ export const Land = () => {
             <h4>YEARS IN INDUSTRY</h4>
           </div>
         </div>
+      
         <Logoslider />
       </div>
       <div className="landaboutcontainer">
         <div className="landaboutleft">
-          <h1 className="landabouth1">About Us</h1>
-          <h1 className="landabouttext">PROVIDING THE BEST FOR THE BEST</h1>
-          <h6 className="landabouth6">
-            It's time to transform your online presence and accelerate your
-            business growth with Sri KVS Tech. Let's start the journey together
-            and witness the transformation.
-          </h6>
-          <Link to="/about" className="landaboutbtn">
-            Know More
-          </Link>
+          <ScrollReveal direction="left">
+            <h1 className="landabouth1">About Us</h1>
+            <h1 className="landabouttext">PROVIDING THE BEST FOR THE BEST</h1>
+          </ScrollReveal>
+          <ScrollReveal direction="left">
+            <h6 className="landabouth6">
+              It's time to transform your online presence and accelerate your
+              business growth with Sri KVS Tech. Let's start the journey together
+              and witness the transformation.
+            </h6>
+            <Link to="/about" className="landaboutbtn">
+              Know More
+            </Link>
+          </ScrollReveal>
         </div>
-        <div className="landaboutright">
+        
+        <div className="landaboutright" data-aos="fade-up">
+        
           <Iconcontainer />
+         
         </div>
+        
       </div>
       <div className="landservicescontainer">
-        <div className="landservicetitlecon">
+        <div className="landservicetitlecon" data-aos="zoom-in">
           <h1 className="landsert1">What we do</h1>
           <h1 className="landsert2">OUR SERVICES</h1>
         </div>
@@ -96,16 +120,16 @@ export const Land = () => {
       </div>
       <Landproject />
       <div className="landwhyuscontainer">
-        <div className="wytextcontainer">
-          <span>Why us</span>
+        <div className="wytextcontainer" data-aos="fade-bottom">
+          <span >Why us</span>
         </div>
         <div className="wymaincon">
           <div className="wytitle">
-            <h1 className="wytitle1">Bringing Your Ideas In </h1>
-            <h1 className="wytitle2">Exceptional Ways</h1>
+            <h1 className="wytitle1" data-aos="zoom-in">Bringing Your Ideas In </h1>
+            <h1 className="wytitle2" data-aos="zoom-in">Exceptional Ways</h1>
           </div>
           <div className="wygrid">
-            <div className="wyleft">
+            <div className="wyleft" data-aos="zoom-in">
               <div className="wylupimg">
                 <img src={wsrotate} alt="" />
               </div>
@@ -138,14 +162,14 @@ export const Land = () => {
         </div>
       </div>
       <Feedbacklandslider />
-      <div className="landblogmain">
-        <div className="landblogtitle">
+      <div className="landblogmain" >
+        <div className="landblogtitle" data-aos="fade-up">
           <span></span>
           <h1>OUR BLOGS</h1>
         </div>
         <Blogland />
         <div className="landblogbtncn">
-          <Link to="blogs" className="landblogbtn">
+          <Link to="blogs" className="landblogbtn" data-aos="fade-up">
             Click For More Blogs
           </Link>
         </div>
@@ -161,17 +185,17 @@ export const Land = () => {
         </div>
         <div className="landcontactussub">
           <div className="landcutitle">
-            <h1>create something awesome </h1>
-            <h1>
+            <h1 data-aos="fade-right">create something awesome </h1>
+            <h1 data-aos="fade-left">
               and <span>extraordinary</span> with Us
             </h1>
           </div>
 
           <div className="landcusubtitle">
-            <p>with a lot of creativity, we can make your dream come true</p>
+            <p  data-aos="fade-up">with a lot of creativity, we can make your dream come true</p>
           </div>
           <div className="landcubtn">
-            <Link to="/contactus" className="landcubtnsub">
+            <Link to="/contactus" className="landcubtnsub"  data-aos="fade-up">
               CONTACT US
             </Link>
           </div>

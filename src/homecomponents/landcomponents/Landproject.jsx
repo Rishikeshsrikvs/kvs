@@ -1,5 +1,8 @@
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import AOS from "aos";
+import "aos/dist/aos.css"; // Import AOS styles
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -34,6 +37,12 @@ const Landproject = () => {
        
         
     ];
+    useEffect(() => {
+        AOS.init({
+          duration: 2000, // Animation duration in ms
+          once: false,     // Whether animation should happen only once
+        });
+      }, []);
 
     // Create a ref for Swiper instance
     const swiperRef = useRef(null);
@@ -43,13 +52,13 @@ const Landproject = () => {
         <div className="lprmain">
             <div className='landprojectcontainer'>
                 <div className="landprojecttitle">
-                    <div className="projecttitle">
+                    <div className="projecttitle" data-aos="fade-right">
                         <h1>Elevate Your Brand, Accelerate <br />
                             Your <span>Growth</span>
                         </h1>
                     </div>
-                    <div className='projectbtns'>
-                        <div className="allprjt">
+                    <div className='projectbtns' data-aos="fade-left">
+                        <div className="allprjt" >
                             <Link to="/projects" className='allprjtbtn'>
                                 <span>ALL PROJECT</span>
                                 <img src={ne} alt="Next arrow" />
@@ -64,6 +73,7 @@ const Landproject = () => {
 
                 <Swiper
                     className='landprojectcardcontainer'
+                    data-aos="zoom-in"
                     ref={swiperRef} // Attach Swiper instance to ref
                     slidesPerView={4}
                     spaceBetween={60}

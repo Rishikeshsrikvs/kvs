@@ -9,6 +9,8 @@ import sm2 from './../../assets/images/landservice/sm2.png';
 import we1 from './../../assets/images/landservice/we1.png';
 import we2 from './../../assets/images/landservice/we2.png';
 import servicevi from './../../assets/images/landservice/servicevid.mp4';
+import AOS from "aos";
+import "aos/dist/aos.css"; // Import AOS styles
 
 const services = [
   {
@@ -41,7 +43,12 @@ const Serviceland = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [animationClass, setAnimationClass] = useState('');
   const [titleTranslateClass, setTitleTranslateClass] = useState('');
-
+  useEffect(() => {
+    AOS.init({
+      duration: 2000, // Animation duration in ms
+      once: false,     // Whether animation should happen only once
+    });
+  }, []);
   useEffect(() => {
     // Force reflow to reset the animation
     setAnimationClass(''); 
@@ -70,7 +77,7 @@ const Serviceland = () => {
 
   return (
     <div className="landservicemain">
-      <h1 className={`servicetitleani ${titleTranslateClass}`}>
+      <h1 className={`servicetitleani ${titleTranslateClass}`} data-aos="zoom-in" >
         {services[currentIndex].title}
       </h1>
       <div className="servicecard-container">
@@ -98,8 +105,8 @@ const Serviceland = () => {
         ))}
       </div>
       <div className="servicecardbtn">
-        <button onClick={prevService}>Previous</button>
-        <button onClick={nextService}>Next</button>
+        <button onClick={prevService} data-aos="fade-right" >Previous</button>
+        <button onClick={nextService} data-aos="fade-left">Next</button>
       </div>
     </div>
   );

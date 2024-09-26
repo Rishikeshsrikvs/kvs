@@ -6,6 +6,8 @@ import fb1 from './../../assets/images/feedbackclient/cart.webp';
 import fb2 from './../../assets/images/feedbackclient/central.jpg';
 import fb3 from './../../assets/images/feedbackclient/eifil.jpg';
 import fb4 from './../../assets/images/feedbackclient/images.jpeg';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const fallbackImages = [fb1, fb2, fb3, fb4];
 
@@ -18,6 +20,13 @@ const Feedbacklandslider = () => {
   const [feedbacks, setFeedbacks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    AOS.init({
+      duration: 2000, // Animation duration in ms
+      once: false,     // Whether animation should happen only once
+    });
+  }, []);
 
   useEffect(() => {
     const fetchFeedbacks = async () => {
@@ -80,7 +89,7 @@ const Feedbacklandslider = () => {
     <div className="landfeedbackmain">
       <div className='landfeedback2'></div>
       <div className="landfeedbacksub">
-        <div className="landfeedbacktitle">
+        <div className="landfeedbacktitle" data-aos="zoom-in">
           <h1>What do we do exactly?</h1>
           <p>We only do 3 things. But we do them really well.</p>
         </div>

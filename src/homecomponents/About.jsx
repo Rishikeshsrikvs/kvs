@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import "./About.css";
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css"; // Import AOS styles
 import about22 from "./../assets/images/Aboutimages/about21.png";
 import about21 from "./../assets/images/Aboutimages/about22.png";
 import about3 from "./../assets/images/Aboutimages/about3.png";
@@ -16,21 +18,26 @@ import Aboutteam from "./landcomponents/Aboutteam";
 export const About = () => {
   // Scroll to the top of the page when the component is mounted
   useEffect(() => {
+    
     window.scrollTo(0, 0);
+    AOS.init({
+      duration: 2000, // Animation duration in ms
+      once: false,     // Whether animation should happen only once
+    });
   }, []);
 
   return (
     <div className="aboutparentcontainer">
       <div className="aboutland">
-        <h1>Built for modern brands who want to make waves</h1>
+        <h1  data-aos="zoom-in">Built for modern brands who want to make waves</h1>
       </div>
       <div className="about2main">
         <div className="about2left">
-          <img className="abt22" src={about21} alt="" />
-          <img className="abt21" src={about22} alt="" />
+          <img className="abt22" src={about21} alt=""  data-aos="fade-up-right"/>
+          <img className="abt21" src={about22} alt="" data-aos="fade-up"/>
         </div>
         <div className="about2right">
-          <h1 className="a2color">
+          <h1 className="a2color" data-aos="fade-left">
             <span className="a2colorline"></span>
             <span>WHO WE ARE</span>
           </h1>

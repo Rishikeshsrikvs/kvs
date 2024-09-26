@@ -12,7 +12,10 @@ export const Parent = () => {
         <Route path="/*" element={<Home />} />{" "}
         {/* Base route for the Home page */}
         <Route path="/admin/SHRA/*" element={<Admin />} />{" "}
+
         {/* Admin login path */}
+
+        <Route path="/check" element={<Check/>} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,33 +1,61 @@
-import React from "react";
+// Check.jsx
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css"; // Import AOS styles
 
 export const Check = () => {
+  // Initialize AOS on component mount
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration in ms
+      once: false,     // Whether animation should happen only once
+    });
+  }, []);
+
   return (
     <div>
-      <div>Check</div>
-      <p>
+      {/* Element sliding in from the left */}
+      <div data-aos="fade-left">
+        Coming from the left
+      </div>
+
+      {/* Element sliding in from the right */}
+      <h1 data-aos="fade-right">
+        Coming from the right
+      </h1>
+
+      {/* Paragraph sliding in from the bottom */}
+      <p data-aos="fade-up">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque quibusdam
         magnam repellat, id corporis temporibus praesentium hic sint ipsam harum
         dolorem eos provident molestiae laborum earum saepe deserunt magni
-        soluta recusandae rerum obcaecati. Ipsa accusantium eveniet officiis
-        tempora aliquid reiciendis fugit illo, eaque eum ipsam porro itaque qui
-        iste perspiciatis. Cupiditate consectetur aut facere unde doloribus cum
-        dicta eius ipsa labore, inventore perferendis magnam velit, deleniti quo
-        necessitatibus quos animi numquam excepturi tenetur qui eveniet. Nobis
-        doloremque neque dolor quisquam labore nostrum eum nesciunt voluptatum
-        cumque voluptates incidunt ipsum et harum delectus asperiores suscipit,
-        esse excepturi accusantium obcaecati aliquid, voluptatem, eius aut!
-        Assumenda, impedit sequi. Placeat dignissimos quam, tempora voluptatum
-        quia dolorum. Sunt deleniti maxime mollitia magni totam obcaecati magnam
-        perferendis, natus odio in atque enim a vel officia dolore voluptatum
-        illum quam ducimus possimus quod dignissimos odit voluptates. Numquam
-        dolorem saepe repellendus eligendi, laudantium impedit dolore deserunt
-        omnis nam temporibus ut molestias hic tempora, rem assumenda quibusdam
-        dignissimos enim, rerum quisquam? Consequuntur quam, minus
-        necessitatibus incidunt deserunt optio culpa sunt soluta sed!
+        soluta recusandae rerum obcaecati. Ipsa accusantium eveniet officiis.
         Voluptatem, cum dignissimos. Error earum id deleniti reiciendis
         aspernatur vitae quod eum laboriosam similique officia ea modi ab
         tenetur aut corporis fugit tempore, alias totam magni! Tempora!
       </p>
+
+      {/* Another element sliding in from the left */}
+      <h1 data-aos="fade-left">
+        Another element from the left
+      </h1>
+
+      {/* Another element sliding in from the right */}
+      <h2 data-aos="fade-right">
+        Another element from the right
+      </h2>
+
+      {/* Another element sliding in from the bottom */}
+      <h3 data-aos="fade-up">
+        This is another element animating from the bottom.
+      </h3>
+
+      {/* Another element sliding in from the left */}
+      <h4 data-aos="fade-left">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti, asperiores.
+      </h4>
     </div>
   );
 };
+
+export default Check;

@@ -63,7 +63,8 @@ const Logoslider = () => {
       <Marquee className="scrolling-wrapper" speed={70} pauseOnHover={"true"}>
       {allLogos.map((logo, index) => (
          
-            <img src={logo} alt={`Logo ${index}`} />
+            <img  key={index}
+            src={logo} alt={`Logo ${index}`} />
          
         ))}
       </Marquee>
