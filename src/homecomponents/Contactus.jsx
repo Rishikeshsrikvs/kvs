@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import api from "../api/api";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
 import "./Contactus.css";
 import upload from "./../assets/images/upload.png";
@@ -25,6 +27,10 @@ const Contactus = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    AOS.init({
+      duration: 2000, // Animation duration in ms
+      once: false,     // Whether animation should happen only once
+    });
   }, []);
 
   // Validation for friend feedback form
@@ -151,8 +157,8 @@ const Contactus = () => {
     <div className="contactusparent">
       <div className="contact1main">
         <div className="contact1sub">
-          <h1 className="cn1big">Let’s collaborate on what matters to you</h1>
-          <h1 className="cn1small">
+          <h1 className="cn1big" data-aos="zoom-in">Let’s collaborate on what matters to you</h1>
+          <h1 className="cn1small" data-aos="zoom-in">
             Contact us to discuss business opportunities, or just to say hello.
             Use the form below or send us an email at{" "}
             <span>info@srikvstech.com</span>
@@ -161,7 +167,7 @@ const Contactus = () => {
       </div>
 
       <div className="contact2main">
-        <div className="cn2left">
+        <div className="cn2left" data-aos="fade-left">
           <form onSubmit={handleContactFormSubmit}>
             <div className="cn2lefttitle">
               <h1>Contact Us</h1>
@@ -216,7 +222,7 @@ const Contactus = () => {
           </form>
         </div>
 
-        <div className="cn2right">
+        <div className="cn2right" data-aos="fade-right">
           <div className="cn2text">
             <h2>We are Here</h2>
             <p>mon - sat [9AM - 6PM]</p>
@@ -230,7 +236,7 @@ const Contactus = () => {
       </div>
 
       <div className="cn3main">
-        <div className="cn3left">
+        <div className="cn3left" data-aos="fade-right">
           <h1>Feedback</h1>
           <div className="cn3feedbackcon">
             <div className="cn3in">
@@ -300,7 +306,7 @@ const Contactus = () => {
           </div>
         </div>
 
-        <div className="cn3right">
+        <div className="cn3right" data-aos="fade-left">
           <h1>BROCHURES</h1>
           <p>
             Discover the power of our expertise and solutions by accessing our

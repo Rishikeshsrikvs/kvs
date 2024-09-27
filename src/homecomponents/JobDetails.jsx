@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useLocation, useParams } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import "./JobDetails.css";
 import api from "../api/api";
 import formdown from "./../assets/images/career/formdown.png";
@@ -9,12 +10,33 @@ import careertitleback from "./../assets/images/career/careertitle.png";
 
 const JobDetails = () => {
   const location = useLocation();
-  const job = location.state?.job;
+  const { id } = useParams(); // Extract job ID from URL
+  const [jobs, setJobs] = useState([]);
+  const [job, setJob] = useState(null); // Job data state
+  const [loading, setLoading] = useState(true); // Loading state
+  const [error, setError] = useState(null); // Error state
   const [resumeName, setResumeName] = useState("");
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    AOS.init({ duration: 2000, once: false });
   }, []);
+
+  useEffect(() => {
+    const fetchJobs = async () => {
+      try {
+        const response = await api.get("/getjobs");
+        setJobs(response.data);
+        const selectedJob = response.data.find((job) => job._id === id);
+        setJob(selectedJob);
+        setLoading(false);
+      } catch (err) {
+        setError("Failed to load jobs");
+        setLoading(false);
+      }
+    };
+    fetchJobs();
+  }, [id]);
 
   const [formData, setFormData] = useState({
     candidateName: "",
@@ -39,12 +61,12 @@ const JobDetails = () => {
         coursesDone: [""],
       },
     ],
-    appliedJob: job?._id || "",
+    appliedJob: id || "",
     resume: null,
   });
 
   const [errors, setErrors] = useState({});
-  const [successMessage, setSuccessMessage] = useState(""); // Added state for success message
+  const [successMessage, setSuccessMessage] = useState("");
 
   const validateField = (name, value) => {
     let error = "";
@@ -53,18 +75,10 @@ const JobDetails = () => {
         if (!value) error = "Candidate name is required";
         break;
       case "email":
-        if (!value) {
-          error = "Email is required";
-        } else if (!/\S+@\S+\.\S+/.test(value)) {
-          error = "Email is invalid";
-        }
+        if (!value || !/\S+@\S+\.\S+/.test(value)) error = "Email is invalid";
         break;
       case "contact":
-        if (!value) {
-          error = "Contact is required";
-        } else if (!/^\d{10}$/.test(value)) {
-          error = "Contact must be a 10-digit number";
-        }
+        if (!value || !/^\d{10}$/.test(value)) error = "Contact must be 10 digits";
         break;
       case "location":
         if (!value) error = "Location is required";
@@ -73,11 +87,7 @@ const JobDetails = () => {
         if (!value) error = "Skills are required";
         break;
       case "experience":
-        if (!value) {
-          error = "Experience is required";
-        } else if (isNaN(value)) {
-          error = "Experience must be a number";
-        }
+        if (!value || isNaN(value)) error = "Experience must be a number";
         break;
       case "resume":
         if (!value) error = "Resume is required";
@@ -94,7 +104,6 @@ const JobDetails = () => {
       ...formData,
       [name]: value,
     });
-
     const fieldError = validateField(name, value);
     setErrors({
       ...errors,
@@ -108,7 +117,6 @@ const JobDetails = () => {
       ...formData,
       resume: file,
     });
-
     setResumeName(file ? file.name : "");
     const fieldError = validateField("resume", file);
     setErrors({
@@ -116,7 +124,6 @@ const JobDetails = () => {
       resume: fieldError,
     });
   };
-
   const handleEducationChange = (index, e) => {
     const { name, value } = e.target;
     const updatedEducation = [...formData.education];
@@ -169,30 +176,21 @@ const JobDetails = () => {
       }
     }
 
-    // Validate education fields
     formData.education.forEach((edu, index) => {
-      if (!edu.degree)
-        formErrors[`education[${index}].degree`] = "Degree is required";
-      if (!edu.yearOfPassing)
-        formErrors[`education[${index}].yearOfPassing`] =
-          "Year of Passing is required";
-      if (!edu.branch)
-        formErrors[`education[${index}].branch`] = "Branch is required";
-      if (!edu.university)
-        formErrors[`education[${index}].university`] = "University is required";
-      if (!edu.coursesDone.length)
-        formErrors[`education[${index}].coursesDone`] =
-          "At least one course is required";
+      if (!edu.degree) formErrors[`education[${index}].degree`] = "Degree is required";
+      if (!edu.yearOfPassing) formErrors[`education[${index}].yearOfPassing`] = "Year of Passing is required";
+      if (!edu.branch) formErrors[`education[${index}].branch`] = "Branch is required";
+      if (!edu.university) formErrors[`education[${index}].university`] = "University is required";
+      if (!edu.coursesDone.length) formErrors[`education[${index}].coursesDone`] = "At least one course is required";
     });
 
     setErrors(formErrors);
     return Object.keys(formErrors).length === 0;
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!validateForm()) {
-      return;
-    }
+    if (!validateForm()) return;
 
     const data = new FormData();
     for (const key in formData) {
@@ -207,20 +205,36 @@ const JobDetails = () => {
             edu.coursesDone.join(",")
           );
         });
-      } else if (key === "resume") {
+      }  else if (key === "resume") {
         data.append(key, formData[key]);
       } else {
         data.append(key, formData[key]);
       }
     }
-
+    const structuredData = {
+      ...formData,
+      education: formData.education.map(edu => ({
+        degree: edu.degree,
+        yearOfPassing: edu.yearOfPassing,
+        branch: edu.branch,
+        university: edu.university,
+        coursesDone: edu.coursesDone,
+      })),
+    };
+  
+    console.log("Form Data Before API Update:", JSON.stringify(structuredData, null, 2));
+  
     try {
+      console.log("Form Data Before API Update:", data);
       const response = await api.post("/apply", data, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
-      setSuccessMessage("Application submitted successfully!"); // Set success message
+      setSuccessMessage("Application submitted successfully!");
+      setTimeout(() => {
+        setSuccessMessage(""); // Clear the message after 3 seconds
+      }, 7000);
       setFormData({
         candidateName: "",
         email: "",
@@ -246,44 +260,36 @@ const JobDetails = () => {
         ],
         appliedJob: job?._id || "",
         resume: null,
-      }); // Reset form data
-      setResumeName(""); // Reset resume name
+      });
+      setResumeName("");
       setErrors({});
     } catch (error) {
       console.error("Error:", error);
     }
   };
 
-  if (!job) {
-    return <p>No job details available.</p>;
-  }
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>{error}</p>;
 
   return (
     <div className="jobdetailparent">
       <div className="jd1main">
-        <h1>
+        <h1  data-aos="fade-right">
           We’re hiring
           <span className="jd4titleback">
-            <span className="jd4titleback1">
-              <img src={careertitleback} alt="" />
-            </span>
-            <span className="jd4titleback2">
-              <img src={careertitleback} alt="" />
-            </span>
+            <img src={careertitleback} alt="" data-aos="zoom-in" />
           </span>
         </h1>
-        <h1>{job.jobName}</h1>
+        <h1 data-aos="fade-right">{job.jobName}</h1>
       </div>
 
       <div className="jd2main">
-        <h1>What you’ll do</h1>
-        <div className="jd2cardcon">
-          <div className="jdcard1">
+        <h1 data-aos="fade-right">What you’ll do</h1>
+        <div className="jd2cardcon" data-aos="fade-up">
+          <div className="jdcard1" >
             <h1>EXPERIENCE</h1>
             <div className="jdline"></div>
-            <h1>
-              {job.experienceMin} - {job.experienceMax} years
-            </h1>
+            <h1>{job.experienceMin} - {job.experienceMax} years</h1>
           </div>
           <div className="jdcard2">
             <h1>SKILLS</h1>
@@ -297,9 +303,7 @@ const JobDetails = () => {
           <div className="jdcard3">
             <h1>SALARY</h1>
             <div className="jdline"></div>
-            <h1>
-              {job.salaryMin} - {job.salaryMax} LPA
-            </h1>
+            <h1>{job.salaryMin} - {job.salaryMax} LPA</h1>
           </div>
           <div className="jdcard4">
             <h1>LOCATION</h1>
@@ -310,26 +314,24 @@ const JobDetails = () => {
       </div>
 
       <div className="jd3main">
-        <h1>Job Highlights</h1>
+        <h1 data-aos="fade-right">Job Highlights</h1>
         <div className="jd3dcon">
-          <pre>{job.jobDescription}</pre>
+          <pre data-aos="fade-up">{job.jobDescription}</pre>
         </div>
-        <h1>About</h1>
+        <h1 data-aos="fade-right">About</h1>
         <div className="jd3dcon">
-          <p>
-            We are a software research and development firm with over two solid
-            decades of industrial experience, having voyaged through various
-            tasks, which consist of the following:
+          <p data-aos="fade-right">
+            We are a software research and development firm with over two decades of industrial experience.
           </p>
         </div>
       </div>
 
       <div className="jd4main">
-        <form className="jd4sub" onSubmit={handleSubmit}>
-          <h1>APPLY NOW</h1>
+      <form className="jd4sub" data-aos="zoom-in" onSubmit={handleSubmit}>
+          <h1 data-aos="zoom-in">APPLY NOW</h1>
           {/* Form Fields */}
           <div className="jd4in">
-            <label>Full Name</label>
+            <label>Full Name <span className="inreq">*</span></label>
             <input
               type="text"
               name="candidateName"
@@ -341,7 +343,7 @@ const JobDetails = () => {
             )}
           </div>
           <div className="jd4in">
-            <label>Email Address</label>
+            <label>Email Address<span className="inreq">*</span></label>
             <input
               type="email"
               name="email"
@@ -351,7 +353,7 @@ const JobDetails = () => {
             {errors.email && <p className="error">{errors.email}</p>}
           </div>
           <div className="jd4in">
-            <label>Contact</label>
+            <label>Contact<span className="inreq">*</span></label>
             <input
               type="text"
               name="contact"
@@ -361,7 +363,7 @@ const JobDetails = () => {
             {errors.contact && <p className="error">{errors.contact}</p>}
           </div>
           <div className="jd4in">
-            <label>Location</label>
+            <label>Location<span className="inreq">*</span></label>
             <input
               type="text"
               name="location"
@@ -371,7 +373,7 @@ const JobDetails = () => {
             {errors.location && <p className="error">{errors.location}</p>}
           </div>
           <div className="jd4in">
-            <label>Skills</label>
+            <label>Skills<span className="inreq">*</span></label>
             <input
               type="text"
               name="skills"
@@ -381,7 +383,7 @@ const JobDetails = () => {
             {errors.skills && <p className="error">{errors.skills}</p>}
           </div>
           <div className="jd4in">
-            <label>Experience</label>
+            <label>Experience<span className="inreq">*</span></label>
             <input
               type="text"
               name="experience"
@@ -453,17 +455,17 @@ const JobDetails = () => {
               onChange={handleInputChange}
             />
           </div>
-          <div className="jd4in">
+          {/* <div className="jd4in">
             <label>Courses Done</label>
             <input type="text" name="coursesDone" />
-          </div>
+          </div> */}
 
           {/* Education Fields */}
           {formData.education.map((edu, index) => (
             <div key={index} className="education-section jd4in">
               <h2>Education {index + 1}</h2>
               <div>
-                <label>Degree</label>
+                <label>Degree <span className="inreq">*</span></label>
                 <input
                   type="text"
                   name="degree"
@@ -477,7 +479,7 @@ const JobDetails = () => {
                 )}
               </div>
               <div>
-                <label>Year of Passing</label>
+                <label>Year of Passing <span className="inreq">*</span></label>
                 <input
                   type="text"
                   name="yearOfPassing"
@@ -491,7 +493,7 @@ const JobDetails = () => {
                 )}
               </div>
               <div>
-                <label>Branch</label>
+                <label>Branch <span className="inreq">*</span></label>
                 <input
                   type="text"
                   name="branch"
@@ -505,7 +507,7 @@ const JobDetails = () => {
                 )}
               </div>
               <div>
-                <label>University</label>
+                <label>University <span className="inreq">*</span></label>
                 <input
                   type="text"
                   name="university"
@@ -538,7 +540,7 @@ const JobDetails = () => {
 
           {/* Resume Upload */}
           <div className="jd4in jd4resume">
-            <label htmlFor="resumejd4in">Upload Resume</label>
+            <label htmlFor="resumejd4in">Upload Resume<span className="inreq">*</span></label>
             {resumeName && <p className="resume-name">{resumeName}</p>}
             <input
               type="file"
@@ -551,7 +553,7 @@ const JobDetails = () => {
           </div>
 
           {/* Success Message */}
-          {successMessage && <p className="success">{successMessage}</p>}
+          {successMessage && <p className="applysuccess">{successMessage}</p>}
 
           {/* Submit Button */}
           <button className="jd4submit" type="submit">

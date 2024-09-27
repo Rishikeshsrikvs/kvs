@@ -41,35 +41,35 @@ export const About = () => {
             <span className="a2colorline"></span>
             <span>WHO WE ARE</span>
           </h1>
-          <p>
+          <p data-aos="fade-left">
             Sri KVS Tech is one of the leading Digital marketing service
             companies in Chennai.
           </p>
-          <p>
+          <p data-aos="fade-left">
             We are more than just a Marketing agency – we're your digital
             partner in achieving your business goals. Our experts know all the
             techniques to help your business grow online.
           </p>
-          <p>
+          <div data-aos="fade-left">
             We provide the best online marketing services
-            <ul>
+            <ul data-aos="fade-left">
               <li>Search Engine Optimization (SEO),</li>
               <li>Social Media Marketing (SMM),</li>
               <li>Website design and development</li>
               <li>Branding</li>
             </ul>
             and more to businesses of all sizes.
-          </p>
-          <h1 className="about2rightlasth1">
+          </div>
+          <h1 className="about2rightlasth1" data-aos="fade-up">
             “ Transform your online presence and boost your business with us
             today! ”
           </h1>
         </div>
       </div>
       <div className="about25main">
-        <h1>Why Choose Us?</h1>
+        <h1 data-aos="zoom-in">Why Choose Us?</h1>
         <div className="a25cardcon">
-          <div className="a25card1">
+          <div className="a25card1" data-aos="fade-up" >
             <div className="a25img">
               <img src={a25i1} alt="" />
             </div>
@@ -80,7 +80,7 @@ export const About = () => {
               that align with your business objectives.
             </p>
           </div>
-          <div className="a25card2">
+          <div className="a25card2" data-aos="fade-up">
             <div className="a25img">
               <img src={a25i2} alt="" />
             </div>
@@ -91,7 +91,7 @@ export const About = () => {
               strategies that align perfectly with your business and objectives.
             </p>
           </div>
-          <div className="a25card3">
+          <div className="a25card3" data-aos="fade-up">
             <div className="a25img">
               <img src={a25i3} alt="" />
             </div>
@@ -103,7 +103,7 @@ export const About = () => {
               reports.
             </p>
           </div>
-          <div className="a25card4">
+          <div className="a25card4" data-aos="fade-up">
             <div className="a25img">
               <img src={a25i4} alt="" />
             </div>
@@ -125,31 +125,31 @@ export const About = () => {
         </div>
         <div className="about3sub">
           <div className="about3left">
-            <div className="ab3colortitle">
+            <div className="ab3colortitle" data-aos="fade-right">
               No worries! We've got you covered!
             </div>
-            <h1 className="ab3main">
+            <h1 className="ab3main" data-aos="fade-right">
               WE HELP PEOPLE CREATE AND <span>BUILD WEALTH</span>
             </h1>
-            <p className="ab3p">
-              At SRI kvs TECH, we’re fueled by an insatiable drive to push the
+            <p className="ab3p" data-aos="fade-right">
+              At SRI KVS TECH, we're fueled by an insatiable drive to push the
               limits of digital creativity, combined with a team of talented
               individuals with the capabilities
             </p>
             <div className="btncontainer">
-              <Link to="/contactus" className="ab3btn">
+              <Link to="/contactus" className="ab3btn" data-aos="fade-right">
                 Book A Call
               </Link>
             </div>
           </div>
           <div className="about3right">
-            <img src={about3} alt="" />
+            <img src={about3} alt=""  data-aos="fade-left"/>
           </div>
         </div>
       </div>
       <Aboutteam />
-      <div className="aboutyearcontainer">
-        <div className="abyearssplit">
+      <div className="aboutyearcontainer" data-aos="zoom-in" >
+        <div className="abyearssplit"  >
           <h1>
             <AnimatedNumber value={75} duration="2000" />+
           </h1>
@@ -161,7 +161,7 @@ export const About = () => {
           </h1>
           <h4>HAPPY CLIENTS</h4>
         </div>
-        <div className="abyearssplit">
+        <div className="abyearssplit" >
           <h1>
             <AnimatedNumber value={4} duration="2000" />+
           </h1>

@@ -1,0 +1,62 @@
+.notfound{ 
+   overflow: hidden;
+    background-size: 100% 100%;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+}
+.nothome{
+    font-size: 26px;
+    padding: 10px 30px;
+    border: 1px solid white;
+    border-radius: 20px;
+}
+.nothome:hover{
+    background: linear-gradient(145deg, #ff99a2, #e406b5, #35088a);
+}
+.nfleft{
+    font-size: 30px;
+    width: 50%;
+    color: white;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+justify-content: center;
+}
+.nfleft h1{
+    white-space: nowrap;
+}
+.nfright{
+    width: 50%;
+    height: 100%;
+    position: relative;
+
+}
+.nfrback{
+    position: absolute;
+}
+.nfrimg{
+    position: absolute;
+    z-index: 23;
+    top: 30%;
+    left:20%;
+    animation-name: image;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+@keyframes image {
+    0% {
+      transform: translate(0, 0px);
+    }
+    50% {
+      transform: translate(0, 30px);
+    }
+    100% {
+      transform: translate(0, -0px);
+    }
+}

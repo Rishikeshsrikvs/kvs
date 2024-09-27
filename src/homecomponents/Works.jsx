@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import "./Works.css";
 import { Link } from "react-router-dom";
 import Workmarq from "./landcomponents/Workmarq";
@@ -19,6 +21,10 @@ import wk5 from "./../assets/images/workimages/flex/wk5.png";
 const Works = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
+    AOS.init({
+      duration: 2000, // Animation duration in ms
+      once: false,     // Whether animation should happen only once
+    });
   }, []);
 
   return (
@@ -26,21 +32,21 @@ const Works = () => {
       <div className="work1main">
         <img src={workrect} alt="" className="work1rect" />
         <div className="work1mainsub">
-          <div className="work1left">
-            <img className="w1lb" src={leftbig} alt="" />
+          <div className="work1left" data-aos="fade-right">
+            <img className="w1lb" src={leftbig} alt=""  />
             <img className="w1ls" src={leftsmall} alt="" />
           </div>
-          <div className="work1center">
+          <div className="work1center" data-aos="zoom-in">
             <h1>
               Our Recent <br />
               <span>work</span>
             </h1>
             <p>This is some of our latest design and/or development work.</p>
-            <div className="work1btn">
+            <div className="work1btn" data-aos="zoom-in">
               scroll down <br /> <span className="arrow"></span>
             </div>
           </div>
-          <div className="work1right">
+          <div className="work1right" data-aos="fade-left">
             <img className="w1rb" src={rightbig} alt="" />
             <img className="w1rs" src={rightsmall} alt="" />
           </div>
@@ -50,28 +56,28 @@ const Works = () => {
       <Workmarq />
       <div className="work4main">
         <div className="work4cards">
-          <img src={wk1} alt="" />
+          <img src={wk1} alt="" data-aos="fade-down"/>
         </div>
         <div className="work4cards">
-          <img src={wk2} alt="" />
+          <img src={wk2} alt="" data-aos="fade-down"/>
         </div>
         <div className="work4cards">
-          <img src={wk3} alt="" />
+          <img src={wk3} alt="" data-aos="fade-down"/>
         </div>
         <div className="work4cards">
-          <img src={wk4} alt="" />
+          <img src={wk4} alt="" data-aos="fade-up"/>
         </div>
         <div className="work4cards">
-          <img src={wk5} alt="" />
+          <img src={wk5} alt="" data-aos="fade-up"/>
         </div>
 
-        <div className=" work4cardfinal">
-          <h1>
+        <div className=" work4cardfinal"data-aos="fade-up">
+          <h1 data-aos="zoom-in">
             And This Place Is <br />
             <span>Allotted</span> <br />
             Your Project
           </h1>
-          <Link to="/contactus" className="workflexbtn">
+          <Link to="/contactus" className="workflexbtn" data-aos="zoom-in">
             Get Started Now
           </Link>
         </div>

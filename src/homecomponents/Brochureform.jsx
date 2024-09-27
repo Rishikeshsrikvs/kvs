@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import api from "../api/api";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { useEffect } from "react";
 import "./Brochureform.css";
 import brfsub from "./../assets/images/Brochureform/brformbacksub.png";
@@ -14,6 +16,10 @@ const Brochureform = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    AOS.init({
+      duration: 2000, // Animation duration in ms
+      once: false,     // Whether animation should happen only once
+    });
   }, []);
 
   const validateForm = () => {
@@ -34,8 +40,8 @@ const Brochureform = () => {
     if (!validateForm()) return;
 
     try {
-      const response = await axios.post(
-        "https://srikvstech-yaj97.ondigitalocean.app/contact",
+      const response = await api.post(
+        "/contact",
         {
           contactName: name,
           contact: phone,
@@ -59,29 +65,31 @@ const Brochureform = () => {
             </div> */}
 
       <div className="brochureformmain">
-        <div className="brochureformcontainer">
+        <div className="brochureformcontainer" data-aos="zoom-in">
           <div className="brformleft">
             <img src={brfsub} alt="" />
           </div>
           <form className="brformright" onSubmit={handleSubmit}>
-            <h1>FORM BROCHURE</h1>
+            <h1 data-aos="zoom-in">FORM BROCHURE</h1>
 
             {error && <p className="error">{error}</p>}
 
-            <div className="brformin">
+            <div className="brformin"  data-aos="fade-left">
               <label htmlFor="Name">Name</label>
               <input
                 type="text"
                 placeholder="Enter your name"
                 value={name}
+               
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
 
-            <div className="brformin">
+            <div className="brformin" data-aos="fade-left">
               <label htmlFor="Phone">Phone Number</label>
               <input
                 type="text"
+               
                 placeholder="Enter your phone number"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
@@ -89,7 +97,7 @@ const Brochureform = () => {
             </div>
 
             <div className="brformbtncn">
-              <button type="submit" className="brformbtn">
+              <button type="submit" className="brformbtn" data-aos="zoom-in">
                 Send Message
               </button>
             </div>

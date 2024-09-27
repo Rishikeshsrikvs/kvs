@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import api from "../api/api";
+import AOS from "aos";
+import "aos/dist/aos.css"; 
 import { useNavigate } from "react-router-dom";
 import "./Blogs.css";
 import bb1 from "./../assets/images/Blogs/bb1.png";
@@ -15,6 +17,10 @@ const Blogs = () => {
   const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo(0, 0);
+    AOS.init({
+      duration: 2000, // Animation duration in ms
+      once: false,     // Whether animation should happen only once
+    });
   }, []);
   useEffect(() => {
     // Fetch blogs data
@@ -64,7 +70,7 @@ const Blogs = () => {
   return (
     <div className="blogparent">
       <div className="blog1main">
-        <div className="blog1back">
+        <div className="blog1back" data-aos="zoom-out">
           <div>
             <img src={bb1} alt="Background 1" />
           </div>
@@ -85,7 +91,7 @@ const Blogs = () => {
           </div>
         </div>
         <div className="blog1sub">
-          <h1>
+          <h1 data-aos="zoom-in">
             Unraveling the Unsolvable: <br />
             Your Blogging Solutions Await!
           </h1>
@@ -93,13 +99,14 @@ const Blogs = () => {
       </div>
 
       <div className="blog2latest">
-        <h2>Latest Blogs</h2>
+        <h2 data-aos="fade-right">Latest Blogs</h2>
         <div className="blogcon">
           {blogs.slice(0, 4).map((blog) => (
             <div
               key={blog._id}
               className="blogcard"
               onClick={() => handleCardClick(blog)}
+              data-aos="fade-up"
             >
               <div className="blogcardimg">
                 <img
@@ -117,13 +124,14 @@ const Blogs = () => {
       </div>
 
       <div className="blog2latest">
-        <h2>More Blogs</h2>
+        <h2 data-aos="fade-right">More Blogs</h2>
         <div className="blogcon">
           {blogs.slice(4, 8).map((blog) => (
             <div
               key={blog._id}
               className="blogcard"
               onClick={() => handleCardClick(blog)}
+              data-aos="fade-up"
             >
               <div className="blogcardimg">
                 <img

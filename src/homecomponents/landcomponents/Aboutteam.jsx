@@ -1,5 +1,6 @@
 import React from 'react';
 import './Aboutteam.css';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import inteam from './../../assets/images/team/teamin.png';
 import harish from './../../assets/images/team/harish.jpg';
@@ -10,9 +11,20 @@ import charumathi from './../../assets/images/team/charumathi.jpeg';
 import saraswathi from './../../assets/images/team/saraswathi.jpeg';
 import balamani from './../../assets/images/team/balamnani.jpeg';
 import surya from './../../assets/images/team/surya.jpeg';
-
+import AOS from "aos";
+import "aos/dist/aos.css"; 
 
 const Aboutteam = () => {
+
+  useEffect(() => {
+    
+    window.scrollTo(0, 0);
+    AOS.init({
+      duration: 2000, // Animation duration in ms
+      once: false,     // Whether animation should happen only once
+    });
+  }, []);
+
   // Array of team members
   const teamMembers = [
     {
@@ -24,9 +36,9 @@ const Aboutteam = () => {
     },
     {
       id: 2,
-      name: 'Charumathy',
+      name: '-',
       role: 'Manager',
-      imageUrl: charumathi,
+      imageUrl: profile,
       linkedin: "",  // Corrected key
     },
     {
@@ -91,11 +103,11 @@ const Aboutteam = () => {
   return (
     <div className='aboutteammain'>
       <div className="aboutteamcon">
-        <h1>Our Team</h1>
-        <span></span>
+        <h1 data-aos="zoom-in">Our Team</h1>
+        <span data-aos="zoom-in"></span>
         <div className="teamcon">
           {teamMembers.map(member => (
-            <div key={member.id} className="team-member">
+            <div key={member.id} className="team-member" data-aos="fade-up">
               <div className="memberprofile">
                 <img src={member.imageUrl} alt="" className="team-member-img" />
                 <h3>{member.name}</h3>

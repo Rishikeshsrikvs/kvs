@@ -27,7 +27,10 @@ import Logoslider from "./landcomponents/Logoslider";
 export const Land = () => {
   const duration = 4000; // Animation duration in milliseconds
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // Smooth scroll effect
+    });
     AOS.init({
       duration: 2000, // Animation duration in ms
       once: false,     // Whether animation should happen only once
@@ -140,7 +143,7 @@ export const Land = () => {
                 <img src={wsleftdown} alt="" />
               </div>
             </div>
-            <div className="wyright">
+            <div className="wyright" data-aos="zoom-in">
               <div className="wyrightup"></div>
               <div className="wyrightbottom">
                 <div className="wyrightbottommain">
@@ -181,7 +184,7 @@ export const Land = () => {
           <div className="rcb3"></div>
         </div>
         <div className="contactback">
-          <img src={contactus} alt="" />
+          <img src={contactus} alt="" data-aos="fade-left"/>
         </div>
         <div className="landcontactussub">
           <div className="landcutitle">

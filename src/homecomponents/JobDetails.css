@@ -53,6 +53,19 @@
   justify-content: flex-end;
   padding: 3%;
 }
+.jd4titleback img{
+  width: 200px;
+  margin-left: 20px;
+  animation: rotate 10s infinite linear;
+}
+@keyframes rotate {
+  0%{
+    transform:rotate(0deg) ;
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
 .jd1main > h1 {
   font-family: Outfit;
   font-size: 110px;
@@ -199,6 +212,7 @@
 .jd4back1 img {
   width: 100%;
   height: 100%;
+  animation: rotate 15s infinite linear;
 }
 .jd4back2 {
   position: absolute;
@@ -331,6 +345,15 @@ input:focus {
 .jd4submit:hover {
   background-color: #3700b3;
 }
+.inreq{
+ color: red;
+ font-size: 20px;
+ margin-left: 10px;
+}
+.applysuccess{
+  color: green;
+  font-size: 20px;
+}
 @media (max-width: 1200px) {
   .jd2cardcon {
     grid-template-columns: repeat(3, 1fr);
@@ -351,6 +374,11 @@ input:focus {
   .jd1main > h1 {
     font-size: 30px;
     line-height: 40.28px;
+  }
+  .jd4titleback img{
+    width: 100px;
+    margin-left: 20px;
+    animation: rotate 10s infinite linear;
   }
   .jd4titleback1 img {
     height: 50px;

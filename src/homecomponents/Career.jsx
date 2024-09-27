@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import api from "../api/api";
 import "./Career.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Career = () => {
   const [jobs, setJobs] = useState([]);
@@ -10,6 +12,10 @@ const Career = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    AOS.init({
+      duration: 2000,  // Animation duration in ms
+      once: false,     // Whether animation should happen only once
+    });
   }, []);
 
   useEffect(() => {
@@ -39,14 +45,14 @@ const Career = () => {
     <div className="careerparent">
       <div className="career1main">
         <div className="career1text">
-          <h1>
+          <h1 data-aos="fade-right">
             Careers <span>&</span>
           </h1>
-          <h1>Vacancies</h1>
+          <h1 data-aos="fade-right" >Vacancies</h1>
         </div>
       </div>
       <div className="career2main">
-        <div className="career2left">
+        <div className="career2left" data-aos="fade-right">
           <p>
             Cannot find the suitable vacancy?
             <br />
@@ -60,6 +66,7 @@ const Career = () => {
               state={{ job }} // Pass the job data via state
               className="cjobcard"
               key={job._id}
+              data-aos="fade-left"
             >
               <div className="cjobleft">
                 <div className="cjup">

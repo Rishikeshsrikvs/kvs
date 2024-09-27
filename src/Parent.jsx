@@ -1,7 +1,8 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route,Navigate } from "react-router-dom";
 import { Home } from "./Home";
 import { Admin } from "./Admin";
+import Notfound from "./Notfound";
 import { Check } from "./Check";
 import Adminlogin from "./admincomponents/Adminlogin"; // Import Adminlogin component
 
@@ -14,7 +15,7 @@ export const Parent = () => {
         <Route path="/admin/SHRA/*" element={<Admin />} />{" "}
 
         {/* Admin login path */}
-
+       
         <Route path="/check" element={<Check/>} />
       </Routes>
     </BrowserRouter>

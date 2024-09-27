@@ -5,7 +5,8 @@ import rightsmall from "./../assets/images/workimages/work1rightsmall.png";
 import next from "./../assets/images/next.png";
 import pre from "./../assets/images/pre.png";
 import api from "../api/api";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -13,6 +14,14 @@ import "swiper/css/navigation";
 import { Navigation, Pagination } from "swiper/modules";
 
 const Workproject = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    AOS.init({
+      duration: 3000, // Animation duration in ms
+      once: false, // Whether animation should happen only once
+    });
+  }, []);
+
   const swiperRef = useRef(null);
   const [favprojects, setFavProjects] = useState([]);
   const [projectDetails, setProjectDetails] = useState([]);
@@ -56,13 +65,13 @@ const Workproject = () => {
       <Swiper
         className="swiper-wrapper"
         ref={swiperRef}
-        slidesPerView={1}
-        spaceBetween={60}
+        
+        spaceBetween={0}
         navigation={{
           nextEl: ".nextproject",
           prevEl: ".preproject",
         }}
-        loop={true}
+        
         pagination={{ clickable: true }}
         modules={[Navigation, Pagination]}
       >
@@ -78,19 +87,21 @@ const Workproject = () => {
                   className="w2imgbig"
                   src={`${api.defaults.baseURL}/getProjectImage1/${project.projectImageName1}`}
                   alt="Project Image 1"
+                  data-aos="fade-right"
                 />
                 <img
                   className="w2imgsm"
                   src={`${api.defaults.baseURL}/getProjectImage2/${project.projectImageName2}`}
                   alt="Project Image 2"
+                  data-aos="fade-up-left"
                 />
               </div>
               <div className="work2right">
-                <h1 className="w2color">
+                <h1 className="w2color" data-aos="fade-left">
                   software/<span>websites</span>
                 </h1>
-                <h1 className="w2normal">{project.projectName}</h1>
-                <p>{project.projectDescription}</p>
+                <h1 className="w2normal" data-aos="fade-left">{project.projectName}</h1>
+                <p >{project.projectDescription}</p>
               </div>
             </SwiperSlide>
           ))}
