@@ -10,7 +10,7 @@ import { Blogedit } from "./admincomponents/Clientcomponents/Blogcomponents/Blog
 import { Careerpost } from "./admincomponents/Careercomponents/Careerpost";
 import { Careerview } from "./admincomponents/Careercomponents/Careerview";
 import { Invoice } from "./admincomponents/Clientcomponents/Invoice";
-
+import Acontact from "./admincomponents/Admindashboardcomponents/Acontact";
 import Clientservice from "./admincomponents/Clientcomponents/Clientservice";
 import { Careerresponse } from "./admincomponents/Careercomponents/Careerresponse";
 import { ClientserviceEdit } from "./admincomponents/Clientcomponents/ClientserviceEdit";
@@ -34,6 +34,7 @@ export const Admin = () => {
                 <Route path="invoice" element={<Invoice />} />
                 <Route path="response/:jobId" element={<Careerresponse />} />
                 <Route path="clientservice" element={<Clientservice />} />
+                
                 <Route
                   path="clientservice-edit/:clientId"
                   element={<ClientserviceEdit />}

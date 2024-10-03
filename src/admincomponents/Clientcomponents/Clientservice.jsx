@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import api from "../../api/api";
 import { useAuth } from "../Auth/AuthContext";
 import upload from "./../../assets/images/upload.png";
 import { useNavigate } from "react-router-dom";
@@ -79,8 +79,8 @@ const Clientservice = () => {
     data.append("client_Plan", ""); // Needs to be stringified JSON if it's an array
 
     try {
-      const response = await axios.post(
-        "https://srikvstech-yaj97.ondigitalocean.app/api/admin/clientSignUp",
+      const response = await api.post(
+        "/api/admin/clientSignUp",
         data,
         {
           headers: {

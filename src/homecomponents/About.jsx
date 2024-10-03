@@ -36,8 +36,8 @@ export const About = () => {
           <img className="abt22" src={about21} alt=""  data-aos="fade-up-right"/>
           <img className="abt21" src={about22} alt="" data-aos="fade-up"/>
         </div>
-        <div className="about2right">
-          <h1 className="a2color" data-aos="fade-left">
+        <div className="about2right" >
+          <h1 className="a2color" >
             <span className="a2colorline"></span>
             <span>WHO WE ARE</span>
           </h1>

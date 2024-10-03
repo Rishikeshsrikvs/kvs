@@ -1,0 +1,29 @@
+.acontactcon{
+    width: 100%;
+    min-height: 80vh;
+    padding: 4% 2% ;
+}
+.acontactcon > h1{
+    text-align: center;
+    margin-bottom: 2%;
+}
+.acontable{
+    width: 100%;
+    border-collapse: collapse;
+
+}
+.acontable td{
+    border: 1px solid black;
+    text-align: center;
+}
+.acontable td button{
+    padding: 6px 20px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-weight: 700;
+}
+.acontable td button:hover{
+    background-color: black;
+}

@@ -1,0 +1,26 @@
+.abillcon{
+    width: 100%;
+    height: 80vh;
+    padding: 3%;
+}
+.abillcon >h1{
+    text-align: center;
+    margin-bottom: 2%;
+
+}
+.billcon{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;height: 60vh;
+}
+.billcon button{
+    width: 30%;
+    padding: 20px;
+    font-size: 20px;
+    color: white;
+    font-weight: 600;
+    background-color: black;
+}

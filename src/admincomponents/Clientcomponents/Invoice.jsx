@@ -19,6 +19,7 @@ export const Invoice = () => {
   const [dueAmount, setDueAmount] = useState(0);
   const [dueDate, setDueDate] = useState(""); // State for due date
   const [applyGST, setApplyGST] = useState(true); // Toggle state for GST
+  const [invoiceGenerated, setInvoiceGenerated] = useState(false);
 
   const { token } = useAuth();
   const location = useLocation();
@@ -107,6 +108,7 @@ export const Invoice = () => {
         setInvoiceNumber(response.data.invoice_no);
         setIssueDate(formatDate(response.data.date_of_issue));
         setDueDate(formatDate(response.data.due_date));
+        setInvoiceGenerated(true);
       } else {
         console.error("Invoice number not found in response data");
       }
@@ -153,7 +155,18 @@ export const Invoice = () => {
         heightLeft -= pageHeight;
       }
 
-      pdf.save("invoice.pdf");
+      if (!invoiceNumber) {
+        console.error("Invoice number is not set.");
+        return; // Prevent download if invoice number is not ready
+      }
+    
+      const formattedMonthYear = `${monthOfInvoice}/${yearOfInvoice}`;
+      const clientName = clientData.client_name.replace(/\s+/g, '_'); // Replace spaces with underscores for filename
+      const invoiceFilename = `Invoice-${invoiceNumber} - ${clientName} ${formattedMonthYear}.pdf`;
+    
+      console.log("Downloading PDF with filename:", invoiceFilename); // Debugging log
+    
+      pdf.save(invoiceFilename);
 
       if (downloadButton) downloadButton.style.display = "block";
     });
@@ -175,6 +188,8 @@ export const Invoice = () => {
                 Main Road, Avadi,
                 <br />
                 Chennai-600071
+                <br />
+                GST - 33AJTPB6631J6ZY
               </p>
             </div>
           </div>
@@ -189,7 +204,7 @@ export const Invoice = () => {
             <h3>{clientData.client_id}</h3>
             <h3>{clientData.client_email}</h3>
             <h3>{clientData.client_Location}</h3>
-            <h3>GST No: {clientData.client_GST}</h3>
+            {applyGST && <h3>GST No: {clientData.client_GST}</h3>}
           </div>
           <div className="rightdetails">
             <div className="rigtdetailsrow">
@@ -339,10 +354,12 @@ export const Invoice = () => {
         <button onClick={generateInvoice}>
           <span>GENERATE</span>
         </button>
-        <button onClick={downloadPDF}>
-          <img src={download} alt="Download" />
-          <span>PRINT</span>
-        </button>
+        {invoiceGenerated && ( // Show PRINT button only if the invoice has been generated
+    <button onClick={downloadPDF}>
+      <img src={download} alt="Download" />
+      <span>PRINT</span>
+    </button>
+  )}
       </div>
     </div>
   );

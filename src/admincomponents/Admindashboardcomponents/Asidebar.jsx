@@ -7,6 +7,9 @@ import projecticon from "./../../assets/images/projecticon.png";
 import clienticon from "./../../assets/images/clienticon.png";
 import careericon from "./../../assets/images/careericon.png";
 import blogicon from "./../../assets/images/blogicon.png";
+import bill from './../../assets/images/bill.png';
+import contact from './../../assets/images/contact.png';
+
 
 export const Asidebar = () => {
   return (
@@ -44,6 +47,18 @@ export const Asidebar = () => {
             <Link to="projects">
               <span>Projects</span>
               <img src={projecticon} alt="" />
+            </Link>
+          </li>
+          <li>
+            <Link to="contacts">
+              <span>Contacts</span>
+              <img src={contact} alt="" />
+            </Link>
+          </li>
+          <li>
+            <Link to="Bill">
+              <span>Bill Generation</span>
+              <img src={bill} alt="" />
             </Link>
           </li>
         </ul>
