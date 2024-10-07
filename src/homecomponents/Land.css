@@ -96,19 +96,20 @@ html {
 }
 .imagelandright {
   animation-name: image;
-  animation-duration: 3s;
+  animation-duration: 2s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
   margin-left: 30px;
   margin-top: 10px;
 }
 
+
 @keyframes image {
   0% {
     transform: translate(0, 0px);
   }
   50% {
-    transform: translate(0, 15px);
+    transform: translate(-10px, 35px);
   }
   100% {
     transform: translate(0, -0px);

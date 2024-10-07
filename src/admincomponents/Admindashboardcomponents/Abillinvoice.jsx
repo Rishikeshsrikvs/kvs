@@ -7,7 +7,7 @@ const Abillinvoice = () => {
       <h1>INVOICE BILL GENERATION</h1>
 
         <div className='billinput'> 
-            <input type="text" />
+            <input type="text"/>
             <button>SUBMIT</button>
         </div>
      </div>
