@@ -77,7 +77,7 @@ const Serviceland = () => {
 
   return (
     <div className="landservicemain">
-      <h1 className={`servicetitleani ${titleTranslateClass}`} data-aos="zoom-in" >
+      <h1 className={`servicetitleani ${titleTranslateClass}`}  >
         {services[currentIndex].title}
       </h1>
       <div className="servicecard-container">

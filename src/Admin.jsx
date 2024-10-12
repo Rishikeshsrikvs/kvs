@@ -16,6 +16,8 @@ import { Careerresponse } from "./admincomponents/Careercomponents/Careerrespons
 import { ClientserviceEdit } from "./admincomponents/Clientcomponents/ClientserviceEdit";
 import { AddProject } from "./admincomponents/Admindashboardcomponents/AddProject";
 import JobApplicants from "./admincomponents/Careercomponents/JobApplicants";
+import Afinalbill from "./admincomponents/Admindashboardcomponents/Afinalbill";
+import Afinalman from "./admincomponents/Admindashboardcomponents/Afinalman";
 export const Admin = () => {
   return (
     <AuthProvider>
@@ -34,7 +36,9 @@ export const Admin = () => {
                 <Route path="invoice" element={<Invoice />} />
                 <Route path="response/:jobId" element={<Careerresponse />} />
                 <Route path="clientservice" element={<Clientservice />} />
-                
+                <Route path="finalbill" element={<Afinalbill />} />
+                <Route path="finalbillmanual" element={<Afinalman />} />
+
                 <Route
                   path="clientservice-edit/:clientId"
                   element={<ClientserviceEdit />}

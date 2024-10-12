@@ -91,20 +91,20 @@ export const Land = () => {
       </div>
       <div className="landaboutcontainer">
         <div className="landaboutleft">
-          <ScrollReveal direction="left">
-            <h1 className="landabouth1">About Us</h1>
-            <h1 className="landabouttext">PROVIDING THE BEST FOR THE BEST</h1>
-          </ScrollReveal>
-          <ScrollReveal direction="left">
-            <h6 className="landabouth6">
+          
+            <h1 className="landabouth1" data-aos="fade-right">About Us</h1>
+            <h1 className="landabouttext" data-aos="fade-right">PROVIDING THE BEST FOR THE BEST</h1>
+          
+          
+            <h6 className="landabouth6" data-aos="fade-right">
               It's time to transform your online presence and accelerate your
               business growth with Sri KVS Tech. Let's start the journey together
               and witness the transformation.
             </h6>
-            <Link to="/about" className="landaboutbtn">
+            <Link to="/about" className="landaboutbtn" data-aos="fade-right">
               Know More
             </Link>
-          </ScrollReveal>
+          
         </div>
         
         <div className="landaboutright" data-aos="fade-up">

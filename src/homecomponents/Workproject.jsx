@@ -17,7 +17,7 @@ const Workproject = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     AOS.init({
-      duration: 3000, // Animation duration in ms
+      duration: 2000, // Animation duration in ms
       once: false, // Whether animation should happen only once
     });
   }, []);
@@ -87,20 +87,20 @@ const Workproject = () => {
                   className="w2imgbig"
                   src={`${api.defaults.baseURL}/getProjectImage1/${project.projectImageName1}`}
                   alt="Project Image 1"
-                  data-aos="fade-right"
+                  
                 />
                 <img
                   className="w2imgsm"
                   src={`${api.defaults.baseURL}/getProjectImage2/${project.projectImageName2}`}
                   alt="Project Image 2"
-                  data-aos="fade-up-left"
+                 
                 />
               </div>
               <div className="work2right">
-                <h1 className="w2color" data-aos="fade-left">
+                <h1 className="w2color" >
                   software/<span>websites</span>
                 </h1>
-                <h1 className="w2normal" data-aos="fade-left">{project.projectName}</h1>
+                <h1 className="w2normal" >{project.projectName}</h1>
                 <p >{project.projectDescription}</p>
               </div>
             </SwiperSlide>

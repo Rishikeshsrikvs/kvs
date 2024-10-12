@@ -12,7 +12,7 @@ export const ClientserviceEdit = () => {
 
   const [formData, setFormData] = useState({
     clientName: "",
-    clientLogoKey: "",
+    client_logo: "",
     email: "",
     phone: "",
     location: "",
@@ -35,7 +35,7 @@ export const ClientserviceEdit = () => {
         const clientData = response.data.clientDetailes || {};
         const initialData = {
           clientName: clientData.client_name || "",
-          clientLogoKey: clientData.client_logo || "",
+          client_logo: clientData.client_logo || "",
           email: clientData.client_email || "",
           phone: clientData.client_mobile || "",
           location: clientData.client_Location || "",
@@ -100,10 +100,10 @@ export const ClientserviceEdit = () => {
     if (file) {
       if (file.size > 1 * 1024 * 1024) {
         setFileError("File size exceeds 1 MB.");
-        setFormData({ ...formData, clientLogoKey: "" });
+        setFormData({ ...formData, client_logo: "" });
       } else {
         setFileError("");
-        setFormData({ ...formData, clientLogoKey: file });
+        setFormData({ ...formData, client_logo: file });
       }
     }
   };
@@ -143,7 +143,7 @@ export const ClientserviceEdit = () => {
 
     const clientData = {
       client_name: formData.clientName || undefined,
-      client_logo: formData.clientLogoKey || undefined,
+      client_logo: formData.client_logo || undefined,
       client_email: formData.email || undefined,
       client_mobile: formData.phone || undefined,
       client_Location: formData.location || undefined,
@@ -156,7 +156,8 @@ export const ClientserviceEdit = () => {
       })),
       client_id: clientId,
     };
-
+    console.log(formData.client_logo);
+    
     try {
       const response = await api.put(
         `/api/admin/clientUpdate/${clientId}`,
@@ -205,7 +206,7 @@ export const ClientserviceEdit = () => {
               </span>
             </label>
             <input id="logo-upload" type="file" onChange={handleLogoChange} />
-            {formData.clientLogoKey && <p>{formData.clientLogoKey.name}</p>}
+            {formData.client_logo && <p>{formData.client_logo.name}</p>}
           </div>
 
           <div className="inputcontainer">

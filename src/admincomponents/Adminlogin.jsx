@@ -29,7 +29,9 @@ export const Adminlogin = () => {
       const { status, data } = response;
 
       if (status === 200 && data.token) {
-        login(data.token); // Store JWT token in AuthContext
+        login(data.token);
+        console.log(data.token);
+         // Store JWT token in AuthContext
         navigate("/admin/SHRA/dashboard"); // Navigate to dashboard after successful login
       } else {
         setError("Invalid credentials"); // Set error message for invalid credentials

@@ -1,0 +1,199 @@
+.mainbill-container {
+    width: 211mm;
+    height: 297mm;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+  }
+  .bill-container{
+    border: 0.5px solid black;
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+    padding: 10px 0;
+  }
+  .bill-container hr{
+    margin: 5px 0;
+    color: black;
+  }
+.bill-header{
+  text-align: center;
+  font-size: 25px;
+  font-weight: 800;
+  margin: 0 auto;
+ width: fit-content;
+ padding: 2px 30px;
+}
+.cmpdetails{
+  width: 100%;
+  padding:  0.5% 1%;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+
+
+}
+.cmpdetailsleft{
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 3%;
+  
+}
+.cmpdetailsleft img{
+  width: 40%;
+
+}
+.cmpdetailsleft p{
+  font-size: 12px;
+  line-height: 20px;
+}
+.cmpdetailsleft p span{
+  font-weight: 600;
+
+}
+.cmpdetailsright{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+.clientdetails{
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.clientdetails  h1{
+  font-size: 17px;
+}
+.clientdetails p{
+  font-size: 15px;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+}
+.cldetleft{
+  width: 20%;
+  font-weight: 550;
+}
+.cldetright{
+  width: 50%;
+}
+tbody td{
+  height: 30px;
+  vertical-align: top;
+
+
+}
+.bill-container tbody{
+  height: 140px;
+}
+.invoice-table {
+  width: 100%;
+  margin: 10px 0;
+  border-collapse: collapse;
+}
+
+.invoice-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.invoice-table th, .invoice-table td {
+  padding: 6px;
+  text-align: left;
+  border: 1px solid #000;
+}
+
+.invoice-table thead {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.invoice-table tfoot {
+  font-weight: bold;
+}
+
+.invoice-table .invoice-info {
+  vertical-align: top;
+ 
+  padding: 5px;
+}
+
+.invoice-table .amount-in-words {
+  text-align: left;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.invoice-table tfoot td {
+  border-top: 1px solid #000;
+}
+
+.invoice-table tfoot tr:last-child td {
+  border-bottom: 1px solid #000;
+}
+
+.invoice-table .invoice-info p {
+  margin: 0;
+  padding: 2px 0;
+  font-size: 14px;
+}
+
+.billfoot{
+  padding: 0 2%;
+  
+}
+.billfoot ul{
+
+  padding-left: 20px;
+}
+.billfoot p{
+  padding-left: 20px;
+}
+.bollsnleft{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.bollsnlefttitle{
+  font-weight: bold;
+}
+.bollsnleftcontact{
+  padding-left: 20px;
+}
+.billsign{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding:0 2% ;
+}
+.billfooter{
+  text-align: center;
+}
+.amount-in-words{
+  text-transform: uppercase;
+}
+.billdownload-button{
+  padding: 5px 20px;
+  margin: 30px auto;
+  font-weight: 600;
+  background-color: black;
+  color: white;
+  border: 1px solid black;
+
+  border-radius: 3px;
+}
+.billdownload-button:hover{
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  transform: scale(.95);
+}
