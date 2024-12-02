@@ -19,8 +19,6 @@
   gap: 5%;
   flex-direction: column;
   align-items: center;
-
- 
 }
 
 .footer-logo {
@@ -38,11 +36,10 @@
 
 .footersm {
   display: flex;
-flex-direction: row;
+  flex-direction: row;
   gap: 16%;
   width: 80%;
   justify-content: center;
-  
 }
 .footersm a {
   width: 45px;
@@ -101,6 +98,8 @@ p.footnavhead {
   }
   .footersm {
     justify-content: center;
+    align-items: center;
+    margin-top: 10px;
   }
   .footersm a {
     width: 30px;

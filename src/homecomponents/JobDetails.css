@@ -53,16 +53,16 @@
   justify-content: flex-end;
   padding: 3%;
 }
-.jd4titleback img{
+.jd4titleback img {
   width: 200px;
   margin-left: 20px;
   animation: rotate 10s infinite linear;
 }
 @keyframes rotate {
-  0%{
-    transform:rotate(0deg) ;
+  0% {
+    transform: rotate(0deg);
   }
-  100%{
+  100% {
     transform: rotate(360deg);
   }
 }
@@ -345,12 +345,12 @@ input:focus {
 .jd4submit:hover {
   background-color: #3700b3;
 }
-.inreq{
- color: red;
- font-size: 20px;
- margin-left: 10px;
+.inreq {
+  color: red;
+  font-size: 20px;
+  margin-left: 10px;
 }
-.applysuccess{
+.applysuccess {
   color: green;
   font-size: 20px;
 }
@@ -375,7 +375,7 @@ input:focus {
     font-size: 30px;
     line-height: 40.28px;
   }
-  .jd4titleback img{
+  .jd4titleback img {
     width: 100px;
     margin-left: 20px;
     animation: rotate 10s infinite linear;
@@ -417,7 +417,9 @@ input:focus {
     transform: none;
   }
   .jdskillcon h2 {
+    padding-top: 5px;
     font-size: 10px;
+    line-height: 17px;
   }
   .jd2cardcon > div > h1 {
     font-size: 15px;
@@ -448,13 +450,16 @@ input:focus {
   }
   .jd4submit {
     font-size: 10px;
-    padding: 5px;
+    padding: 5px 10px;
   }
   .jd4resume label,
   .removeedu,
   .addedu {
     font-size: 10px;
     padding: 4px 8px;
+  }
+  .jd4resume {
+    margin-top: 10px;
   }
   .jd4back1 {
     position: absolute;
@@ -470,5 +475,10 @@ input:focus {
     z-index: 1;
     bottom: -30px;
     right: -40px;
+  }
+  .inreq {
+    color: red;
+    font-size: 10px;
+    margin-left: 5px;
   }
 }

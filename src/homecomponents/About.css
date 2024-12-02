@@ -117,7 +117,8 @@
 .a2main {
   font-size: 500%;
 }
-.about2right p,.about2right div {
+.about2right p,
+.about2right div {
   font-size: 140%;
 
   line-height: 35px;
@@ -400,6 +401,8 @@
   }
   .a25cardcon > div {
     width: 70%;
+    padding: 30px;
+    height: unset;
   }
   .about3sub {
     flex-direction: column;

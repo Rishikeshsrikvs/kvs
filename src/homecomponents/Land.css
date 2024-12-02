@@ -103,7 +103,6 @@ html {
   margin-top: 10px;
 }
 
-
 @keyframes image {
   0% {
     transform: translate(0, 0px);
@@ -472,7 +471,7 @@ html {
   /* background:url('./../assets/images/ws2.png') ;
     background-size: 100% 100%; */
   background: linear-gradient(90deg, #9747ff 0%, #b127cb 100%);
-  border-radius: 25px;
+  border-radius: 5%;
 }
 .wyrightbottommain {
   height: 100%;
@@ -482,6 +481,7 @@ html {
   display: flex;
   align-items: center;
   position: relative;
+  border-radius: 2px;
 }
 .wyrbleft {
   display: flex;
@@ -499,9 +499,9 @@ html {
 .wyrbright .letstartbtn {
   border: none;
   color: white;
-  padding: 12px 20px;
+  padding: 6px 10px;
   border-radius: 3%;
-  letter-spacing: 2px;
+
   background-color: #141414;
 }
 .wyrbleft h2 {
@@ -855,6 +855,7 @@ html {
   }
   .landblogmain {
     padding: 10% 5%;
+    background: none;
   }
   .Enquirespan {
     display: flex;
