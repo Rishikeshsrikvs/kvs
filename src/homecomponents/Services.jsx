@@ -15,27 +15,41 @@ const Services = () => {
     window.scrollTo(0, 0);
     AOS.init({
       duration: 2000, // Animation duration in ms
-      once: false,     // Whether animation should happen only once
+      once: false, // Whether animation should happen only once
     });
   }, []);
 
   return (
     <div className="Servicesparent">
-      <div className="services1main" data-aos="zoom-out" data-aos-duration="4000">
+      <div
+        className="services1main"
+        data-aos="zoom-out"
+        data-aos-duration="4000"
+      >
         <h1 className="ser1nor">What We Do</h1>
         <h1 className="ser1grd">Services</h1>
       </div>
       <div className="service2main">
-        <img src={ser2left} alt="" className="service2left"  data-aos="fade-right"/>
+        <img
+          src={ser2left}
+          alt=""
+          className="service2left"
+          data-aos="fade-right"
+        />
         <div className="ser2text" data-aos="zoom-in">
           Whatever the <span className="se2ts1">challengers</span>, <br /> we
           have the <span className="se2ts2">solution</span>
         </div>
-        <img src={ser2right} alt="" className="service2right" data-aos="fade-left" />
+        <img
+          src={ser2right}
+          alt=""
+          className="service2right"
+          data-aos="fade-left"
+        />
       </div>
       <div className="service3main">
         <div className="service3sub service31">
-          <div className="sersubbar" ></div>
+          <div className="sersubbar"></div>
           <div className="sersubmain">
             <div className="sersubleft">
               <span className="ser3colorbar" data-aos="fade-right"></span>
@@ -57,7 +71,7 @@ const Services = () => {
               </p>
             </div>
             <div className="sersubright">
-              <img src={sercard2} alt="" data-aos="fade-left"/>
+              <img src={sercard2} alt="" data-aos="fade-left" />
             </div>
           </div>
         </div>
@@ -82,7 +96,7 @@ const Services = () => {
               </p>
             </div>
             <div className="sersubright">
-              <img src={sercard4} alt="" data-aos="fade-left"/>
+              <img src={sercard4} alt="" data-aos="fade-left" />
             </div>
           </div>
         </div>
@@ -128,7 +142,7 @@ const Services = () => {
               </p>
             </div>
             <div className="sersubright">
-              <img src={sercard1} alt="" data-aos="fade-left"/>
+              <img src={sercard1} alt="" data-aos="fade-left" />
             </div>
           </div>
         </div>
@@ -155,7 +169,7 @@ const Services = () => {
               </p>
             </div>
             <div className="sersubright">
-              <img src={sercard3} alt="" data-aos="fade-left"/>
+              <img src={sercard3} alt="" data-aos="fade-left" />
             </div>
           </div>
         </div>
