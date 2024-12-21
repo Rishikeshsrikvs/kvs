@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import api from "../api/api";
 import "./Career.css";
@@ -13,8 +14,8 @@ const Career = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     AOS.init({
-      duration: 2000,  // Animation duration in ms
-      once: false,     // Whether animation should happen only once
+      duration: 2000, // Animation duration in ms
+      once: false, // Whether animation should happen only once
     });
   }, []);
 
@@ -43,12 +44,22 @@ const Career = () => {
 
   return (
     <div className="careerparent">
+      <Helmet>
+        <title>
+          Careers at Sri KVS Tech - Join Our Digital Marketing & IT Team
+        </title>
+        <meta
+          name="description"
+          content="Explore exciting career opportunities at Sri KVS Tech. Join our team of experts in digital marketing, IT solutions, web development, and technology innovation."
+        />
+        <link rel="canonical" href="https://srikvstech.com/career" />
+      </Helmet>
       <div className="career1main">
         <div className="career1text">
           <h1 data-aos="fade-right">
             Careers <span>&</span>
           </h1>
-          <h1 data-aos="fade-right" >Vacancies</h1>
+          <h1 data-aos="fade-right">Vacancies</h1>
         </div>
       </div>
       <div className="career2main">

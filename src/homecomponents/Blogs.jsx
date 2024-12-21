@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import api from "../api/api";
 import AOS from "aos";
-import "aos/dist/aos.css"; 
+import "aos/dist/aos.css";
 import { useNavigate } from "react-router-dom";
 import "./Blogs.css";
 import bb1 from "./../assets/images/Blogs/bb1.png";
@@ -19,7 +20,7 @@ const Blogs = () => {
     window.scrollTo(0, 0);
     AOS.init({
       duration: 2000, // Animation duration in ms
-      once: false,     // Whether animation should happen only once
+      once: false, // Whether animation should happen only once
     });
   }, []);
   useEffect(() => {
@@ -69,6 +70,14 @@ const Blogs = () => {
 
   return (
     <div className="blogparent">
+      <Helmet>
+        <title>Sri KVS Tech Blogs - Insights on Digital Marketing Agency</title>
+        <meta
+          name="description"
+          content="Stay updated with Sri KVS Tech blogs, featuring expert insights, tips, and trends in digital marketing, social media marketing, web development, and technology innovation"
+        />
+        <link rel="canonical" href="https://srikvstech.com/blogs" />
+      </Helmet>
       <div className="blog1main">
         <div className="blog1back" data-aos="zoom-out">
           <div>

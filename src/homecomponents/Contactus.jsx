@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import api from "../api/api";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -29,7 +30,7 @@ const Contactus = () => {
     window.scrollTo(0, 0);
     AOS.init({
       duration: 2000, // Animation duration in ms
-      once: false,     // Whether animation should happen only once
+      once: false, // Whether animation should happen only once
     });
   }, []);
 
@@ -155,9 +156,21 @@ const Contactus = () => {
 
   return (
     <div className="contactusparent">
+      <Helmet>
+        <title>
+          Contact Sri KVS Tech - Get in Touch with Our Digital Marketing Experts
+        </title>
+        <meta
+          name="description"
+          content="Reach out to Sri KVS Tech for digital marketing, IT solutions, and web development services. Contact our team to accelerate your business growth and innovation today!"
+        />
+        <link rel="canonical" href="https://srikvstech.com/contactus" />
+      </Helmet>
       <div className="contact1main">
         <div className="contact1sub">
-          <h1 className="cn1big" data-aos="zoom-in">Let’s collaborate on what matters to you</h1>
+          <h1 className="cn1big" data-aos="zoom-in">
+            Let’s collaborate on what matters to you
+          </h1>
           <h1 className="cn1small" data-aos="zoom-in">
             Contact us to discuss business opportunities, or just to say hello.
             Use the form below or send us an email at{" "}

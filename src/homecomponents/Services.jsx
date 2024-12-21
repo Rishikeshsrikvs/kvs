@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Helmet } from "react-helmet";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "./Services.css";
@@ -21,6 +22,16 @@ const Services = () => {
 
   return (
     <div className="Servicesparent">
+      <Helmet>
+        <title>
+          Services by Sri KVS Tech - Digital Marketing & IT Solutions
+        </title>
+        <meta
+          name="description"
+          content="Discover Sri KVS Tech's wide range of services, including digital marketing, social media marketing, web development, graphic design, and business growth strategies."
+        />
+        <link rel="canonical" href="https://srikvstech.com/services" />
+      </Helmet>
       <div
         className="services1main"
         data-aos="zoom-out"

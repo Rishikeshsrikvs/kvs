@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { useEffect } from "react";
 import ScrollReveal from "./ScrollReveal";
 import AOS from "aos";
@@ -33,31 +34,58 @@ export const Land = () => {
     });
     AOS.init({
       duration: 2000, // Animation duration in ms
-      once: false,     // Whether animation should happen only once
+      once: false, // Whether animation should happen only once
     });
-    
   }, []);
   return (
     <div className="landmaincontainer">
+      <Helmet>
+        <meta
+          name="description"
+          content="SRI KVS TECH - Your trusted partner for technology solutions. Offering web development, digital marketing, and more with a focus on innovation and quality."
+        />
+        <meta
+          name="keywords"
+          content="SRI KVS TECH, technology solutions, web development, digital marketing, IT services, tech company, innovative solutions,Sri kvs tech chennai , sri kvs tech avadi , digital marketing , web designing , app development , web development , website design , digital marketing agency , mobile app development , Sri kvs tech , digital marketing company , ui ux design , web designers near me , web page design , online advertising , android app development , marketing strategy , website  developers near me , google digital marketing , digital marketing services , website developers , website designers near me , website creators , digital advertising , marketing agency near me , graphic design website
+       app builders , website builders near me , digital marketing near me , digital marketing strategy , digital marketing agency near me , digital marketing specialist , digital marketing companies near me , social media marketing agency near me , digital marketing ads , digital marketing content ,lead generations , sem digital marketing , social digital marketing , social , marketing agencies , digital marketing and advertising , digital marketing social media marketing , social media marketing digital
+       "
+        />
+        <meta name="author" content="SRI KVS TECH" />
+
+        <meta
+          property="og:title"
+          content="Sri KVSTECH - Innovative IT Solutions "
+        />
+
+        <meta name="twitter:image" content="/kvsfevicon.png" />
+
+        <title>SRI KVS TECH - Innovative Technology Solutions</title>
+
+        <meta
+          property="og:description"
+          content="Explore cutting-edge technology solutions from SRI KVS TECH. Delivering excellence in web development, digital marketing, and more."
+        />
+        <meta property="og:image" content="/kvsfevicon.png" />
+        <meta property="og:url" content="https://srikvstech.com/" />
+        <meta property="og:type" content="website" />
+      </Helmet>
       <div className="land1">
         <div className="land1spilt">
           <div className="land1left">
-            
             <h1 data-aos="fade-right">UNLEASH YOUR DIGITAL</h1>
-            <h1 className="color" data-aos="fade-right">POTENTIAL</h1>
-            
-           
+            <h1 className="color" data-aos="fade-right">
+              POTENTIAL
+            </h1>
+
             <p data-aos="fade-right">
               It's Time To Transform Your Online Presence And Accelerate <br />
               Your Business Growth With Sri KVS Tech.
               <br />
               Let's Start The Journey Together And Witness The Transformation
             </p>
-          
           </div>
           <div className="land1right">
-            
-            <img src={cube} className="imagelandright" alt="Cube"/>
+            <img src={cube} className="imagelandright" alt="Cube" />
             <Link to="/contactus">
               <span className="Enquirespan" data-aos="fade-up">
                 <CircularText />
@@ -65,7 +93,7 @@ export const Land = () => {
             </Link>
           </div>
         </div>
-        
+
         <div className="land1yearcontainer" data-aos="fade-up">
           <div className="yearssplit">
             <h1>
@@ -86,33 +114,31 @@ export const Land = () => {
             <h4>YEARS IN INDUSTRY</h4>
           </div>
         </div>
-      
+
         <Logoslider />
       </div>
       <div className="landaboutcontainer">
         <div className="landaboutleft">
-          
-            <h1 className="landabouth1" data-aos="fade-right">About Us</h1>
-            <h1 className="landabouttext" data-aos="fade-right">PROVIDING THE BEST FOR THE BEST</h1>
-          
-          
-            <h6 className="landabouth6" data-aos="fade-right">
-              It's time to transform your online presence and accelerate your
-              business growth with Sri KVS Tech. Let's start the journey together
-              and witness the transformation.
-            </h6>
-            <Link to="/about" className="landaboutbtn" data-aos="fade-right">
-              Know More
-            </Link>
-          
+          <h1 className="landabouth1" data-aos="fade-right">
+            About Us
+          </h1>
+          <h1 className="landabouttext" data-aos="fade-right">
+            PROVIDING THE BEST FOR THE BEST
+          </h1>
+
+          <h6 className="landabouth6" data-aos="fade-right">
+            It's time to transform your online presence and accelerate your
+            business growth with Sri KVS Tech. Let's start the journey together
+            and witness the transformation.
+          </h6>
+          <Link to="/about" className="landaboutbtn" data-aos="fade-right">
+            Know More
+          </Link>
         </div>
-        
+
         <div className="landaboutright" data-aos="fade-up">
-        
           <Iconcontainer />
-         
         </div>
-        
       </div>
       <div className="landservicescontainer">
         <div className="landservicetitlecon" data-aos="zoom-in">
@@ -124,12 +150,16 @@ export const Land = () => {
       <Landproject />
       <div className="landwhyuscontainer">
         <div className="wytextcontainer" data-aos="fade-bottom">
-          <span >Why us</span>
+          <span>Why us</span>
         </div>
         <div className="wymaincon">
           <div className="wytitle">
-            <h1 className="wytitle1" data-aos="zoom-in">Bringing Your Ideas In </h1>
-            <h1 className="wytitle2" data-aos="zoom-in">Exceptional Ways</h1>
+            <h1 className="wytitle1" data-aos="zoom-in">
+              Bringing Your Ideas In{" "}
+            </h1>
+            <h1 className="wytitle2" data-aos="zoom-in">
+              Exceptional Ways
+            </h1>
           </div>
           <div className="wygrid">
             <div className="wyleft" data-aos="zoom-in">
@@ -165,7 +195,7 @@ export const Land = () => {
         </div>
       </div>
       <Feedbacklandslider />
-      <div className="landblogmain" >
+      <div className="landblogmain">
         <div className="landblogtitle" data-aos="fade-up">
           <span></span>
           <h1>OUR BLOGS</h1>
@@ -184,7 +214,7 @@ export const Land = () => {
           <div className="rcb3"></div>
         </div>
         <div className="contactback">
-          <img src={contactus} alt="" data-aos="fade-left"/>
+          <img src={contactus} alt="" data-aos="fade-left" />
         </div>
         <div className="landcontactussub">
           <div className="landcutitle">
@@ -195,10 +225,12 @@ export const Land = () => {
           </div>
 
           <div className="landcusubtitle">
-            <p  data-aos="fade-up">with a lot of creativity, we can make your dream come true</p>
+            <p data-aos="fade-up">
+              with a lot of creativity, we can make your dream come true
+            </p>
           </div>
           <div className="landcubtn">
-            <Link to="/contactus" className="landcubtnsub"  data-aos="fade-up">
+            <Link to="/contactus" className="landcubtnsub" data-aos="fade-up">
               CONTACT US
             </Link>
           </div>

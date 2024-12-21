@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Helmet } from "react-helmet";
 import "./About.css";
 import { Link } from "react-router-dom";
 import AOS from "aos";
@@ -18,26 +19,43 @@ import Aboutteam from "./landcomponents/Aboutteam";
 export const About = () => {
   // Scroll to the top of the page when the component is mounted
   useEffect(() => {
-    
     window.scrollTo(0, 0);
     AOS.init({
       duration: 2000, // Animation duration in ms
-      once: false,     // Whether animation should happen only once
+      once: false, // Whether animation should happen only once
     });
   }, []);
 
   return (
     <div className="aboutparentcontainer">
+      <Helmet>
+        <title>
+          About Sri KVS Tech - Your Partner in Digital Marketing, Webdevelopment
+          & IT Solutions
+        </title>
+        <meta
+          name="description"
+          content="Learn about Sri KVS Tech, a leading provider of IT solutions , digital marketing services  and Web development, committed to driving business success and innovation."
+        />
+        <link rel="canonical" href="https://srikvstech.com/about" />
+      </Helmet>
       <div className="aboutland">
-        <h1  data-aos="zoom-in">Built for modern brands who want to make waves</h1>
+        <h1 data-aos="zoom-in">
+          Built for modern brands who want to make waves
+        </h1>
       </div>
       <div className="about2main">
         <div className="about2left">
-          <img className="abt22" src={about21} alt=""  data-aos="fade-up-right"/>
-          <img className="abt21" src={about22} alt="" data-aos="fade-up"/>
+          <img
+            className="abt22"
+            src={about21}
+            alt=""
+            data-aos="fade-up-right"
+          />
+          <img className="abt21" src={about22} alt="" data-aos="fade-up" />
         </div>
-        <div className="about2right" >
-          <h1 className="a2color" >
+        <div className="about2right">
+          <h1 className="a2color">
             <span className="a2colorline"></span>
             <span>WHO WE ARE</span>
           </h1>
@@ -69,7 +87,7 @@ export const About = () => {
       <div className="about25main">
         <h1 data-aos="zoom-in">Why Choose Us?</h1>
         <div className="a25cardcon">
-          <div className="a25card1" data-aos="fade-up" >
+          <div className="a25card1" data-aos="fade-up">
             <div className="a25img">
               <img src={a25i1} alt="" />
             </div>
@@ -143,13 +161,13 @@ export const About = () => {
             </div>
           </div>
           <div className="about3right">
-            <img src={about3} alt=""  data-aos="fade-left"/>
+            <img src={about3} alt="" data-aos="fade-left" />
           </div>
         </div>
       </div>
       <Aboutteam />
-      <div className="aboutyearcontainer" data-aos="zoom-in" >
-        <div className="abyearssplit"  >
+      <div className="aboutyearcontainer" data-aos="zoom-in">
+        <div className="abyearssplit">
           <h1>
             <AnimatedNumber value={75} duration="2000" />+
           </h1>
@@ -161,7 +179,7 @@ export const About = () => {
           </h1>
           <h4>HAPPY CLIENTS</h4>
         </div>
-        <div className="abyearssplit" >
+        <div className="abyearssplit">
           <h1>
             <AnimatedNumber value={4} duration="2000" />+
           </h1>
